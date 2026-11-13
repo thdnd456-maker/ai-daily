@@ -11,3 +11,7 @@
 2026-11-13 23:03 model=claude-haiku-5-5 items=8 in=4466 out=5337 ≈$0.0031
 2026-11-13 23:03 model=claude-haiku-5-5 items=8 in=4456 out=5472 ≈$0.0032
 2026-11-13 23:03 model=claude-haiku-5-5 items=2 in=2807 out=3093 ≈$0.0018
+2026-11-13 23:59 model=claude-haiku-5-5 items=8 in=3922 out=6544 ≈$0.0037
+2026-11-14 00:00 model=claude-haiku-5-5 items=8 in=4367 out=6663 ≈$0.0038
+2026-11-14 00:00 model=claude-haiku-5-5 items=8 in=4223 out=12728 ≈$0.0068
+2026-11-14 00:01 model=claude-haiku-5-5 items=2 in=2785 out=1593 ≈$0.0011
