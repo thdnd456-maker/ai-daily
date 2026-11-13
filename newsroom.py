@@ -63,11 +63,12 @@ def fetch_feed(feed):
     for it in root.iter("item"):
         title, source = split_source(it.findtext("title", ""))
         desc = it.findtext("description", "")
-        related = []
-        for a, f in re.findall(r"<a [^>]*>(.*?)</a>.*?<font[^>]*>(.*?)</font>", desc, re.S):
-            t = strip_tags(a)
+        related, coverage = [], []
+        for href, a, f in re.findall(r'<a [^>]*?href="([^"]+)"[^>]*>(.*?)</a>.*?<font[^>]*>(.*?)</font>', desc, re.S):
+            t, src = strip_tags(a), strip_tags(f)
+            coverage.append({"title": t, "source": src, "url": html.unescape(href)})
             if t and t != title:
-                related.append(f"{t} ({strip_tags(f)})")
+                related.append(f"{t} ({src})")
         if not related and desc and "<a " not in desc:
             related.append(strip_tags(desc)[:500])
         try:
@@ -78,7 +79,7 @@ def fetch_feed(feed):
         items.append({
             "id": hashlib.sha1(guid.encode()).hexdigest()[:12],
             "orig_title": title, "source": source, "source_url": it.findtext("link", ""),
-            "related": related[:5], "published": pub, "section_hint": feed["section"],
+            "related": related[:5], "coverage": coverage[:6], "published": pub, "section_hint": feed["section"],
         })
     return items
 
@@ -123,14 +124,22 @@ def write_free(items):
     return out
 
 
-def write_ai(items):
+def write_ai(items, chunk=8):
+    """한 번에 너무 많이 쓰면 출력이 잘리므로 8건씩 나눠 호출한다."""
+    out = []
+    for i in range(0, len(items), chunk):
+        out += write_ai_batch(items[i:i + chunk])
+    return out
+
+
+def write_ai_batch(items):
     import anthropic
 
     model = CFG["model"]
     system = (ROOT / "prompts" / "editor.md").read_text(encoding="utf-8")
     payload = [{"id": it["id"], "title": it["orig_title"], "source": it["source"],
                 "related": it["related"], "section_hint": it["section_hint"]} for it in items]
-    fields = ["id", "headline", "summary", "body", "section", "tags", "image_keyword", "image_prompt"]
+    fields = ["id", "headline", "summary", "key_points", "body", "section", "tags", "image_keyword", "image_prompt"]
     schema = {
         "type": "object", "additionalProperties": False, "required": ["articles"],
         "properties": {"articles": {"type": "array", "items": {
@@ -138,6 +147,7 @@ def write_ai(items):
             "properties": {
                 "id": {"type": "string"}, "headline": {"type": "string"},
                 "summary": {"type": "string"}, "body": {"type": "string"},
+                "key_points": {"type": "array", "items": {"type": "string"}},
                 "section": {"type": "string", "enum": CFG["sections"]},
                 "tags": {"type": "array", "items": {"type": "string"}},
                 "image_keyword": {"type": "string"}, "image_prompt": {"type": "string"},
@@ -247,6 +257,29 @@ def add_images(archive, limit=40):
                 a["image"] = img; break
     if n:
         print(f"[사진] {n}건 검색, {sum(1 for a in archive if a.get('image'))}건 보유")
+
+
+def add_about(archive, limit=30):
+    """기사 핵심 대상의 위키백과 첫 문단을 '알아보기' 배경 정보로 붙인다 (무료, CC BY-SA)."""
+    n = 0
+    for a in archive:
+        kw = a.get("image_keyword")
+        if not a.get("ai") or not kw or "about" in a or n >= limit:
+            continue
+        n += 1
+        try:
+            pages = wiki_get("https://ko.wikipedia.org/w/api.php?" + urllib.parse.urlencode({
+                "action": "query", "format": "json", "prop": "extracts|info", "exintro": 1,
+                "explaintext": 1, "exsentences": 3, "inprop": "url", "titles": kw, "redirects": 1,
+            })).get("query", {}).get("pages", {})
+        except Exception as e:
+            print(f"[경고] 배경 정보 실패 {kw}: {e}"); continue
+        p = next(iter(pages.values()), {})
+        text = re.sub(r"\s+", " ", p.get("extract", "")).strip()
+        a["about"] = ({"title": p["title"], "text": text[:420], "url": p.get("fullurl", "")}
+                      if "missing" not in p and len(text) > 40 and "동음이의" not in text else None)
+    if n:
+        print(f"[배경] {n}건 조회")
 
 
 # ───────────────────────── AI 생성 이미지 (Cloudflare Workers AI, FLUX) ─────────────────────────
@@ -386,7 +419,8 @@ def render(archive):
     # 1면 톱은 사진 있는 AI 기사 우선
     pics = [a for a in arts if a.get("image")]
     # 국기·로고(SVG) 같은 그래픽보다 실제 사진을 톱에
-    pics.sort(key=lambda a: (".svg" in a["image"]["url"]) * 2 + bool(a["image"].get("generated")))
+    pics.sort(key=lambda a: (".svg" in a["image"]["url"]) * 4 + (a["image"]["h"] > a["image"]["w"]) * 2
+              + bool(a["image"].get("generated")))  # 가로 사진 우선, 세로 인물 사진은 뒤로
 
     # ── 1면
     if arts:
@@ -446,20 +480,28 @@ def render(archive):
             fig = (f'<figure class="fig"><img src="{esc(src(im, "../"))}" alt="기사 내용을 표현한 AI 생성 일러스트">'
                    f'<figcaption>AI 생성 일러스트 · 실제 현장 사진이 아닙니다 (Cloudflare Workers AI · FLUX)</figcaption></figure>')
         elif im:
-            fig = (f'<figure class="fig"><img src="{esc(im["url"])}" alt="{esc(im["subject"])}">'
+            fig = (f'<figure class="fig{" logo" if ".svg" in im["url"] else ""}"><img src="{esc(im["url"])}" alt="{esc(im["subject"])}">'
                    f'<figcaption>{esc(im["subject"])} (참고 이미지) · 사진: {esc(im["artist"])} / '
                    f'<a href="{esc(im["page"])}" target="_blank" rel="noopener">{esc(im["license"]) or "위키미디어 공용"}</a>'
                    f'</figcaption></figure>')
         else:
             fig = ""
+        kp = "".join(f"<li>{esc(k)}</li>" for k in a.get("key_points", []))
+        kp = f'<div class="kp"><b>핵심 정리</b><ul>{kp}</ul></div>' if kp else ""
+        ab = a.get("about")
+        ab = (f'<aside class="about"><b>알아보기 · {esc(ab["title"])}</b><p>{esc(ab["text"])}</p>'
+              f'<a href="{esc(ab["url"])}" target="_blank" rel="noopener">출처: 위키백과 (CC BY-SA 4.0) ↗</a></aside>') if ab else ""
+        cov = a.get("coverage") or [{"title": a["orig_title"], "source": a["source"], "url": a["source_url"]}]
+        cov = "".join(
+            f'<li><a href="{esc(c["url"])}" rel="noopener nofollow" target="_blank">{esc(c["title"])}</a>'
+            f'<span>{esc(c["source"])}</span></li>' for c in cov)
         b = (f'<main class="wrap"><div class="cols"><article class="story">'
              f'<a class="kicker" href="../section/{SLUGS[a["section"]]}.html">{esc(a["section"])}</a>'
              f'<h1>{esc(a["headline"])}</h1>'
              + (f'<p class="dek">{esc(a["summary"])}</p>' if a.get("summary") else "") +
              f'<div class="byline"><span class="badge">{badge}</span>입력 {kst(a["published"]):%Y.%m.%d %H:%M}</div>'
-             f'{fig}<div class="text">{paras}</div><div class="tags">{tags}</div>'
-             f'<div class="src"><b>원문 보도</b><a href="{esc(a["source_url"])}" rel="noopener nofollow" target="_blank">'
-             f'{esc(a["orig_title"])}{" — " + esc(a["source"]) if a["source"] else ""} ↗</a></div>'
+             f'{fig}{kp}<div class="text">{paras}</div>{ab}<div class="tags">{tags}</div>'
+             f'<div class="src"><b>이 소식을 다룬 보도</b><ul>{cov}</ul></div>'
              + (f'<section class="more"><h2 class="rh">{esc(a["section"])} 다른 기사</h2><div class="mgrid">' + "".join(
                  f'<a class="sub" href="{x["id"]}.html">{img_tag(x, "../")}<h3>{esc(x["headline"])}</h3></a>'
                  for x in more) + '</div></section>' if more else "")
@@ -498,8 +540,8 @@ def main():
         new = collect(archive)
         print(f"[수집] 새 기사 {len(new)}건")
         use_ai = "--free" not in sys.argv and os.environ.get("ANTHROPIC_API_KEY")
-        # 남는 자리만큼 예전 무료 모드 기사를 AI로 다시 쓴다 (같은 1회 호출 안에서)
-        backlog = [a for a in archive if not a.get("ai")][:max(0, CFG["max_new_per_run"] - len(new))] if use_ai else []
+        # 예전에 짧게 쓰였거나 무료 모드로 올라간 기사를 실행마다 조금씩 새 형식으로 다시 쓴다
+        backlog = [a for a in archive if not (a.get("ai") and a.get("key_points"))][:CFG.get("max_backlog_per_run", 16)] if use_ai else []
         todo = new + backlog
         if todo:
             if use_ai:
@@ -515,6 +557,7 @@ def main():
             archive = [by_id.pop(a["id"], a) for a in archive] + list(by_id.values())
             archive = sorted(archive, key=lambda a: a["published"], reverse=True)[:CFG["max_archive"]]
     add_images(archive)
+    add_about(archive)
     if "--render" not in sys.argv:
         gen_images(archive)
     DATA.write_text(json.dumps(archive, ensure_ascii=False, indent=1), encoding="utf-8")
