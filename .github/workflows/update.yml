@@ -1,0 +1,34 @@
+name: 신문 발행
+
+on:
+  schedule:
+    - cron: "17 */2 * * *"   # 2시간마다 (UTC). 비용을 줄이려면 간격을 늘리세요.
+  workflow_dispatch:          # Actions 탭에서 수동 실행 가능
+
+permissions:
+  contents: write
+
+concurrency:
+  group: newsroom
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install anthropic
+      - name: 기사 수집·작성·렌더링
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python newsroom.py
+      - name: 커밋
+        run: |
+          git config user.name "ai-newsroom-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs data
+          git diff --cached --quiet || git commit -m "발행: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
+          git push
