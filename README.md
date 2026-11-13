@@ -1,4 +1,4 @@
-# AI 데일리 — 자동 발행 AI 신문사
+# 綜合日報 종합일보 — 자동 발행 AI 신문사
 
 RSS 헤드라인 수집 → Claude가 브리핑 기사로 재작성 → 정적 사이트(`docs/`) → GitHub Pages 자동 발행.
 설계 의도와 프롬프트는 [PROMPT.md](PROMPT.md), 기자 문체는 [prompts/editor.md](prompts/editor.md)에 있습니다.

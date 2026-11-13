@@ -15,9 +15,9 @@ h1,h2,h3{font-family:"Noto Serif KR",serif;margin:0;line-height:1.35}
 .util{border-bottom:1px solid var(--rule);font-size:12px;color:var(--muted)}
 .util .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:7px;padding-bottom:7px}
 .mast{text-align:center;padding:22px 0 14px}
-.logo{display:inline-block;font:900 clamp(44px,8vw,80px)/1 "Noto Serif KR",serif;letter-spacing:-.03em}
-.logo small{display:block;font:700 11px/1 "Noto Sans KR",sans-serif;letter-spacing:.5em;color:var(--muted);margin-bottom:10px}
-.tag{margin:10px 0 0;font-size:13px;color:var(--muted)}
+.logo{display:inline-block;font:400 clamp(54px,9vw,100px)/1.05 "Yuji Syuku","Noto Serif KR",serif;letter-spacing:.12em;margin-right:-.12em}
+.tag{margin:12px 0 0;font-size:13px;color:var(--muted);letter-spacing:.04em}
+.tag b{color:var(--ink);font-weight:700;letter-spacing:.3em}
 .gnb{position:sticky;top:0;z-index:10;background:var(--bg);border-top:3px double var(--ink);border-bottom:1px solid var(--ink)}
 .gnb .wrap{display:flex;justify-content:center;gap:4px;overflow-x:auto;scrollbar-width:none}
 .gnb a{flex:none;padding:11px 14px;font-weight:700;font-size:15px}
@@ -107,7 +107,7 @@ a:hover .ph img,a:hover .hero-img img{transform:scale(1.03)}
 
 /* 푸터 */
 .foot{background:#111;color:#aaa;padding:36px 0 44px;font-size:13px}
-.flogo{font:900 28px/1 "Noto Serif KR",serif;color:#fff}
+.flogo{font:400 34px/1 "Yuji Syuku","Noto Serif KR",serif;color:#fff;letter-spacing:.1em}
 .foot nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin:18px 0;padding:14px 0;border-top:1px solid #333;border-bottom:1px solid #333}
 .foot nav a{color:#ddd}
 .foot p{max-width:80ch;line-height:1.7}

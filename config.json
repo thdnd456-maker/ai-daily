@@ -1,5 +1,5 @@
 {
-  "site_name": "AI 데일리",
+  "site_name": "종합일보",
   "tagline": "AI 편집국이 24시간 쓰는 신문",
   "base_url": "https://thdnd456-maker.github.io/ai-daily",
   "model": "claude-haiku-5-5",
@@ -46,5 +46,6 @@
     "스포츠"
   ],
   "image_model": "@cf/black-forest-labs/flux-1-schnell",
-  "max_images_per_run": 10
+  "max_images_per_run": 10,
+  "site_hanja": "綜合日報"
 }

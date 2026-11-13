@@ -339,16 +339,17 @@ def page(title, body, depth=0, desc="", active=""):
 <title>{esc(title)}</title><meta name="description" content="{esc(desc or CFG['tagline'])}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap&text={urllib.parse.quote(CFG.get('site_hanja', ''))}" rel="stylesheet">
 <link rel="stylesheet" href="{up}style.css"><link rel="alternate" type="application/rss+xml" href="{up}feed.xml">
 </head><body>
 <div class="util"><div class="wrap"><span>{now:%Y년 %m월 %d일} {wd}요일</span><span class="hide-m">제{no}호 · 매일 24시간 자동 발행</span><a href="{up}feed.xml">RSS</a></div></div>
 <header class="mast"><div class="wrap">
-<a class="logo" href="{up}index.html"><small>THE AI DAILY</small>{esc(CFG['site_name'])}</a>
-<p class="tag">{esc(CFG['tagline'])}</p></div></header>
+<a class="logo" href="{up}index.html" aria-label="{esc(CFG['site_name'])}">{esc(CFG.get('site_hanja') or CFG['site_name'])}</a>
+<p class="tag"><b>{esc(CFG['site_name'])}</b> · {esc(CFG['tagline'])}</p></div></header>
 <nav class="gnb"><div class="wrap">{nav}</div></nav>
 {body}
 <footer class="foot"><div class="wrap">
-<div class="flogo">{esc(CFG['site_name'])}</div>
+<div class="flogo">{esc(CFG.get('site_hanja') or CFG['site_name'])}</div>
 <nav>{"".join(f'<a href="{up}section/{SLUGS[s]}.html">{esc(s)}</a>' for s in CFG["sections"])}</nav>
 <p>「{esc(CFG['site_name'])}」의 기사는 공개 보도의 헤드라인을 AI가 종합·재작성한 자동 브리핑입니다. 사실관계는 각 기사의 원문 링크에서 확인하세요.
 AI가 작성한 기사에는 오류가 있을 수 있습니다. 사진은 위키미디어 공용의 자유 라이선스 참고 이미지이거나, "AI 이미지"로 표시된 AI 생성 일러스트이며 기사 현장 사진이 아닙니다.</p>
