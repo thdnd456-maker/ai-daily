@@ -58,6 +58,42 @@
   "ai": false
  },
  {
+  "id": "d54757126ed5",
+  "orig_title": "[단독] \"배현진 1년\"·\"제명\"‥장동혁 측 외부 인사가 징계 수위 전달",
+  "source": "MBC 뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5peWZsbVNYc3J0MHNnR2dlZ295dXhweVMyeDBMYmYyR2lISFFObDZOWXpWcjRmWHA4YTZaa3BtMmZyeTVqWFU4aVh3d1F5cVZyN1ZmMXhQVEZXcjJ4bWt2QjlfMXdvZXZaNTZvOHliX0FtdnVVOGhaStIBeEFVX3lxTFBDTldEbWNrd19icm85Zkg2c0RJc1JhcXBHRGktbGJFeGhvdTNEaDVOTDZvdy1xWFBfa3JuMmszam1wMlhsY0M5SlFKRzd2MHBMRUR4US05Y1A1M1FyUGxaLTF1Um5vSzNxdUtLZjZfZWV3YUx2dUFJNw?oc=5",
+  "related": [
+   "국힘 조경태, '당원권 정지' 징계 불복…가처분·무효소송 제기 (연합뉴스)",
+   "오세훈 “당 소속으로 당내 문제 관심 가지는게 당연”…장동혁 ‘자리 바꾸자’ 우회 비판 (경향신문)",
+   "윤리위원 측 \"韓 징계에 외부인사 관여… 張 통화 녹음·메신저 대화 갖고 있다\" (조선일보)",
+   "이준석 \"한동훈은 욕쟁이 할머니인데 맛도 없다…통합 강요는 폭력\" (경기일보)"
+  ],
+  "published": "2026-11-13T20:21:00+09:00",
+  "section_hint": "사회",
+  "headline": "배현진 징계 두고 장동혁 측 외부 인사 관여 논란",
+  "summary": "국민의힘 윤리위 징계 수위를 장동혁 측 외부 인사가 전달했다는 단독 보도가 나왔다.",
+  "body": "국민의힘 윤리위원회의 징계 수위를 장동혁 측 외부 인사가 전달했다는 단독 보도가 나왔다. 징계 대상으로 거론된 인물은 배현진과 한동훈 등으로 전해졌다.\n\n윤리위원 측은 한동훈 징계 과정에 외부 인사가 관여했다고 주장하며, 관련 통화 녹음과 메신저 대화를 보유하고 있다고 밝힌 것으로 알려졌다.\n\n당내에서는 징계 불복과 가처분 신청 등 후속 대응이 이어지고 있다.",
+  "section": "정치",
+  "tags": [
+   "국민의힘",
+   "윤리위",
+   "징계",
+   "장동혁"
+  ],
+  "image_keyword": "국민의힘",
+  "image_prompt": "a formal conference room with an empty table and papers under warm lamp light",
+  "ai": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Flag_of_People_Power_Party_of_Korea.svg/1280px-Flag_of_People_Power_Party_of_Korea.svg.png",
+   "w": 1000,
+   "h": 667,
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_People_Power_Party_of_Korea.svg",
+   "subject": "국민의힘",
+   "artist": "People Power Party",
+   "license": "Public domain"
+  }
+ },
+ {
   "id": "fdaf8e3cff87",
   "orig_title": "정찬성 만난 이세돌, 43년 인생 첫 본격 운동 도전 결과는?",
   "source": "국제뉴스",
@@ -103,7 +139,16 @@
   ],
   "image_keyword": "조현 (외교관)",
   "ai": true,
-  "image": null
+  "image": {
+   "url": "media/089323a25f07.webp",
+   "w": 960,
+   "h": 960,
+   "generated": true,
+   "subject": "조현 장관 한반도 평화는 한중 공동 이익",
+   "artist": "AI 생성",
+   "license": "",
+   "page": ""
+  }
  },
  {
   "id": "b0da0bfef9cb",
@@ -234,7 +279,90 @@
   ],
   "image_keyword": "",
   "ai": true,
-  "image": null
+  "image": {
+   "url": "media/294bfe539064.webp",
+   "w": 960,
+   "h": 960,
+   "generated": true,
+   "subject": "중기부 모두의 창업 또 해킹 피해",
+   "artist": "AI 생성",
+   "license": "",
+   "page": ""
+  }
+ },
+ {
+  "id": "148bf7ea30e2",
+  "orig_title": "[APBC] 운명의 한일전 선발 명단 공개…김지찬·문정빈·허인서 투입",
+  "source": "뉴스핌",
+  "source_url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBfX1hhc3h3NXE2eUlpb2EtM0RtcDFxSXJXekI3ZV9pRTNvUmtTcFZWWXBQZWJHeUpjN204YkYxbEpvbXhPWnlRZ0tKdUl5Q0lLYXo3UWduaDU5b0Fj?oc=5",
+  "related": [
+   "한일전 12연속 무승, 삼성 김지찬 우승 기운 전파하겠다! (KBS 뉴스)",
+   "[사진]투구하는 전준표 (Chosunbiz)",
+   "중전 안타로 진루하는 김민석 (뉴시스)",
+   "'2연승 절실' 한국, 허인서 선발 포수 마스크 쓴다…김지찬도 스타팅, 문정빈은 국가대표 데뷔전 [오!쎈 도쿄] (조선일보)"
+  ],
+  "published": "2026-11-13T18:31:00+09:00",
+  "section_hint": "스포츠",
+  "headline": "한일전 선발 명단 공개…김지찬·문정빈·허인서 선발",
+  "summary": "APBC 한일전에 나설 한국 대표팀 선발 명단이 발표됐다.",
+  "body": "APBC 한일전을 앞두고 한국 대표팀의 선발 명단이 공개됐다. 허인서가 선발 포수로 출전하고, 김지찬이 선발로 나선다.\n\n문정빈은 국가대표 데뷔전을 치르게 됐다. 한국은 이번 경기에서 2연승을 노린다.\n\n한일전은 한국이 최근 12연속 무승을 기록 중인 가운데 열리는 경기다.",
+  "section": "스포츠",
+  "tags": [
+   "APBC",
+   "한일전",
+   "야구 국가대표",
+   "허인서"
+  ],
+  "image_keyword": "APBC",
+  "image_prompt": "a baseball stadium at night with floodlights over an empty green field",
+  "ai": true,
+  "image": {
+   "url": "media/148bf7ea30e2.webp",
+   "w": 960,
+   "h": 960,
+   "generated": true,
+   "subject": "한일전 선발 명단 공개…김지찬·문정빈·허인서 선발",
+   "artist": "AI 생성",
+   "license": "",
+   "page": ""
+  }
+ },
+ {
+  "id": "85a3612c99bf",
+  "orig_title": "정부 \"정유사 손실, 국제가격대로 보전 못 해‥취지 안 맞아\"",
+  "source": "MBC 뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFB4UVYxM1RUTE1KMjItOWxsc2V5X1F2eENodVcycTk2QmdBOFZYbkhBeEtZSXZPaWtCT0w2YjRTSUxLYk9EQnVsLU9meTZ6WklZSlQ1dkVVVm1KS1UxVmxuZ1BvSGV3THZ6SmR2MnAzQ3hpZG040gF0QVVfeXFMUGFONDhTVEFJckpleFp1OUlUbEIyQjFwWGVvd3NVeGlLaHgwNTVDREktMnBTM2o4V3g5NTAzTWRTRDlFdFdpdUFjTzZucFNZaEFIUkpmcG5lRnJRNHBmVDR1dTk1aXlOSTdQd0F0aEFEYVJ3MF8?oc=5",
+  "related": [
+   "석유 최고가격 또 동결…휘발유 1,784원 경유 1,773원 (KBS 뉴스)",
+   "산업부 \"최고가격제, 민생의 방파제…내년 유지는 미정\"(종합) (연합인포맥스)",
+   "(참고자료)12차 최고가격, 11차 수준으로 동결 (서울Pn)",
+   "석유 최고가격 5회째 동결…정유사 손실 보전액 이르면 이달 말 공개 (마켓인)"
+  ],
+  "published": "2026-11-13T18:28:58+09:00",
+  "section_hint": "경제",
+  "headline": "정부 \"정유사 손실, 국제가격 기준 보전은 어려워\"",
+  "summary": "정부가 정유사 손실을 국제가격대로 보전하기 어렵다는 입장을 밝혔다.",
+  "body": "정부가 정유사의 손실을 국제가격대로 보전하는 것은 어렵다는 입장을 밝혔다. 정부는 이번 조치의 취지와 맞지 않는다고 설명했다.\n\n석유 최고가격은 이번에도 동결됐다. 휘발유는 리터당 1,784원, 경유는 1,773원으로 정해졌다. 최고가격 동결은 다섯 번째 이어진 것으로 알려졌다.\n\n산업통상부는 최고가격제를 민생의 방파제로 설명했으며, 내년 유지 여부는 아직 정해지지 않았다. 정유사 손실 보전액은 이르면 이달 말 공개될 예정이다.",
+  "section": "경제",
+  "tags": [
+   "석유 최고가격",
+   "정유사",
+   "손실 보전",
+   "휘발유"
+  ],
+  "image_keyword": "",
+  "image_prompt": "a gas station at dusk with fuel pumps and a price board in soft focus",
+  "ai": true,
+  "image": {
+   "url": "media/85a3612c99bf.webp",
+   "w": 960,
+   "h": 960,
+   "generated": true,
+   "subject": "정부 \"정유사 손실, 국제가격 기준 보전은 어려워\"",
+   "artist": "AI 생성",
+   "license": "",
+   "page": ""
+  }
  },
  {
   "id": "956364cd2c56",
@@ -280,7 +408,52 @@
   ],
   "image_keyword": "",
   "ai": true,
-  "image": null
+  "image": {
+   "url": "media/30f1a696df38.webp",
+   "w": 960,
+   "h": 960,
+   "generated": true,
+   "subject": "성북 10대 여성 살해 50대 남성 구속",
+   "artist": "AI 생성",
+   "license": "",
+   "page": ""
+  }
+ },
+ {
+  "id": "81cc40334637",
+  "orig_title": "TSMC 직원 개인정보 털렸나…해커 \"4만 6천건 판매\"",
+  "source": "연합뉴스TV",
+  "source_url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE96Vjg1a0t6SUt5WXhlcEZ0Nm9hWVVtTjhxNWZWQlZFM0hXbWFoUFZYMnBhM19DR3ctRmEzaVFmZ1NrcG1OOVczcS1SdnlOem1nX180Z0xQRFhmUG5VUXlDWWxOZ19Tam8?oc=5",
+  "related": [
+   "온라인에 TSMC 직원 개인정보 판매글…해커 “4만6천여 건 보유” (KBS 뉴스)",
+   "TSMC, 전·현직 임직원 개인정보 외부 노출 확인…\"내부 시스템 침해 아냐\" (마켓인)",
+   "TSMC 직원 개인정보 4만6000여건 온라인에 매물로 올라와 (아시아경제)",
+   "다크웹에 올라온 TSMC 전·현직 직원 개인정보… 해커 “4만6000건 비트코인 3개에 판매” (Chosunbiz)"
+  ],
+  "published": "2026-11-13T17:35:00+09:00",
+  "section_hint": "경제",
+  "headline": "TSMC 임직원 개인정보 4만6천여건 유출 주장",
+  "summary": "해커가 TSMC 전·현직 임직원 개인정보 4만6천여 건을 다크웹에 매물로 올렸다고 알려졌다.",
+  "body": "다크웹에 TSMC 전·현직 임직원의 개인정보가 매물로 올라온 것으로 알려졌다. 해커는 4만6천여 건을 보유하고 있다고 주장하며 비트코인 3개에 판매한다고 밝혔다.\n\nTSMC는 임직원 개인정보가 외부에 노출된 사실을 확인했으나, 내부 시스템 침해는 아니라고 설명했다.\n\n회사 측은 사실관계를 추가로 확인하는 것으로 알려졌다.",
+  "section": "경제",
+  "tags": [
+   "TSMC",
+   "개인정보",
+   "해킹",
+   "다크웹"
+  ],
+  "image_keyword": "TSMC",
+  "image_prompt": "a dim data center corridor with rows of server racks and soft blue indicator lights",
+  "ai": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/TSMC_Global_R%EF%BC%86D_Center_at_night.jpg/1280px-TSMC_Global_R%EF%BC%86D_Center_at_night.jpg",
+   "w": 1000,
+   "h": 667,
+   "page": "https://commons.wikimedia.org/wiki/File:TSMC_Global_R%EF%BC%86D_Center_at_night.jpg",
+   "subject": "TSMC",
+   "artist": "曾 成訓",
+   "license": "CC BY 2.0"
+  }
  },
  {
   "id": "006f23052a10",
@@ -323,6 +496,42 @@
   "ai": false
  },
  {
+  "id": "cc3680dc458f",
+  "orig_title": "혁명수비대 \"호르무즈서 가스운반선 기뢰 충돌…대형 폭발\"",
+  "source": "연합뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBDV0ZkM1BqYVFnallCWF9pOXhha1Jnc0dfdmo2X19BRW1NcWxMeEpMWmxyR1hyTUQwUTNuS2l1N2gzYnctamJDdlY5Nmdwck1IR1F3dEdLWFoyZDDSAWBBVV95cUxNeGpFMkJiR2VlVHZBU21BV2V3U2ZLSTZNQkVyZG5abXhQWUoxQTJ0eUZNQjlQSUVMeEdhYkFaUGlTNjhMUWN6LWRCRkFJUzB3ZFNpbkJ1aEtIbkRFUGYyQ1M?oc=5",
+  "related": [
+   "이란 혁명수비대 \"바레인 내 美 조기경보 레이더 타격\" (MBC 뉴스)",
+   "'유조선 무덤' 된 호르무즈…기름 범벅 환경재앙 현실화 (연합뉴스)",
+   "이란 “호르무즈 가스 운반선, 기뢰 충돌로 대형 폭발” (경향신문)",
+   "이란 매체 \"호르무즈 인근 도시에 '적'의 공격\"…WTI 2%대 급등(상보) (연합인포맥스)"
+  ],
+  "published": "2026-11-13T17:24:14+09:00",
+  "section_hint": "국제",
+  "headline": "이란 혁명수비대, 호르무즈 가스운반선 폭발 주장",
+  "summary": "이란 혁명수비대가 호르무즈 해협에서 가스운반선이 기뢰와 충돌해 폭발했다고 주장했다.",
+  "body": "이란 혁명수비대는 호르무즈 해협에서 가스운반선이 기뢰와 충돌해 대형 폭발이 일어났다고 주장했다. 이 주장은 이란 측 발표를 통해 전해졌다.\n\n같은 시기 이란 혁명수비대는 바레인 내 미국의 조기경보 레이더를 타격했다고 밝힌 것으로 알려졌다. 이란 매체는 호르무즈 인근 도시에 적의 공격이 있었다고 보도했다.\n\n이에 따라 국제 원유 가격이 상승세를 보였다. 서부텍사스산원유(WTI)는 2%대 급등했다.",
+  "section": "국제",
+  "tags": [
+   "호르무즈 해협",
+   "이란",
+   "혁명수비대",
+   "기뢰"
+  ],
+  "image_keyword": "호르무즈 해협",
+  "image_prompt": "a calm strait at sunset with distant tanker silhouettes on the horizon",
+  "ai": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/F218_Mecklenburg-Vorpommern_Hormuz.jpg/1280px-F218_Mecklenburg-Vorpommern_Hormuz.jpg",
+   "w": 1000,
+   "h": 714,
+   "page": "https://commons.wikimedia.org/wiki/File:F218_Mecklenburg-Vorpommern_Hormuz.jpg",
+   "subject": "호르무즈 해협",
+   "artist": "Mass Communication Specialist 2nd Class Jason R. Zalasky",
+   "license": "Public domain"
+  }
+ },
+ {
   "id": "a2278076ef4b",
   "orig_title": "'유럽 해킹 배후' 이란...\"악성 코드 하나가 폭발물만큼 파괴적\"",
   "source": "한국일보",
@@ -347,7 +556,52 @@
   ],
   "image_keyword": "",
   "ai": true,
-  "image": null
+  "image": {
+   "url": "media/a2278076ef4b.webp",
+   "w": 960,
+   "h": 960,
+   "generated": true,
+   "subject": "이란 연계 의혹 유럽 냉장설비 해킹",
+   "artist": "AI 생성",
+   "license": "",
+   "page": ""
+  }
+ },
+ {
+  "id": "ecfe4b6a7ab9",
+  "orig_title": "피식 웃은 尹 \"계엄 해제됐는데 내란 존속? 이해 어렵다\"‥종합특검 주장 반박",
+  "source": "MBC 뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5VMWUyYndNZEZLV3dLeGNGS2NyR0U5dXNJeVcwYUJOUzZYRHNCNnJ0bjlKSVk0dE9FQXpTVWFTcGpUbE9ZakFWWWphWldzY3VHWnRYTWtwNm1lR3hmR2NLUVlpbHF2eDZpaTN3LU1QVnFsVDNxZXNJ0gF3QVVfeXFMUGFESTFSb3ZMampvaE16ckJjWjV1NU9KOHpfSGdqa1ZQZVFJVF93bW03TnF3N2Rhc2xHRzBUblQtZ1cwQTVOU1o1R0c3SVV5dEhkYnhfRUZnMk1fSzZxVElIWVluRVBPOXoyOTdtZnVmQkV5ZkthekU?oc=5",
+  "related": [
+   "“군 철수했는데 내란 존속?”…종합특검 주장에 피식한 윤석열 (경향신문)",
+   "‘탄핵소추 때까지 내란’ 2차 특검 주장에 피식 웃은 尹 (조선일보)",
+   "윤석열 \"외교적 위기관리\"·신원식 측 \"계엄 반대했다\"…'계엄 메시지 전파' 첫 공판서 혐의 부인 (뉴스핌)",
+   "피식 웃은 尹 \"군 철수시켰는데 내란 존속?\"…종합특검에 반박 (연합뉴스)"
+  ],
+  "published": "2026-11-13T17:22:25+09:00",
+  "section_hint": "사회",
+  "headline": "윤석열, 종합특검 '내란 존속' 주장에 반박",
+  "summary": "윤석열 전 대통령이 종합특검의 내란 존속 주장에 대해 군 철수와 계엄 해제를 근거로 반박했다.",
+  "body": "윤석열 전 대통령이 종합특검의 '내란 존속' 주장에 웃으며 반박했다고 여러 매체가 전했다. 윤 전 대통령은 계엄이 해제되고 군을 철수시킨 상황에서 내란이 존속한다는 주장을 이해하기 어렵다는 입장을 밝혔다.\n\n특검 측은 탄핵소추 시점까지 내란이 이어졌다는 입장을 제기한 것으로 알려졌다. 양측의 법적 쟁점은 향후 재판 과정에서 다뤄질 전망이다.\n\n한편 계엄 메시지 전파 혐의를 다루는 첫 공판에서 윤 전 대통령은 외교적 위기관리를 이유로 들며 혐의를 부인한 것으로 보도됐다.",
+  "section": "사회",
+  "tags": [
+   "윤석열",
+   "종합특검",
+   "내란",
+   "계엄"
+  ],
+  "image_keyword": "윤석열",
+  "image_prompt": "a quiet courtroom with empty wooden benches and a distant silhouette of a person in soft light",
+  "ai": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/South_Korea_President_Yoon_Suk_Yeol_portrait_%28crop%29.jpg/1280px-South_Korea_President_Yoon_Suk_Yeol_portrait_%28crop%29.jpg",
+   "w": 1000,
+   "h": 1333,
+   "page": "https://commons.wikimedia.org/wiki/File:South_Korea_President_Yoon_Suk_Yeol_portrait_(crop).jpg",
+   "subject": "윤석열",
+   "artist": "대한민국 대통령실",
+   "license": "CC BY 3.0"
+  }
  },
  {
   "id": "276098168687",
@@ -393,7 +647,16 @@
    "구자욱"
   ],
   "ai": true,
-  "image": null
+  "image": {
+   "url": "media/1903669df027.webp",
+   "w": 960,
+   "h": 960,
+   "generated": true,
+   "subject": "KBO FA 시장 개장, 28명 자격 공시",
+   "artist": "AI 생성",
+   "license": "",
+   "page": ""
+  }
  },
  {
   "id": "4c10adbc30d9",
@@ -455,7 +718,16 @@
   ],
   "image_keyword": "KBO 리그",
   "ai": true,
-  "image": null
+  "image": {
+   "url": "media/ada2cd68a7f5.webp",
+   "w": 960,
+   "h": 960,
+   "generated": true,
+   "subject": "프로야구 FA 28명 자격 공시",
+   "artist": "AI 생성",
+   "license": "",
+   "page": ""
+  }
  },
  {
   "id": "41b53ec9406d",
@@ -652,7 +924,16 @@
    "영양결핍"
   ],
   "ai": true,
-  "image": null
+  "image": {
+   "url": "media/020b56b24335.webp",
+   "w": 960,
+   "h": 960,
+   "generated": true,
+   "subject": "생후 19개월 딸 학대 사망 친모, 2심도 징역 12년",
+   "artist": "AI 생성",
+   "license": "",
+   "page": ""
+  }
  },
  {
   "id": "eb78581a1ae3",
@@ -733,7 +1014,16 @@
   ],
   "image_keyword": "우리은행",
   "ai": true,
-  "image": null
+  "image": {
+   "url": "media/126ff74ae3ac.webp",
+   "w": 960,
+   "h": 960,
+   "generated": true,
+   "subject": "정진완 우리은행장 1년 연임 확정",
+   "artist": "AI 생성",
+   "license": "",
+   "page": ""
+  }
  },
  {
   "id": "5f0ec028eb96",
@@ -804,6 +1094,42 @@
   "tags": [],
   "image_keyword": "",
   "ai": false
+ },
+ {
+  "id": "a00ce88d8fc1",
+  "orig_title": "'재혼 황후' 이종석·이세영, 황실 밖 빛나는 비주얼 [화보]",
+  "source": "iMBC 연예",
+  "source_url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9ma19rYWxETFRaenlvQXllcFZ6MnVLcFMyR09YWFRnM3FDX2FPeWY4b3NYQjRkR2V0Mk4tV05kVE5GOG5lU2p4b1dWS2dmM3hRR2czRWdpMVFVdjVza3NjTw?oc=5",
+  "related": [
+   "이종석 “제모도 안 했는데 다리부터 훑어”…촬영 중 당황한 이유 (동아일보)",
+   "'재혼 황후' 구릿빛 주지훈vs우윳빛 이종석 [한수진의 VS] - 머니투데이 (머니투데이)",
+   "‘김우빈♥’ 신민아, 실물 어떻길래?..조정석 “그냥 여신, 장난 아냐” 극찬 (채널 조정석) (조선일보)",
+   "유럽 궁정에 한국 배우들…낯설지만 빠져든다 (매일경제)"
+  ],
+  "published": "2026-11-13T13:54:00+09:00",
+  "section_hint": "문화·연예",
+  "headline": "드라마 '재혼 황후' 이종석·이세영 화보 공개",
+  "summary": "드라마 '재혼 황후'의 주연 배우 이종석과 이세영의 화보가 공개됐다.",
+  "body": "드라마 '재혼 황후'의 주연 배우 이종석과 이세영의 화보가 공개됐다. 화보는 황실이 아닌 공간에서 촬영된 장면들로 구성됐다.\n\n작품에는 한국 배우들이 유럽 궁정을 배경으로 등장하는 것이 특징으로 소개됐다. 관련 매체들은 촬영 비하인드도 함께 전했다.",
+  "section": "문화·연예",
+  "tags": [
+   "재혼 황후",
+   "이종석",
+   "이세영",
+   "화보"
+  ],
+  "image_keyword": "이종석",
+  "image_prompt": "a elegant palace hallway with soft golden light and a figure seen from behind",
+  "ai": true,
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Lee_Jong-suk_March_2018.png",
+   "w": 1029,
+   "h": 1372,
+   "page": "https://commons.wikimedia.org/wiki/File:Lee_Jong-suk_March_2018.png",
+   "subject": "이종석 (배우)",
+   "artist": "Elephant Factory",
+   "license": "CC BY 3.0"
+  }
  },
  {
   "id": "f7a0934f2f7d",
@@ -1133,6 +1459,65 @@
   "ai": false
  },
  {
+  "id": "3f9dcc305c0f",
+  "orig_title": "트럼프 \"이란과 합의 필요 없다\" 급선회…국제유가 급등",
+  "source": "연합뉴스TV",
+  "source_url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9wUDJ1VUhZbktwb2RFci0zQzZ6NmdjZUY5WEFXU2xHbF8zc2d0Wk9oUmduX3VWSUdRMjk5VmRna2JwYzU0S0laeG91QWQ0cUtvTWNuelNCMjh6VU90SlZGY3U1bFFBNE0?oc=5",
+  "related": [
+   "트럼프 급선회 “이란과 협상 필요없어”…후티는 사우디 석유시설 타격 (KBS 뉴스)",
+   "트럼프 \"이란과 합의 필요 없다\"‥밴스 주도 협상론서 급격 선회 (MBC 뉴스)",
+   "\"민주당 부패 조사 집중\" 트럼프, 밴스의 이란협상 제동…유가 급등 - 머니투데이 (머니투데이)",
+   "트럼프, 밴스 이란 임무에서 배제…“이란과 합의 필요 없다” (한겨레)"
+  ],
+  "published": "2026-11-13T06:06:00+09:00",
+  "section_hint": "국제",
+  "headline": "트럼프 '이란과 합의 불필요' 발언에 유가 급등",
+  "summary": "트럼프 대통령이 이란과 합의가 필요 없다고 밝힌 뒤 국제유가가 급등했다.",
+  "body": "트럼프 대통령이 이란과 합의할 필요가 없다고 밝히면서 국제유가가 급등했다. 그동안 밴스 부통령이 주도해 온 협상 기조에서 방향이 급격히 바뀐 것으로 보도됐다.\n\n이 과정에서 밴스 부통령은 이란 관련 임무에서 배제된 것으로 전해졌다. 일부 매체는 민주당 부패 조사에 집중하겠다는 발언과 함께 협상에 제동을 걸었다고 전했다.\n\n후티 반군이 사우디 석유시설을 타격했다는 소식도 함께 전해졌다.",
+  "section": "국제",
+  "tags": [
+   "트럼프",
+   "이란",
+   "국제유가",
+   "밴스"
+  ],
+  "image_keyword": "도널드 트럼프",
+  "image_prompt": "an oil barrel on a dark tanker deck with an oil price chart on a distant screen",
+  "ai": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg/1280px-Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg",
+   "w": 1000,
+   "h": 1250,
+   "page": "https://commons.wikimedia.org/wiki/File:Official_Presidential_Portrait_of_President_Donald_J._Trump_(2025).jpg",
+   "subject": "도널드 트럼프",
+   "artist": "Daniel Torok",
+   "license": "Public domain"
+  }
+ },
+ {
+  "id": "793b585810cc",
+  "orig_title": "메모리 호황에 대만도 EUV 투자 본격화… 삼성전자·SK하이닉스 추격 나선 난야·윈본드",
+  "source": "Chosunbiz",
+  "source_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNRE5WOVV6d0RxaFNmZGdzVDY3TXYxUEdTMnFORjJJT1VCRVpyTFlCLXdSUFFST2NtVGhZemJaWGtGM2ZDUGNLUmpsRU1yM2JjNE9ra19YZ21pTlQ1OWNTQjFGLVRobXhLcDB5TEdzM05TOXRsVW4weHh3eFVkWHFQd1Nn0gGWAUFVX3lxTE53eU93a1RlU0dDckt2THQ3dC1ieElKamZCVGtTWUpEcHpOajdHd2hmT1Jmcm8xT2d5Mzh1RjJIX3Q0TUF1V1h1eTlHV0kxR2N0ejlRQ0VVMmdFQlhBM21MczNLTS1ZczU1Q19hUVg2SkFzRngzX3RXbXhyV2ZkcFpuYmZjTmxYOXdXcUdMbmdCWk1WZHJ1Zw?oc=5",
+  "related": [],
+  "published": "2026-11-13T06:04:11+09:00",
+  "section_hint": "IT·과학",
+  "headline": "대만, 메모리 호황에 EUV 투자 본격화",
+  "summary": "대만 난야와 윈본드가 메모리 호황을 계기로 EUV 장비 투자에 나섰다.",
+  "body": "대만 메모리 업체 난야와 윈본드가 극자외선(EUV) 장비 투자를 본격화하고 있다. 메모리 반도체 호황이 투자 확대의 배경으로 꼽힌다.\n\n두 업체는 삼성전자와 SK하이닉스를 추격하려는 움직임을 보이고 있는 것으로 알려졌다. 구체적인 투자 규모와 일정은 추가로 확인이 필요하다.",
+  "section": "IT·과학",
+  "tags": [
+   "EUV",
+   "메모리 반도체",
+   "난야",
+   "윈본드"
+  ],
+  "image_keyword": "",
+  "image_prompt": "a semiconductor wafer on a clean lab bench under bright white light",
+  "ai": true,
+  "image": null
+ },
+ {
   "id": "1206ff455ee8",
   "orig_title": "마이크로소프트, 대규모 접속 장애…“아웃룩 관련 신고 13만 건”",
   "source": "KBS 뉴스",
@@ -1437,5 +1822,27 @@
   "section": "IT·과학",
   "tags": [],
   "ai": false
+ },
+ {
+  "id": "a04f9e0c337c",
+  "orig_title": "\"양자컴퓨터, 에너지는 덜 쓰고 AI모델을 더 정교하게 학습시킨다\"",
+  "source": "조선일보",
+  "source_url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNZjdibnN5elFPWF9mMm44Q08yRkU5R2NUZXVka2dNRU9zZFRvbTgzdnpYQzJvVGNCY29iSjhnbHVPc01vckFUVEJiM3hTNy14VjFTOGdLS1pIS3M3bHF6ZEpuRks2Znh6Vk95djVjR1F1ME9hUTh2c2xpbGZ0aWZmRWcyYzQxZw?oc=5",
+  "related": [],
+  "published": "2026-11-07T03:00:00+09:00",
+  "section_hint": "IT·과학",
+  "headline": "양자컴퓨터, AI 학습 효율 높인다는 전망",
+  "summary": "양자컴퓨터가 에너지 소비는 줄이고 AI 모델 학습은 정교하게 만들 수 있다는 주장이 나왔다.",
+  "body": "양자컴퓨터가 AI 모델 학습에 활용될 경우 에너지 사용을 줄이면서도 모델을 더 정교하게 학습시킬 수 있다는 주장이 제기됐다.\n\n다만 이번 보도에는 구체적인 연구 결과나 수치가 제시되지 않아 실현 시점과 방식은 확인되지 않았다.",
+  "section": "IT·과학",
+  "tags": [
+   "양자컴퓨터",
+   "AI 학습",
+   "에너지"
+  ],
+  "image_keyword": "",
+  "image_prompt": "an abstract glowing quantum processor with blue light paths inside a dark lab",
+  "ai": true,
+  "image": null
  }
 ]
