@@ -42,7 +42,16 @@
    "푸틴",
    "유럽참여"
   ],
-  "ai": true
+  "ai": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/1280px-Flag_of_Ukraine.svg.png",
+   "w": 1000,
+   "h": 667,
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Ukraine.svg",
+   "subject": "우크라이나",
+   "artist": "Government of Ukraine",
+   "license": "Public domain"
+  }
  },
  {
   "id": "b8c7d0a5e34e",
@@ -68,7 +77,16 @@
    "한반도평화",
    "APEC"
   ],
-  "ai": true
+  "ai": true,
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Cho_Hyun_20260619.jpg",
+   "w": 741,
+   "h": 988,
+   "page": "https://commons.wikimedia.org/wiki/File:Cho_Hyun_20260619.jpg",
+   "subject": "조현 (외교관)",
+   "artist": "대한민국 국회",
+   "license": "KOGL Type 1"
+  }
  },
  {
   "id": "956364cd2c56",
@@ -173,7 +191,8 @@
    "원태인",
    "구자욱"
   ],
-  "ai": true
+  "ai": true,
+  "image": null
  },
  {
   "id": "41b53ec9406d",
@@ -278,7 +297,8 @@
    "항소심",
    "영양결핍"
   ],
-  "ai": true
+  "ai": true,
+  "image": null
  },
  {
   "id": "eb78581a1ae3",
@@ -303,7 +323,16 @@
    "은행장",
    "금융사고"
   ],
-  "ai": true
+  "ai": true,
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Woori_Bank-HQ.jpg",
+   "w": 1152,
+   "h": 2048,
+   "page": "https://commons.wikimedia.org/wiki/File:Woori_Bank-HQ.jpg",
+   "subject": "우리은행",
+   "artist": "User:IRTC1015",
+   "license": "Public domain"
+  }
  },
  {
   "id": "8261b35dde17",
@@ -363,7 +392,16 @@
    "유가",
    "물가"
   ],
-  "ai": true
+  "ai": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Currency_symbols%2C_Euro%2C_Riyal%2C_Dollar%2C_Yuan%2C_Yen%2C_Pound%2C_Ruble%2C_Won.jpg/1280px-Currency_symbols%2C_Euro%2C_Riyal%2C_Dollar%2C_Yuan%2C_Yen%2C_Pound%2C_Ruble%2C_Won.jpg",
+   "w": 1000,
+   "h": 558,
+   "page": "https://commons.wikimedia.org/wiki/File:Currency_symbols,_Euro,_Riyal,_Dollar,_Yuan,_Yen,_Pound,_Ruble,_Won.jpg",
+   "subject": "환율",
+   "artist": "ARABCREATOR7",
+   "license": "CC0"
+  }
  },
  {
   "id": "f7a0934f2f7d",
@@ -402,7 +440,16 @@
    "젠슨황",
    "사퇴"
   ],
-  "ai": true
+  "ai": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/2788-2888_San_Tomas_Expwy.jpg/1280px-2788-2888_San_Tomas_Expwy.jpg",
+   "w": 1000,
+   "h": 673,
+   "page": "https://commons.wikimedia.org/wiki/File:2788-2888_San_Tomas_Expwy.jpg",
+   "subject": "엔비디아",
+   "artist": "Coolcaesar",
+   "license": "CC BY-SA 4.0"
+  }
  },
  {
   "id": "87ab84f03955",
@@ -517,7 +564,16 @@
    "원자냉각",
    "과학자"
   ],
-  "ai": true
+  "ai": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Blochsphere.svg/1280px-Blochsphere.svg.png",
+   "w": 1000,
+   "h": 984,
+   "page": "https://commons.wikimedia.org/wiki/File:Blochsphere.svg",
+   "subject": "양자 컴퓨터",
+   "artist": "MuncherOfSpleens at English Wikipedia",
+   "license": "CC BY-SA 3.0"
+  }
  },
  {
   "id": "0fc3f2b42f14",
@@ -557,7 +613,16 @@
    "대하사극",
    "삼국통일"
   ],
-  "ai": true
+  "ai": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Portraits_of_kings_at_Tongiljeon.jpg/1280px-Portraits_of_kings_at_Tongiljeon.jpg",
+   "w": 1000,
+   "h": 750,
+   "page": "https://commons.wikimedia.org/wiki/File:Portraits_of_kings_at_Tongiljeon.jpg",
+   "subject": "문무왕",
+   "artist": "Christophe95",
+   "license": "CC BY-SA 4.0"
+  }
  },
  {
   "id": "4e484d122988",
@@ -592,7 +657,8 @@
    "안보",
    "협조의무"
   ],
-  "ai": true
+  "ai": true,
+  "image": null
  },
  {
   "id": "0c74d12d1877",
