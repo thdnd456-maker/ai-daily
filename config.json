@@ -46,6 +46,6 @@
     "스포츠"
   ],
   "image_model": "@cf/black-forest-labs/flux-1-schnell",
-  "max_images_per_run": 10,
+  "max_images_per_run": 2,
   "site_hanja": "綜合日報"
 }
