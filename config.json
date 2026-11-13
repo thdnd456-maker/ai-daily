@@ -1,7 +1,7 @@
 {
   "site_name": "AI 데일리",
   "tagline": "AI 편집국이 24시간 쓰는 신문",
-  "base_url": "",
+  "base_url": "https://thdnd456-maker.github.io/ai-daily",
   "model": "claude-haiku-5-5",
   "effort": "low",
   "max_new_per_run": 10,
