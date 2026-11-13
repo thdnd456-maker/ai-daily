@@ -25,6 +25,7 @@ ROOT = Path(__file__).parent
 DATA = ROOT / "data" / "articles.json"
 USAGE_LOG = ROOT / "data" / "usage.log"
 OUT = ROOT / "docs"
+MEDIA = ROOT / "media"  # AI 생성 이미지 원본 보관 (docs는 매번 새로 그리므로 분리)
 KST = dt.timezone(dt.timedelta(hours=9))
 CFG = json.loads((ROOT / "config.json").read_text(encoding="utf-8"))
 SLUGS = {"정치": "politics", "경제": "economy", "사회": "society", "국제": "world",
@@ -129,7 +130,7 @@ def write_ai(items):
     system = (ROOT / "prompts" / "editor.md").read_text(encoding="utf-8")
     payload = [{"id": it["id"], "title": it["orig_title"], "source": it["source"],
                 "related": it["related"], "section_hint": it["section_hint"]} for it in items]
-    fields = ["id", "headline", "summary", "body", "section", "tags", "image_keyword"]
+    fields = ["id", "headline", "summary", "body", "section", "tags", "image_keyword", "image_prompt"]
     schema = {
         "type": "object", "additionalProperties": False, "required": ["articles"],
         "properties": {"articles": {"type": "array", "items": {
@@ -139,7 +140,7 @@ def write_ai(items):
                 "summary": {"type": "string"}, "body": {"type": "string"},
                 "section": {"type": "string", "enum": CFG["sections"]},
                 "tags": {"type": "array", "items": {"type": "string"}},
-                "image_keyword": {"type": "string"},
+                "image_keyword": {"type": "string"}, "image_prompt": {"type": "string"},
             }}}},
     }
     kwargs = dict(
@@ -248,6 +249,51 @@ def add_images(archive, limit=40):
         print(f"[사진] {n}건 검색, {sum(1 for a in archive if a.get('image'))}건 보유")
 
 
+# ───────────────────────── AI 생성 이미지 (Cloudflare Workers AI, FLUX) ─────────────────────────
+STYLE = ("editorial illustration for a newspaper, semi-flat digital painting, muted natural colors, "
+         "soft light, clean composition, no text, no letters, no logos, no watermark")
+SECTION_SCENE = {
+    "정치": "a grand parliament building at dusk", "경제": "a city financial district with rising charts",
+    "사회": "a busy city street crosswalk seen from above", "국제": "a world map with glowing connection lines",
+    "IT·과학": "a futuristic laboratory with computer servers", "문화·연예": "a theater stage with spotlights",
+    "스포츠": "an empty sports stadium under floodlights"}
+
+
+def gen_images(archive):
+    acct, token = os.environ.get("CLOUDFLARE_ACCOUNT_ID"), os.environ.get("CLOUDFLARE_API_TOKEN")
+    if not (acct and token):
+        return
+    from io import BytesIO
+    import base64
+    from PIL import Image
+
+    MEDIA.mkdir(exist_ok=True)
+    url = f"https://api.cloudflare.com/client/v4/accounts/{acct}/ai/run/{CFG.get('image_model', '@cf/black-forest-labs/flux-1-schnell')}"
+    todo = [a for a in archive if a.get("ai") and not a.get("image")][:CFG.get("max_images_per_run", 10)]
+    made = 0
+    for a in todo:
+        scene = a.get("image_prompt") or SECTION_SCENE[a["section"]]
+        body = json.dumps({"prompt": f"{scene}. {STYLE}", "steps": 4}).encode()
+        req = urllib.request.Request(url, data=body, method="POST", headers={
+            "Authorization": f"Bearer {token}", "Content-Type": "application/json", "User-Agent": UA})
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                raw, ctype = r.read(), r.headers.get("Content-Type", "")
+            data = raw if ctype.startswith("image/") else base64.b64decode(json.loads(raw)["result"]["image"])
+            im = Image.open(BytesIO(data)).convert("RGB")
+            im.thumbnail((960, 960))
+            name = f"{a['id']}.webp"
+            im.save(MEDIA / name, "WEBP", quality=72)  # 용량 절약 (보통 40~80KB)
+        except Exception as e:
+            print(f"[경고] 이미지 생성 실패 {a['id']}: {e}")
+            continue
+        a["image"] = {"url": f"media/{name}", "w": im.width, "h": im.height, "generated": True,
+                      "subject": a["headline"], "artist": "AI 생성", "license": "", "page": ""}
+        made += 1
+    if todo:
+        print(f"[AI 이미지] {made}/{len(todo)}장 생성")
+
+
 # ───────────────────────── 렌더링 ─────────────────────────
 def esc(s):
     return html.escape(s or "")
@@ -269,12 +315,17 @@ def link(a, up):
     return f'{up}a/{a["id"]}.html'
 
 
+def src(im, up):
+    return up + im["url"] if im.get("generated") else im["url"]
+
+
 def img_tag(a, up, cls="ph", size=""):
     im = a.get("image")
     if im:
         pos = "center 20%" if im["h"] > im["w"] else "center"
-        return (f'<div class="{cls}"><img src="{esc(im["url"])}" alt="{esc(im["subject"])}" '
-                f'loading="lazy" style="object-position:{pos}"></div>')
+        label = '<i class="ailabel">AI 이미지</i>' if im.get("generated") else ""
+        return (f'<div class="{cls}"><img src="{esc(src(im, up))}" alt="{esc(im["subject"])}" '
+                f'loading="lazy" style="object-position:{pos}">{label}</div>')
     return f'<div class="{cls} noimg s-{SLUGS[a["section"]]}"><span>{esc(a["section"])}</span></div>'
 
 
@@ -304,7 +355,7 @@ def page(title, body, depth=0, desc="", active=""):
 <div class="flogo">{esc(CFG['site_name'])}</div>
 <nav>{"".join(f'<a href="{up}section/{SLUGS[s]}.html">{esc(s)}</a>' for s in CFG["sections"])}</nav>
 <p>「{esc(CFG['site_name'])}」의 기사는 공개 보도의 헤드라인을 AI가 종합·재작성한 자동 브리핑입니다. 사실관계는 각 기사의 원문 링크에서 확인하세요.
-AI가 작성한 기사에는 오류가 있을 수 있습니다. 사진은 위키미디어 공용의 자유 라이선스 자료로, 기사 현장 사진이 아닌 참고 이미지입니다.</p>
+AI가 작성한 기사에는 오류가 있을 수 있습니다. 사진은 위키미디어 공용의 자유 라이선스 참고 이미지이거나, "AI 이미지"로 표시된 AI 생성 일러스트이며 기사 현장 사진이 아닙니다.</p>
 <p class="copy">최종 업데이트 {now:%Y.%m.%d %H:%M} KST</p></div></footer>
 </body></html>"""
 
@@ -326,10 +377,19 @@ def render(archive):
     shutil.copy(ROOT / "templates" / "style.css", OUT / "style.css")
     (OUT / ".nojekyll").write_text("")
     arts = sorted(archive, key=lambda a: a["published"], reverse=True)
+    # 보관 기사에 쓰이는 AI 이미지만 발행하고, 밀려난 기사의 이미지는 지운다
+    keep = {a["image"]["url"].split("/")[-1] for a in arts if (a.get("image") or {}).get("generated")}
+    if MEDIA.exists():
+        (OUT / "media").mkdir()
+        for f in MEDIA.iterdir():
+            if f.name in keep:
+                shutil.copy(f, OUT / "media" / f.name)
+            else:
+                f.unlink()
     # 1면 톱은 사진 있는 AI 기사 우선
     pics = [a for a in arts if a.get("image")]
     # 국기·로고(SVG) 같은 그래픽보다 실제 사진을 톱에
-    pics.sort(key=lambda a: ".svg" in a["image"]["url"])
+    pics.sort(key=lambda a: (".svg" in a["image"]["url"]) * 2 + bool(a["image"].get("generated")))
 
     # ── 1면
     if arts:
@@ -385,10 +445,16 @@ def render(archive):
         more = [x for x in arts if x["section"] == a["section"] and x["id"] != a["id"]][:3]
         badge = "AI 기자" if a.get("ai") else "자동 수집"
         im = a.get("image")
-        fig = (f'<figure class="fig"><img src="{esc(im["url"])}" alt="{esc(im["subject"])}">'
-               f'<figcaption>{esc(im["subject"])} (참고 이미지) · 사진: {esc(im["artist"])} / '
-               f'<a href="{esc(im["page"])}" target="_blank" rel="noopener">{esc(im["license"]) or "위키미디어 공용"}</a>'
-               f'</figcaption></figure>') if im else ""
+        if im and im.get("generated"):
+            fig = (f'<figure class="fig"><img src="{esc(src(im, "../"))}" alt="기사 내용을 표현한 AI 생성 일러스트">'
+                   f'<figcaption>AI 생성 일러스트 · 실제 현장 사진이 아닙니다 (Cloudflare Workers AI · FLUX)</figcaption></figure>')
+        elif im:
+            fig = (f'<figure class="fig"><img src="{esc(im["url"])}" alt="{esc(im["subject"])}">'
+                   f'<figcaption>{esc(im["subject"])} (참고 이미지) · 사진: {esc(im["artist"])} / '
+                   f'<a href="{esc(im["page"])}" target="_blank" rel="noopener">{esc(im["license"]) or "위키미디어 공용"}</a>'
+                   f'</figcaption></figure>')
+        else:
+            fig = ""
         b = (f'<main class="wrap"><div class="cols"><article class="story">'
              f'<a class="kicker" href="../section/{SLUGS[a["section"]]}.html">{esc(a["section"])}</a>'
              f'<h1>{esc(a["headline"])}</h1>'
@@ -452,6 +518,8 @@ def main():
             archive = [by_id.pop(a["id"], a) for a in archive] + list(by_id.values())
             archive = sorted(archive, key=lambda a: a["published"], reverse=True)[:CFG["max_archive"]]
     add_images(archive)
+    if "--render" not in sys.argv:
+        gen_images(archive)
     DATA.write_text(json.dumps(archive, ensure_ascii=False, indent=1), encoding="utf-8")
     render(archive)
 

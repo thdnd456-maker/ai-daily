@@ -20,15 +20,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install anthropic
+      - run: pip install anthropic pillow
       - name: 기사 수집·작성·렌더링
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: python newsroom.py
       - name: 커밋
         run: |
           git config user.name "ai-newsroom-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add docs data
+          git add -A docs data
+          [ -d media ] && git add -A media || true
           git diff --cached --quiet || git commit -m "발행: $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
           git push

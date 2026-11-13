@@ -7,13 +7,44 @@
   "max_new_per_run": 10,
   "max_archive": 400,
   "feeds": [
-    {"url": "https://news.google.com/rss/headlines/section/topic/NATION?hl=ko&gl=KR&ceid=KR:ko", "section": "사회"},
-    {"url": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ko&gl=KR&ceid=KR:ko", "section": "경제"},
-    {"url": "https://news.google.com/rss/headlines/section/topic/WORLD?hl=ko&gl=KR&ceid=KR:ko", "section": "국제"},
-    {"url": "https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=ko&gl=KR&ceid=KR:ko", "section": "IT·과학"},
-    {"url": "https://news.google.com/rss/headlines/section/topic/SCIENCE?hl=ko&gl=KR&ceid=KR:ko", "section": "IT·과학"},
-    {"url": "https://news.google.com/rss/headlines/section/topic/ENTERTAINMENT?hl=ko&gl=KR&ceid=KR:ko", "section": "문화·연예"},
-    {"url": "https://news.google.com/rss/headlines/section/topic/SPORTS?hl=ko&gl=KR&ceid=KR:ko", "section": "스포츠"}
+    {
+      "url": "https://news.google.com/rss/headlines/section/topic/NATION?hl=ko&gl=KR&ceid=KR:ko",
+      "section": "사회"
+    },
+    {
+      "url": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=ko&gl=KR&ceid=KR:ko",
+      "section": "경제"
+    },
+    {
+      "url": "https://news.google.com/rss/headlines/section/topic/WORLD?hl=ko&gl=KR&ceid=KR:ko",
+      "section": "국제"
+    },
+    {
+      "url": "https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=ko&gl=KR&ceid=KR:ko",
+      "section": "IT·과학"
+    },
+    {
+      "url": "https://news.google.com/rss/headlines/section/topic/SCIENCE?hl=ko&gl=KR&ceid=KR:ko",
+      "section": "IT·과학"
+    },
+    {
+      "url": "https://news.google.com/rss/headlines/section/topic/ENTERTAINMENT?hl=ko&gl=KR&ceid=KR:ko",
+      "section": "문화·연예"
+    },
+    {
+      "url": "https://news.google.com/rss/headlines/section/topic/SPORTS?hl=ko&gl=KR&ceid=KR:ko",
+      "section": "스포츠"
+    }
   ],
-  "sections": ["정치", "경제", "사회", "국제", "IT·과학", "문화·연예", "스포츠"]
+  "sections": [
+    "정치",
+    "경제",
+    "사회",
+    "국제",
+    "IT·과학",
+    "문화·연예",
+    "스포츠"
+  ],
+  "image_model": "@cf/black-forest-labs/flux-1-schnell",
+  "max_images_per_run": 10
 }

@@ -40,6 +40,8 @@ main{padding:24px 16px 48px}
 .ph,.hero-img{position:relative;overflow:hidden;background:var(--ph);aspect-ratio:16/10}
 .ph img,.hero-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
 a:hover .ph img,a:hover .hero-img img{transform:scale(1.03)}
+.ailabel{position:absolute;right:8px;top:8px;font:700 10.5px/1 "Noto Sans KR",sans-serif;font-style:normal;color:#fff;background:rgba(0,0,0,.55);padding:4px 7px;border-radius:3px}
+.hero .ailabel{top:12px;right:12px}
 .noimg{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--c1),var(--c2))}
 .noimg span{font:900 clamp(18px,2.4vw,30px)/1 "Noto Serif KR",serif;color:#fff;opacity:.9;letter-spacing:-.02em}
 .s-politics{--c1:#1d3557;--c2:#457b9d}.s-economy{--c1:#0b5d4b;--c2:#2a9d8f}.s-society{--c1:#5c4033;--c2:#a0785a}
