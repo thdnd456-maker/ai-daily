@@ -20,6 +20,57 @@
   "ai": false
  },
  {
+  "id": "80c04d29cbf5",
+  "orig_title": "위트코프 특사 \"푸틴, 다음 우크라 평화협상 때 유럽 참여 허용키로\"… NYT \"아직 러측의 공식 확인 없어\"",
+  "source": "뉴스핌",
+  "source_url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBJTG9ydVRMRFd5emhfUjl3QnlyaXJzcGxCQmlGanp3MGJGbjhRUFZKOTVadi1Qc2w3d1l1ZFZiMElMRWZXUndqdFh6ZWI1WEhrdFhDMHUzSWFpRS1M?oc=5",
+  "related": [
+   "젤렌스키 “다음 종전 협상엔 유럽도 직접 참여할 것” (KBS 뉴스)",
+   "평화 협상서 물러서지 않는 푸틴···영토 요구 고수·평화유지군 배치 거부 (경향신문)",
+   "미국 특사와 함께 언론 발언하는 젤렌스키 (뉴시스)",
+   "유럽 정상들 \"종전협상 유럽 대표보다 푸틴의 대화의지가 관건\" (연합뉴스)"
+  ],
+  "published": "2026-11-13T19:34:00+09:00",
+  "section_hint": "국제",
+  "headline": "위트코프 특사 \"다음 종전협상에 유럽 참여 허용\"",
+  "summary": "미국 특사가 푸틴 대통령이 다음 우크라이나 평화협상에 유럽의 참여를 허용하기로 했다고 밝혔다.",
+  "body": "스티브 위트코프 미국 특사는 블라디미르 푸틴 러시아 대통령이 다음 우크라이나 평화협상에 유럽의 참여를 허용하기로 했다고 밝힌 것으로 알려졌다. 젤렌스키 우크라이나 대통령도 다음 종전 협상에 유럽이 직접 참여할 것이라는 입장을 밝혔다.\n\n다만 뉴욕타임스는 러시아 측의 공식 확인이 아직 없다고 전했다. 푸틴 대통령은 영토 요구를 고수하고 평화유지군 배치에는 거부 입장을 보이고 있어, 협상 전망은 불투명하다는 평가가 나온다.",
+  "section": "국제",
+  "tags": [
+   "우크라이나",
+   "종전협상",
+   "푸틴",
+   "유럽참여"
+  ],
+  "ai": true
+ },
+ {
+  "id": "b8c7d0a5e34e",
+  "orig_title": "[속보] 조현 \"한반도 평화·안정, 한중 공동이익…전략적 소통 강화\"",
+  "source": "한국경제",
+  "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9tYWdqNjljVjdwbDJBcEZDMDJUZmFlTUxIbFZVeHFERzF1NzNIRVJ3SWtZWkZRR0tVR25MbnVITTJfQXVSVTdXbnd1MXoycmpyYVZSS0hoUUhwdw?oc=5",
+  "related": [
+   "에이펙 앞두고 한중 외교장관 회담…“한반도 정세 폭넓게 논의” (KBS 뉴스)",
+   "조현 \"한반도 평화, 한중 공동 이익\"‥왕이 \"함께 공동체 건설 추진\" (MBC 뉴스)",
+   "조현, 중국의 APEC 北 초청 가능성에 \"별로 크지 않은 듯\" (연합뉴스)",
+   "한·중 외교장관 베이징에서 회담…한국인 관광객 중국 무비자 입국 연장될까 (경향신문)"
+  ],
+  "published": "2026-11-13T19:32:21+09:00",
+  "section_hint": "사회",
+  "headline": "조현 장관, 왕이와 회담…한반도 평화 공조 논의",
+  "summary": "한중 외교장관이 베이징에서 만나 한반도 정세와 양국 협력 방향을 논의했다.",
+  "body": "조현 외교부 장관과 왕이 중국 외교부장이 베이징에서 회담을 갖고 한반도 평화와 안정이 양국의 공동 이익이라는 데 뜻을 모았다. 양측은 전략적 소통을 강화하기로 했다.\n\n조 장관은 아시아태평양경제협력체(APEC)를 앞두고 중국이 북한을 초청할 가능성에 대해 크지 않은 것으로 본다는 취지의 견해를 밝혔다. 왕 부장은 공동체 건설을 함께 추진하자는 뜻을 전한 것으로 알려졌다.\n\n회담에서는 한국인 관광객에 대한 중국 무비자 입국 기간 연장 문제도 거론된 것으로 전해졌다.",
+  "section": "정치",
+  "tags": [
+   "한중외교",
+   "조현",
+   "왕이",
+   "한반도평화",
+   "APEC"
+  ],
+  "ai": true
+ },
+ {
   "id": "956364cd2c56",
   "orig_title": "젠슨 황 “나는 쓰레기 같은 놈”…완전 ‘딴사람’ 모습으로 무너졌다",
   "source": "한겨레",
@@ -98,6 +149,31 @@
   "section": "국제",
   "tags": [],
   "ai": false
+ },
+ {
+  "id": "1903669df027",
+  "orig_title": "프로야구 FA 시장 개장...원태인·구자욱 등 28명 자격 공시",
+  "source": "YTN",
+  "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBIYUhYNzdoanc4azVTa3daSFpqMndrZVhCdUhnSmY5ZGlGbUF0TXVLTFAtd2VQaXBvQ2lJWHdLTG9CenhNanZnN3VtVjhtNjF6Ti1ZTXg3Y2ZxSGJWSUE?oc=5",
+  "related": [
+   "KBO FA 시장 개장! 원태인·구자욱·양의지 등 28명 자격 공시 (KBS 뉴스)",
+   "이럴 수가, KIA 김호령이 C등급 받았다…아슬아슬하게 사라져버린 보상선수, 이적 문이 더 열렸다 (스포츠경향)",
+   "호령존 알고보니 C등급, 보상금 3.75억만 주면 데려간다...8천에서 2.5억까지 올렸는데도 B등급 아니었다, 구매자 늘어나나 (조선일보)",
+   "kt 위즈, 외야수 김민혁·배정대 FA 시장 나온다 (기호일보)"
+  ],
+  "published": "2026-11-13T17:11:00+09:00",
+  "section_hint": "스포츠",
+  "headline": "KBO FA 시장 개장, 28명 자격 공시",
+  "summary": "원태인과 구자욱 등 28명이 자격을 공시받으며 프로야구 FA 시장이 열렸다.",
+  "body": "한국야구위원회는 프로야구 FA 시장을 개장하고 원태인, 구자욱 등 28명의 자격을 공시했다. 시장이 열리면서 구단들의 영입과 잔류 협상이 본격화된다.\n\nKIA 김호령은 C등급을 받아 보상선수 부담이 낮아졌다. 김민혁과 배정대도 kt 위즈의 FA 시장에 나온 것으로 알려졌다.",
+  "section": "스포츠",
+  "tags": [
+   "FA",
+   "프로야구",
+   "원태인",
+   "구자욱"
+  ],
+  "ai": true
  },
  {
   "id": "41b53ec9406d",
@@ -180,6 +256,56 @@
   "ai": false
  },
  {
+  "id": "020b56b24335",
+  "orig_title": "'생후 19개월 딸 영양결핍 사망' 친모 항소심서도 징역 12년",
+  "source": "연합뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBrM3EzcmdhNDB0bGJiLUtIM0NZMHExdTl3RFJCLWdSUkNPNUJhMjR2X0p0N3Z1OTFDckdrRzg0VUF5UW1lUkFJcVBTaWpaTFpRWTVXaVpSS2x5QVnSAWBBVV95cUxPcEZiTUdCVFVGN1pPdWV1cV9Oamw0bnhkXzhFblF2QTV0ODQyeFZfT2wxcHhudFhKVThFVEk0dUJaSkZUYWZxa2pfUldWelpVZUtCaHZqbnhyQS1nNk9wSGw?oc=5",
+  "related": [
+   "‘생후 19개월 딸 영양결핍 사망’ 친모 항소심서도 징역 12년 (KBS 뉴스)",
+   "19개월 딸 방임해 숨지게 한 엄마…항소에도 징역 12년 (경기일보)",
+   "[속보] 배설물·담배꽁초 속 19개월 여아 영양결핍 사망… 20대 친모에 2심도 징역 12년 선고 (서울신문)",
+   "'체중 4.7㎏' 19개월 딸, 홀로 방치...'학대 살해' 친모, 월 300만원 수당도 챙겼다 - 머니투데이 (머니투데이)"
+  ],
+  "published": "2026-11-13T15:31:38+09:00",
+  "section_hint": "사회",
+  "headline": "생후 19개월 딸 학대 사망 친모, 2심도 징역 12년",
+  "summary": "영양결핍으로 숨진 생후 19개월 딸의 친모에게 항소심에서도 징역 12년이 선고됐다.",
+  "body": "생후 19개월 딸을 방임해 영양결핍으로 숨지게 한 20대 친모에게 항소심에서도 징역 12년이 선고됐다. 재판부는 1심 형량을 유지했다.\n\n아이는 체중이 4.7킬로그램에 그쳤던 것으로 전해졌다. 친모가 아동 양육 관련 수당을 받은 사실도 함께 알려졌다.",
+  "section": "사회",
+  "tags": [
+   "아동학대",
+   "징역12년",
+   "항소심",
+   "영양결핍"
+  ],
+  "ai": true
+ },
+ {
+  "id": "eb78581a1ae3",
+  "orig_title": "정진완 우리은행장 임기 1년 연장…금융사고·수익성 격차는 숙제",
+  "source": "재외동포신문",
+  "source_url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE8ya0VQekdLRGhGWktNdHVnblJ6dHhoNGtXakMtZ1FMZ3Vjd08yYjFOMUpYZmlpZ0Y1amVYTXhmeE5kNUgtNC1fTDlGR0dydDY5cWZXcC1GUU9LLTlwNFk0Nm5hWk9fb0JqSmt0Zw?oc=5",
+  "related": [
+   "정진완, 1년 더 우리은행 이끈다…자본비율·디지털금융 성과 - 머니투데이 (머니투데이)",
+   "[속보] 중기부 \"2차 '모두의 창업' 참가자 지원 기업서 개인정보 유출\" (매일경제 마켓)",
+   "[2보] 우리은행장 후보에 정진완 행장…1년 연임 (연합뉴스)",
+   "[오늘Who] 정진완 우리은행장 연임 확정, 5대 금융지주 은행장 인선 신호탄 (비즈니스포스트)"
+  ],
+  "published": "2026-11-13T15:00:51+09:00",
+  "section_hint": "경제",
+  "headline": "정진완 우리은행장, 1년 연임 확정",
+  "summary": "정진완 행장의 임기가 1년 연장되며 금융사고 대응과 수익성 격차 해소가 과제로 남았다.",
+  "body": "우리은행은 정진완 행장의 임기를 1년 연장하는 것으로 확정했다. 정 행장은 자본비율 관리와 디지털금융 분야에서 성과를 냈다는 평가를 받아 왔다.\n\n다만 금융사고 재발 방지와 수익성 격차 축소는 여전히 해결할 과제로 꼽힌다. 이번 인선은 5대 금융지주 은행장 인사의 흐름을 가늠하는 신호로도 해석된다.",
+  "section": "경제",
+  "tags": [
+   "우리은행",
+   "정진완",
+   "은행장",
+   "금융사고"
+  ],
+  "ai": true
+ },
+ {
   "id": "8261b35dde17",
   "orig_title": "성북구 10대 여성 살해 50대 남성 구속영장 발부",
   "source": "MBC 뉴스",
@@ -220,6 +346,26 @@
   "ai": false
  },
  {
+  "id": "b203715c0913",
+  "orig_title": "환율·유가 동반 하락에 10월 수입물가 1.8%↓",
+  "source": "한국무역협회-KITA.NET",
+  "source_url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQMjRWWXZLeXpNNWlsamlKV3BMd1NneVpSbzdZVXRWVmJMVjZZX2c0LXJsaVB2SlNDR0RadlUwRlVaaElYTFVTT0UwUHIwdHRVU2JBNVU2Qk9UV3JnV0w0a2hmcmJuallJRTg1QTNzWF9Ma2lYRUFjbDItRGQ2bEFUM3U0ZmJ1MW9rZTZXY3l3WDZ0VWEyYXdPVjMxNzBRRHU2cnNKd0pLb1BRQnI1dWUxd194eDUwNVNMZDZLTkVRT3BGXzJvcnlQalVHc0xRLUJ5RE0xWG1B?oc=5",
+  "related": [],
+  "published": "2026-11-13T13:59:51+09:00",
+  "section_hint": "경제",
+  "headline": "10월 수입물가 1.8% 하락",
+  "summary": "환율과 유가가 함께 내리면서 10월 수입물가가 전월 대비 1.8% 하락했다.",
+  "body": "환율과 국제유가가 동반 하락하면서 10월 수입물가가 1.8% 내렸다. 원재료와 연료 등 수입 가격 전반이 낮아진 영향이다.\n\n수입물가 하락은 국내 생산자물가와 소비자물가의 흐름에도 영향을 줄 수 있는 지표로 평가된다.",
+  "section": "경제",
+  "tags": [
+   "수입물가",
+   "환율",
+   "유가",
+   "물가"
+  ],
+  "ai": true
+ },
+ {
   "id": "f7a0934f2f7d",
   "orig_title": "내란 특검, 대법에 한덕수 ‘조건부 보석’ 요청…“소재 파악 어려울 수 있어”",
   "source": "조선일보",
@@ -238,6 +384,25 @@
   "section": "사회",
   "tags": [],
   "ai": false
+ },
+ {
+  "id": "c344bdbccd55",
+  "orig_title": "‘불륜 스캔들’ 엔비디아 젠슨황 사퇴…국내 영향은? [뉴스in뉴스]",
+  "source": "KBS 뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFA2SHdVdHhkME9HR1gxMVpNejRxaXFtV3hQTldlWkt4ODlvM0Q3ZmMtekpJQ05WNUZQVXZhWmFnM3BQTTFJN1BZM210Zk1LdFdWNTltQ1V1TE9GSWs?oc=5",
+  "related": [],
+  "published": "2026-11-13T12:37:00+09:00",
+  "section_hint": "IT·과학",
+  "headline": "엔비디아 젠슨 황, 불륜 스캔들로 사퇴",
+  "summary": "엔비디아 젠슨 황의 사퇴 소식이 전해지며 국내 시장에 미칠 영향에 관심이 모인다.",
+  "body": "엔비디아의 젠슨 황이 불륜 스캔들과 관련해 사퇴한 것으로 전해졌다. 세부 경위와 회사 내부 절차에 대해서는 현재 알려진 정보가 제한적이다.\n\n국내 반도체 업계와 투자 시장에서는 이번 사퇴가 어떤 영향을 줄지 주목하고 있다.",
+  "section": "IT·과학",
+  "tags": [
+   "엔비디아",
+   "젠슨황",
+   "사퇴"
+  ],
+  "ai": true
  },
  {
   "id": "87ab84f03955",
@@ -335,6 +500,26 @@
   "ai": false
  },
  {
+  "id": "ff51d8bd9957",
+  "orig_title": "스마트폰 GPS·양자컴퓨터의 시작… 빛으로 원자를 얼린 과학자",
+  "source": "조선일보",
+  "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQWndvZG5hblFRMS1QNF9XVUdCNjBqbDI2ZWlUajVCSVV5T0swbFExYjVfR2JPdkt5VFZta1FjVGozQlZILXFlYjRCLXctN3BDSVNXanNPclc1RFNQMWtmcS1nckRpTy1Rb1RoRlJCRmR3c1NSQXIwcTFVNmVZMDdlSjFyNA?oc=5",
+  "related": [],
+  "published": "2026-11-13T03:03:27+09:00",
+  "section_hint": "IT·과학",
+  "headline": "빛으로 원자를 얼린 과학자, 양자기술의 토대 마련",
+  "summary": "스마트폰 GPS와 양자컴퓨터의 기반이 된 원자 냉각 연구가 소개됐다.",
+  "body": "스마트폰의 GPS와 양자컴퓨터의 발전 배경으로, 빛을 이용해 원자의 운동을 늦춰 얼리는 기술이 꼽히고 있다. 이 연구는 원자를 정밀하게 제어하는 길을 열었다.\n\n관련 연구 성과가 현대 과학기술의 여러 분야에 응용되고 있다는 점이 이번 소개의 요지다.",
+  "section": "IT·과학",
+  "tags": [
+   "양자컴퓨터",
+   "GPS",
+   "원자냉각",
+   "과학자"
+  ],
+  "ai": true
+ },
+ {
   "id": "0fc3f2b42f14",
   "orig_title": "‘AI 인프라 황제’ 젠슨 황, 불륜으로 엔비디아 CEO 사임",
   "source": "조선일보",
@@ -350,6 +535,31 @@
   "ai": false
  },
  {
+  "id": "f5cd068cf7a5",
+  "orig_title": "300억 대하사극 KBS '문무'…\"삼국통일 과정, 갈등의 시대 시사점\"",
+  "source": "연합뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1RS1BOcFIwRFNKSkFhODBGaDhJRThXNU1zRjA0Y2lBVWFuLU1TT3h5eDZGMVEwV1FvYXExNjBSSkJ6Zk8wS1laZjZjemphUk82MGUwU3JCZnJmUU3SAWBBVV95cUxOMF9pNzFRNTV4NTlFVVVQdkNCZzgxSFVwNUNET0R0NU93ZFM2UG1kYUpiQlJZRmdYZjZPUG41UHk0eERja2RXZkxYSlRRMjdEandSazZwd3MwMV9FVXBLNkI?oc=5",
+  "related": [
+   "장혁, 4년 만의 사극 ‘문무’ 14일 첫방…“전략가들 수 싸움 또 다른 재미” [이런뉴스] (KBS 뉴스)",
+   "인사말하는 최예빈 (연합뉴스)",
+   "신라·고려·조선…안방극장·OTT ‘시대물 대전’ (미주중앙일보)",
+   "김동희, ‘문무’ 합류 긴장감 견인…이현욱·장혁·김강우와 호흡 (조선일보)"
+  ],
+  "published": "2026-11-12T18:33:54+09:00",
+  "section_hint": "문화·연예",
+  "headline": "KBS 대하사극 '문무' 14일 첫 방송",
+  "summary": "300억 원 규모의 대하사극 '문무'가 삼국통일 과정을 다루며 14일 첫 방송된다.",
+  "body": "KBS가 제작한 대하사극 '문무'가 14일 첫 방송된다. 제작비 300억 원이 투입된 작품으로, 삼국통일 과정의 갈등을 그린다.\n\n장혁과 김동희, 이현욱, 김강우 등이 출연한다. 제작진은 전략가들의 수 싸움을 주요 볼거리로 내세웠다.",
+  "section": "문화·연예",
+  "tags": [
+   "문무",
+   "KBS",
+   "대하사극",
+   "삼국통일"
+  ],
+  "ai": true
+ },
+ {
   "id": "4e484d122988",
   "orig_title": "과학자 1년 반 걸려 찾은 질병 단서…AI는 30분 만에 알아냈다",
   "source": "조선일보",
@@ -363,6 +573,26 @@
   "section": "IT·과학",
   "tags": [],
   "ai": false
+ },
+ {
+  "id": "c29959d838df",
+  "orig_title": "국가 요청 있으면 스파이 활동 의무…중국 국가정보법에 전 세계 안보 '위험' [곳곳의 ‘협조 의무자’들]",
+  "source": "경기일보",
+  "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9QcFVEcFl2MUJlX0YxMWlfUWZpUFBLdXJ1Wi1aRFl2OGk0X2kyeHRJME9iaDVySnhxRjA3MVl3cXc5UDF0Zk5aYi0xZlNPVk92RkZiV0VmSEIxM2s?oc=5",
+  "related": [],
+  "published": "2026-11-12T05:00:00+09:00",
+  "section_hint": "국제",
+  "headline": "중국 국가정보법, 협조 의무 조항 논란",
+  "summary": "중국 국가정보법이 국가 요청 시 개인과 조직에 협조를 의무화하면서 해외 안보 우려가 제기됐다.",
+  "body": "중국 국가정보법은 국가의 요청이 있을 경우 개인과 조직이 정보 활동에 협조하도록 규정하고 있다. 이 조항을 두고 해외에서는 스파이 활동 의무화라는 우려가 나온다.\n\n해당 법이 전 세계 안보에 위험 요인이 될 수 있다는 지적이 이어지고 있다.",
+  "section": "국제",
+  "tags": [
+   "중국",
+   "국가정보법",
+   "안보",
+   "협조의무"
+  ],
+  "ai": true
  },
  {
   "id": "0c74d12d1877",
