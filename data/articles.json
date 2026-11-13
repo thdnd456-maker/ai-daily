@@ -149,6 +149,33 @@
   "ai": false
  },
  {
+  "id": "a2278076ef4b",
+  "orig_title": "'유럽 해킹 배후' 이란...\"악성 코드 하나가 폭발물만큼 파괴적\"",
+  "source": "한국일보",
+  "source_url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE91NWJwNW9zUWN3Vm04NF9iaDRMVjlCcU1aQUs3aExGalR4ZEtIYzU2dnliS2NkT1h0Mms5NzBPS2dJUlJSaUQ4QmFnZnR6aVo4Tk1PZjhJSVpiRmw0X2lEczRlT2k5dWc0TTVabXBB0gFzQVVfeXFMT29nazFSTGZYMi0zR1hvTEx3NHZoTDE5dmJnUll4elVteW1Qb0UyM0dRSFcxb3pqS0hiTkJZcG5xS2ppZzkxeGhpTkxIbDAzdXR5S3dYeFdYeFlST0tiN3pBcEh5WTVud1plS1BwRDhUbmhTRQ?oc=5",
+  "related": [
+   "독일, Danfoss 산업용 냉각 시스템 보안 취약점 경고 (Investing.com 한국어)",
+   "벨기에 슈퍼마켓 냉장설비 해킹…'이란 연계' 놓고 장관들 이견 (뉴시스)",
+   "폭탄 공격 못지않다… 이란의 ‘냉장고 테러’에 벌벌 떠는 유럽 (조선일보)",
+   "美 국방부 “냉동고 해킹, 사회에 경종”…AI로 군 기반시설 점검 (전자신문)"
+  ],
+  "published": "2026-11-13T17:23:00+09:00",
+  "section_hint": "국제",
+  "headline": "이란 연계 의혹 유럽 냉장설비 해킹",
+  "summary": "벨기에 등 유럽의 냉장·냉동 설비가 해킹당했으며 이란 연계 여부를 두고 논란이 일고 있다.",
+  "body": "유럽에서 산업용 냉각 시스템과 슈퍼마켓 냉장설비가 해킹당한 사건이 잇따랐다. 독일은 Danfoss 산업용 냉각 시스템의 보안 취약점을 경고했다.\n\n벨기에에서는 해킹의 배후로 이란이 지목되면서 장관들 사이에 이견이 나왔다. 미국 국방부는 냉동고 해킹이 사회에 경종을 울린다는 입장을 밝혔다.\n\n이번 사건은 사이버 공격이 물리적 인프라에 미칠 수 있는 피해를 보여준 사례로 거론된다.",
+  "section": "국제",
+  "tags": [
+   "해킹",
+   "이란",
+   "냉장설비",
+   "사이버 보안"
+  ],
+  "image_keyword": "",
+  "ai": true,
+  "image": null
+ },
+ {
   "id": "276098168687",
   "orig_title": "평화 협상서 물러서지 않는 푸틴···영토 요구 고수·평화유지군 배치 거부",
   "source": "경향신문",
@@ -195,6 +222,68 @@
   "image": null
  },
  {
+  "id": "4c10adbc30d9",
+  "orig_title": "국회 영상기자단, 최민희 '하이에나' 발언 규탄‥\"분노 넘어 자괴감\"",
+  "source": "MBC 뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBIQThqYjEwSDM5cUg5LTFNbVI5Q3ZRbDJBSDBSY1hoeWlmT2VSeExBT0J5S2NfczRHMXMwX0cwMkZhZGV0QU1XMjhfYlpmTl9ZMjZ5dW1yd1lCVENlOEtObkRQVXdXdEp1cWU1WmVIanNmelVVeGtBX9IBeEFVX3lxTE00MTRnY0h4ZzJRZU5kSnB4WHhSa2NhNlcyZnJraTlYbEVsa2VMMXpqWFh4eHQwMTVHTXV6ald4SmU1OU83VDBXdnh5T2djN2hwZmF3X2kzWWw4bGxSRmc4UHhGeUVqWXhzOFNlUVhZY0pSaFFIWHpnZQ?oc=5",
+  "related": [
+   "최민희 48분 육성 녹취엔…\"윤석열 탄핵에 이 대통령 반대했다. 하야시키고 가자 했다\" (JTBC)",
+   "“김민석이 감찰 대상” “분열주의”…민주당 ‘계파 갈등’ 전면전 양상 (KBS 뉴스)",
+   "\"통일교가 김민석 밀어\"…최민희 녹취록 추가 파장 (연합뉴스TV)",
+   "‘최민희 감찰’에 민주당 계파갈등 ‘전면전’으로···친청계 최고위 불참 “감찰 대상은 김민석” (경향신문)"
+  ],
+  "published": "2026-11-13T16:39:04+09:00",
+  "section_hint": "사회",
+  "headline": "최민희 발언 두고 국회 영상기자단 규탄",
+  "summary": "국회 영상기자단이 최민희 의원의 '하이에나' 발언을 강하게 규탄했다.",
+  "body": "국회 영상기자단이 최민희 의원의 '하이에나' 발언에 대해 규탄 성명을 냈다. 영상기자단은 이번 발언에 대해 분노를 넘어 자괴감을 느낀다는 입장을 밝혔다.\n\n이번 논란은 최 의원과 관련된 녹취록 공개 이후 민주당 내 계파 갈등이 격화되는 상황과 맞물려 있다. 최 의원을 둘러싼 감찰 논의가 이어지면서 당내 대립이 전면화하는 양상이다.\n\n민주당 친청계 일부 최고위원이 회의에 불참하는 등 갈등은 당 운영 전반으로 확산되고 있다.",
+  "section": "사회",
+  "tags": [
+   "최민희",
+   "국회 영상기자단",
+   "민주당",
+   "계파 갈등"
+  ],
+  "image_keyword": "최민희",
+  "ai": true,
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Choi_Min-hee%27s_Portrait_%282026.8%29.png",
+   "w": 380,
+   "h": 506,
+   "page": "https://commons.wikimedia.org/wiki/File:Choi_Min-hee%27s_Portrait_(2026.8).png",
+   "subject": "최민희 (1960년)",
+   "artist": "델리민주 [더불어민주당]",
+   "license": "CC BY 4.0"
+  }
+ },
+ {
+  "id": "ada2cd68a7f5",
+  "orig_title": "구자욱·원태인 등 대어 뜬다…프로야구 FA 28명 공시",
+  "source": "연합뉴스TV",
+  "source_url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBlVDBFb3FKaWgybW96NGhERHZ1NXZHbHlNQ2w5WlhrV1F3OFlyUHhhU3VDbC1nM0RVeW9NMldyYWJjc1NFRmRsdVJSWk90TFdDMzNrODlsUUFNeFAxazBpSkZXcTM3M3c?oc=5",
+  "related": [
+   "KBO FA 시장 개장! 원태인·구자욱·양의지 등 28명 자격 공시 (KBS 뉴스)",
+   "호령존 알고보니 C등급, 보상금 3.75억만 주면 데려간다...8천에서 2.5억까지 올렸는데도 B등급 아니었다, 구매자 늘어나나 (조선일보)",
+   "kt 위즈, 외야수 김민혁·배정대 FA 시장 나온다 (기호일보)",
+   "'이럴 수가' KIA 보상선수 사라졌다! 김호령, 왜 'B등급 아닌 C등급' 됐나... 최고 가성비 카드 변신 - 머니투데이 (머니투데이)"
+  ],
+  "published": "2026-11-13T16:33:00+09:00",
+  "section_hint": "스포츠",
+  "headline": "프로야구 FA 28명 자격 공시",
+  "summary": "구자욱, 원태인 등 28명이 프로야구 FA 자격을 공시받았다.",
+  "body": "한국야구위원회가 프로야구 FA 자격 선수 28명을 공시했다. 구자욱, 원태인, 양의지 등 주요 선수들이 포함됐다.\n\n일부 선수는 등급에 따라 보상 조건이 달라지는 것으로 알려졌다. KIA의 김호령은 기대와 달리 C등급으로 분류돼 관심을 끌고 있다.\n\nkt 위즈도 외야수 김민혁과 배정대가 FA 시장에 나온다.",
+  "section": "스포츠",
+  "tags": [
+   "FA",
+   "프로야구",
+   "구자욱",
+   "원태인"
+  ],
+  "image_keyword": "KBO 리그",
+  "ai": true,
+  "image": null
+ },
+ {
   "id": "41b53ec9406d",
   "orig_title": "'젠슨황 퇴임'에도 장중 3%까지 올랐던 코스피, 0.98% 하락 마감(종합)",
   "source": "연합뉴스",
@@ -213,6 +302,41 @@
   "section": "경제",
   "tags": [],
   "ai": false
+ },
+ {
+  "id": "09abd108d928",
+  "orig_title": "코스피 하락 전환, 5,200선 마감…반도체주↓",
+  "source": "KBS 뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0wWWxjT0p0OGhOZmozaHMzdzlzTXVBWjhYVHRwYVFkTU92MjlyaTNMZmVhS1I0X0htMGZUcjNhd3FhVHg4Q1NTM2lTU0pRN0EtYm10ekRfN3V0X1k?oc=5",
+  "related": [
+   "젠슨 황 쇼크에 출렁인 코스피, 이틀 연속 하락했다고? (네이버페이 머니스토리)",
+   "[연합뉴스 이 시각 헤드라인] - 18:00 (연합뉴스)",
+   "결국 ‘팔자’로 돌아선 외국인…장중 5500 찍은 코스피, 5200대 약세 마감 (매일경제 마켓)",
+   "엔비디아발 충격에 코스피도 '흔들'…5200선 마감 (전자신문)"
+  ],
+  "published": "2026-11-13T16:20:00+09:00",
+  "section_hint": "경제",
+  "headline": "코스피 5200선 마감…반도체주 약세",
+  "summary": "코스피가 하락 전환해 5200선에서 마감했고 반도체주가 약세를 보였다.",
+  "body": "코스피가 장중 5500선까지 올랐다가 하락 전환해 5200선에서 마감했다. 반도체주가 하락을 주도했다.\n\n외국인이 매도로 돌아선 것이 지수 약세의 배경으로 꼽힌다. 엔비디아 관련 악재가 국내 증시에도 영향을 미쳤다는 분석이 나온다.\n\n증시는 해외 기술주 흐름에 민감하게 반응하고 있는 것으로 보인다.",
+  "section": "경제",
+  "tags": [
+   "코스피",
+   "반도체주",
+   "외국인 매도",
+   "엔비디아"
+  ],
+  "image_keyword": "코스피",
+  "ai": true,
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Kospi-20170713.png",
+   "w": 856,
+   "h": 461,
+   "page": "https://commons.wikimedia.org/wiki/File:Kospi-20170713.png",
+   "subject": "코스피",
+   "artist": "User:리듬",
+   "license": "CC BY-SA 4.0"
+  }
  },
  {
   "id": "d1fc5058cf6c",
@@ -355,6 +479,33 @@
   "ai": false
  },
  {
+  "id": "126ff74ae3ac",
+  "orig_title": "정진완 우리은행장 연임…임기 1년 연장",
+  "source": "인베스트조선",
+  "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPeEV5Z0JseXpLR3dpelR5LWFEbHVsbENGOVBHU1VVZzVaOHhtbG5ZeXBmY2FzRWRKVE9iYWxWWDRZbkVqbWwzZ0wzQ3NCM0ljMV9yQmtCSnpjZUwwZ1pUb0ViQnpHZEJ3d2gwUGFwbW9QdGg0YlpDeUgtMjZicTc0ZERyQQ?oc=5",
+  "related": [
+   "정진완, 1년 더 우리은행 이끈다…자본비율·디지털금융 성과 - 머니투데이 (머니투데이)",
+   "[속보] 중기부 \"2차 '모두의 창업' 참가자 지원 기업서 개인정보 유출\" (매일경제 마켓)",
+   "[2보] 우리은행장 후보에 정진완 행장…1년 연임 (연합뉴스)",
+   "[오늘Who] 정진완 우리은행장 연임 확정, 5대 금융지주 은행장 인선 신호탄 (비즈니스포스트)"
+  ],
+  "published": "2026-11-13T14:44:00+09:00",
+  "section_hint": "경제",
+  "headline": "정진완 우리은행장 1년 연임 확정",
+  "summary": "정진완 우리은행장이 임기 1년을 연장해 연임이 확정됐다.",
+  "body": "우리은행은 정진완 행장이 연임되며 임기가 1년 연장됐다고 밝혔다. 정 행장은 자본비율 관리와 디지털금융 분야에서 성과를 냈다는 평가를 받아 왔다.\n\n이번 인선은 5대 금융지주 은행장 인사의 신호탄으로 해석되고 있다.\n\n연임 확정으로 정 행장은 우리은행을 1년 더 이끌게 됐다.",
+  "section": "경제",
+  "tags": [
+   "정진완",
+   "우리은행",
+   "연임",
+   "은행장"
+  ],
+  "image_keyword": "우리은행",
+  "ai": true,
+  "image": null
+ },
+ {
   "id": "5f0ec028eb96",
   "orig_title": "이호선 “헛소리 마요” 경고… 숙소 발칵 뒤집혀 (이혼숙려캠프)",
   "source": "스포츠동아",
@@ -472,6 +623,41 @@
   "ai": false
  },
  {
+  "id": "6a94bbfacf76",
+  "orig_title": "서영교 “한덕수 석방되면 ‘수시 내란’ 가능성…조희대 탄핵 사유 너무 많아”",
+  "source": "한겨레",
+  "source_url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1hYjVQN2hvd2w2TDE5OTlHVkFFOHBSZDNMN2hndTZWaDZfZnNRWDRGQkRoSlJqZU1nTl9oRjYyb2xzdGdHVzJjM0VpbU1DcnFXaTdZbHlLT0V0WHBfbVZuOS16Sk1xMm96WlB3aGI4X0ktMTZm?oc=5",
+  "related": [
+   "김민석 “한덕수 석방은 국민적 금기선…이후 모든 상황은 조희대 책임져야” (경향신문)",
+   "내란 특검, 대법에 한덕수 ‘조건부 보석’ 요청…“소재 파악 어려울 수 있어” (조선일보)",
+   "\"조희대, 선 넘으면 모든 책임\"...탄핵도 다시 고개 (YTN)",
+   "한덕수 구속기한 만료 D-7…다음주 대법 선고 가능성? (KBS 뉴스)"
+  ],
+  "published": "2026-11-13T11:33:00+09:00",
+  "section_hint": "사회",
+  "headline": "서영교 “한덕수 석방 시 파장” 주장",
+  "summary": "서영교 의원이 한덕수 석방 시 파장을 경고하며 조희대 대법원장에 책임을 물었다.",
+  "body": "더불어민주당 서영교 의원은 한덕수 전 국무총리가 석방될 경우 추가 내란 관련 상황이 생길 수 있다는 입장을 밝혔다. 이어 조희대 대법원장에 대한 탄핵 사유가 많다고 주장했다.\n\n김민석 의원도 한덕수 석방은 국민적 금기선을 넘는 일이라며 이후 상황에 대한 책임을 대법원이 져야 한다고 말했다.\n\n한편 내란 특검은 대법원에 한덕수 전 총리의 조건부 보석을 요청했다. 구속기한 만료가 임박해 대법원 선고 시점에 관심이 쏠리고 있다.",
+  "section": "사회",
+  "tags": [
+   "한덕수",
+   "조희대",
+   "조건부 보석",
+   "내란 특검"
+  ],
+  "image_keyword": "한덕수",
+  "ai": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Prime_Minister_of_South_Korea_HAN_Duck-soo_20240516.jpg/1280px-Prime_Minister_of_South_Korea_HAN_Duck-soo_20240516.jpg",
+   "w": 1000,
+   "h": 1333,
+   "page": "https://commons.wikimedia.org/wiki/File:Prime_Minister_of_South_Korea_HAN_Duck-soo_20240516.jpg",
+   "subject": "한덕수",
+   "artist": "제주특별자치도청 정책기획관",
+   "license": "KOGL Type 1"
+  }
+ },
+ {
   "id": "73f6c8f1d82d",
   "orig_title": "\"배신은 항상 재발합니다\"…'굿파트너2' 장나라X김혜윤, 더 독해진 이혼쇼",
   "source": "SBS 뉴스",
@@ -512,6 +698,33 @@
   "ai": false
  },
  {
+  "id": "60b54cea8a64",
+  "orig_title": "배우 김승우, 절도 혐의로 고소당해…강남경찰서가 수사",
+  "source": "KBS 뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1FOTMwcUd2aVhldWdFUVVTajJUeklFd19YX1VOSlNlb05vV2Q4d2ZQSmNKWTIyejgtQkJBd2RlM3h5eUhDR0xCaV9PWW45UXRxYWR3OTdVdHZSOE9Ga2s5enNIbHZ2Zw?oc=5",
+  "related": [
+   "“청담동 유흥주점서 2200만원 가져가”···배우 김승우, 절도 혐의 고소당해 (경향신문)",
+   "'절도 혐의 피소' 김승우, \"장난이었다\" 해명했지만…파묘되는 논란 [지금이뉴스] (YTN)",
+   "남의 돈 2200만원 갖고 '장난'이라는 김승우, '술타기'로 재판 가는 이재룡... 술로 얼룩진 중년 배우들 (조선일보)",
+   "‘건강왕’ 측 “김승우 절도 혐의 피소, 보도 통해 알아…파악 중” (스포츠동아)"
+  ],
+  "published": "2026-11-13T10:18:00+09:00",
+  "section_hint": "문화·연예",
+  "headline": "배우 김승우, 절도 혐의로 고소당해",
+  "summary": "배우 김승우가 청담동 유흥주점에서 2200만원을 가져갔다는 혐의로 고소됐다.",
+  "body": "배우 김승우가 절도 혐의로 고소당해 강남경찰서가 수사에 나섰다. 고소장에는 청담동 유흥주점에서 2200만원을 가져갔다는 내용이 담긴 것으로 알려졌다.\n\n김승우 측은 장난이었다는 취지로 해명한 것으로 전해졌다. 소속사 측은 보도를 통해 사실을 알게 되었으며 상황을 파악 중이라고 밝혔다.\n\n경찰 수사 결과에 따라 후속 조치가 이어질 전망이다.",
+  "section": "문화·연예",
+  "tags": [
+   "김승우",
+   "절도 혐의",
+   "고소",
+   "강남경찰서"
+  ],
+  "image_keyword": "김승우",
+  "ai": true,
+  "image": null
+ },
+ {
   "id": "b2961b9239e1",
   "orig_title": "주장 손흥민, ‘내분설’ 이후 첫 심경 고백…“팀이 건강해지는 과정이라 생각”",
   "source": "KBS 뉴스",
@@ -547,6 +760,27 @@
   "ai": false
  },
  {
+  "id": "8491058d93a9",
+  "orig_title": "서동주 \"월급 전액 비트코인 투자…3개월 만에 3배\" - 머니투데이",
+  "source": "머니투데이",
+  "source_url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9EWXVnQUlyVk1VeUlReXhjNjNDV3NEdGw4Sjl0T1dCSG1BMi1fMzBBaERNOGU2VGc4QVQxQ0JVWGJlQTVubklHREVCWlhwWlM2SUVad3Q0cVJtMF9zdDJIVlN0allyXzlRdjYxbkltVFl6TEnSAXhBVV95cUxOVm84Wloxc1R1MG5rUllhMmVWQTQzUkVBQy1uaDNjRU9fenFnNmRuZThkUWlmazE5VGxiVDA4YjNVTWVfdGR1bTZDZFJaanZhM3N2Uy1YYk44X1pKV0oxdU5INllBRHU4bnlSRnJPcGYtMUkxUGtpb3c?oc=5",
+  "related": [],
+  "published": "2026-11-13T05:24:30+09:00",
+  "section_hint": "IT·과학",
+  "headline": "서동주, 월급 전액 비트코인 투자 고백",
+  "summary": "방송인 서동주가 월급 전액을 비트코인에 투자해 3개월 만에 3배가 됐다고 밝혔다.",
+  "body": "배우 서동주가 월급 전액을 비트코인에 투자했다고 밝혔다. 투자 기간은 3개월이며 수익률은 약 3배라고 전해졌다.\n\n가상자산 투자는 가격 변동성이 크다는 점에서 신중한 접근이 필요하다는 지적이 나온다.\n\n관련 세부 내용은 추가로 확인되지 않았다.",
+  "section": "IT·과학",
+  "tags": [
+   "서동주",
+   "비트코인",
+   "가상자산"
+  ],
+  "image_keyword": "비트코인",
+  "ai": true,
+  "image": null
+ },
+ {
   "id": "ff51d8bd9957",
   "orig_title": "스마트폰 GPS·양자컴퓨터의 시작… 빛으로 원자를 얼린 과학자",
   "source": "조선일보",
@@ -574,6 +808,33 @@
    "artist": "MuncherOfSpleens at English Wikipedia",
    "license": "CC BY-SA 3.0"
   }
+ },
+ {
+  "id": "e042ba7ac44b",
+  "orig_title": "[사설] 옆자리 중국인 불편해지게 한 中정보법",
+  "source": "경기일보",
+  "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9GaDhmQjdOeU91NElRcGt5V1NDM2Nvc1U2VjYtMldVQmllbFhNUkpEcHFvQlJJWFpBWWFtTjE5WjdHUUdQdkJ0TF95NDdudG5SQkp4QkpZNnFjWDA?oc=5",
+  "related": [
+   "앨리스 황, 16년전 베이징 최고급 골프클럽에 법인…“황금인맥 출발점일 수도” (동아일보)",
+   "젠슨 황 불륜녀, 中정보기관 `칩 팀` 소속 의혹 제기 (마켓인)",
+   "\"美법무장관, 앨리스 황 中간첩으로 결론 못 내려\" (아시아경제)",
+   "\"앨리스 황과 함께 일했다\" 中 전 CCTV 앵커…글 삭제 뒤 웨이보 게시 정지 (뉴시스)"
+  ],
+  "published": "2026-11-13T03:03:00+09:00",
+  "section_hint": "국제",
+  "headline": "중국 정보법이 불러온 외국 기업 불안",
+  "summary": "중국의 정보법이 외국인과 중국인 사이의 불편을 키우고 있다는 사설이다.",
+  "body": "사설은 중국 정보법이 일상과 업무 현장에서 주변 중국인과의 관계를 불편하게 만들고 있다고 지적했다. 법의 적용 범위가 넓어 사람들이 경계심을 갖게 된 상황을 짚었다.\n\n최근 엔비디아 관련 인물을 둘러싼 중국 정보기관 연루 의혹이 제기되면서 논란이 커졌다. 다만 관련 혐의는 아직 확인되지 않은 상태다.\n\n사설은 정보 활동과 개인의 일상이 뒤섞이는 상황에 대한 사회적 논의가 필요하다고 강조했다.",
+  "section": "국제",
+  "tags": [
+   "중국 정보법",
+   "앨리스 황",
+   "엔비디아",
+   "사설"
+  ],
+  "image_keyword": "",
+  "ai": true,
+  "image": null
  },
  {
   "id": "0fc3f2b42f14",
@@ -657,6 +918,27 @@
    "안보",
    "협조의무"
   ],
+  "ai": true,
+  "image": null
+ },
+ {
+  "id": "9eaa82368508",
+  "orig_title": "\"미녹시딜보다 효과 좋아\"…빗질만으로 탈모 해결 빗 등장",
+  "source": "지디넷코리아",
+  "source_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9yc1ZxZkF1V25NUXhqdlZlT255WDF4YnlTQlBfTDFaajRxeXF2T0tadXBITnI4TGg1aDIteVpfWk50ZnhWbXVaVjNwMG00WGVMcWJSY1h3?oc=5",
+  "related": [],
+  "published": "2026-11-11T09:42:05+09:00",
+  "section_hint": "IT·과학",
+  "headline": "빗질로 탈모 관리하는 신제품 빗 등장",
+  "summary": "미녹시딜보다 효과가 좋다고 소개된 탈모 관리용 빗이 나왔다.",
+  "body": "탈모 관리를 위한 신제품 빗이 소개됐다. 제조사 측은 빗질만으로 탈모를 관리할 수 있다고 주장하며, 기존 치료제인 미녹시딜보다 효과가 좋다는 점을 내세웠다.\n\n다만 이 같은 효과를 뒷받침하는 임상 자료 등 구체적 근거는 보도에서 확인되지 않았다.\n\n제품의 실제 효과에 대해서는 추가 검증이 필요한 상황이다.",
+  "section": "IT·과학",
+  "tags": [
+   "탈모",
+   "빗",
+   "미녹시딜"
+  ],
+  "image_keyword": "",
   "ai": true,
   "image": null
  },
