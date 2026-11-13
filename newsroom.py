@@ -252,11 +252,6 @@ def add_images(archive, limit=40):
 # ───────────────────────── AI 생성 이미지 (Cloudflare Workers AI, FLUX) ─────────────────────────
 STYLE = ("editorial illustration for a newspaper, semi-flat digital painting, muted natural colors, "
          "soft light, clean composition, no text, no letters, no logos, no watermark")
-SECTION_SCENE = {
-    "정치": "a grand parliament building at dusk", "경제": "a city financial district with rising charts",
-    "사회": "a busy city street crosswalk seen from above", "국제": "a world map with glowing connection lines",
-    "IT·과학": "a futuristic laboratory with computer servers", "문화·연예": "a theater stage with spotlights",
-    "스포츠": "an empty sports stadium under floodlights"}
 
 
 def gen_images(archive):
@@ -269,10 +264,11 @@ def gen_images(archive):
 
     MEDIA.mkdir(exist_ok=True)
     url = f"https://api.cloudflare.com/client/v4/accounts/{acct}/ai/run/{CFG.get('image_model', '@cf/black-forest-labs/flux-1-schnell')}"
-    todo = [a for a in archive if a.get("ai") and not a.get("image")][:CFG.get("max_images_per_run", 10)]
+    # 기사별 장면 묘사(image_prompt)가 있는 기사만 — 섹션 공용 장면은 비슷한 그림이 반복돼서 쓰지 않는다
+    todo = [a for a in archive if a.get("ai") and not a.get("image") and a.get("image_prompt")][:CFG.get("max_images_per_run", 10)]
     made = 0
     for a in todo:
-        scene = a.get("image_prompt") or SECTION_SCENE[a["section"]]
+        scene = a["image_prompt"]
         body = json.dumps({"prompt": f"{scene}. {STYLE}", "steps": 4}).encode()
         req = urllib.request.Request(url, data=body, method="POST", headers={
             "Authorization": f"Bearer {token}", "Content-Type": "application/json", "User-Agent": UA})
