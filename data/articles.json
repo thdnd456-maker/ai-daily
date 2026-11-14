@@ -1,5 +1,71 @@
 [
  {
+  "id": "462c33bbedda",
+  "orig_title": "정부, 마이크로소프트 서비스 장애에 비상대응반 구성하고 점검",
+  "source": "MBC 뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1EaGgzRnBCQUxmZnV0WlJETVRZY0hTSHREaGE5Y000dGdVd0o4ZVhwNVVpOTBtWW14MzZ3cVVadkVEWjVQLVY2dVRmSDBNcTBXU2lVZmpwaV9mZ0E0V09iMHphMHpRVmNSWUJNWm5ObWVHY0NR0gF0QVVfeXFMUE9EM1lUa1hNb0tLLUl1eUNlZFNoWG1FSDBIT3BGUVFiQjR0djIwb3RJMjdjaGFnZERTQWNZcHlxTHo0ZXRRd29JZDlobC1lOFRqcHNBRzhGOU42ZWlRRmwxRUtJTTR3WnBVSjZNVkFTM0FFb3c?oc=5",
+  "related": [
+   "MS 서비스 장애에 전 세계 ‘혼란’…70여 개 나라 업무 차질 (KBS 뉴스)",
+   "MS 서비스 장애 36시간 만에 복구‥보험 손실 6천억원대 추산 (MBC 뉴스)",
+   "정부, MS365 오류에 비상 대응반 구성···“불편 최소화” (경향신문)",
+   "'MS 365'가 'MS 363' 된 날…MS 클라우드 먹통 34시간 만에 정상화(종합) (뉴시스)"
+  ],
+  "coverage": [
+   {
+    "title": "정부, 마이크로소프트 서비스 장애에 비상대응반 구성하고 점검",
+    "source": "MBC 뉴스",
+    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1EaGgzRnBCQUxmZnV0WlJETVRZY0hTSHREaGE5Y000dGdVd0o4ZVhwNVVpOTBtWW14MzZ3cVVadkVEWjVQLVY2dVRmSDBNcTBXU2lVZmpwaV9mZ0E0V09iMHphMHpRVmNSWUJNWm5ObWVHY0NR0gF0QVVfeXFMUE9EM1lUa1hNb0tLLUl1eUNlZFNoWG1FSDBIT3BGUVFiQjR0djIwb3RJMjdjaGFnZERTQWNZcHlxTHo0ZXRRd29JZDlobC1lOFRqcHNBRzhGOU42ZWlRRmwxRUtJTTR3WnBVSjZNVkFTM0FFb3c?oc=5"
+   },
+   {
+    "title": "MS 서비스 장애에 전 세계 ‘혼란’…70여 개 나라 업무 차질",
+    "source": "KBS 뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE04SnBFVDF3M0s1bzBDYUg0ckZ0RmtUZ1pld1I5bjgwWG1aTDJsWFZlcFBoYlFLUTVnNlhWbmgteFRQRjJGa1VHNWowb1BUWkNFUlZINDNQOGVIaU0?oc=5"
+   },
+   {
+    "title": "MS 서비스 장애 36시간 만에 복구‥보험 손실 6천억원대 추산",
+    "source": "MBC 뉴스",
+    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE53T3c1SE9TQmVjLUFORmV0OENaYVdURHd0eTFteGJCYWxwYkZGdGQ0R0JVVXlrc0JfZmF5SkMzdkNJbnljT1FlV0VBTTEtYUh4dmM1UGRhLUdKVExEbWl3eE00NFJYbndMWk9mMl92RFhSWEtE0gF0QVVfeXFMUGNYX2FsM0VwV3p2ZldrcEZZTjdESWlTeHFrYUliU2VTYXhIMGF6ZGc5VGhwQXhCaWwtRlQ3N1hNVXh6d2hEYVJ2bURLQU9sQ0VlU080VThFaDh2MWZ2d1Z0MXRsdkNTXzRqZVFmOFp0eUVUMXk?oc=5"
+   },
+   {
+    "title": "정부, MS365 오류에 비상 대응반 구성···“불편 최소화”",
+    "source": "경향신문",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9QOERiVVhLZXB1VWRPY1A1cEZMYUJEcnFpVGROb1R0OHVMX0J4aHo0eE1tc1YyUU0yZVNqbEdOU29tX1UxbnNPY2lpNEFQNGVpYk4tbUdzMzlHd9IBX0FVX3lxTFBYcEZKMlU2dnhqZlhuUUIwYU42RnBsUnNJZzgyYmVhS0ItWFhYbXk3cDN2TUxPTm5vVjdUbWM0bFdnYVVUalZJSFk1SVNtSGFDaEZuWkpKRERNdWZqeDl3?oc=5"
+   },
+   {
+    "title": "'MS 365'가 'MS 363' 된 날…MS 클라우드 먹통 34시간 만에 정상화(종합)",
+    "source": "뉴시스",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBhZVBkOG5mbmg3b3MwN2Q1Tl9Bd2dVdzdDaF9wQktfODZSeFVZemRxN29vYlhwb0p6MXhvWTdydGZxazh3NmZjU1NxMVpSMS1vaUp1Z1U3MURWYWxaeTNVSUlCUW_SAXhBVV95cUxNZEtzdjNKSU9BSkF1N0JoQTM0MWhkdHlRUndfaTlGNmRnc1FzSVcxdTVscGM0NnVZU0FKZTVIWVpaRVhQS3hqMGZrZnB5eDZsbHBFcTA4ZlZFN0g0ZjBCU0JYclduU3RVWG0yaUxzejd2a1NGVVUwVXE?oc=5"
+   }
+  ],
+  "published": "2026-11-14T18:24:39+09:00",
+  "section_hint": "경제",
+  "headline": "정부, MS365 장애에 비상대응반 구성해 점검",
+  "summary": "과기정통부가 MS365 장애에 대응해 한국MS와 비상대응반을 꾸리고 국내 이용자 불편을 점검한다.",
+  "key_points": [
+   "MS365 장애에 과기정통부 비상대응반 가동",
+   "장애 시작 후 약 33시간 만에 복구 완료",
+   "MS “네트워크 변경 과정 문제”, 사후보고서 약속"
+  ],
+  "body": "과학기술정보통신부는 13일 발생한 MS365 서비스 장애에 대응하기 위해 한국마이크로소프트와 비상대응반을 구성했다고 14일 밝혔다. 이번 조치는 장애로 국내 일부 기업의 이메일 송수신에 차질이 생긴 데 따른 것이다.\n\n이번 장애는 한국시간 13일 오전 3시 26분께 시작됐다. 미주와 유럽, 아시아 등 전 세계 70여 개국에 영향을 미쳤으며, 올해 발생한 두 번째 장애다. 이메일 서비스 아웃룩과 협업 도구 팀즈, 인공지능 비서 코파일럿 등에서 접속 오류와 메시지 송수신 지연이 잇따랐다.\n\nMS는 이날 오후 1시 10분께 서비스를 복구하고 1시 17분 복구 완료를 공지했다. 장애 시작 후 약 33시간 44분 만이다. 관련 보도 일부는 복구 소요 시간을 36시간으로 표기해 기사마다 수치가 다르다.\n\nMS는 이번 장애가 네트워크 변경 과정에서 발생했다고 설명했다. 과거 네트워크 용량을 업그레이드할 때 생긴 문제가 최근 네트워크 변경 이후 드러났다는 것이다. 사이버 공격이나 인공지능 관련 문제와는 무관하다고 밝혔다. MS는 사과하고 “근본적인 문제는 해결했고 남은 고객과 지역의 서비스 복구를 이어가고 있다”며, 검토가 끝나는 대로 사후 보고서를 제공하겠다고 덧붙였다.\n\n정부는 한국마이크로소프트를 통해 서비스 복구 현황과 국내 이용자의 불편 및 피해 신고 상황을 파악하고 있다. 국내 주요 플랫폼 사업자들에게도 장애 예방을 위한 자체 시스템 점검을 요청했다.\n\n과기정통부는 이날부터 비상대응반을 운영하며 복구 추이와 국내 이용자 불편 상황을 계속 점검할 계획이다. 국내 피해 규모, 즉 영향을 받은 기업 수와 손실액은 현재 확인되지 않았다. 사후 보고서에서 장애 원인과 재발 방지 대책이 구체적으로 공개될지가 향후 주목된다.",
+  "section": "경제",
+  "tags": [
+   "MS365",
+   "마이크로소프트",
+   "서비스 장애",
+   "비상대응반"
+  ],
+  "image_keyword": "마이크로소프트",
+  "image_prompt": "close-up of a laptop screen showing a blank loading spinner on an office desk, a cup of coffee beside it, early morning window light",
+  "ai": true,
+  "researched": true,
+  "image": null,
+  "about": {
+   "title": "마이크로소프트",
+   "text": "마이크로소프트(영어: Microsoft Corporation)는 미국의 다국적 기술 기업이다. 주요 사업으로는 마이크로소프트 애저를 통한 클라우드 컴퓨팅, 마이크로소프트 365와 다이나믹스 365를 통한 업무용 소프트웨어, 윈도우 운영체제, 링크드인, 엑스박스 게임, 검색·뉴스 서비스 등이 있다. 2014년부터 사티아 나델라가 CEO를 맡고 있다.",
+   "url": "https://ko.wikipedia.org/wiki/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%86%8C%ED%94%84%ED%8A%B8"
+  }
+ },
+ {
   "id": "9c3b0ddc9ba4",
   "orig_title": "젠슨 황 몰락이 남긴 역설…“이사회 누가 머스크·저커버그에 맞설 수 있겠나”",
   "source": "한겨레",
@@ -39,13 +105,91 @@
   ],
   "published": "2026-11-14T18:01:00+09:00",
   "section_hint": "경제",
-  "headline": "젠슨 황 몰락이 남긴 역설…“이사회 누가 머스크·저커버그에 맞설 수 있겠나”",
-  "summary": "",
-  "body": "관련 보도:\n\n· “젠슨 황, 지난해 엔비디아 임원에 ‘앨리스와 적절한 관계’ 거짓 해명” (경향신문)\n\n· 중화권 일각 \"젠슨황 '불륜논란' 사임…대만계인 점도 영향?\" (연합뉴스)\n\n· 젠슨 황 해임, 엔비디아를 바라보는 우려의 시선 (네이버페이 머니스토리)\n\n· “그는 물러났어야 했을까요?” 트럼프, 한숨 푹 내쉬더니 [지금뉴스] (KBS 뉴스)",
+  "headline": "젠슨 황 사임 뒤 이사회 감시 역할 논란",
+  "summary": "젠슨 황의 사임을 계기로 대형 기업 이사회의 감시 기능에 대한 우려가 제기되고 있다.",
+  "body": "젠슨 황 엔비디아 전 CEO의 사임을 계기로 대형 기술기업 이사회가 최고경영자를 견제할 수 있는지에 대한 질문이 제기되고 있다. 한겨레는 이번 사태가 이사회의 역할을 되묻는 계기가 됐다고 짚었다.\n\n관련 보도들은 엔비디아의 해임과 사임 과정을 두고 기업 가치와 투자자 신뢰에 미칠 영향에 주목했다. 일부 매체는 회사의 장기적 경영 안정성을 우려하는 시각을 전했다.\n\n또 일부 보도는 머스크와 저커버그처럼 창업자가 강한 영향력을 행사하는 기업에서 이사회가 실질적 견제 기능을 할 수 있느냐는 문제를 함께 다뤘다. 이번 사례가 그 한계를 드러냈다는 해석도 나왔다.\n\n한편 중화권 일부에서는 젠슨 황이 대만계라는 점이 사임 배경에 영향을 줬을 수 있다는 시각도 제기됐다. 다만 이는 확인된 사실이 아닌 주장으로, 보도에서도 근거는 제시되지 않았다.\n\n트럼프 대통령이 이 사안에 대해 발언한 것도 보도됐다. 다만 구체적인 발언 내용과 정부 차원의 대응은 현재 확인되지 않았다.\n\n향후 엔비디아의 이사회 구성과 지배구조 개편 여부가 관심을 모을 전망이다.",
   "section": "경제",
-  "tags": [],
+  "tags": [
+   "젠슨 황",
+   "이사회",
+   "엔비디아",
+   "지배구조"
+  ],
+  "image_keyword": "엔비디아",
+  "ai": true,
+  "key_points": [
+   "젠슨 황 사임, 이사회 감시 기능 논란",
+   "창업자 영향력 큰 기업의 견제 한계 지적",
+   "엔비디아 지배구조 변화 여부 주목"
+  ],
+  "image_prompt": "empty boardroom with a long wooden table and leather chairs, a single water glass on the table, soft daylight through tall windows",
+  "image": null,
+  "about": {
+   "title": "엔비디아",
+   "text": "엔비디아 코퍼레이션(Nvidia Corporation)은 캘리포니아주 샌타클래라에 본사를 두고 델라웨어에 법인을 둔 미국의 다국적 기업이자 기술 회사이다. 데이터 사이언스 및 고성능 컴퓨팅을 위한 그래픽 처리 장치(GPU), API(애플리케이션 프로그래밍 인터페이스), 모바일 컴퓨팅 및 자동차용 SoC(시스템 온 칩 유닛)를 설계 및 공급하는 소프트웨어 및 팹리스 회사이자 인공지능(AI) 하드웨어와 소프트웨어의 주요 공급업체이다. 엔비디아의 전문 GPU 제품군은 에지-투-클라우드 컴퓨팅과 건축, 엔지니어링 및 건설, 미디어 및 엔터테인먼트, 자동차, 과학 연구, 제조 설계 등의 분야 애플리케이션을 위한 슈퍼컴퓨터 및 워크스테이션에 사용된다.",
+   "url": "https://ko.wikipedia.org/wiki/%EC%97%94%EB%B9%84%EB%94%94%EC%95%84"
+  }
+ },
+ {
+  "id": "07fcdb47cbb4",
+  "orig_title": "“음주운전 안돼요” 했던 고경표…만취 사고 CCTV 속 모습은",
+  "source": "중앙일보",
+  "source_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5mMkl3SzcwTjhKWGVWR00wenU5R0k4YVVTSHk4dmpvMGpyVVMxY3psQnlKN2NiUXBWV1Q2T1MtUTN4TjhxTEJfR084U242S1k0bUxRNGln?oc=5",
+  "related": [
+   "비틀거리다 청소 차에 ‘쾅’…만취 운전자는 배우 고경표 (JTBC)",
+   "고경표 음주운전, 방송가에 불똥…'놀뭐'·'식스센스' 등 편집 (연합뉴스)",
+   "'놀면 뭐하니' 음주운전 고경표 다 못 지웠다..정은지 옆 '박장대소' 리액션 [Oh!쎈 이슈] (조선일보)",
+   "고경표 음주운전에 '대탈출'도 분량 조정…\"한계있지만 재편집\" (뉴시스)"
+  ],
+  "coverage": [
+   {
+    "title": "“음주운전 안돼요” 했던 고경표…만취 사고 CCTV 속 모습은",
+    "source": "중앙일보",
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5mMkl3SzcwTjhKWGVWR00wenU5R0k4YVVTSHk4dmpvMGpyVVMxY3psQnlKN2NiUXBWV1Q2T1MtUTN4TjhxTEJfR084U242S1k0bUxRNGln?oc=5"
+   },
+   {
+    "title": "비틀거리다 청소 차에 ‘쾅’…만취 운전자는 배우 고경표",
+    "source": "JTBC",
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1EbEZUR0M0Q0RDcm9TeDdiQW9Sa24wNlAtYWFSUHZGTTdyZGtDWVZiUW42NjA5aU41WWtEa2J5bWtwbi0tU0ppN0xXQnAxZlFfd09VMg?oc=5"
+   },
+   {
+    "title": "고경표 음주운전, 방송가에 불똥…'놀뭐'·'식스센스' 등 편집",
+    "source": "연합뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9tZ0VXMXROdTNsMTdwTUZnNGFoSVlsVHNEaWU2NFBvQ3RKYjFON1BsYkpRZURoTGtac1BlNDZ6bnFuSG5YOTRxOG5MUlJPbmhJOHRCNnlLSUxhSTjSAWBBVV95cUxPSDQzZ1hpS2liaUdoc3Qxd1JsOFBhZlJYZ1JEZ3ExRnVNcE5Dc1RES2pqQk91TE5ob3NOUTZzaUhNUnFyd1VhMkRfa2d1SEk1VGFYZkJqYnFib2dFQmtwN2E?oc=5"
+   },
+   {
+    "title": "'놀면 뭐하니' 음주운전 고경표 다 못 지웠다..정은지 옆 '박장대소' 리액션 [Oh!쎈 이슈]",
+    "source": "조선일보",
+    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQbWZvTWlTa3ZuSF9qM1ZHSFRYaC1tRERpbGhKODNXR2xoZzV3RVNKSG1XdmdMdnFfazlpd21SUmYzNW5aeUlLV3MwQXdKbkRTdWd0RjlYRlRtWENJNS1tMmU4SC1EcjRXZTAyWmZZa0ZvbFYyU05CLU1pZ1NZR1FpX19MSkxqcDZ6OGp1dDhlRQ?oc=5"
+   },
+   {
+    "title": "고경표 음주운전에 '대탈출'도 분량 조정…\"한계있지만 재편집\"",
+    "source": "뉴시스",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1kc3JMenNDcHJYcmtkdmlldC1rR3RqNTFVSndsRVZ1MlRKVDc1RjNXaVRXaGJDZFZsQjVCRjZyNDVsRW00MmQzMFFyTFMyUk1HLTlMWEhyX0l5czl1LVhsOFdMMlXSAXhBVV95cUxORDZyZ3hYeW9TaHY2MkdBNU5GNFFCcnJGVnRHcHdTNjY3Y0tVMG9LNWVzR1ZSLXhFMEQyV0pxUjhOZG9mTllSdUVHMmVPczZJMGc3VmZ5THBnNFhHVzFSV3Fwd09uRkl0U1UyY2trbGFkYXFLbmtyQTY?oc=5"
+   }
+  ],
+  "published": "2026-11-14T17:36:40+09:00",
+  "section_hint": "문화·연예",
+  "headline": "배우 고경표, 만취 음주운전 사고로 입건",
+  "summary": "배우 고경표가 혈중알코올농도 0.150% 상태로 청소차를 들이받아 음주운전 혐의로 입건됐다.",
+  "key_points": [
+   "고경표, 혈중알코올 0.150% 상태에서 사고",
+   "경찰 음주운전 혐의로 입건, 조사 중",
+   "방송사들 출연 분량 삭제·편집 조치"
+  ],
+  "body": "배우 고경표가 14일 오전 3시 30분께 서울 마포구 동교동에서 만취 상태로 승용차를 몰다 청소차를 들이받는 사고를 냈다. 측정된 혈중알코올농도는 0.150%로, 면허 취소 기준인 0.08%를 크게 웃돌았다. 동승자는 없었던 것으로 확인됐다.\n\n경찰은 고경표를 도로교통법 위반(음주운전) 혐의로 입건하고 조사 중이다. 경찰은 조만간 고경표를 불러 정확한 사고 경위를 조사할 방침이다.\n\n사고 현장 CCTV 영상에는 환경미화원이 다급하게 뒤를 쫓아가는 모습이 담겼다. 운전석에서 내린 고경표가 차량 상태를 살피고 상대방과 대화를 나누는 장면도 찍혔다. MBC 뉴스데스크가 공개한 다른 각도의 영상에는 경찰이 다가오자 손에 들고 있던 물건을 외투에 넣는 장면도 나왔다. 해당 물건의 정체는 확인되지 않았다.\n\n소속사 씨엘엔컴퍼니는 사고 사실을 인정하고 사과했다. 회사는 향후 처분을 받아들이고 책임을 다하겠다는 입장을 밝혔다.\n\n고경표는 2023년 3월 한국도로교통공단의 교통사고 예방 홍보대사로 위촉돼 음주운전 금지를 당부하는 영상에 출연한 바 있어 논란이 커졌다.\n\n방송가에도 영향이 이어지고 있다. MBC ‘놀면 뭐하니?’는 고경표의 개인 멘트를 모두 삭제했다. tvN ‘식스센스: B사이드’ 제작진은 15일 방송과 다음 주 최종회에서 출연 분량을 최대한 편집하겠다고 밝혔다. KBS ‘대탈출’ 측도 노출을 최소화하기 위해 재편집할 예정인 것으로 전해졌다. 경찰 조사 결과와 방송사별 후속 조치가 추가로 주목된다.",
+  "section": "문화·연예",
+  "tags": [
+   "고경표",
+   "음주운전",
+   "방송 편집",
+   "청소차 충돌"
+  ],
   "image_keyword": "",
-  "ai": false
+  "image_prompt": "empty street at dawn with a parked street sweeper truck and a single traffic cone, wet asphalt reflecting early orange light, wide shot",
+  "ai": true,
+  "researched": true,
+  "image": null
  },
  {
   "id": "6d94b310f571",
@@ -87,13 +231,30 @@
   ],
   "published": "2026-11-14T15:20:00+09:00",
   "section_hint": "국제",
-  "headline": "미국 “19일 중국서 미·중·러 정상회담”…트럼프-김정은 회담은 불발 전망",
-  "summary": "",
-  "body": "관련 보도:\n\n· \"트럼프·시진핑·푸틴, 19일 중국서 만난다\" (조선일보)\n\n· 미 백악관, 19일 미중러 정상회담 발표‥\"트럼프-김정은 회담예정 없어\" (MBC 뉴스)\n\n· 美 “트럼프, 18일 中 선전 도착…19일 APEC 만찬 참석” (경기일보)\n\n· 트럼프, 아세안 정상회의서 '팍스 실리카' 참여 촉구할 듯 (연합뉴스)",
+  "headline": "미 “19일 중국서 미·중·러 정상회담 예정”",
+  "summary": "백악관은 19일 중국에서 미·중·러 정상회담이 열린다고 밝혔으며 트럼프-김정은 회담은 예정되지 않았다.",
+  "body": "미국 백악관은 19일 중국에서 미국, 중국, 러시아 정상회담이 열린다고 발표했다. 이번 회담에는 도널드 트럼프 미국 대통령과 시진핑 중국 국가주석, 블라디미르 푸틴 러시아 대통령이 참석할 것으로 보도됐다.\n\n백악관은 이 자리에서 트럼프 대통령과 김정은 북한 국무위원장의 회담은 예정되어 있지 않다고 밝혔다. 이에 따라 북미 정상 간 만남은 이번 일정에 포함되지 않을 것으로 전해졌다.\n\n일정과 관련해 미국 측은 트럼프 대통령이 18일 중국 선전에 도착해 19일 아시아태평양경제협력체(APEC) 만찬에 참석할 예정이라고 전했다. 이 자리에서 여러 정상이 함께 모이는 만큼 회담 이후의 외교 일정에도 관심이 쏠린다.\n\n한편 연합뉴스는 트럼프 대통령이 아세안 정상회의에서 ‘팍스 실리카’ 참여를 촉구할 것으로 보인다고 전했다. 세부 내용은 확인되지 않았다.\n\n미·중·러 3국 정상이 한자리에 모이는 것이 어떤 결과로 이어질지 외교가의 관심이 높다. 북한 문제와 미중 관계에 대한 논의 내용은 회담 이후 공개될 것으로 보인다.",
   "section": "국제",
-  "tags": [],
-  "image_keyword": "",
-  "ai": false
+  "tags": [
+   "미중러 정상회담",
+   "트럼프",
+   "APEC",
+   "북한"
+  ],
+  "image_keyword": "도널드 트럼프",
+  "ai": true,
+  "key_points": [
+   "19일 중국서 미·중·러 정상회담 예정",
+   "백악관 “트럼프-김정은 회담 예정 없어”",
+   "트럼프 18일 선전 도착, APEC 만찬 참석"
+  ],
+  "image_prompt": "wide shot of a government podium in an empty hall with flags out of focus, rows of chairs and soft stage lighting in the early evening",
+  "image": null,
+  "about": {
+   "title": "도널드 트럼프",
+   "text": "도널드 트럼프(영어: Donald Trump, 1946년 6월 14일~)는 미국의 부동산 사업가 출신 정치인으로, 제45·47대 미국 대통령이다. 1968년 펜실베이니아 대학교에서 경제학 학사 학위를 받았다. 1971년 가족이 운영하던 부동산 복합기업의 사장이 되어 이름을 트럼프 기업으로 바꾸고 고층 건물, 호텔, 카지노, 골프장을 인수하고 건설하기 시작했다.",
+   "url": "https://ko.wikipedia.org/wiki/%EB%8F%84%EB%84%90%EB%93%9C_%ED%8A%B8%EB%9F%BC%ED%94%84"
+  }
  },
  {
   "id": "3d636d033e9b",
@@ -135,13 +296,39 @@
   ],
   "published": "2026-11-14T15:16:00+09:00",
   "section_hint": "문화·연예",
-  "headline": "300억 대작 ‘문무’ D-DAY…정통 대하사극 부활할까",
-  "summary": "",
-  "body": "관련 보도:\n\n· 장혁, 4년 만의 사극 ‘문무’ 14일 첫방…“전략가들 수 싸움 또 다른 재미” [이런뉴스] (KBS 뉴스)\n\n· 인사말하는 최예빈 (연합뉴스)\n\n· 김동희, ‘문무’ 합류 긴장감 견인…이현욱·장혁·김강우와 호흡 (조선일보)\n\n· '문무' D-DAY, 전란에 휘말린 삼국...폭풍전야 긴장감 - 머니투데이 (머니투데이)",
+  "headline": "장혁 주연 대하사극 '문무', 14일 첫 방송",
+  "summary": "KBS2 대하드라마 '문무'가 14일 첫 방송되며, 약 300억 원이 투입된 정통 대하사극이다.",
+  "body": "KBS2 대하드라마 '문무'가 2026년 11월 14일 토요일 오후 9시 20분 첫 방송된다. 장혁이 주연을 맡은 이 작품은 약 300억 원이 투입된 대작으로 알려졌다. 극은 600년간 이어진 전쟁과 삼국 내부 격변을 다룬다.\n\nKBS가 공개한 영상에 따르면 몽골 초원 전투 장면에는 말 450여 마리가 동원됐고, AI 기술이 더해졌다. 촬영은 약 1년간 이어졌다.\n\n장혁은 고구려 연개소문 역을 맡았다. 왕을 몰아내고 권력을 잡은 인물이다. 장혁은 이 인물을 여러 선배 배우가 연기해 온 만큼 부담이 컸다고 말했다.\n\n신라 측 인물로는 이현욱이 김법민, 김강우가 김춘추, 박성웅이 김유신을 맡았다. 12일 서울 신도림에서 열린 제작발표회에는 장혁, 이현욱, 김강우가 참석했다. 김강우는 라디오에서 장혁의 말 연기와 검술 연기를 칭찬했다고 밝혔다.\n\n장혁은 2010년 KBS2 사극 '추노'로 최고 시청률 34%를 기록하며 흥행을 이끈 배우다. 이번 작품으로 사극에 복귀하는 셈이다. '문무'는 '고려거란전쟁'(2023~2024) 이후 2년 8개월 만에 편성된 KBS 대하드라마이며, 35번째 대하드라마다.\n\n정통 대하사극의 부활 여부에 관심이 쏠린다. 다만 14일 첫 방송 이후 방영 편성은 아직 확인되지 않았다.",
   "section": "문화·연예",
-  "tags": [],
-  "image_keyword": "",
-  "ai": false
+  "tags": [
+   "문무",
+   "장혁",
+   "KBS 대하드라마",
+   "사극"
+  ],
+  "image_keyword": "장혁",
+  "ai": true,
+  "key_points": [
+   "14일 오후 9시 20분 KBS2 첫 방송",
+   "약 300억 원 투입, 몽골 초원 전투 장면 공개",
+   "장혁 연개소문 역, 2010년 '추노' 이후 사극 복귀"
+  ],
+  "image_prompt": "wide shot of a grassland battlefield at dusk, dust rising behind hundreds of galloping horses, warm cinematic light, distant hills",
+  "researched": true,
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Jang-hyuk_in_2017_2.jpg",
+   "w": 477,
+   "h": 636,
+   "page": "https://commons.wikimedia.org/wiki/File:Jang-hyuk_in_2017_2.jpg",
+   "subject": "장혁",
+   "artist": "tenasia10",
+   "license": "CC BY 3.0"
+  },
+  "about": {
+   "title": "장혁",
+   "text": "장혁(본명: 정용준, 1976년 12월 20일 ~ )은 대한민국의 배우이다.",
+   "url": "https://ko.wikipedia.org/wiki/%EC%9E%A5%ED%98%81"
+  }
  },
  {
   "id": "ce09283220d8",
@@ -183,13 +370,70 @@
   ],
   "published": "2026-11-14T15:14:00+09:00",
   "section_hint": "사회",
-  "headline": "한동훈·최민희, 李·尹 재판 놓고 설전…韓 \"막 우기면 추해\"",
-  "summary": "",
-  "body": "관련 보도:\n\n· ‘최민희 녹취’ 입수…\"이 대통령, 한덕수 손잡고 윤석열 하야 쪽으로\" (JTBC)\n\n· 최민희·한동훈, ’李·尹 재판비교’ 설전…“거짓말 마라“vs“우기면 추해“ (연합뉴스TV)\n\n· [사설] 이재명 정권, 넘쳐나는 권력 감당 안 돼 자기들끼리 싸우나 (조선일보)\n\n· 이번주 국회에는 무슨 일이? [뉴시스국회토pic] (뉴시스)",
+  "headline": "한동훈·최민희, 이재명·윤석열 재판 두고 설전",
+  "summary": "최민희 의원의 발언을 두고 한동훈 의원과 최 의원이 대통령 재판과 전 대통령 재판의 차이를 놓고 공방을 벌였다.",
+  "body": "최민희 더불어민주당 의원이 지난달 비공개 당원 간담회에서 “대통령 공직선거법 재판과 지금 윤석열 재판이 똑같다”고 말한 내용이 보도되면서 논쟁이 시작됐다. 이후 14일 한동훈 무소속 의원이 페이스북에 “최 의원 말이 맞다”고 쓰며 설전이 본격화됐다.\n\n한 의원은 이재명 대통령을 “재판만 열리면 끝나는 ‘시한부 대통령’”이라고 표현했다. 윤석열 전 대통령은 대법원 3심이 남아 있지만, 이 대통령은 대법원 파기환송 판결로 유죄 가능성만 남았다는 주장이다.\n\n최 의원은 “한동훈 거짓말 마라”고 반박했다. 윤 전 대통령은 항소심에서 유죄를 받았고, 이 대통령은 항소심에서 무죄를 받은 뒤 파기환송됐다는 취지다. 한 의원은 재반박에서 최 의원의 녹음 발언과 다르다며 “막 우기면 좀 추하다”고 말했다.\n\n배경에는 최 의원의 앞선 발언 논란이 있다. 최 의원은 이 대통령이 윤석열 탄핵에 반대했다는 취지의 발언으로 논란을 빚었고, 기자회견에서 “헷갈린 점이 있었다”고 해명했다. 청와대는 이 대통령이 탄핵에 반대했다는 발언을 사실무근이라고 선을 그었다.\n\n천준호 원내운영수석부대표는 계엄 이후 윤 대통령 탄핵을 막아야 한다고 말한 적이 없다고 밝혔다. 윤 전 대통령은 공직선거법 위반 2심에서 당선무효형을 선고받았다. 이 대통령의 공직선거법 사건은 대법원에서 유죄 취지로 파기환송된 상태다.\n\n여야 간 공방이 이어지는 가운데, 향후 추가 입장이나 후속 일정은 확인되지 않았다.",
   "section": "사회",
-  "tags": [],
-  "image_keyword": "",
-  "ai": false
+  "tags": [
+   "한동훈",
+   "최민희",
+   "공직선거법",
+   "재판"
+  ],
+  "image_keyword": "한동훈",
+  "ai": true,
+  "key_points": [
+   "최민희 발언을 계기로 한동훈 의원과 설전",
+   "한 의원 ‘시한부 대통령’ 표현, 최 의원 ‘거짓말’ 반박",
+   "이 대통령 공직선거법 사건은 파기환송 상태"
+  ],
+  "image_prompt": "empty National Assembly plenary seats in soft morning light, a single microphone on a wooden podium, wide angle, no people",
+  "researched": true,
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Han_dong_hoon_2026.png",
+   "w": 405,
+   "h": 540,
+   "page": "https://commons.wikimedia.org/wiki/File:Han_dong_hoon_2026.png",
+   "subject": "한동훈",
+   "artist": "엠바고",
+   "license": "CC BY 4.0"
+  }
+ },
+ {
+  "id": "de71f5c4ef1a",
+  "orig_title": "“젠슨 황, 엔비디아 임원진에 ‘앨리스 황과 적절한 관계’ 거짓말”",
+  "source": "세계일보",
+  "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9DWVJSVFNmVUl2VVNBQWVlOHRDWXJPUlRhc3FvZUxqanlIUTFqQ0otcHMzWWhUNW1vZlJhTWhZcGllSW5OQzJsbzV0QUlKVjdlQ3RjUFBmU0vSAVRBVV95cUxNQjNjeXJPdXdrSUF6YlJjXzZnYV9HN2toYUJibmxmc0F6bnVEbmJvd2lrMjBheEhPb25ZcFRHZnZwUVkzcF82eU8wSC1nTF9yTVFobjg?oc=5",
+  "related": [],
+  "coverage": [
+   {
+    "title": "“젠슨 황, 엔비디아 임원진에 ‘앨리스 황과 적절한 관계’ 거짓말”",
+    "source": "세계일보",
+    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9DWVJSVFNmVUl2VVNBQWVlOHRDWXJPUlRhc3FvZUxqanlIUTFqQ0otcHMzWWhUNW1vZlJhTWhZcGllSW5OQzJsbzV0QUlKVjdlQ3RjUFBmU0vSAVRBVV95cUxNQjNjeXJPdXdrSUF6YlJjXzZnYV9HN2toYUJibmxmc0F6bnVEbmJvd2lrMjBheEhPb25ZcFRHZnZwUVkzcF82eU8wSC1nTF9yTVFobjg?oc=5"
+   }
+  ],
+  "published": "2026-11-14T14:52:21+09:00",
+  "section_hint": "IT·과학",
+  "headline": "젠슨 황, 임원에 앨리스 황 관계 허위 해명했다는 보도",
+  "summary": "로이터는 젠슨 황 전 CEO가 사임 전 임원들에게 앨리스 황과의 관계를 허위로 해명했다고 보도했다.",
+  "key_points": [
+   "로이터 “앨리스 황 관계 허위 해명” 보도",
+   "젠슨 황, 외도 인정 후 CEO 사임",
+   "엔비디아 측 공식 입장은 아직 확인 안 돼"
+  ],
+  "body": "로이터통신은 13일(현지시간) 젠슨 황 전 엔비디아 CEO가 물러나기 전 앨리스 황과의 관계를 임원들에게 허위로 해명했다고 보도했다. 로이터는 사안에 정통한 관계자 2명과 엔비디아 내부 소통 문건을 토대로 이같이 전했다.\n\n해명 시점은 지난해 가을과 올해 10월 언론에서 두 사람의 관계를 문의했을 때로 확인된다. 로이터는 지난달 고위 임원들에게 보낸 두 건의 메시지에서 앨리스 황과의 접촉이 통상적인 고객사와의 사업상 교류라고 설명했다고 전했다. 메시지를 받은 이들은 법무총괄과 최고마케팅책임자 등 초고위 임원으로 알려졌다.\n\n앨리스 황은 싱가포르 기업 메가스피드에서 고위 임원을 지낸 인물이다. 로이터가 진위를 확인한 사진에는 이르면 2023년 12월부터 두 사람이 미국과 중국 등지에서 함께 있는 모습이 담겼다. 다만 두 사람의 관계가 언제부터 내연 관계로 발전했는지는 불분명하다.\n\n이번 보도는 앞선 의혹과 사임 경위를 잇는다. 젠슨 황은 사임 직전까지 의혹에 선을 그었으나 열흘 만에 외도를 인정했고, 이후 CEO 자리에서 물러났다. 사임 나흘 전인 8일 입장문에서는 아내에게 부정한 행동을 하고 회사에 실망을 안긴 데 대해 공개 사과했다.\n\n뉴욕타임스(NYT)는 11일 엔비디아 헬스케어 부문 부사장과의 혼외 관계를 보도했다. 로이터는 12일 또 다른 여성 임직원과의 내연 관계를 보도했다. 젠슨 황은 NYT를 상대로 법적 조치를 논의했으나 실제로 취하지는 않은 것으로 알려졌다.\n\n엔비디아 측의 공식 입장과 젠슨 황 측의 로이터 보도에 대한 반응은 현재 확인되지 않았다. 회사 지배구조와 임원 관리 체계에 대한 시장의 우려가 이어질지, 후속 입장이 나올지가 주목된다.",
+  "section": "경제",
+  "tags": [
+   "젠슨 황",
+   "엔비디아",
+   "앨리스 황",
+   "지배구조"
+  ],
+  "image_keyword": "젠슨 황",
+  "image_prompt": "over-the-shoulder shot of a glass office conference table with closed folders and a laptop, city skyline blurred through windows, late afternoon light",
+  "ai": true,
+  "researched": true,
+  "image": null
  },
  {
   "id": "9fbb727443cd",
@@ -231,13 +475,104 @@
   ],
   "published": "2026-11-14T14:26:00+09:00",
   "section_hint": "문화·연예",
-  "headline": "'라이어' 유연석, 임신한 옥자연에게도 몹쓸 짓..제작진 \"서현진과 연대\"",
-  "summary": "",
-  "body": "관련 보도:\n\n· '라이어' 유연석, 또 뒤통수 친 파격 변신…예측불가 연기 행보 [N이슈] (뉴스1)\n\n· '라이어' 서현진, 유연석 기절시켰다 '반격 엔딩'...자체 최고 2.7% [종합] - 머니투데이 (머니투데이)\n\n· ‘칠봉이·안정원’은 잊어라…‘라이어’ 유연석, 섬뜩한 얼굴 꺼냈다 (매일경제)\n\n· 서현진, 유연석 기절시켰다…“당신이 이겼어” 굴욕 뒤 반격 (라이어) (스포츠동아)",
+  "headline": "'라이어' 유연석, 옥자연 집 무단 침입 장면 공개",
+  "summary": "MBC 금토드라마 '라이어'에서 유연석이 옥자연의 집에 무단으로 들어가는 장면이 방송됐으며, 13일 시청률은 2.7%였다.",
+  "body": "MBC 금토드라마 '라이어'에서 유연석이 연기하는 민준호가 경찰 옥자연(이화영 역)의 집에 무단으로 들어가 몰래 촬영하는 장면이 7일 방송에 나왔다. 이 장면은 4회 방송 말미에 공개됐다.\n\n다음 회 예고에서는 민준호가 서현진(강지선 역)의 목을 조르는 장면이 나왔다. 13일 방송에서는 민준호의 또 다른 성범죄 피해 의혹이 다뤄졌고, 경찰 이화영도 피해를 당한 정황이 드러났다.\n\n13일 방송 말미에는 서현진이 민준호를 기절시키는 반격 장면이 나왔다. 이 방송의 시청률은 2.7%로 보도됐다. 제작진은 이화영 역할에 집중하며, 강지선과 이화영이 함께 민준호를 추적하는 구도를 설명했다.\n\n'라이어'는 영국 ITV 드라마 〈Liar〉를 원작으로 하며, 2026년 MBC 금토 편성 작품이다. 작품은 악인의 이중적 면모를 중심으로 전개되는 서스펜스 장르로 소개되고 있다.\n\n14일 방송 예고에서는 옥자연이 어떤 선택을 할지가 관심사로 제시됐다. 다만 7회 방영 일정은 공식 확인되지 않았다.",
   "section": "문화·연예",
-  "tags": [],
-  "image_keyword": "",
-  "ai": false
+  "tags": [
+   "라이어",
+   "유연석",
+   "서현진",
+   "옥자연"
+  ],
+  "image_keyword": "유연석",
+  "ai": true,
+  "key_points": [
+   "7일 방송 4회 말미에 무단 침입 장면 공개",
+   "13일 방송 시청률 2.7%, 서현진 반격 엔딩",
+   "14일 예고에서 옥자연의 선택이 관심사로 떠올라"
+  ],
+  "image_prompt": "close-up of a slightly open apartment door in a dim hallway, a television glowing bluish in the next room, night",
+  "researched": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/20260303_Yoo_Yeon-seok.png/1280px-20260303_Yoo_Yeon-seok.png",
+   "w": 1000,
+   "h": 1247,
+   "page": "https://commons.wikimedia.org/wiki/File:20260303_Yoo_Yeon-seok.png",
+   "subject": "유연석",
+   "artist": "三立娛樂星聞",
+   "license": "CC BY 3.0"
+  },
+  "about": {
+   "title": "유연석",
+   "text": "유연석(본명: 안연석, 1984년 4월 11일 ~ )은 대한민국의 배우이다.",
+   "url": "https://ko.wikipedia.org/wiki/%EC%9C%A0%EC%97%B0%EC%84%9D"
+  }
+ },
+ {
+  "id": "386dd2dc7c0b",
+  "orig_title": "국힘 부산서 ‘조작기소 특검법’ 장외집회…민주당 “예산국회 팽개치고 대통령 조롱”",
+  "source": "경향신문",
+  "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBJSm9DZzU2M2JwMEpYc0JaUVhUd1JTN3RxUUhweWFjSlZDSlJlekNwUjc0THQ2Q0lvaHh4WUhPNVJ4WkNiVEVKdlZ3dHJZM3NKcGloaHJMM2VuQdIBX0FVX3lxTFBoZmVnbFlMWm9BSFZWclZOa0ZmVDhVYzVQaTQ3a29fN1F4OVdKY1VpSW5lMzJqVjBPSHd1MDFpajd1SG5GYjlFWUN6eGQ4OEV6NWcwOUZ4Y3ZIVlBmNm53?oc=5",
+  "related": [
+   "민주당, 국힘 장외 집회에 \"예산국회 팽개치고 대통령 조롱\" (MBC 뉴스)",
+   "검찰 불법 행위 밝히자는데 저주 퍼붓는 주류 매체들 (뉴스타파)",
+   "국힘 \"특검 의결시 국무위원들도 감옥갈 것\"…부산서 규탄 집회 (연합뉴스)",
+   "[속보] 한동훈, “李대통령, 조작기소특검법 직접 할 배짱 없으면 접어야” (경기일보)"
+  ],
+  "coverage": [
+   {
+    "title": "국힘 부산서 ‘조작기소 특검법’ 장외집회…민주당 “예산국회 팽개치고 대통령 조롱”",
+    "source": "경향신문",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBJSm9DZzU2M2JwMEpYc0JaUVhUd1JTN3RxUUhweWFjSlZDSlJlekNwUjc0THQ2Q0lvaHh4WUhPNVJ4WkNiVEVKdlZ3dHJZM3NKcGloaHJMM2VuQdIBX0FVX3lxTFBoZmVnbFlMWm9BSFZWclZOa0ZmVDhVYzVQaTQ3a29fN1F4OVdKY1VpSW5lMzJqVjBPSHd1MDFpajd1SG5GYjlFWUN6eGQ4OEV6NWcwOUZ4Y3ZIVlBmNm53?oc=5"
+   },
+   {
+    "title": "민주당, 국힘 장외 집회에 \"예산국회 팽개치고 대통령 조롱\"",
+    "source": "MBC 뉴스",
+    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBYWnVYZ3N6XzRIUjR4WWJtRDFWUlhTc0hhTmptQWFXREh4OHktTmFTMGZlcWdOMTc5TWhhX2pzenNuN05aT1R5RkZ1UF9FLUNsS2ZsNmFyZ1BJM0cybUJKUHVIWm9xRHRPTkFCVFR3MTlXNExqSjBBb9IBeEFVX3lxTE1DS2E5WDVxcVFhdWRzQjRyU25TTVhGdHJuWUNTLTFmZ2pYbFo2R3FGTllmcDVGRHpWcTUwMWVfSm9MbFI2SjVCTjFKdGJYdnBxazJnVUVHeGc1R245MjE3eFVjclJ3dklyZDJMb2xPdzhtcEthZk91MA?oc=5"
+   },
+   {
+    "title": "검찰 불법 행위 밝히자는데 저주 퍼붓는 주류 매체들",
+    "source": "뉴스타파",
+    "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFB0enNhTUJibk1oU1o1Q3BRUGJxOGZPVzJCUUR1UUdwcVlkcWZJNFVpdkVSR1pSQnNIT3F6TFMzTFVqS3ZvamJnN2xn?oc=5"
+   },
+   {
+    "title": "국힘 \"특검 의결시 국무위원들도 감옥갈 것\"…부산서 규탄 집회",
+    "source": "연합뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB0ZTU3Z2NLV25PNFVYZncwMVFMR3Z3R1M3bkNYa3VvWjBSc1JBRmZfTmgwX0swYVJCb1dDUEdLZjlHcmtTNG9hMmlxMXI2SW9janEtOE1TdUVEbW_SAWBBVV95cUxPU3FSYVVFY1ljaWJYR2hSdTdObDRFeGtReDhGbVY2TmM3UTFiQnZXMW1vTEZ2SzE4MWFVRXJqTVBYeFUxbHpxeFg2QkhuSkJTRHUySFBRLWR6WlVLNVBOVm4?oc=5"
+   },
+   {
+    "title": "[속보] 한동훈, “李대통령, 조작기소특검법 직접 할 배짱 없으면 접어야”",
+    "source": "경기일보",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1mMFJlZkRUVk41b0RGaGxnemhvR3ZmNEpFcHNianM3TzBrRUVhSUtjaEZEYkhIazhYeG01YURtREhGWHBvbTFQSFZFczF0OW9NaThBMFJzQ2VYM1E?oc=5"
+   }
+  ],
+  "published": "2026-11-14T13:57:00+09:00",
+  "section_hint": "사회",
+  "headline": "국민의힘 부산서 조작기소 특검법 규탄 장외집회",
+  "summary": "국민의힘이 부산역 광장에서 특검법 규탄 집회를 열고 대통령 거부권 행사를 촉구했다.",
+  "key_points": [
+   "국민의힘 부산역 장외집회, 특검법 규탄",
+   "민주당 “예산국회 외면한 대통령 조롱” 반박",
+   "정부 다음 주 국무회의서 공포안 심의 예정"
+  ],
+  "body": "국민의힘이 14일 부산역 광장에서 ‘이재명 탈옥법 강행처리 전국민규탄대회’를 열고 더불어민주당이 강행 처리한 조작기소 특검법을 규탄했다. 이번 집회는 지난 6일 국회 본회의를 통과한 특검법에 대해 이재명 대통령의 거부권 행사를 촉구하기 위해 마련됐다.\n\n행사에는 장동혁 대표와 정점식 원내대표를 비롯한 소속 의원 30여 명과 원외 당협위원장들이 참석했다. 지난 7일 서울 경복궁역 앞 집회에 이어 두 번째로 열린 전국 단위 장외집회다. 부산에 지역구를 둔 국민의힘 의원 17명 가운데 일부는 나오지 않았다. 보도에 따라 불참 인원은 2명 또는 3명으로 엇갈렸다. 친한동훈계 정성국·정연욱 의원과 윤리위원회 징계 문제로 장 대표와 갈등 중인 조경태 의원이 불참한 것으로 전해졌다.\n\n집회 규모도 집계가 달랐다. 국민의힘 관계자는 당 추산 1만명이 모였다고 밝혔지만, 부산경찰청의 잠정 집계는 1000여명이었다. 일부 보도는 15만명 추산을 제시했으나 단일 출처이고 다른 매체와 차이가 커 검증이 필요하다.\n\n장동혁 대표는 이 법을 “범죄자 이재명 한 사람을 위한 법”이라고 규정했다. 정점식 원내대표는 특검법을 ‘좀비 특검’이라고 비판하며 한성숙 국무총리와 국무위원들이 의결에 참여하면 법적 책임을 져야 한다고 주장했다. 나경원 의원은 “당신들도 감옥 간다”며 국무위원들에게 법 통과 저지를 요구했고, 김기현 의원은 “내년 봄까지 이재명 정권을 끝장내야 한다”고 말했다.\n\n이에 대해 민주당 손명수 대변인은 서면 브리핑에서 예산국회를 외면하고 특검법을 빌미로 대통령을 조롱하는 장외투쟁이라고 비판했다. 민주당은 특검법에 공소취소 권한이 없으며 관련 조항도 삭제됐다고 반박했다. 국민의힘이 문제 삼은 공소유지 여부 결정 조항과 사건 이첩요구권도 삭제됐다는 것이다.\n\n정부는 다음 주 국무회의에서 특검법 공포안을 심의할 예정이다. 국민의힘은 21일 대구, 27일 대전, 다음 달 초 서울 등 거점 도시를 돌며 장외 여론전을 이어갈 계획이어서, 공포 여부와 장외 집회의 추이가 함께 주목된다.",
+  "section": "정치",
+  "tags": [
+   "조작기소 특검법",
+   "국민의힘",
+   "장외집회",
+   "거부권"
+  ],
+  "image_keyword": "국민의힘",
+  "image_prompt": "wide shot of a crowd gathered on an open plaza in front of a train station at dusk, distant banners without readable text, overcast light",
+  "ai": true,
+  "researched": true,
+  "about": {
+   "title": "국민의힘",
+   "text": "국민의힘은 대한민국의 보수정당이다. 2020년 2월 17일, 자유한국당, 새로운보수당, 미래를향한전진4.0이 통합하여 미래통합당이라는 당명으로 창당되었으며 2020년 9월 2일, 당명을 국민의힘으로 변경하였다. 2022년 4월 18일에는 국민의당과 흡수하여 합당하였다.",
+   "url": "https://ko.wikipedia.org/wiki/%EA%B5%AD%EB%AF%BC%EC%9D%98%ED%9E%98"
+  }
  },
  {
   "id": "7a9df6d0f97e",
@@ -254,13 +589,31 @@
   ],
   "published": "2026-11-14T13:19:07+09:00",
   "section_hint": "국제",
-  "headline": "호르무즈 해협 선박에 위협 고조…10월 공격 최다",
-  "summary": "",
-  "body": "",
+  "headline": "호르무즈 해협 선박 공격 10월 37건으로 월간 최다",
+  "summary": "로이드 리스트 집계에 따르면 10월 호르무즈 해협 주변 선박 공격은 37건으로, 이란 전쟁 발발 이후 월간 최다였다.",
+  "body": "영국 해운 데이터 업체 로이드 리스트 인텔리전스는 13일(현지시간) 집계 결과를 발표했다. 10월 한 달간 호르무즈 해협 주변에서 선박 공격이 총 37건 집계됐다. 9월보다 늘었으며, 올해 2월 미국과 이스라엘이 이란을 공격해 전쟁이 시작된 뒤 월간 기준 가장 많은 수치다.\n\n11월 들어서도 최소 14건의 공격이 이어졌다. 같은 달 호르무즈를 통과한 비이란계 유조선은 418척으로, 9월의 385척보다 늘었다. 통항이 회복되고 있지만 정상화된 것은 아니라는 분석이다. 로이드는 추가 의도적 공격 위험이 크다고 봤다.\n\n이란 혁명수비대 해군은 13일 호르무즈 동부에서 액화가스 운반선이 기뢰와 충돌해 대형 폭발이 발생했다고 발표했다. 이란은 해협에 대한 통제권을 주장하며 자국 허가 없이 운항하는 선박을 공격하고 있다.\n\n호르무즈 해협은 자연 해협으로, 국제법상 특정 국가가 선박 통행을 일방적으로 제한할 수 없다는 지적이 나온다. 국제해사기구는 모든 선박의 방해받지 않는 통과권을 강조하며 민간 상선 공격을 규탄했다.\n\n예멘의 친이란 후티 반군은 13일 사우디 남서부 자잔주의 사우디군 병력 집결지를 겨냥해 탄도미사일 2발을 발사했다고 주장했다. 자잔주에는 아람코 정유시설이 있다. 후티는 전날에도 사우디 동서 송유관과 석유시설, 리야드 아람코 시설을 공격했다고 주장했다. 예멘에서는 이틀 연속 공습으로 최소 57명이 숨진 것으로 전해져 사우디와 후티 간 긴장이 고조되고 있다.",
   "section": "국제",
-  "tags": [],
-  "image_keyword": "",
-  "ai": false
+  "tags": [
+   "호르무즈 해협",
+   "이란",
+   "후티",
+   "선박 공격"
+  ],
+  "image_keyword": "호르무즈 해협",
+  "ai": true,
+  "key_points": [
+   "10월 선박 공격 37건, 이란 전쟁 이후 월간 최다",
+   "11월 들어 최소 14건 추가, 통항은 회복 중이나 정상화 아님",
+   "후티, 사우디 정유시설 겨냥 미사일 공격 주장"
+  ],
+  "image_prompt": "aerial view of a large tanker crossing a narrow strait at dawn, calm grey water, faint coastline haze in the distance",
+  "researched": true,
+  "image": null,
+  "about": {
+   "title": "호르무즈 해협",
+   "text": "호르무즈 해협(Strait of Hormuz, /hɔːrˈmuːz/ 페르시아어: تنگهٔ هُرمُز Tangeh-ye Hormoz listen , 아랍어: مَضيق هُرمُز Maḍīq Hurmuz)은 페르시아만과 오만만 사이의 해협이다. 페르시아만에서 대양으로 나가는 유일한 해로이며 세계에서 가장 전략적으로 중요한 조임목 중 하나이다. 북쪽 해안에는 이란이 있고, 남쪽 해안에는 아랍에미리트와 오만의 월경지인 무산담 반도가 있다.",
+   "url": "https://ko.wikipedia.org/wiki/%ED%98%B8%EB%A5%B4%EB%AC%B4%EC%A6%88_%ED%95%B4%ED%98%91"
+  }
  },
  {
   "id": "96c2ec357ac1",
@@ -277,13 +630,39 @@
   ],
   "published": "2026-11-14T13:11:55+09:00",
   "section_hint": "IT·과학",
-  "headline": "셰익스피어 통찰도, 플레밍의 발견도 ‘여기’서 시작됐다",
-  "summary": "",
-  "body": "",
+  "headline": "셰익스피어의 통찰과 플레밍의 발견, 모두 ‘관찰’에서 시작",
+  "summary": "셰익스피어의 인간 탐구와 플레밍의 페니실린 발견은 모두 끈질긴 관찰에서 출발했다는 분석이다.",
+  "body": "셰익스피어의 통찰과 플레밍의 발견은 모두 ‘관찰’에서 출발했다는 주장이 제기됐다. 1564년 윌리엄 셰익스피어가 태어난 영국 스트랫퍼드 어폰 에이번의 생가는 이 글의 도입부 사진으로 쓰였다.\n\n셰익스피어 작품은 인간의 내면과 행동을 깊이 관찰한 결과물로, 오늘날 심리학자들의 연구 대상이 되고 있다. 융과 후대 분석가들은 『폭풍우』의 프로스페로와 주변 인물들을 한 개인의 내면 속 원형(archetype)과 개성화 과정(individuation)으로 해석했다.\n\n알렉산더 플레밍은 곰팡이가 핀 배양 접시를 실패작으로 버리지 않았다. 대신 곰팡이 주변의 세균이 녹아 있는 현상을 끈질기게 관찰했다. 배경 자료에 따르면 그는 1928년 여름 배양 접시를 열어 둔 채 휴가를 다녀왔고, 돌아와 이 현상을 발견했다.\n\n이 관찰을 통해 플레밍은 곰팡이가 세균을 죽이는 물질을 만든다는 사실을 밝혀냈고, 이를 페니실린이라고 이름 붙였다. 1929년 발표된 논문은 이후 하워드 플로리와 에른스트 체인 등의 연구로 이어져, 약 10년 뒤 치료약으로 쓰이기 시작했다. 플레밍은 1921년에도 라이소자임이라는 항생 물질을 먼저 발표한 바 있다.\n\n기사는 연역적 추리가 기존 법칙 안에서 답을 낸다면, 관찰은 기존 공식으로 설명되지 않는 새로운 질문을 만든다고 대비했다. 관찰은 기존 지식으로 포착되지 않는 변칙(anomaly)을 잡아내는 힘을 준다는 설명이다. 일상의 지혜와 과학적 통찰 모두에서 가장 중요한 요소인데도 쉽게 무시된다는 지적도 나왔다.",
   "section": "IT·과학",
-  "tags": [],
-  "image_keyword": "",
-  "ai": false
+  "tags": [
+   "셰익스피어",
+   "플레밍",
+   "페니실린",
+   "관찰"
+  ],
+  "image_keyword": "윌리엄 셰익스피어",
+  "ai": true,
+  "key_points": [
+   "셰익스피어 통찰과 플레밍 발견 모두 관찰에서 출발",
+   "플레밍은 곰팡이 주변 세균 용해 현상을 끈질기게 관찰",
+   "관찰은 기존 지식으로 설명되지 않는 변칙을 드러낸다"
+  ],
+  "image_prompt": "old half-timbered house facade with a wooden door in a small English town, soft morning light, no people, quiet street",
+  "researched": true,
+  "image": {
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/1280px-Shakespeare.jpg",
+   "w": 1000,
+   "h": 1275,
+   "page": "https://commons.wikimedia.org/wiki/File:Shakespeare.jpg",
+   "subject": "윌리엄 셰익스피어",
+   "artist": "Attributed to John Taylor",
+   "license": "Public domain"
+  },
+  "about": {
+   "title": "윌리엄 셰익스피어",
+   "text": "윌리엄 셰익스피어(영어: William Shakespeare, 문화어: 윌리암 쉐익스피어, 1564년 4월 26일~1616년 4월 23일)는 잉글랜드의 극작가이자 시인이다. 그는 영어권에서 가장 위대한 작가이자 세계적으로 가장 뛰어난 극작가로 널리 평가된다. 흔히 잉글랜드의 국민 시인, 또는 \"에이번의 시인\"(Bard of Avon)이라 불린다.",
+   "url": "https://ko.wikipedia.org/wiki/%EC%9C%8C%EB%A6%AC%EC%97%84_%EC%85%B0%EC%9D%B5%EC%8A%A4%ED%94%BC%EC%96%B4"
+  }
  },
  {
   "id": "a327f8839af4",
@@ -1335,6 +1714,67 @@
   }
  },
  {
+  "id": "a2c3df5e3f72",
+  "orig_title": "미국 미시시피강서 선박 충돌…승객 129명 태운 유람선 옆으로 누웠다",
+  "source": "한겨레",
+  "source_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBJaFFZRnE3MVBQSVFQSTFiVGI4Q1ljR04tczZRdEJkVGxUdFFPQ0d3ZlVfYmNKYkZsMTd6bUc5b0JfMUc4YVNwUjR5OEtpRUJRQjRqcDQ2c2Vrc0Z1NzBaeEJtY3p3Wk5JLUg2RGNuSQ?oc=5",
+  "related": [
+   "대형 크루즈 ‘쾅!’ 전복됐는데…탑승객 180여명 모두 무사 ‘기적’ (동아일보)",
+   "미국 미시시피강서 유람선-화물선 충돌…원인은 아직 확인 안돼 (경향신문)",
+   "미국 미시시피강서 유람선-화물선 충돌…승객 129명 구조 진행 (KBS 뉴스)",
+   "유조선과 충돌해 가로누운 미 유람선 (뉴시스)"
+  ],
+  "coverage": [
+   {
+    "title": "미국 미시시피강서 선박 충돌…승객 129명 태운 유람선 옆으로 누웠다",
+    "source": "한겨레",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBJaFFZRnE3MVBQSVFQSTFiVGI4Q1ljR04tczZRdEJkVGxUdFFPQ0d3ZlVfYmNKYkZsMTd6bUc5b0JfMUc4YVNwUjR5OEtpRUJRQjRqcDQ2c2Vrc0Z1NzBaeEJtY3p3Wk5JLUg2RGNuSQ?oc=5"
+   },
+   {
+    "title": "대형 크루즈 ‘쾅!’ 전복됐는데…탑승객 180여명 모두 무사 ‘기적’",
+    "source": "동아일보",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE55MW1OOFUxcEZpNnMxS1Y3a2NKQjhMeWd2RGxyZ2UwLTVtZW5PSHowbUgtM25wQ21CX09yQXc4aGR2bUZqNkR1ZUU0eU9ZemZ5S1ZnN0Z0amNZQUJQeU1HT01FOFo4S3dDN1prUUxBWlVuV0nSAWZBVV95cUxOZGtiR0I4UjhLYnNzNGY2YVVfTFpiZWVVLUlyVUpEaHktd0pfZVFMSER2RWlJeTZJUjhnYTEzWEUtWXBjWFVmSHJUMXlPS1Y1bGs4RTlGaUZEOEx6UnJWaXFnS1RZeUE?oc=5"
+   },
+   {
+    "title": "미국 미시시피강서 유람선-화물선 충돌…원인은 아직 확인 안돼",
+    "source": "경향신문",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5UVVJtMjNON2RvOWR4WkN3TWg0OUNaTHV1X3BSLWFsckxuczMwczdZbllmMVBJWTRmaUxvaEc0dGpELWYzSjJ3QllGM1pBOWNvMXpxTndfZGp1QdIBX0FVX3lxTE91cDBTS1dZSkltbmFjRWdwNzJNYlVXaXVXRUx6VVFNTEM4bG1IdF8xZTNyOVJEXzV3LXB0cGlvd0Y2VDkybFgwSXVCNkVLQU80M3VmdXZLM3NDbE9lYW1N?oc=5"
+   },
+   {
+    "title": "미국 미시시피강서 유람선-화물선 충돌…승객 129명 구조 진행",
+    "source": "KBS 뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1BeDlYcWVyWUFpRlRTemozbmZ2VGJ2QnNVeDEzRTA2bkI2S1NmQTRUMkxTcFBrVmRuT3p0bVZ3UEE5bXVMWmIwbHRBcWJWd19FeDRGdWN2ZmJWX0U?oc=5"
+   },
+   {
+    "title": "유조선과 충돌해 가로누운 미 유람선",
+    "source": "뉴시스",
+    "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBoaW1scVozaldpNjRya1NCWmFqbG5CYVUxTDNqVWQ1dUtRc3hSSS1tQ1VyRTJtOVBZZkh0RE5lbV9jY2k1SzN0QWIyWXNIZHJBc3hGUlJlTUpfdng5b0hsUDV6a0poQQ?oc=5"
+   }
+  ],
+  "published": "2026-11-14T08:17:00+09:00",
+  "section_hint": "국제",
+  "headline": "미시시피강 유람선 충돌 전원 구조…사망자 없어",
+  "summary": "미국 뉴올리언스 미시시피강에서 화물선이 정박 중 유람선을 들이받았으나 탑승자 180명 전원이 구조됐다.",
+  "key_points": [
+   "유람선 탑승자 180명 전원 구조, 사망자 없어",
+   "화물선 충돌 직전 통제력 잃은 것으로 보여",
+   "NTSB가 사고 경위 조사 예정"
+  ],
+  "body": "13일(현지시간) 정오께 미국 루이지애나주 뉴올리언스 미시시피강에서 화물선 애틀랜틱 아스팔트호가 정박 중이던 유람선 아메리칸 헤리티지호의 측면을 들이받았다. AP통신 등에 따르면 유람선에는 승객과 승무원 180명이 타고 있었다. 초기 보도에서는 129명으로 집계됐으나 이후 최종 집계가 180명으로 정정됐다.\n\n충돌로 금속과 유리 파편이 주변에 튀었고, 유람선은 옆으로 뒤집혀 물에 잠겼다. 승객들이 구명조끼를 입은 채 강 위에 떠 있는 모습도 포착됐다. 헬레나 모레노 뉴올리언스 시장은 탑승자 전원이 확인됐으며 사망자와 실종자는 없다고 밝혔다. 현장에서 32명이 병원으로 이송됐지만 중상자는 없다고 덧붙였다.\n\n생존자들은 당시 상황을 전했다. 사고 당시 탑승했던 론다 에이커스는 NBC뉴스 인터뷰에서 첫 충돌 이후 추가 충돌이 이어지면서 배가 뒤집혔다고 말했다. 그는 다른 승객들과 함께 난간을 넘어 탈출했다고 설명했다. 배가 기울기 시작하자 승객과 승무원들이 강으로 뛰어들었고, 경찰과 구조대가 현장에 급파됐다. 인근 작업자와 선박들도 구조에 참여했다.\n\n해경은 구조 작업 동안 사고 지점 인근 미시시피강의 선박 통행을 통제했다. 사고 유람선 아메리칸 헤리티지호는 미시시피강의 여러 기항지를 방문하는 8일간의 운항 일정을 마무리하던 중이었다.\n\n사고 원인은 아직 공식 확인되지 않았다. 모레노 시장은 화물선 애틀랜틱 아스팔트호가 충돌 직전 통제력을 잃은 것으로 보인다고 설명했다. 미 연방교통안전위원회(NTSB)가 사고 경위를 조사할 예정이다.\n\n도널드 트럼프 대통령은 트루스소셜에 “믿기지 않게도 대형 충돌 사고로 인한 사망자가 발생하지 않았다”며 32명이 병원에서 치료를 받고 있다고 밝혔다. 현장 수온은 섭씨 19도로 알려졌다. NTSB의 조사 결과에서 화물선의 통제력 상실 원인과 선박 간 안전 기준이 어떻게 다뤄질지가 주목된다.",
+  "section": "국제",
+  "tags": [
+   "미시시피강",
+   "유람선",
+   "선박 충돌",
+   "NTSB"
+  ],
+  "image_keyword": "",
+  "image_prompt": "aerial view of a river at dusk with rescue boats gathered near a half-submerged riverboat, calm brown water, emergency lights glowing softly",
+  "ai": true,
+  "researched": true,
+  "image": null
+ },
+ {
   "id": "0ab6934340b4",
   "orig_title": "[금주의 관심인물] '법무장관 후보 지명' 이용철·'불륜 사퇴' 젠슨 황",
   "source": "연합뉴스",
@@ -1448,23 +1888,23 @@
   ],
   "published": "2026-11-14T07:32:22+09:00",
   "section_hint": "스포츠",
-  "headline": "사우디에 2대3 패배…손흥민 “동료들에게 많이 미안”",
-  "summary": "축구대표팀이 사우디아라비아에 2대3으로 패해 21년 만의 패배를 기록했으며, 손흥민은 결정적 기회를 놓친 데 대해 사과했다.",
+  "headline": "축구대표팀, 사우디에 2대3 패배…21년 만의 충격",
+  "summary": "축구대표팀이 사우디에 2대3으로 져 21년 만의 패배를 당했고, 42년 만에 3실점을 허용했다.",
   "key_points": [
-   "축구대표팀, 사우디에 2대3 패배",
-   "21년 만의 사우디전 패배, 3실점은 42년 만",
-   "손흥민 “동료들에게 많이 미안”, 세대교체 목소리 나와"
+   "사우디에 2대3 패배, 21년 만의 패배",
+   "42년 만의 3실점, 수비 집중력 부족 지적",
+   "손흥민 결정적 기회 무산, 세대교체 목소리"
   ],
-  "body": "축구대표팀이 사우디아라비아와의 경기에서 2대3으로 패했다. 보도에 따르면 이번 패배는 21년 만에 사우디에게 진 경기다. 한 매체는 3실점은 42년 만의 일이라고 전했다.\n\n손흥민은 경기 후 결정적인 골 기회를 놓쳤다며 동료들에게 많이 미안하다고 말했다. 손흥민은 대표팀의 주축 공격수로서 책임을 느낀다는 취지로 이야기했다.\n\n김민재는 실점 장면을 되돌아보며 조그마한 집중력 부족이 원인이었다고 말했다. 수비진의 집중력 문제가 실점으로 이어졌다는 진단이다.\n\n일부 축구팬들은 손흥민이 완벽한 찬스를 두 번이나 놓쳤다며 전성기가 지났다는 반응을 보였다. 이들은 대표팀의 세대교체가 필요하다고 주장했다.\n\n이번 경기는 대표팀의 경기력에 대한 평가가 엇갈리는 계기가 됐다. 향후 대표팀의 전술 보완과 선수 기용 방향이 주목된다.",
+  "body": "축구대표팀이 사우디아라비아와의 경기에서 2대3으로 패했다. 사우디에 패한 것은 21년 만이며, 3실점을 허용한 것은 42년 만이라는 점이 함께 보도됐다. 모레노 감독이 이끄는 대표팀의 연이은 실점이 패배의 핵심으로 꼽혔다.\n\n이날 경기에서는 손흥민의 결정적인 득점 기회 장면이 주목받았다. 손흥민은 동료들에게 많이 미안하다고 말했다. 완벽한 찬스가 두 차례 있었지만 살리지 못했다는 평가가 나왔다.\n\n수비진에서는 김민재가 실점 원인을 짚었다. 그는 조그마한 집중력 부족이 원인이었다고 말했다. 3실점 모두 수비 집중력의 문제로 이어졌다는 취지다.\n\n일부 축구 팬들은 경기력에 대한 실망을 드러냈다. 손흥민의 전성기가 지났다는 반응과 함께 세대교체가 필요하다는 목소리가 나왔다. 대표팀이 내세운 방향과 실제 경기력이 달랐다는 비판도 이어졌다.\n\n이번 패배로 대표팀에 대한 우려가 커졌다. 다음 일정과 전술 변화에 대한 구체적인 계획은 아직 확인되지 않았다.",
   "section": "스포츠",
   "tags": [
-   "축구대표팀",
-   "사우디아라비아",
+   "축구 국가대표팀",
+   "사우디",
    "손흥민",
    "김민재"
   ],
   "image_keyword": "대한민국 축구 국가대표팀",
-  "image_prompt": "over-the-shoulder shot of an empty stadium tunnel, a few players walking away in the distance, dim floodlights, late evening",
+  "image_prompt": "stadium tunnel leading to a green pitch under floodlights, players silhouetted at a distance, dramatic evening light",
   "ai": true,
   "image": {
    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg/1280px-BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg",
@@ -1521,23 +1961,23 @@
   ],
   "published": "2026-11-14T06:54:00+09:00",
   "section_hint": "스포츠",
-  "headline": "축구대표팀, 사우디전 충격패…입장문 속 ‘경기력’ 증명 실패",
-  "summary": "축구대표팀이 사우디에 패하면서 대표팀이 내세운 경기 방향과 실제 경기력 사이의 간극이 도마에 올랐다.",
+  "headline": "축구대표팀, 사우디전 패배…입장문 약속한 축구 없었다",
+  "summary": "축구대표팀이 사우디에 21년 만에 패했으며, 대표팀이 입장문에서 약속한 경기력은 보여주지 못했다는 평가가 나왔다.",
   "key_points": [
-   "축구대표팀, 사우디에 2대3으로 21년 만의 패배",
-   "입장문과 달리 경기력 보여주지 못했다는 지적",
-   "김민재·손흥민 집중력과 결정력 문제 거론"
+   "사우디에 2대3 패배, 21년 만의 충격패",
+   "입장문에서 약속한 경기력 보여주지 못했다는 평가",
+   "손흥민 기회 무산과 세대교체 논쟁 확산"
   ],
-  "body": "축구대표팀이 사우디아라비아에 패하며 21년 만의 패배를 당했다. 경기 결과는 2대3이었다.\n\n일부 매체는 대표팀이 입장문에서 약속한 축구를 보여주지 못했다고 지적했다. 모레노 감독 체제의 대표팀이 내세운 경기 방향과 실제 경기 내용의 차이가 주목된다.\n\n수비에서는 3실점이 나오며 42년 만의 실점 기록을 남겼다는 보도가 나왔다. 김민재는 조그마한 집중력 부족이 원인이었다고 말했다.\n\n공격에서는 손흥민이 결정적 골 기회를 놓쳤다. 손흥민은 동료들에게 많이 미안하다는 뜻을 전했다.\n\n일부 축구팬들은 손흥민의 찬스 결정력이 떨어졌다며 세대교체를 주장했다. 다른 시각에서는 개별 선수의 문제보다 팀 전체의 조직력과 집중력을 함께 점검해야 한다는 의견도 나온다.\n\n대표팀은 다음 일정을 앞두고 전술과 선수 구성을 점검할 것으로 보인다. 이번 패배가 대표팀 운영 방향에 어떤 영향을 줄지 지켜볼 필요가 있다.",
+  "body": "축구대표팀이 사우디와의 경기에서 패해 21년 만의 충격패를 당했다. 경기 결과는 2대3이었고, 42년 만에 3실점을 허용한 경기로 기록됐다.\n\n경향신문은 모레노 감독 체제의 대표팀이 입장문에서 약속한 축구를 보여주지 못했다고 지적했다. 경기력 측면에서도 기대에 미치지 못했다는 평가가 나왔다.\n\n수비에서는 김민재가 실점 원인으로 조그마한 집중력 부족을 꼽았다. 공격에서는 손흥민이 결정적인 골 기회를 놓쳤고, 동료들에게 많이 미안하다고 말했다.\n\n머니투데이는 손흥민이 완벽한 찬스를 두 번 놓쳤다며 전성기가 지났다는 시각을 전했다. 일부 팬들은 세대교체가 필요하다고 주장했다. 반면 일부 보도는 선수들의 책임을 개인보다 팀 전체의 집중력 문제로 보는 시각을 전했다.\n\n이번 패배로 대표팀의 경기력과 향후 방향에 대한 논의가 이어질 전망이다. 다만 후속 대응 방안은 아직 구체적으로 확인되지 않았다.",
   "section": "스포츠",
   "tags": [
-   "축구대표팀",
-   "사우디전",
-   "모레노 감독",
-   "경기력"
+   "축구 국가대표팀",
+   "사우디",
+   "모레노",
+   "세대교체"
   ],
   "image_keyword": "대한민국 축구 국가대표팀",
-  "image_prompt": "aerial view of a football pitch with scattered players in red jerseys during a quiet training session, long shadows at sunset",
+  "image_prompt": "empty stadium seats after a night match, scattered papers on the pitch edge, floodlights overhead, wide shot, subdued mood",
   "ai": true,
   "image": null,
   "about": {
@@ -1791,24 +2231,26 @@
   ],
   "published": "2026-11-14T06:23:00+09:00",
   "section_hint": "국제",
-  "headline": "살아있는 친구 영정사진 AI 합성 놀이 확산…제재 촉구",
-  "summary": "SNS에서 살아있는 친구의 영정사진을 AI로 합성하는 놀이가 번지며 전문가들이 제재를 촉구했다.",
+  "headline": "살아 있는 친구 영정사진 합성 놀이 확산…제재 목소리",
+  "summary": "SNS에서 살아 있는 친구의 사진을 AI로 영정사진처럼 꾸미는 놀이가 퍼지며 전문가들이 플랫폼 차원의 제재를 촉구하고 있다.",
   "key_points": [
-   "살아있는 친구 영정사진 AI 합성 확산",
-   "네티즌 분노와 '선 넘었다' 비판 확산",
-   "전문가들 제재 필요성 강조"
+   "SNS서 살아 있는 친구를 AI로 영정사진처럼 꾸미는 놀이 확산",
+   "일부 게시물은 가짜 사망일까지 적어 실제 부고로 오인되기도",
+   "전문가들은 플랫폼의 강력한 제재와 확산 방지를 촉구"
   ],
-  "body": "SNS에서 살아 있는 친구의 영정사진을 AI로 합성하는 이른바 '가짜 부고' 놀이가 확산되고 있다. 연합뉴스와 문화일보 등은 이를 사회적 문제로 다뤘다.\n\n관련 게시물에는 네티즌들의 분노 반응이 이어졌다. 일부 매체는 장난의 선을 넘었다는 비판이 쏟아졌다고 전했다.\n\n전문가들은 이러한 합성물이 당사자와 주변인에게 상처를 줄 수 있다며 제재의 필요성을 강조했다. 보도들은 AI 기술의 악용 가능성에 주목했다.\n\n다만 구체적인 제재 방식이나 적용 범위는 보도에 명확히 제시되지 않았다.\n\n향후 플랫폼과 관계 당국의 대응 방향이 논의될 것으로 보인다.",
+  "body": "SNS에서 살아 있는 친구의 사진을 인공지능으로 합성해 고인처럼 꾸민 '영정사진 놀이'가 확산하고 있는 것으로 나타났다. 온라인 커뮤니티와 소셜미디어 플랫폼에서는 최근 인스타그램을 중심으로 이런 게시물이 잇따르고 있다.\n\n이 놀이는 지인의 사진을 흑백 영정 형태로 바꾼 뒤 \"고인의 명복을 빕니다\" 같은 추모 문구를 붙이는 방식이다. 일부 게시물은 생년월일과 가짜 사망일, 검은색 리본과 국화 장식까지 더해져 실제 부고와 구별하기 어렵다. 이 때문에 게시물을 처음 접한 이용자가 실제 부고로 오인하는 사례도 나오고 있다.\n\n장난임이 분명한 게시물도 있지만 상당수는 실제 영정사진과 비슷할 만큼 정교한 것으로 확인됐다. 당사자가 자신의 가짜 부고에 댓글을 달고 친구들과 농담을 주고받는 경우도 있었다. 댓글에는 장난에 동조하는 반응과 진심으로 애도하는 글이 함께 섞여 있다.\n\n누리꾼들은 죽음을 장난의 소재로 삼는 것은 선을 넘었다고 비판했다. 가짜 부고가 반복되면 진짜 부고마저 의심받을 수 있다는 우려도 나왔다. 김시덕 을지대 장례지도학과 교수는 젊은 세대가 장례 문화와 죽음의 가치를 가볍게 여긴다고 지적하며, 플랫폼 차원의 확산 방지 조치 검토를 주문했다. 유홍식 중앙대 미디어커뮤니케이션학부 교수는 타인의 죽음을 재미로 소비하는 행위라며 게시자를 플랫폼이 강하게 제재해야 한다고 주장했다.\n\n메타는 AI 생성 콘텐츠를 포함해 커뮤니티 규정을 위반한 게시물은 제한하거나 삭제한다고 밝혔다. 일반인 이미지가 무단 조작된 경우에는 신고를 접수해 확인한 뒤 삭제하는 방침이다.\n\n이번 현상은 지난해 AI로 낯선 침입자 사진을 만들어 가족에게 보내는 이른바 'AI 몰카'가 유행한 흐름과 맞닿아 있다. 영국에서는 이를 본 부모의 신고로 경찰이 출동하는 소동이 일어나기도 했다. AI 합성 장난이 생명과 죽음을 소재로 넘어가는 것에 대해 플랫폼의 대응 기준이 주목될 전망이다.",
   "section": "사회",
   "tags": [
    "AI 합성",
-   "가짜 부고",
-   "SNS"
+   "영정사진",
+   "SNS",
+   "플랫폼 규제"
   ],
   "image_keyword": "",
-  "image_prompt": "a smartphone screen showing a blurred photo frame with a quiet candle beside it",
+  "image_prompt": "over-the-shoulder shot of a smartphone screen showing a grayscale photo frame on a wooden desk, dim evening room, soft lamp light",
   "ai": true,
-  "image": null
+  "image": null,
+  "researched": true
  },
  {
   "id": "4d67ee59ab04",
@@ -1850,30 +2292,31 @@
   ],
   "published": "2026-11-14T06:16:38+09:00",
   "section_hint": "경제",
-  "headline": "젠슨 황 스캔들 여파에 뉴욕증시 혼조 마감",
-  "summary": "젠슨 황 관련 스캔들 여파로 엔비디아가 하락하며 뉴욕증시가 혼조로 마감했다.",
+  "headline": "젠슨 황 사임 여파에 뉴욕증시 혼조…엔비디아 약세",
+  "summary": "젠슨 황 전 엔비디아 CEO의 사임 여파가 이어지며 13일 뉴욕증시는 혼조로 마감했고, 엔비디아와 반도체주는 약세를 보였다.",
   "key_points": [
-   "뉴욕증시 혼조세로 마감",
-   "엔비디아 주가 2% 가까이 하락",
-   "코스피도 이틀 연속 하락"
+   "13일 뉴욕증시 혼조 마감, 엔비디아 2.01% 하락",
+   "반도체주 동반 약세, AMD 8.75%·SK하이닉스 4.30% 하락",
+   "후임 CEO 선임과 AI 투자 변화 여부가 관건"
   ],
-  "body": "뉴욕증시가 혼조세로 마감했다. 엔비디아 주가가 하락세를 이어가며 시장 전반의 투자 심리에 부담을 준 것으로 나타났다.\n\n연합뉴스 보도에 따르면 엔비디아는 2% 가까이 하락했다. 국내 증시에서도 코스피가 이틀 연속 하락하며 젠슨 황 관련 이슈의 파급이 확인됐다.\n\n일부 매체는 엔비디아와 AI 업계 간 협력 관계가 흔들릴 수 있다는 점에 주목했다. 다른 보도는 엔비디아의 자금 공급이 끊기면 AI 업계 전반이 타격을 받을 수 있다는 우려를 전했다.\n\n관련 사태가 AI 반도체 기업의 주가와 업계 협력 구조에 어떤 영향을 미칠지 주목된다. 추가 보도를 통해 시장의 대응이 드러날 전망이다.",
+  "body": "13일(현지시간) 뉴욕증시는 젠슨 황 전 엔비디아 CEO 스캔들의 여파가 이어지면서 혼조세로 마감했다. 다우지수는 50.46포인트(0.10%) 오른 52,347.55에 거래를 마쳤다. 반면 S&P500은 0.4%, 나스닥은 0.91% 하락했다.\n\n엔비디아 주가는 2.01% 떨어져 시가총액이 4조 달러 아래로 내려갔다. 주간 기준으로는 6주 연속 하락세를 기록했다. 반도체주도 동반 약세를 보였다. 필라델피아 반도체지수는 3.43% 하락했고, AMD는 8.75%, 브로드컴은 4.76%, SK하이닉스는 4.30%, 마이크론은 2.52% 각각 내렸다. 가상화폐 비트코인도 3.9% 떨어져 7만 달러 아래로 밀렸다.\n\n이번 사태의 발단은 12일 엔비디아가 젠슨 황 CEO의 사임을 발표하면서 시작됐다. 회사는 그가 사장과 이사회 이사직을 포함한 모든 직책에서 즉시 물러난다고 밝혔다. 사임의 배경으로는 중국 간첩 혐의를 받는 인물과 혼외 관계를 시인한 점이 보도됐고, 이후 추가 관계 의혹도 불거졌다.\n\n엔비디아 이사회는 긴급 회의를 열고 후임 인선에 착수했다. 현재 콜레트 크레스 CFO가 임시 CEO를 맡고 있다. 파이낸셜타임스는 이사회가 후임 물색 과정에서 ARM의 르네 하스 CEO에게 접촉했다고 보도했다.\n\n월가 분석가들은 이번 사임 사태로 엔비디아 주가가 최대 20%까지 하락할 수 있다고 내다봤다. 일부 보도에서는 CEO 교체가 고대역폭메모리(HBM) 주문 축소나 삼성전자, SK하이닉스와의 공급계약 변경으로 이어질 수 있다는 우려도 나왔다. 다만 이런 공급 변화가 실제로 일어났다는 사실은 현재까지 확인되지 않았다.\n\n시장의 관심은 후임 CEO 선임 과정에 쏠리고 있다. AI 투자계획의 변화 여부와 미국 금리 전망도 반도체주 투자심리를 좌우할 변수로 꼽힌다. 향후 엔비디아의 리더십 공백이 얼마나 이어질지가 주목된다.",
   "section": "경제",
   "tags": [
-   "뉴욕증시",
    "엔비디아",
    "젠슨 황",
-   "AI 업계"
+   "뉴욕증시",
+   "반도체"
   ],
   "image_keyword": "엔비디아",
-  "image_prompt": "a silhouetted figure before large screens showing falling red stock charts in a dim office",
+  "image_prompt": "close-up of a trader's hands over a keyboard, red stock tickers reflected on a monitor, late evening office light",
   "ai": true,
   "image": null,
   "about": {
    "title": "엔비디아",
    "text": "엔비디아 코퍼레이션(Nvidia Corporation)은 캘리포니아주 샌타클래라에 본사를 두고 델라웨어에 법인을 둔 미국의 다국적 기업이자 기술 회사이다. 데이터 사이언스 및 고성능 컴퓨팅을 위한 그래픽 처리 장치(GPU), API(애플리케이션 프로그래밍 인터페이스), 모바일 컴퓨팅 및 자동차용 SoC(시스템 온 칩 유닛)를 설계 및 공급하는 소프트웨어 및 팹리스 회사이자 인공지능(AI) 하드웨어와 소프트웨어의 주요 공급업체이다. 엔비디아의 전문 GPU 제품군은 에지-투-클라우드 컴퓨팅과 건축, 엔지니어링 및 건설, 미디어 및 엔터테인먼트, 자동차, 과학 연구, 제조 설계 등의 분야 애플리케이션을 위한 슈퍼컴퓨터 및 워크스테이션에 사용된다.",
    "url": "https://ko.wikipedia.org/wiki/%EC%97%94%EB%B9%84%EB%94%94%EC%95%84"
-  }
+  },
+  "researched": true
  },
  {
   "id": "786e50867d72",
@@ -9115,13 +9558,39 @@
   ],
   "published": "2026-11-13T09:28:08+09:00",
   "section_hint": "IT·과학",
-  "headline": "서동주 “비트코인 3개월 만에 3배…집도 샀다”",
-  "summary": "",
-  "body": "",
+  "headline": "서동주 “비트코인 3개월 만에 3배…그 돈으로 집도 샀다”",
+  "summary": "서동주는 과거 가상자산 투자 경험을 밝혔으며, 수익률은 본인 진술로 독립 검증되지 않았다.",
+  "body": "방송인 서동주는 12일 자신의 유튜브 채널 ‘서동주의 또.도.동’에 올린 영상에서 과거 가상자산 투자 경험을 밝혔다. 영상은 그가 ‘코리아 블록체인 위크(KBW) 2026’ 행사에 진행자로 참여한 모습을 담은 것이었다.\n\n서동주는 2018년 로펌에 신입 변호사로 들어갔을 때 비트코인을 처음 접했다고 말했다. 당시 로펌에 블록체인 부서가 생기면서 가상자산을 알게 됐다는 설명이다. 선배 변호사들이 모든 것이 가상자산화될 것이라고 조언했고, 그는 월급 전액을 비트코인과 이더리움에 투자했다고 밝혔다.\n\n그는 투자금이 3개월 만에 3배가 됐고, 그 돈으로 집도 샀다고 말했다. 다만 수익률과 매입 시점은 본인의 진술이며, 독립적으로 검증된 거래 내역은 확인되지 않았다.\n\n헤럴드경제는 서동주가 2024년 서울 도봉구 창동의 단독주택을 법원 경매로 약 8억 원에 낙찰받아 신혼집으로 사용하고 있다고 보도했다. 그러나 코인 투자로 산 집이 이 주택인지는 확인되지 않았다.\n\n그는 투자 범위가 리플, 라이트코인, 밈코인 등으로 확대됐다고 밝혔다. 한국에서는 비트코인이 급등락하는 것을 보고 사기나 도박이라는 인식이 있었지만, 오래된 가상자산에는 철학적 배경이 있다고 주장했다. 그는 현재 삼프로TV의 ‘크립토플러스’를 진행하고 있다.",
   "section": "IT·과학",
-  "tags": [],
-  "image_keyword": "",
-  "ai": false
+  "tags": [
+   "서동주",
+   "비트코인",
+   "가상자산",
+   "삼프로TV"
+  ],
+  "image_keyword": "서동주",
+  "ai": true,
+  "key_points": [
+   "서동주, 2018년 신입 변호사 시절 비트코인 투자 경험 밝혀",
+   "본인 주장 3개월 만에 3배 수익, 검증된 내역은 없음",
+   "집 매입과 투자 수익의 연관성은 확인되지 않음"
+  ],
+  "image_prompt": "over-the-shoulder shot of a laptop showing a blank cryptocurrency price chart, coffee cup beside it, cool evening office light",
+  "researched": true,
+  "image": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Danielle_Suh_-_Seo_Dong-joo_%28%EC%84%9C%EB%8F%99%EC%A3%BC%29_2024_06.jpg",
+   "w": 549,
+   "h": 696,
+   "page": "https://commons.wikimedia.org/wiki/File:Danielle_Suh_-_Seo_Dong-joo_(%EC%84%9C%EB%8F%99%EC%A3%BC)_2024_06.jpg",
+   "subject": "서동주",
+   "artist": "K-POPIT 케이팝잇",
+   "license": "CC BY 3.0"
+  },
+  "about": {
+   "title": "서동주",
+   "text": "서동주(1983년 3월 28일 ~ )는 대한민국의 작가 겸 방송인이다. 이전에는 미국 변호사로 활동하였다. 저서로 에세이 《동주 이야기》가 있다.",
+   "url": "https://ko.wikipedia.org/wiki/%EC%84%9C%EB%8F%99%EC%A3%BC"
+  }
  },
  {
   "id": "22cf9b9b1f71",
@@ -10678,6 +11147,47 @@
    "title": "달",
    "text": "달은 지구의 유일한 자연위성이고, 태양계의 위성 중에서 5번째로 크다. 행성의 크기와 비교하여, 자연위성 중에서 가장 크다. 지구 중심부터 달 중심까지 거리는 평균 38만 4400km로, 지구 30개가 들어가는 거리이다.",
    "url": "https://ko.wikipedia.org/wiki/%EB%8B%AC"
+  }
+ },
+ {
+  "id": "35ab25f98f89",
+  "orig_title": "\"연봉 2억에 달에서 일하실 분?\"…NASA, 우주비행사 모집",
+  "source": "KBC광주방송",
+  "source_url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9rdVBTdUlCYzlkRFE3dUkwNXZCUHBKWlQwdDBqSHNXWTJrMGxDek9fb1BmT05QcmxOTFgzVUhvN3NCU3BDbDhYNHd6R0hXUzFJWVhhbmpyNWhvQkJiTHY2bXBn?oc=5",
+  "related": [],
+  "coverage": [
+   {
+    "title": "\"연봉 2억에 달에서 일하실 분?\"…NASA, 우주비행사 모집",
+    "source": "KBC광주방송",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9rdVBTdUlCYzlkRFE3dUkwNXZCUHBKWlQwdDBqSHNXWTJrMGxDek9fb1BmT05QcmxOTFgzVUhvN3NCU3BDbDhYNHd6R0hXUzFJWVhhbmpyNWhvQkJiTHY2bXBn?oc=5"
+   }
+  ],
+  "published": "2026-11-10T20:45:37+09:00",
+  "section_hint": "IT·과학",
+  "headline": "NASA, 달 기지 건설 우주비행사 공개 모집",
+  "summary": "NASA가 달 기지 건설과 탐사를 맡을 우주비행사를 공개 모집하며 연봉은 약 2억 2000만원이다.",
+  "key_points": [
+   "NASA, 달 기지 임무 우주비행사 공개 모집",
+   "연봉 약 2억 2000만원, 마감 12월 3일",
+   "최종 선발은 2027년 가을 발표 예정"
+  ],
+  "body": "미국 항공우주국(NASA)은 9일(현지시간) 달 기지 건설과 탐사 임무를 맡을 차세대 우주비행사 공개 모집 공고를 냈다. 미국 CBS뉴스에 따르면 선발된 우주비행사는 달에서 거주하며 연구와 기지 건설 등의 임무를 수행하게 된다.\n\n제시 연봉은 16만 4395달러로, 한화 약 2억 2000만원 수준이다. 지원 마감은 미국 동부시간 기준 12월 3일 오후 11시 59분이다. 지원 자격은 미국 시민권자로 제한되며 공식적인 연령 제한은 없다.\n\n학력 요건은 공학·생물학·물리학·컴퓨터과학·수학 등 STEM 분야의 석사 학위를 보유하거나 해당 분야 박사과정을 2년 이상 이수한 경우, 간호학이나 의학 학위를 가진 경우, 국가 공인 시험비행 조종사 학교를 수료한 경우 중 하나 이상이다. 관련 분야에서 최소 3년의 전문 경력과 추천인 5명 제출도 필요하다.\n\n최종 선발자는 2027년 가을 발표될 예정이다. 선발된 이들은 약 2년간 전문 훈련을 받은 뒤 달 극지방에 착륙해 탐사 활동을 수행하게 된다. 훈련과 근무는 휴스턴 존슨우주센터에서 이뤄진다.\n\n재러드 아이작먼 NASA 국장은 선발될 인재들이 달 표면을 걷고 달 기지에서 생활하며, 궁극적으로 화성 탐사 시스템 개척에 기여할 것이라고 밝혔다. 2024년 공개모집에서는 지원자 8000여 명 가운데 10명이 선발된 바 있다. 현재 활동 중인 우주비행사는 32명이다.\n\nNASA는 2027년 아르테미스 3호 시험 이후 2028년 아르테미스 4호로 1972년 이후 첫 유인 달 착륙을 추진할 계획으로 알려졌다. 이번 모집이 이 일정과 어떻게 맞물릴지가 주목된다.",
+  "section": "IT·과학",
+  "tags": [
+   "NASA",
+   "우주비행사",
+   "달 탐사",
+   "아르테미스"
+  ],
+  "image_keyword": "NASA",
+  "image_prompt": "close-up of a folded paper job notice on a desk beside a model of the moon, soft desk lamp light, blurred space photos on the wall",
+  "ai": true,
+  "researched": true,
+  "image": null,
+  "about": {
+   "title": "미국 항공 우주국",
+   "text": "미국 항공 우주국(美國航空宇宙局, 영어: National Aeronautics and Space Administration, NASA)는 미국 연방 정부의 독립 기관으로, 미국의 민간 우주 프로그램과 항공공학 및 우주 공간 탐사 연구를 담당한다. 워싱턴 D.C.에 본부를 둔 NASA는 미국 전역에 10개의 현장 센터를 운영하고 있으며, 과학, 우주 작전, 탐사 시스템 개발, 우주 기술, 항공 연구 및 임무 지원을 위한 임무 본부로 조직되어 있다. 1958년에 설립된 NASA는 미국 국가항공자문위원회(NACA)의 뒤를 이어 미국 우주 개발 노력에 뚜렷한 민간 지향성을 부여하고 우주과학의 평화적 응용을 강조했다.",
+   "url": "https://ko.wikipedia.org/wiki/%EB%AF%B8%EA%B5%AD_%ED%95%AD%EA%B3%B5_%EC%9A%B0%EC%A3%BC%EA%B5%AD"
   }
  },
  {
