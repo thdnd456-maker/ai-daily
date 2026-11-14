@@ -1,5 +1,157 @@
 [
  {
+  "id": "f9c8c238c5a0",
+  "orig_title": "트럼프, 엔비디아 주식 최대 67억어치 사들인 뒤 AI 반도체 규제 폐지 논란",
+  "source": "경기일보",
+  "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB0YXdRUnRlZGJWS1Q0Sjh5RmRsSFczM2FtcDBoOFBVOEpGZm5Tc2tiVmt6N196cXZFbzRfMXUyUEY1N3NKdkxLNkNmMzNrb0VJZE1LTG1MWEh4UVU?oc=5",
+  "related": [
+   "트럼프, AI칩 中 수출규제 풀기 직전 엔비디아 ‘풀매수’ (동아일보)",
+   "\"트럼프, AI 수출 규제 완화 직전 엔비디아 주식 대거 매수\" (뉴스1)",
+   "\"트럼프, AI 반도체 수출통제 풀며 엔비디아 주식 샀다\" (연합뉴스)",
+   "‘K 엔비디아’ 키운다고?… 사회주의 하겠다는 건가 (조선일보)"
+  ],
+  "coverage": [
+   {
+    "title": "트럼프, 엔비디아 주식 최대 67억어치 사들인 뒤 AI 반도체 규제 폐지 논란",
+    "source": "경기일보",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB0YXdRUnRlZGJWS1Q0Sjh5RmRsSFczM2FtcDBoOFBVOEpGZm5Tc2tiVmt6N196cXZFbzRfMXUyUEY1N3NKdkxLNkNmMzNrb0VJZE1LTG1MWEh4UVU?oc=5"
+   },
+   {
+    "title": "트럼프, AI칩 中 수출규제 풀기 직전 엔비디아 ‘풀매수’",
+    "source": "동아일보",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9HZDhfM015VjBGS2t2Q3ZfLXRNMFNWbWNYVmVnT1JRamZ1QkVxMkFSQ3BVa0FnbTRPUm8yNzNveDFyblFvaDFWcjlfTVZWb21DSnhNVWRGa0I3Nnd4MlZxbkU2cmFVSURPOHhwRl9NUGxsYU3SAWZBVV95cUxOODJJaVRFd1hfSVdNRFhGYjdPMUxtS2t6QUVzWURXWVM0YWZwSnA0MXZ3bUxnQXUyNDRfbms1VU1naFNxVF9oMm5fN214MURncEFFUkdwYm1nbGo4N3NKNERsWHVaNVE?oc=5"
+   },
+   {
+    "title": "\"트럼프, AI 수출 규제 완화 직전 엔비디아 주식 대거 매수\"",
+    "source": "뉴스1",
+    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE56N2JhV0Y0dzRZeFBBVkNGVFAtTWdUSEE5ZEpUc0hKQ3M2aW54ckIyUlpYejJvUVd5Z180WU4tZ2VLbksxV1pKMHF1ck15ZWlSNVBZZlQ2SWY?oc=5"
+   },
+   {
+    "title": "\"트럼프, AI 반도체 수출통제 풀며 엔비디아 주식 샀다\"",
+    "source": "연합뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9YeUhFV0JzUVZNNkIxNFFDQVkwQnktZEE5OTJudWVfeHlGb0tCaUVRbjFiODhyVm5Ma1dYWl9McDFrSFJIOUNGczBqVV8zeDZ4cFl3Znd0eHRsNDjSAWBBVV95cUxNMHhWOHJpVXdSRmhyNmhsRkwtX0EzcGlrNDlEQm8wVm9JaFhDYWVsX1RfY1lRRC1ZU0VPeVRXZzZ0NFVZYTlqYkhURDVsVUhfdEMwdzR1SWM0ZXlJYm0xbUU?oc=5"
+   },
+   {
+    "title": "‘K 엔비디아’ 키운다고?… 사회주의 하겠다는 건가",
+    "source": "조선일보",
+    "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNTHpPZGxQM0lxMGNFNEdhaDNweDBkMXBYVXhJUVZiN2NZY24tZkZZcWZRYjFuX0RVYl9lUTZFblRrMmtjMWotNWZUX2t5aHkxcUo2SklKYWlOSVRRUVJJRWlNWE4yTUZ2U3pNbFUzblhwVDUwaE5Fc214TVFLeDE2alFkZnhTZw?oc=5"
+   }
+  ],
+  "published": "2026-11-14T22:17:57+09:00",
+  "section_hint": "경제",
+  "headline": "트럼프, 엔비디아 주식 매입 뒤 AI칩 규제 폐지 논란",
+  "summary": "트럼프 대통령이 AI 반도체 수출 규제 폐지를 앞두고 엔비디아 주식을 사들였다는 보도가 나와 논란이 일고 있다.",
+  "key_points": [
+   "가디언, 트럼프의 엔비디아 주식 매입 보도",
+   "AI 확산 프레임워크 폐기 직전 매입이 확인됨",
+   "백악관은 주식 매입과 정책의 연관성에 공식 입장 없어"
+  ],
+  "body": "영국 가디언은 13일(현지시간) 반부패 단체 디클랩토크래시의 분석과 공개 재산신고 자료를 인용해, 트럼프 대통령이 지난해 5월 AI 확산 프레임워크 폐기를 며칠 앞두고 엔비디아 주식을 100만~500만달러어치 사들였다고 보도했다.\n\nAI 확산 프레임워크는 바이든 행정부가 2025년 1월 마련한 제도로, 동맹국과 일반국, 우려국을 나눠 첨단 AI 반도체 수출을 차등 통제했다. 트럼프 행정부는 이 규정이 혁신을 저해하고 기업에 과도한 부담을 준다며 폐지 방침을 밝혔다.\n\n보도에 따르면 규제 철회 발표 직후와 주식 매입 직후 엔비디아 주가가 모두 상승했다. 트럼프는 2025년 12월 엔비디아 H200의 중국 판매 허용을 발표한 뒤에도 최소 세 차례 엔비디아 주식을 추가로 사들였으며, 추가 매입액은 25만~50만달러 수준으로 전해졌다.\n\n백악관은 주식 매입과 정책 결정 사이의 연관성에 대해 아직 공식 입장을 내지 않았다. 디클랩토크래시는 트럼프의 정책 결정과 엔비디아 주식 거래의 관계를 조사할 필요가 있다고 주장했다.\n\n이번 논란은 젠슨 황 전 엔비디아 CEO가 중국 간첩으로 의심받는 인물과 연루됐다는 의혹과 겹치며 확산되는 양상이다. 다만 두 사안의 직접적인 연관성은 확인되지 않았다.\n\n확인된 향후 일정은 없다. 백악관의 공식 해명 여부와 관련 조사의 진행 여부가 주목된다.",
+  "section": "경제",
+  "tags": [
+   "엔비디아",
+   "AI 반도체",
+   "수출 규제",
+   "트럼프"
+  ],
+  "image_keyword": "엔비디아",
+  "image_prompt": "close-up of a laptop showing a rising stock chart on a desk, a coffee cup beside it, morning office light",
+  "ai": true,
+  "researched": true,
+  "image": {
+   "url": "media/f9c8c238c5a0.webp",
+   "w": 960,
+   "h": 960,
+   "generated": true,
+   "subject": "트럼프, 엔비디아 주식 매입 뒤 AI칩 규제 폐지 논란",
+   "artist": "AI 생성",
+   "license": "",
+   "page": "",
+   "style": 2
+  },
+  "about": {
+   "title": "엔비디아",
+   "text": "엔비디아 코퍼레이션(Nvidia Corporation)은 캘리포니아주 샌타클래라에 본사를 두고 델라웨어에 법인을 둔 미국의 다국적 기업이자 기술 회사이다. 데이터 사이언스 및 고성능 컴퓨팅을 위한 그래픽 처리 장치(GPU), API(애플리케이션 프로그래밍 인터페이스), 모바일 컴퓨팅 및 자동차용 SoC(시스템 온 칩 유닛)를 설계 및 공급하는 소프트웨어 및 팹리스 회사이자 인공지능(AI) 하드웨어와 소프트웨어의 주요 공급업체이다. 엔비디아의 전문 GPU 제품군은 에지-투-클라우드 컴퓨팅과 건축, 엔지니어링 및 건설, 미디어 및 엔터테인먼트, 자동차, 과학 연구, 제조 설계 등의 분야 애플리케이션을 위한 슈퍼컴퓨터 및 워크스테이션에 사용된다.",
+   "url": "https://ko.wikipedia.org/wiki/%EC%97%94%EB%B9%84%EB%94%94%EC%95%84"
+  }
+ },
+ {
+  "id": "a32a6578dd01",
+  "orig_title": "호르무즈 해협 선박 공격, 10월에 37건으로 최다",
+  "source": "MBC 뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBTRFhjRnlDRTZHOVVjUE45eUNTSVNCY0szUmE4TkFtNl9nZFkwQVRXczEyaFIzdlRlV0ZYTnJpT2FuSnBpdmd2NFVyMGFuTVkxaDlWNC03OGhyM01kUFlOc25MVm5TNkduSUN3Sy1PY3N0ai140gF0QVVfeXFMT1VoenVqaEpQSFJZZm4yZVlOUUlPTnJvRzhLaXlvRGd1cE5ad2NhcDZDejczUExVS3JBOTR3M1hXUFd0MTl4VFl2STBSVnZrakthaFVJTk1vbnd0dmUxRFhOOGwyWE9pZl9KeF9fTFhyb2RWOGg?oc=5",
+  "related": [
+   "이란 혁명수비대 \"호르무즈서 가스운반선 기뢰 충돌…대형 폭발\" (연합뉴스)",
+   "美 “바레인 향하던 이란 드론 2대 격추”…레이더 타격 주장 부인 (마켓인)",
+   "이란, 호르무즈 해협서 유조선 4척 기뢰 피격…해운 위기 심화 (Investing.com 한국어)",
+   "[포착] 우주에서도 보이는 ‘거대 기름띠’…‘검은 재앙’으로 변한 호르무즈 해협 (나우뉴스)"
+  ],
+  "coverage": [
+   {
+    "title": "호르무즈 해협 선박 공격, 10월에 37건으로 최다",
+    "source": "MBC 뉴스",
+    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBTRFhjRnlDRTZHOVVjUE45eUNTSVNCY0szUmE4TkFtNl9nZFkwQVRXczEyaFIzdlRlV0ZYTnJpT2FuSnBpdmd2NFVyMGFuTVkxaDlWNC03OGhyM01kUFlOc25MVm5TNkduSUN3Sy1PY3N0ai140gF0QVVfeXFMT1VoenVqaEpQSFJZZm4yZVlOUUlPTnJvRzhLaXlvRGd1cE5ad2NhcDZDejczUExVS3JBOTR3M1hXUFd0MTl4VFl2STBSVnZrakthaFVJTk1vbnd0dmUxRFhOOGwyWE9pZl9KeF9fTFhyb2RWOGg?oc=5"
+   },
+   {
+    "title": "이란 혁명수비대 \"호르무즈서 가스운반선 기뢰 충돌…대형 폭발\"",
+    "source": "연합뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBDV0ZkM1BqYVFnallCWF9pOXhha1Jnc0dfdmo2X19BRW1NcWxMeEpMWmxyR1hyTUQwUTNuS2l1N2gzYnctamJDdlY5Nmdwck1IR1F3dEdLWFoyZDDSAWBBVV95cUxNeGpFMkJiR2VlVHZBU21BV2V3U2ZLSTZNQkVyZG5abXhQWUoxQTJ0eUZNQjlQSUVMeEdhYkFaUGlTNjhMUWN6LWRCRkFJUzB3ZFNpbkJ1aEtIbkRFUGYyQ1M?oc=5"
+   },
+   {
+    "title": "美 “바레인 향하던 이란 드론 2대 격추”…레이더 타격 주장 부인",
+    "source": "마켓인",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE4wX2tTWm5GeVJtZk1tY3doSWM1S2ZETVRlYW1IYVRqSGZGSkNqN2sxOHMwN21RdWtlbGJnZ0llWTkweDRXa0pNNVE3bWJ1em04aTJhTy1qY2dOVy1qXy1lZnUtWHgzX090NElyYUtYakZSaTA?oc=5"
+   },
+   {
+    "title": "이란, 호르무즈 해협서 유조선 4척 기뢰 피격…해운 위기 심화",
+    "source": "Investing.com 한국어",
+    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFA5YUJ3aERBLTBLOVVzcGlZMF9HY3N6dEVWRkhXUVZpSkxKMjFMRzQtNmRWeDBRSHRiYm84d2xWaV9ZR2xlYVoxR05aa0kyYnRjazNLT0VTUHhPczA3bUtLcUZINGRZTGlQenc?oc=5"
+   },
+   {
+    "title": "[포착] 우주에서도 보이는 ‘거대 기름띠’…‘검은 재앙’으로 변한 호르무즈 해협",
+    "source": "나우뉴스",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBtemdVM2hwVW02QUZXbjVnTXBrT0pubFRuekRLUjhwZWMwbVNla2tMUFNxenAwUGN5QWRKRVRia3B6eU50c0x4UFktcTlwOWgwd00xaFlrSUZuNGNvRUpoeVR1MGd0cnN6SlFpTGYtT2c?oc=5"
+   }
+  ],
+  "published": "2026-11-14T19:00:16+09:00",
+  "section_hint": "국제",
+  "headline": "호르무즈 해협 선박 공격 10월 37건…월간 최다",
+  "summary": "10월 호르무즈 해협 주변 선박 공격이 37건으로 집계돼 전쟁 발발 이후 월간 기준 최다 기록을 세웠다.",
+  "key_points": [
+   "10월 선박 공격 37건, 2026년 2월 이후 월간 최다",
+   "비이란계 유조선 통항은 9월보다 늘어 418척 기록",
+   "이란 혁명수비대는 액화가스 운반선 기뢰 폭발 발표"
+  ],
+  "body": "영국 해운 데이터 업체 로이드 리스트 인텔리전스는 13일 발표에서 10월 한 달간 호르무즈 해협 주변에서 총 37건의 선박 공격이 집계됐다고 밝혔다. 9월보다 늘어난 수치이며, 미국과 이스라엘의 대이란 공격으로 전쟁이 시작된 2026년 2월 이후 월간 기준 최다 기록이다.\n\n11월에도 공격은 이어졌다. 11월 들어 최소 14건의 공격이 확인됐다. 10월 1~15일 집계에서는 최소 26건이 발생했다는 별도 보도도 있다. 공격 대상은 유조선뿐 아니라 컨테이너선, 벌크선, 가스선으로 넓어졌다.\n\n같은 달 호르무즈 해협을 통과한 비이란계 유조선은 418척으로 9월의 385척보다 늘었다. 통항이 늘어나는 가운데 공격도 함께 늘어난 셈이다. 로이드 리스트는 통항이 회복되고 있으나 정상화된 단계는 아니라고 평가하며, 추가적인 의도적 공격 가능성이 높다고 전망했다.\n\n이란은 호르무즈 해협의 통제권을 주장하며 허가 없이 진입하는 선박을 공격하고 있다. 그러나 이 해협은 자연 해협으로, 특정 국가가 통행을 일방적으로 제한할 수 없다는 지적이 나온다. 이란 혁명수비대 해군은 13일 해협 동부에서 액화가스 운반선이 기뢰와 충돌해 대형 폭발이 일어났다고 발표했다.\n\n국제해사기구(IMO)는 모든 선박의 방해받지 않는 통과권을 강조하며 민간 상선에 대한 공격을 규탄했다.\n\n예멘 후티 반군은 13일 사우디 남서부 자잔주의 병력 집결지를 겨냥해 탄도미사일 2발을 발사했다고 주장했다. 자잔주에는 아람코 정유시설이 있다. 후티는 전날에도 사우디의 송유관과 리야드 아람코 시설을 공격했다고 주장했으나, 실제 피해 여부와 사우디 정부의 공식 입장은 확인되지 않았다.\n\n확인된 향후 일정은 없다. 해협 통항 회복과 공격 추이, 국제사회의 대응이 주목된다.",
+  "section": "국제",
+  "tags": [
+   "호르무즈 해협",
+   "선박 공격",
+   "이란",
+   "해운"
+  ],
+  "image_keyword": "호르무즈 해협",
+  "image_prompt": "aerial view of a calm strait at dusk, tankers and container ships far apart on dark blue water, hazy sky",
+  "ai": true,
+  "researched": true,
+  "image": {
+   "url": "media/a32a6578dd01.webp",
+   "w": 960,
+   "h": 960,
+   "generated": true,
+   "subject": "호르무즈 해협 선박 공격 10월 37건…월간 최다",
+   "artist": "AI 생성",
+   "license": "",
+   "page": "",
+   "style": 2
+  },
+  "about": {
+   "title": "호르무즈 해협",
+   "text": "호르무즈 해협(Strait of Hormuz, /hɔːrˈmuːz/ 페르시아어: تنگهٔ هُرمُز Tangeh-ye Hormoz listen , 아랍어: مَضيق هُرمُز Maḍīq Hurmuz)은 페르시아만과 오만만 사이의 해협이다. 페르시아만에서 대양으로 나가는 유일한 해로이며 세계에서 가장 전략적으로 중요한 조임목 중 하나이다. 북쪽 해안에는 이란이 있고, 남쪽 해안에는 아랍에미리트와 오만의 월경지인 무산담 반도가 있다.",
+   "url": "https://ko.wikipedia.org/wiki/%ED%98%B8%EB%A5%B4%EB%AC%B4%EC%A6%88_%ED%95%B4%ED%98%91"
+  }
+ },
+ {
   "id": "462c33bbedda",
   "orig_title": "정부, 마이크로소프트 서비스 장애에 비상대응반 구성하고 점검",
   "source": "MBC 뉴스",
@@ -105,24 +257,24 @@
   ],
   "published": "2026-11-14T18:01:00+09:00",
   "section_hint": "경제",
-  "headline": "젠슨 황 사임 뒤 이사회 감시 역할 논란",
-  "summary": "젠슨 황의 사임을 계기로 대형 기업 이사회의 감시 기능에 대한 우려가 제기되고 있다.",
-  "body": "젠슨 황 엔비디아 전 CEO의 사임을 계기로 대형 기술기업 이사회가 최고경영자를 견제할 수 있는지에 대한 질문이 제기되고 있다. 한겨레는 이번 사태가 이사회의 역할을 되묻는 계기가 됐다고 짚었다.\n\n관련 보도들은 엔비디아의 해임과 사임 과정을 두고 기업 가치와 투자자 신뢰에 미칠 영향에 주목했다. 일부 매체는 회사의 장기적 경영 안정성을 우려하는 시각을 전했다.\n\n또 일부 보도는 머스크와 저커버그처럼 창업자가 강한 영향력을 행사하는 기업에서 이사회가 실질적 견제 기능을 할 수 있느냐는 문제를 함께 다뤘다. 이번 사례가 그 한계를 드러냈다는 해석도 나왔다.\n\n한편 중화권 일부에서는 젠슨 황이 대만계라는 점이 사임 배경에 영향을 줬을 수 있다는 시각도 제기됐다. 다만 이는 확인된 사실이 아닌 주장으로, 보도에서도 근거는 제시되지 않았다.\n\n트럼프 대통령이 이 사안에 대해 발언한 것도 보도됐다. 다만 구체적인 발언 내용과 정부 차원의 대응은 현재 확인되지 않았다.\n\n향후 엔비디아의 이사회 구성과 지배구조 개편 여부가 관심을 모을 전망이다.",
+  "headline": "젠슨 황 몰락이 남긴 역설…이사회의 견제 역할은",
+  "summary": "젠슨 황 전 엔비디아 CEO의 사임을 계기로 창업자 중심 기업에서 이사회가 견제 역할을 할 수 있는지 논의가 이어지고 있다.",
+  "body": "젠슨 황 전 엔비디아 CEO의 물러남을 두고 여러 매체가 사안을 다뤘다. 한겨레는 이번 사태가 남긴 역설에 주목하며, 이사회가 머스크나 저커버그 같은 창업자 중심의 경영자에 맞설 수 있겠느냐는 물음을 던졌다.\n\n경향신문은 젠슨 황이 지난해 엔비디아 임원들에게 앨리스라는 인물과의 관계가 적절했다고 거짓 해명했다고 보도했다. 연합뉴스는 중화권 일각에서 그의 불륜 논란으로 사임했다는 시각이 나오고, 대만계라는 점도 영향을 줬다는 해석이 제기됐다고 전했다.\n\n매체마다 사안을 가리키는 표현도 엇갈린다. 일부 보도는 사임으로, 다른 보도는 해임으로 표현했다. 네이버 머니스토리는 해임 이후 엔비디아를 바라보는 우려의 시선을 짚었다. KBS는 트럼프 대통령이 이 사안을 두고 고민하는 장면을 전하며, 그가 물러났어야 했는지 되묻는 모습을 담았다.\n\n확인된 향후 일정은 없다. 엔비디아의 후임 체제와 이사회 구성 변화가 주목된다.",
   "section": "경제",
   "tags": [
+   "엔비디아",
    "젠슨 황",
    "이사회",
-   "엔비디아",
    "지배구조"
   ],
   "image_keyword": "엔비디아",
   "ai": true,
   "key_points": [
-   "젠슨 황 사임, 이사회 감시 기능 논란",
-   "창업자 영향력 큰 기업의 견제 한계 지적",
-   "엔비디아 지배구조 변화 여부 주목"
+   "매체마다 사임과 해임 표현이 엇갈려 보도됨",
+   "지난해 임원에게 한 해명의 진실성 논란 제기",
+   "이사회의 최고경영자 견제 역할에 대한 물음 확산"
   ],
-  "image_prompt": "empty boardroom with a long wooden table and leather chairs, a single water glass on the table, soft daylight through tall windows",
+  "image_prompt": "closed glass boardroom door in a modern office, a single empty leather chair at a long table, soft overhead light",
   "image": null,
   "about": {
    "title": "엔비디아",
@@ -192,6 +344,67 @@
   "image": null
  },
  {
+  "id": "e1674f6407b2",
+  "orig_title": "배우 고경표 만취 사고...CCTV 속 황급한 발걸음",
+  "source": "YTN",
+  "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1LNTA0OURvbGRlc1JBMVRUcDV0QncwenhiOVBGVHc5a1pJUjhxcVQ2TTRtdEhwczZ6QjF0YnFremVYR0xtcWdKMGpBZUlheFJhbDBsaHNBQ0daSXczaXc?oc=5",
+  "related": [
+   "“음주운전 안돼요” 했던 고경표…만취 사고 CCTV 속 모습은 (중앙일보)",
+   "비틀거리다 청소 차에 ‘쾅’…만취 운전자는 배우 고경표 (JTBC)",
+   "고경표 음주사고 직후 CCTV 공개…환경미화원 황급히 뒤쫓았다 (뉴시스)",
+   "보검매직컬·대탈출 '비상'…'만취 운전' 고경표, 예능 통편집 수순 (한국경제)"
+  ],
+  "coverage": [
+   {
+    "title": "배우 고경표 만취 사고...CCTV 속 황급한 발걸음",
+    "source": "YTN",
+    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1LNTA0OURvbGRlc1JBMVRUcDV0QncwenhiOVBGVHc5a1pJUjhxcVQ2TTRtdEhwczZ6QjF0YnFremVYR0xtcWdKMGpBZUlheFJhbDBsaHNBQ0daSXczaXc?oc=5"
+   },
+   {
+    "title": "“음주운전 안돼요” 했던 고경표…만취 사고 CCTV 속 모습은",
+    "source": "중앙일보",
+    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5mMkl3SzcwTjhKWGVWR00wenU5R0k4YVVTSHk4dmpvMGpyVVMxY3psQnlKN2NiUXBWV1Q2T1MtUTN4TjhxTEJfR084U242S1k0bUxRNGln?oc=5"
+   },
+   {
+    "title": "비틀거리다 청소 차에 ‘쾅’…만취 운전자는 배우 고경표",
+    "source": "JTBC",
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1EbEZUR0M0Q0RDcm9TeDdiQW9Sa24wNlAtYWFSUHZGTTdyZGtDWVZiUW42NjA5aU41WWtEa2J5bWtwbi0tU0ppN0xXQnAxZlFfd09VMg?oc=5"
+   },
+   {
+    "title": "고경표 음주사고 직후 CCTV 공개…환경미화원 황급히 뒤쫓았다",
+    "source": "뉴시스",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBnT0p5WWxZbDU1M2dpN19veDFLMnNOQ3hCdUdRZUJZSjdMZmFhNkpXdHJHdkYxVy01V29FdVlvT0xnSzVva2lNZHVHOHdONUJDNXBnY0ZDbmNVVkpXaEVQaldjb3nSAXhBVV95cUxPelczZDJZNGlQV3Y1RjlQZGZZWFJWbFJuNGFVZzN0SmY2Rmc5UFBvcm9BeW1hOHNoWUhteko1N3dJMmV0OWt5Yzl2SFJ2a3ctRExkNmZTUU92ejhmWktHT2FXaFJfbnNVTm9wSmZoV24wbUd1eVhZalE?oc=5"
+   },
+   {
+    "title": "보검매직컬·대탈출 '비상'…'만취 운전' 고경표, 예능 통편집 수순",
+    "source": "한국경제",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1HcEtuWlFyc040YUdqY1FzWERiM1pLVF84WWZEQ3kxVDJZRzJ3UzlXM05HT2FaUTlRUGp1eWJXbUJ5QXhZR3VnaFNiczVlV0RRUHIwRHVfbkV2dw?oc=5"
+   }
+  ],
+  "published": "2026-11-14T16:06:00+09:00",
+  "section_hint": "문화·연예",
+  "headline": "배우 고경표 음주사고…CCTV에 담긴 사고 직후 모습",
+  "summary": "배우 고경표가 음주 상태로 운전하다 청소차와 충돌한 사고로 경찰 조사를 받게 됐으며, 소속사는 음주운전 사실을 인정했다.",
+  "key_points": [
+   "혈중알코올농도 0.150%로 면허 취소 기준의 두 배",
+   "소속사는 음주운전 사실 인정하며 사과",
+   "경찰, 사고 경위 재조사 방침이며 제작진 입장은 미확인"
+  ],
+  "body": "배우 고경표가 14일 오전 3시 30분쯤 서울 마포구 동교동 인근에서 음주 상태로 자신의 승용차를 몰다 청소차와 충돌했다. 사고 직후 연합뉴스TV가 공개한 CCTV 영상에는 고경표의 차량이 지나간 뒤 환경미화원이 다급하게 뒤따라가는 장면이 담겼다.\n\n영상 속 고경표는 차를 세우고 운전석에서 내려 차량 상태를 살폈으며, 사고 상대방으로 보이는 인물과 이야기를 나눴다. 경찰 음주 측정 결과 혈중알코올농도는 0.150%로 나타났다. 면허 취소 기준인 0.08%의 두 배 수준이다.\n\n고경표는 신고를 받고 출동한 경찰에게 음주 측정을 받은 뒤 집으로 돌아갔다. 사고 당시 차량에는 동승자가 없었던 것으로 확인됐다. 경찰은 조만간 고경표를 다시 불러 정확한 사고 경위를 조사할 방침이다.\n\n고경표는 2023년 3월 한국도로교통공단의 교통사고 예방 홍보대사로 위촉돼 안전운전을 당부하는 홍보 영상에 출연한 바 있다. 당시 그는 음주운전과 과속운전을 하면 안 된다고 말했다. 이번 사고로 이 같은 과거 활동과의 대비가 언론에서 거론되고 있다.\n\n소속사 씨엘엔컴퍼니는 공식 입장을 통해 음주운전 사실을 인정하고 사과했다. 처분을 받아들이고 피해 회복에 책임을 다하겠다는 입장도 밝혔다.\n\n사고 후 처리 과정도 쟁점으로 떠올랐다. 교통사고 후 미조치는 가중처벌 대상이어서, 고경표가 사고 후 처리에 임하려 했는지가 혐의 판단의 변수가 될 전망이다.\n\n고경표는 현재 예능 '식스센스 : B사이드'에 고정 출연 중이다. 29일 첫 방송을 앞둔 '보검 매직컬2'와 다음 달 공개 예정인 OTT 예능 '대탈출 : 도시괴담'에도 출연할 예정이었다. 제작진의 공식 입장과 출연 조정 여부는 확인되지 않았다. 경찰 조사 결과가 주목된다.",
+  "section": "문화·연예",
+  "tags": [
+   "고경표",
+   "음주운전",
+   "교통사고",
+   "예능"
+  ],
+  "image_keyword": "",
+  "image_prompt": "empty city street at dawn with a street sweeper truck parked under a streetlight, wet asphalt, wide shot",
+  "ai": true,
+  "researched": true,
+  "image": null
+ },
+ {
   "id": "6d94b310f571",
   "orig_title": "미국 “19일 중국서 미·중·러 정상회담”…트럼프-김정은 회담은 불발 전망",
   "source": "한겨레",
@@ -231,24 +444,24 @@
   ],
   "published": "2026-11-14T15:20:00+09:00",
   "section_hint": "국제",
-  "headline": "미 “19일 중국서 미·중·러 정상회담 예정”",
-  "summary": "백악관은 19일 중국에서 미·중·러 정상회담이 열린다고 밝혔으며 트럼프-김정은 회담은 예정되지 않았다.",
-  "body": "미국 백악관은 19일 중국에서 미국, 중국, 러시아 정상회담이 열린다고 발표했다. 이번 회담에는 도널드 트럼프 미국 대통령과 시진핑 중국 국가주석, 블라디미르 푸틴 러시아 대통령이 참석할 것으로 보도됐다.\n\n백악관은 이 자리에서 트럼프 대통령과 김정은 북한 국무위원장의 회담은 예정되어 있지 않다고 밝혔다. 이에 따라 북미 정상 간 만남은 이번 일정에 포함되지 않을 것으로 전해졌다.\n\n일정과 관련해 미국 측은 트럼프 대통령이 18일 중국 선전에 도착해 19일 아시아태평양경제협력체(APEC) 만찬에 참석할 예정이라고 전했다. 이 자리에서 여러 정상이 함께 모이는 만큼 회담 이후의 외교 일정에도 관심이 쏠린다.\n\n한편 연합뉴스는 트럼프 대통령이 아세안 정상회의에서 ‘팍스 실리카’ 참여를 촉구할 것으로 보인다고 전했다. 세부 내용은 확인되지 않았다.\n\n미·중·러 3국 정상이 한자리에 모이는 것이 어떤 결과로 이어질지 외교가의 관심이 높다. 북한 문제와 미중 관계에 대한 논의 내용은 회담 이후 공개될 것으로 보인다.",
+  "headline": "미·중·러 정상회담 19일 중국서 열려…북미 회담은 불발 전망",
+  "summary": "백악관은 19일 중국에서 미·중·러 정상회담이 열린다고 발표했으며, 트럼프 대통령과 김정은 위원장의 회담 계획은 없다고 밝혔다.",
+  "body": "백악관은 19일 중국에서 미국, 중국, 러시아 정상회담이 열린다고 발표했다. 조선일보 등 국내 매체는 트럼프 대통령, 시진핑 국가주석, 푸틴 대통령이 같은 날 중국에서 만난다고 전했다.\n\n백악관은 이와 함께 트럼프 대통령과 김정은 국무위원장 사이의 회담 계획이 없다고 밝혔다. 이에 따라 북미 정상회담이 이번 일정에서 성사되지 않을 것이라는 전망이 나온다.\n\n경기일보는 트럼프 대통령이 18일 중국 선전에 도착한 뒤 19일 APEC 만찬에 참석할 예정이라고 보도했다. 다만 이번 일정의 세부 의제와 회담 형식은 검색 결과에서 추가로 확인되지 않았다.\n\n연합뉴스는 트럼프 대통령이 아세안 정상회의에서 팍스 실리카 참여를 촉구할 것이라는 전망을 전했다. 이번 중국 일정과 별개로 이어질 다자외교의 흐름을 가늠할 대목이다.\n\n확인된 향후 일정은 19일 미·중·러 정상회담과 APEC 만찬이다. 회담 결과와 북미 간 접촉 여부가 주목된다.",
   "section": "국제",
   "tags": [
    "미중러 정상회담",
    "트럼프",
-   "APEC",
-   "북한"
+   "김정은",
+   "APEC"
   ],
   "image_keyword": "도널드 트럼프",
   "ai": true,
   "key_points": [
-   "19일 중국서 미·중·러 정상회담 예정",
-   "백악관 “트럼프-김정은 회담 예정 없어”",
-   "트럼프 18일 선전 도착, APEC 만찬 참석"
+   "19일 중국에서 미·중·러 정상회담 개최 발표",
+   "트럼프-김정은 회담 계획은 없다고 백악관 밝혀",
+   "트럼프, 18일 선전 도착 후 19일 APEC 만찬 참석 예정"
   ],
-  "image_prompt": "wide shot of a government podium in an empty hall with flags out of focus, rows of chairs and soft stage lighting in the early evening",
+  "image_prompt": "wide shot of an empty conference hall lectern with rows of chairs and blurred stage lights, early evening, no visible text",
   "image": null,
   "about": {
    "title": "도널드 트럼프",
@@ -397,6 +610,11 @@
    "subject": "한동훈",
    "artist": "엠바고",
    "license": "CC BY 4.0"
+  },
+  "about": {
+   "title": "한동훈",
+   "text": "한동훈(韓東勳, 1973년 4월 9일~)은 대한민국의 검사 출신 정치인이다. 제69대 법무부 장관, 제3대 국민의힘 당대표를 역임하고 현재 제22대 국회의원이다.",
+   "url": "https://ko.wikipedia.org/wiki/%ED%95%9C%EB%8F%99%ED%9B%88"
   }
  },
  {
@@ -572,7 +790,8 @@
    "title": "국민의힘",
    "text": "국민의힘은 대한민국의 보수정당이다. 2020년 2월 17일, 자유한국당, 새로운보수당, 미래를향한전진4.0이 통합하여 미래통합당이라는 당명으로 창당되었으며 2020년 9월 2일, 당명을 국민의힘으로 변경하였다. 2022년 4월 18일에는 국민의당과 흡수하여 합당하였다.",
    "url": "https://ko.wikipedia.org/wiki/%EA%B5%AD%EB%AF%BC%EC%9D%98%ED%9E%98"
-  }
+  },
+  "image": null
  },
  {
   "id": "7a9df6d0f97e",
@@ -1849,6 +2068,42 @@
   "researched": true
  },
  {
+  "id": "e808e2c89b8e",
+  "orig_title": "한국군 무인기 11만 대·KAI 편대기 비행에 촉각 곤두세운 중국 군부",
+  "source": "글로벌이코노믹",
+  "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNNm1GSE1WeTZhbkljVXpLQlFXUVJ6RDVWSUNQN1kzaHVCeVMzdFM4cHBVTXNEUGdXRnAwdWNlUHA5Wkx2emhOS3FST2d0ZGlzaFdZSHNfM3VOSXJZVUZPTGdzSXZoVUNJYTFsRHBuZGZoaVJUNW1FWHpzSGpkSURMUXM3ZFVoQnZU?oc=5",
+  "related": [],
+  "coverage": [
+   {
+    "title": "한국군 무인기 11만 대·KAI 편대기 비행에 촉각 곤두세운 중국 군부",
+    "source": "글로벌이코노믹",
+    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNNm1GSE1WeTZhbkljVXpLQlFXUVJ6RDVWSUNQN1kzaHVCeVMzdFM4cHBVTXNEUGdXRnAwdWNlUHA5Wkx2emhOS3FST2d0ZGlzaFdZSHNfM3VOSXJZVUZPTGdzSXZoVUNJYTFsRHBuZGZoaVJUNW1FWHpzSGpkSURMUXM3ZFVoQnZU?oc=5"
+   }
+  ],
+  "published": "2026-11-14T07:37:54+09:00",
+  "section_hint": "IT·과학",
+  "headline": "한국군 무인기 11만 대 계획에 중국 군부 경계",
+  "summary": "중국 군사 전문 매체가 한국군의 무인기 전력 확충 계획과 KAI의 유무인 편대비행을 주목했다.",
+  "key_points": [
+   "중국 매체, 한국군 무인기 11만 대 계획 분석",
+   "KAI 유무인 편대비행, 9~30m 간격 유지",
+   "무인기 비행 시험은 2027년 전후 예정"
+  ],
+  "body": "중국 군사 전문 매체가 한국군의 국방무인기본부 출범과 2029년까지 무인기 11만 대를 확보하는 계획을 분석하며 한반도 군사 균형 변화에 경계심을 드러냈다. 보도에 따르면 해당 매체는 중국국방보로 확인된다.\n\n중국 측 보도는 한국군의 지휘권을 각 군에 넘기는 구조와 2029년 11만 대 체제를 주요 내용으로 다뤘다. 중국 측은 이를 전작권 전환과 자주국방 구상의 맥락으로 보았다. 부품의 저국산화와 한반도 긴장 고조를 과제로 지목하기도 했다.\n\n무인기 시험 일정도 함께 언급됐다. 매체는 한국군 무인기가 2027년 전후 비행 시험에 나설 예정이라고 전했다.\n\n핵심 사례로는 한국항공우주산업(KAI)의 FA-50과 무인기 AAP의 유무인 편대비행이 꼽혔다. 보도 기준으로 두 기체는 고도 약 2,100m, 시속 약 360km에서 약 20분간 비행했으며, 9~30m 간격을 유지했다. AAP는 KAI가 자체 개발 중인 150kg급 고속 무인기로, 제트엔진을 달아 최대 시속 790km로 비행할 수 있다. 국내 최초 유인기와 무인기의 편대비행은 지난 8일 성공한 것으로 알려졌다.\n\nKAI는 AI 파일럿 '카이롯'을 기반으로 자율비행 기술을 고도화하고 있으며, 차세대 무인전투기 MUCCA 개발 목표도 제시했다. KAI 측은 인터뷰에서 기술 개발의 주도권을 자사가 쥐고 있다고 밝혔다.\n\n다만 11만 대라는 수치의 원출처 문서는 검색에서 확인되지 않았다. 본 기사는 2차 매체의 요약을 기준으로 작성됐다.\n\n확인된 향후 일정은 없다. 2027년 전후로 예정된 무인기 비행 시험의 진행 상황이 주목된다.",
+  "section": "IT·과학",
+  "tags": [
+   "무인기",
+   "KAI",
+   "유무인 편대비행",
+   "국방 기술"
+  ],
+  "image_keyword": "한국항공우주산업",
+  "image_prompt": "over-the-shoulder view of a technician monitoring a drone control screen in a dim lab, glowing data graphs, close framing",
+  "ai": true,
+  "researched": true,
+  "image": null
+ },
+ {
   "id": "d38106eaa3b3",
   "orig_title": "손흥민 \"선수들에게 많이 미안\"…21년 만에 사우디에 '패배'",
   "source": "한국경제",
@@ -1888,23 +2143,23 @@
   ],
   "published": "2026-11-14T07:32:22+09:00",
   "section_hint": "스포츠",
-  "headline": "축구대표팀, 사우디에 2대3 패배…21년 만의 충격",
-  "summary": "축구대표팀이 사우디에 2대3으로 져 21년 만의 패배를 당했고, 42년 만에 3실점을 허용했다.",
+  "headline": "손흥민 “동료들에게 미안” 21년 만의 사우디전 패배",
+  "summary": "한국 축구대표팀이 사우디에 2대3으로 져 21년 만의 패배를 기록했고, 손흥민은 아쉬움을 드러냈다.",
   "key_points": [
-   "사우디에 2대3 패배, 21년 만의 패배",
-   "42년 만의 3실점, 수비 집중력 부족 지적",
-   "손흥민 결정적 기회 무산, 세대교체 목소리"
+   "한국, 사우디에 2대3 패배…21년 만의 열세",
+   "3실점은 42년 만, 상대 전적 열세로 전환",
+   "손흥민 “결정적 역할 못해 동료들에게 미안”"
   ],
-  "body": "축구대표팀이 사우디아라비아와의 경기에서 2대3으로 패했다. 사우디에 패한 것은 21년 만이며, 3실점을 허용한 것은 42년 만이라는 점이 함께 보도됐다. 모레노 감독이 이끄는 대표팀의 연이은 실점이 패배의 핵심으로 꼽혔다.\n\n이날 경기에서는 손흥민의 결정적인 득점 기회 장면이 주목받았다. 손흥민은 동료들에게 많이 미안하다고 말했다. 완벽한 찬스가 두 차례 있었지만 살리지 못했다는 평가가 나왔다.\n\n수비진에서는 김민재가 실점 원인을 짚었다. 그는 조그마한 집중력 부족이 원인이었다고 말했다. 3실점 모두 수비 집중력의 문제로 이어졌다는 취지다.\n\n일부 축구 팬들은 경기력에 대한 실망을 드러냈다. 손흥민의 전성기가 지났다는 반응과 함께 세대교체가 필요하다는 목소리가 나왔다. 대표팀이 내세운 방향과 실제 경기력이 달랐다는 비판도 이어졌다.\n\n이번 패배로 대표팀에 대한 우려가 커졌다. 다음 일정과 전술 변화에 대한 구체적인 계획은 아직 확인되지 않았다.",
+  "body": "대한민국 축구대표팀은 13일(현지시간) 카타르 도하 자심 빈 하마드 스타디움에서 열린 사우디아라비아와의 평가전에서 2대3으로 졌다. 이번 패배로 한국은 21년 만에 사우디에 졌고, 2006년 독일 월드컵 최종예선 이후 이어온 성인 대표팀의 사우디전 무패 행진도 끝났다.\n\n3실점은 42년 만이다. 사우디를 상대로 3골 이상 내준 것은 1984년 LA 올림픽 최종예선 4대5 패배 이후 처음이다. 역대 상대 전적은 한국이 5승 9무 6패로 열세로 바뀌었다. 이번 경기는 로베르트 모레노 임시 감독이 지휘한 첫 원정 경기였다.\n\n주장 손흥민은 오현규와 투톱으로 선발 출전해 90분을 모두 뛰었다. 후반 21분에는 사우디 골키퍼의 실수로 얻은 찬스에서 오른발 슛을 때렸지만 공이 크로스바를 넘어갔다. 이 골이 들어갔다면 A매치 60호골로 한국 남자 선수 최초의 60골 고지에 올랐을 것이지만, 기록은 다음 경기로 미뤄졌다.\n\n손흥민은 경기 뒤 결정적인 역할을 해내지 못해 선수들에게 미안하다고 밝혔다. 기회가 와도 항상 골을 넣을 수는 없다며 아쉬움이 남는다고 말했다.\n\n황희찬은 불화설 보도가 사실과 다르게 왜곡됐다는 입장을 냈다. 그는 처음에는 내부에서 해결하고 싶어 선수들끼리 미팅을 이어갔다고 설명했다. 불화설은 손흥민과 이른바 ‘96라인’ 선수들 사이에서 불거졌고, 두 측은 12일 공동 입장문을 내고 진화에 나섰다. 그러나 경기 결과로는 반등하지 못했다.\n\n일부 매체는 손흥민의 결정력 저하와 세대교체 필요성에 주목했다. 다른 보도는 공동 입장문으로 불화설을 정리했음에도 경기력으로 이를 입증하지 못한 점을 짚었다.\n\n한국은 17일 카타르와 평가전을 치를 예정이다. 손흥민의 60호골 기록과 선수단 분위기 회복 여부가 다음 경기에서 주목된다.",
   "section": "스포츠",
   "tags": [
-   "축구 국가대표팀",
-   "사우디",
+   "축구대표팀",
    "손흥민",
-   "김민재"
+   "사우디아라비아",
+   "평가전"
   ],
-  "image_keyword": "대한민국 축구 국가대표팀",
-  "image_prompt": "stadium tunnel leading to a green pitch under floodlights, players silhouetted at a distance, dramatic evening light",
+  "image_keyword": "손흥민",
+  "image_prompt": "close-up of a football on a grass pitch under floodlights at dusk, a blurred stadium stand behind, cool evening light",
   "ai": true,
   "image": {
    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg/1280px-BFA_2023_-2_Heung-Min_Son_%28cropped%29.jpg",
@@ -1919,7 +2174,8 @@
    "title": "손흥민",
    "text": "손흥민(孫興慜, 1992년 7월 8일~)은 대한민국의 축구 선수로, 포지션은 공격수이다. 현재 미국 메이저 리그 사커의 로스앤젤레스 FC와 대한민국 축구 국가대표팀 소속으로 활동하고 있으며 대한민국 축구 국가대표팀의 주장을 맡고 있다. 2025년 기준 프리미어리그와 UEFA 챔피언스리그의 역대 아시아 선수 최다 득점자이며 구단에서의 업적을 바탕으로 역대 최고의 아시아 축구 선수 중 한 명으로 간주되고 있다.",
    "url": "https://ko.wikipedia.org/wiki/%EC%86%90%ED%9D%A5%EB%AF%BC"
-  }
+  },
+  "researched": true
  },
  {
   "id": "4ec136a95a19",
@@ -1961,30 +2217,31 @@
   ],
   "published": "2026-11-14T06:54:00+09:00",
   "section_hint": "스포츠",
-  "headline": "축구대표팀, 사우디전 패배…입장문 약속한 축구 없었다",
-  "summary": "축구대표팀이 사우디에 21년 만에 패했으며, 대표팀이 입장문에서 약속한 경기력은 보여주지 못했다는 평가가 나왔다.",
+  "headline": "축구대표팀 사우디에 2대3 패…실점 장면과 모레노 평가",
+  "summary": "한국은 사우디와의 평가전에서 전반 추가시간과 후반 연속 실점으로 패했고, 김민재와 모레노 감독이 원인을 짚었다.",
   "key_points": [
-   "사우디에 2대3 패배, 21년 만의 충격패",
-   "입장문에서 약속한 경기력 보여주지 못했다는 평가",
-   "손흥민 기회 무산과 세대교체 논쟁 확산"
+   "한국, 사우디에 2대3 패…연속 실점이 발목",
+   "김민재 “조그마한 집중력 부족이 원인”",
+   "모레노 감독 “대표팀 수준 실수, 전 부분 개선”"
   ],
-  "body": "축구대표팀이 사우디와의 경기에서 패해 21년 만의 충격패를 당했다. 경기 결과는 2대3이었고, 42년 만에 3실점을 허용한 경기로 기록됐다.\n\n경향신문은 모레노 감독 체제의 대표팀이 입장문에서 약속한 축구를 보여주지 못했다고 지적했다. 경기력 측면에서도 기대에 미치지 못했다는 평가가 나왔다.\n\n수비에서는 김민재가 실점 원인으로 조그마한 집중력 부족을 꼽았다. 공격에서는 손흥민이 결정적인 골 기회를 놓쳤고, 동료들에게 많이 미안하다고 말했다.\n\n머니투데이는 손흥민이 완벽한 찬스를 두 번 놓쳤다며 전성기가 지났다는 시각을 전했다. 일부 팬들은 세대교체가 필요하다고 주장했다. 반면 일부 보도는 선수들의 책임을 개인보다 팀 전체의 집중력 문제로 보는 시각을 전했다.\n\n이번 패배로 대표팀의 경기력과 향후 방향에 대한 논의가 이어질 전망이다. 다만 후속 대응 방안은 아직 구체적으로 확인되지 않았다.",
+  "body": "한국 축구대표팀이 13일 도하에서 열린 사우디와의 평가전에서 2대3으로 패했다. 로베르트 모레노 임시 감독이 이끄는 대표팀은 11월 A매치 2연전의 첫 경기에서 21년 만의 사우디전 패배를 기록했다.\n\n전반 추가시간에는 김승규가 상대 공격을 막으려다 미끄러졌고, 이 과정에서 마르완 알사하피가 공을 밀어 넣었다. 후반 2분에는 설영우의 오른쪽 크로스를 오현규가 페널티박스 중앙에서 오른발 발리슛으로 연결해 동점을 만들었다.\n\n그러나 후반 11분 모하메드 칸노에게 실점했고, 3분 뒤에는 코너킥 상황에서 압둘렐라 알암리에게 헤딩골을 내줬다. 스코어는 순식간에 1대3이 됐다. 한국은 후반 21분 교체 투입된 이재성이 2분 만에 왼발 슛을 성공시켜 2대3으로 추격했다.\n\n기록상으로는 한국이 15개의 슛을 시도해 사우디의 8개보다 많았고, 유효슛도 6대5로 근소하게 앞섰다. 그러나 몇 차례 결정적인 기회를 살리지 못해 패배를 피하지 못했다.\n\n김민재는 경기 뒤 ‘조그마한 집중력 부족’을 패인으로 꼽았다. 첫 두 실점은 조금만 신경 썼다면 막을 수 있었다고 봤으며, 다음 경기에서 보완하겠다고 말했다. 그는 경기 전 공동 입장문에 진심을 담았다며, 사실과 다른 내용이 퍼져 당황했지만 선수들과 충분히 대화해 입장을 냈다고 설명했다.\n\n모레노 감독은 대표팀 수준에서 나오지 말아야 할 실수가 나왔고 골을 너무 쉽게 내줬다고 평가했다. 모든 부분에서 개선하겠다고 밝혔다. 경기 내용에서는 사우디의 강한 전방 압박에 막혀 빌드업에 어려움을 겪은 점이 지적됐다.\n\n일부 평가는 이틀 전 발표한 원론적인 입장문이 반전을 선언했음에도 경기력으로 입증하지 못했다는 데 초점을 맞췄다. 한국은 17일 카타르와 평가전을 치러 반등을 노린다.",
   "section": "스포츠",
   "tags": [
-   "축구 국가대표팀",
-   "사우디",
+   "축구대표팀",
    "모레노",
-   "세대교체"
+   "김민재",
+   "사우디아라비아"
   ],
   "image_keyword": "대한민국 축구 국가대표팀",
-  "image_prompt": "empty stadium seats after a night match, scattered papers on the pitch edge, floodlights overhead, wide shot, subdued mood",
+  "image_prompt": "wide shot of an empty dugout bench beside a green pitch at night, scattered water bottles, stadium lights glowing overhead",
   "ai": true,
   "image": null,
   "about": {
    "title": "대한민국 축구 국가대표팀",
    "text": "대한민국 축구 국가대표팀은 대한민국의 성인 남성 축구 국가대표팀으로 대한축구협회에 의해 구성된다. 국제 축구 연맹에서는 Korea Republic으로 호칭되며 1948년 하계 올림픽에서 처음 국제 무대에 발을 내디뎠고 1954년 FIFA 월드컵을 통해 처음 FIFA 월드컵 본선 무대를 밟은 이후 1986년 FIFA 월드컵부터 2026년 FIFA 월드컵까지 아시아 최초이자 세계에서 6번째로 11회 연속 본선에 진출했다. 2024년 8월 기준으로 총 11번 월드컵에 출전했고 2002년 FIFA 월드컵에서 최종 순위 4위를 달성하며 아시아 축구 연맹 회원국 중 월드컵 최다 출전 및 최고 성적을 보유하고 있다.",
    "url": "https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD_%EC%B6%95%EA%B5%AC_%EA%B5%AD%EA%B0%80%EB%8C%80%ED%91%9C%ED%8C%80"
-  }
+  },
+  "researched": true
  },
  {
   "id": "af95acf183db",
@@ -2668,6 +2925,72 @@
    "title": "대한민국 축구 국가대표팀",
    "text": "대한민국 축구 국가대표팀은 대한민국의 성인 남성 축구 국가대표팀으로 대한축구협회에 의해 구성된다. 국제 축구 연맹에서는 Korea Republic으로 호칭되며 1948년 하계 올림픽에서 처음 국제 무대에 발을 내디뎠고 1954년 FIFA 월드컵을 통해 처음 FIFA 월드컵 본선 무대를 밟은 이후 1986년 FIFA 월드컵부터 2026년 FIFA 월드컵까지 아시아 최초이자 세계에서 6번째로 11회 연속 본선에 진출했다. 2024년 8월 기준으로 총 11번 월드컵에 출전했고 2002년 FIFA 월드컵에서 최종 순위 4위를 달성하며 아시아 축구 연맹 회원국 중 월드컵 최다 출전 및 최고 성적을 보유하고 있다.",
    "url": "https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD_%EC%B6%95%EA%B5%AC_%EA%B5%AD%EA%B0%80%EB%8C%80%ED%91%9C%ED%8C%80"
+  }
+ },
+ {
+  "id": "f642aaaac418",
+  "orig_title": "美전문가들 \"트럼프, 전작권 전환을 주한미군 철수 수단으로 봐\"",
+  "source": "연합뉴스",
+  "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5PbmhMNkRWWENreDRMMTJnOHJBQmFtbXptN29HeURfdG5NaEg1WGtnUlFqanlCWHlqWjZSUWNYa2RmR1NIV1JVNERmN3UybkRLTDBncVV4dU81VzDSAWBBVV95cUxQUTZHa21Gb1I2dktyY1hiMFo3Z1VlbGRlWDBvQTRsUjRfanhZWUtKanVfenlxaUpkREIwNWozRFBzbkxQeWVmZlMwYVBUSXA5QVJPVXBXMS1nREswWmVrR2c?oc=5",
+  "related": [
+   "미 전문가들 \"트럼프, 전작권 전환을 주한미군 철수 수단으로 봐\" (MBC 뉴스)",
+   "브룩스 前사령관, ‘전작권 당장 전환 가능’ 강신철에 “매우 실망” (조선일보)",
+   "김건 의원 \"한미 조인트 팩트시트 1년에도 핵잠수함·원자력 협력 제자리\" (뉴스핌)",
+   "나경원 \"변화된 조건도 안 따지는 '전작권 무조건 전환'은 죽음의 길\" - 머니투데이 (머니투데이)"
+  ],
+  "coverage": [
+   {
+    "title": "美전문가들 \"트럼프, 전작권 전환을 주한미군 철수 수단으로 봐\"",
+    "source": "연합뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5PbmhMNkRWWENreDRMMTJnOHJBQmFtbXptN29HeURfdG5NaEg1WGtnUlFqanlCWHlqWjZSUWNYa2RmR1NIV1JVNERmN3UybkRLTDBncVV4dU81VzDSAWBBVV95cUxQUTZHa21Gb1I2dktyY1hiMFo3Z1VlbGRlWDBvQTRsUjRfanhZWUtKanVfenlxaUpkREIwNWozRFBzbkxQeWVmZlMwYVBUSXA5QVJPVXBXMS1nREswWmVrR2c?oc=5"
+   },
+   {
+    "title": "미 전문가들 \"트럼프, 전작권 전환을 주한미군 철수 수단으로 봐\"",
+    "source": "MBC 뉴스",
+    "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1BV0JXdHpJb21JVURyaE5Ya3hpQ3lMWFBPelROVFkwTE9HcnRSdUdDcDJBUkEtZVV2Z1VjaFVPOHJFOGI0OTc3SURTdzNndnVuTkZfX1ZEcnotRXpXTVBqYzl5cTZwTkpRRVBnbGtoUUJMb2140gF0QVVfeXFMT3JqMExOOVJjelgyRFlWX2gyZDJWcHhSZnhMQlNDbXd2djlMME04VElmX0Npb2xIazBWVzFYbXQ1NTg5YTlVXzNLQWQ0Nk1QUXBjcDRSMWJSVFhNYkJFUVp5SU5iSm1paVVTdGFmLXpBTTg0bkg?oc=5"
+   },
+   {
+    "title": "브룩스 前사령관, ‘전작권 당장 전환 가능’ 강신철에 “매우 실망”",
+    "source": "조선일보",
+    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxObzBkNE5IU0xvbVlTNUpId1ZHRWt1dE9odjJZekJDZ0tHeW1lRkMtVjVmQktJLUdXTDA1V1YwcnNSdElCZElDWkk0bVBmSFdUZHVWald5TjBoR0RRa2ppUmZMZXhDeHZKbEVUbko2N3VaYXdueVpwdlMwZDN0THpiLWVUcWE?oc=5"
+   },
+   {
+    "title": "김건 의원 \"한미 조인트 팩트시트 1년에도 핵잠수함·원자력 협력 제자리\"",
+    "source": "뉴스핌",
+    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1taGcyODhzTERlQlFqWm9TMm9RTzJnbDI1M3dsUTRwR2ZkUWNZdVR6WWljdEd1bFU1Y3dyamtNNDVoSEl5Sm1VS255cjNMV2diODNQTDdPOVlaREp0?oc=5"
+   },
+   {
+    "title": "나경원 \"변화된 조건도 안 따지는 '전작권 무조건 전환'은 죽음의 길\" - 머니투데이",
+    "source": "머니투데이",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9xaHduLUs3QWhDeUdFblM5dkJZQVV1bTlPdjZrZWxjN3NPeTExeklwcHJGd2dfTjNVSXhBbEMxUE1YMGJyT05iTzBnMjIySFFZVWNTeUJsZUVQTHF2QllCYm0tZlhENWhxbFlzQ9IBckFVX3lxTE5ybXFUdy10OUtYcVdNb3RKWmJqQjlYcV9ZMW1fejZGN2tuWE9Cb1R3cWpIY3laMG92ZkZoNXNNMXJfLUZHcE85bWVGZ0ZmdjNIbzkwVzZDSzZFZ3dhU2tjaDVabFQ3ZGg4dnB1bGJ4ZC1Gdw?oc=5"
+   }
+  ],
+  "published": "2026-11-14T02:21:04+09:00",
+  "section_hint": "사회",
+  "headline": "트럼프 전작권 전환, 주한미군 감축 수단 될 수 있나",
+  "summary": "미국 전문가들이 트럼프 행정부의 전작권 전환이 주한미군 감축의 수단으로 쓰일 수 있다고 우려했다.",
+  "key_points": [
+   "CSIS 빅터 차 석좌, 전작권 전환의 주한미군 감축 활용 우려",
+   "브룩스 전 사령관, 강신철 장관의 즉시 전환 발언에 실망 표명",
+   "병렬형 지휘체제 구상에는 결속력 약화 우려 제기"
+  ],
+  "body": "빅터 차 CSIS 한국석좌는 13일(현지시간) 팟캐스트 대담에서 트럼프 대통령이 전작권 전환을 주한미군 감축의 수단으로 볼 수 있다고 우려했다. 그는 트럼프가 전작권 전환을 한반도에서 미군을 철수시키는 수단으로 보고 있다는 이야기가 있다고도 말했다.\n\n차 석좌는 주한미군 병력 하한선인 2만8500명을 정한 NDAA가 있더라도 트럼프가 이를 우회할 방법이 있다고 분석했다. 군 통수권자가 특정 목표를 강하게 결심하면 실행할 수 있다는 취지다.\n\n랜들 슈라이버 전 국방부 인도·태평양 안보 차관보는 트럼프가 전작권 전환을 미군 철수와 감축의 수단으로 볼 가능성에 동의한다고 말했다. 그는 이를 트럼프의 본능적 판단으로 표현했다. 마크 리퍼트 전 주한미국대사는 트럼프가 실제로 철수를 원할 수 있지만, 이를 동맹의 미래를 논의하는 계기로 활용할 수도 있다고 평가했다.\n\n빈센트 브룩스 전 주한미군사령관은 한국 정부가 이재명 대통령 임기 안에 전작권 문제를 마무리하려 조급해하고 있다고 지적했다. 같은 우려가 문재인 정부 때도 제기됐었다고 덧붙였다.\n\n브룩스는 강신철 국방장관이 전작권 전환의 3대 조건이 모두 충족됐고 지금 당장도 전환이 가능하다고 한 발언에 매우 실망스럽다는 입장을 밝혔다. 그는 유리한 조건만 골라 준비가 끝났다고 주장해서는 안 되며, 전환 조건은 양국이 합의한 것이라 기준이 바뀌었다는 주장은 사실이 아니라고 강조했다. 연합훈련 축소에 대해서도 전환을 서두르면서 정작 전환 조건을 무너뜨리고 있다고 비판했다.\n\n전환 이후 한미연합사를 해체하고 양국이 각각 지휘하는 병렬형 지휘체제를 구성하자는 주장에도 우려가 나왔다. 현재의 통합지휘체제보다 결속력이 약해 혼란과 위험을 초래할 수 있다는 이유다.\n\n차 석좌는 민주당이 상·하원을 모두 장악하면 의회 내 핵 비확산 진영이 강해져 한국의 핵잠수함 건조와 농축·재처리 권한 확보가 더 어려워질 수 있다고 분석했다. 국내에서는 김건 의원이 한미 조인트 팩트시트 발표 1년이 지나도록 핵잠수함과 원자력 협력이 제자리라고 지적했고, 나경원 의원은 변화된 조건을 따지지 않는 무조건 전환은 위험하다고 주장했다.\n\n확인된 향후 일정은 아직 없다. 전작권 전환 조건을 둘러싼 한미 간 논의와 국내 정치권의 공방이 이어질지 주목된다.",
+  "section": "정치",
+  "tags": [
+   "전시작전통제권",
+   "주한미군",
+   "트럼프",
+   "한미연합사"
+  ],
+  "image_keyword": "주한미군",
+  "image_prompt": "empty wooden podium in a quiet government briefing room, soft evening light, shallow depth of field, no visible text",
+  "ai": true,
+  "researched": true,
+  "image": null,
+  "about": {
+   "title": "주한 미군",
+   "text": "주한 미군(駐韓 美軍, 영어: United States Forces Korea, USFK)은 현재 대한민국에 주둔하는 미군이다. 한미상호방위조약과 주한미군지위협정에 의해 대한민국 내에서 합법적 지위를 확보하고 있다. 주한 미군을 지휘통제하는 주한 미군사령부는 미국 인도-태평양 사령부예하 통합전투사령부이며, 주로 한미연합군사령부의 지휘를 받는다.",
+   "url": "https://ko.wikipedia.org/wiki/%EC%A3%BC%ED%95%9C_%EB%AF%B8%EA%B5%B0"
   }
  },
  {
@@ -10450,6 +10773,47 @@
    "title": "한국방송공사",
    "text": "한국방송공사(韓國放送公社, 영어: Korean Broadcasting System, 약칭 KBS)는 방송법에 따라 국가기간방송으로 설립된 대한민국의 공영 방송사이다. 자본금 3천억 원 전액을 정부가 출자한 법인이지만 법률에 따라 공공기관으로는 지정되지 않으며, 본사는 서울 여의도에 있다. 지상파 텔레비전 1TV와 2TV, 6개 라디오 채널, KBS 월드 등 국제 채널을 운영하고 전국에 9개 방송총국과 9개 지역방송국을 두고 있다.",
    "url": "https://ko.wikipedia.org/wiki/%ED%95%9C%EA%B5%AD%EB%B0%A9%EC%86%A1%EA%B3%B5%EC%82%AC"
+  }
+ },
+ {
+  "id": "2c6cfa5f65d4",
+  "orig_title": "AI 모델 가중치 0.05%만 삭제했더니…전체 미세조정 수준 성능 향상",
+  "source": "AI타임스",
+  "source_url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE0yN3ZLYVN1Z2JfdUlpSkdzU09xTV95Nm5kRjNRNHVNTVUtUHdmeG90NzN4dTJJUl9XdHByUXJQdVNsbUdBNFZWZDdrdEQtc0VPN1R6VzlUMXBobnRBc0pzRjk2R2RhLWo4cmc?oc=5",
+  "related": [],
+  "coverage": [
+   {
+    "title": "AI 모델 가중치 0.05%만 삭제했더니…전체 미세조정 수준 성능 향상",
+    "source": "AI타임스",
+    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE0yN3ZLYVN1Z2JfdUlpSkdzU09xTV95Nm5kRjNRNHVNTVUtUHdmeG90NzN4dTJJUl9XdHByUXJQdVNsbUdBNFZWZDdrdEQtc0VPN1R6VzlUMXBobnRBc0pzRjk2R2RhLWo4cmc?oc=5"
+   }
+  ],
+  "published": "2026-11-12T17:50:46+09:00",
+  "section_hint": "IT·과학",
+  "headline": "AI 모델 가중치 일부 삭제만으로 성능 향상 연구",
+  "summary": "뉴욕대와 캘거리대 공동 연구진이 대형언어모델 가중치의 극히 일부만 삭제해도 수학 추론 성능이 높아졌다고 발표했다.",
+  "key_points": [
+   "가중치 0.05% 미만 삭제로 수학 추론 정확도 향상",
+   "저장 용량은 30.6GB에서 8.4MB 수준으로 감소 보도",
+   "일반 능력 저하는 1%포인트 이내로 보고"
+  ],
+  "body": "뉴욕대학교와 캘거리대학교 공동 연구진은 대형언어모델(LLM)의 전체 가중치를 수정하는 대신, 전체의 0.05% 미만에 해당하는 가중치를 선택해 삭제하는 것만으로 수학 추론과 도구 사용 능력을 크게 높일 수 있다는 연구 결과를 발표했다.\n\n연구 방식은 '삭제 튜닝(Deletion Tuning)'으로 불린다. 논문 제목은 'LLM 후속학습에서 가중치 삭제의 놀라운 효과'이며, 지난 7일 공개된 것으로 전해졌다.\n\n연구진에 따르면 삭제 튜닝은 실험에 쓰인 4개 모델 모두에서 전체 미세조정(FFT)보다 높은 수학 추론 정확도를 보였다. 저장 용량도 크게 줄었다. 라마 8B 모델의 전체 미세조정 결과가 약 30.6GB인 반면, 삭제 튜닝의 압축 데이터는 8.4MB 수준이라고 보도됐다.\n\n기존 지식, 코딩, 명령 수행 능력을 평가한 결과도 공개됐다. 삭제 튜닝은 원래 모델과의 평균 차이가 1%포인트 이내였다. 반면 전체 미세조정 모델은 1.3~3.1%포인트 하락했다.\n\n연구진은 활용 방안으로 수학, 코딩, 고객상담 등 작업별로 모델을 따로 저장하는 대신, 공통 모델에 작업별 삭제 정보만 적용하는 방식을 제시했다. 저장 공간과 관리 부담을 줄일 수 있다는 점에서 의미가 있다는 평가다.\n\n일부 2차 매체는 같은 기법을 NeurIPS 2026 공개 건으로 소개하며 삭제 비율을 0.1% 미만으로 표기했다. 0.05%와 0.1%로 수치가 엇갈리는 만큼 원 논문의 확인이 필요하다. 학회 게재 여부와 공개 경로인 arXiv 등은 검색 결과에서 확인되지 않았다.\n\n확인된 향후 일정은 없다. 독립적인 검증 연구가 이어질지 주목된다.",
+  "section": "IT·과학",
+  "tags": [
+   "대형언어모델",
+   "가중치 삭제",
+   "미세조정",
+   "AI 연구"
+  ],
+  "image_keyword": "대형 언어 모델",
+  "image_prompt": "close-up of a researcher's hands typing on a keyboard beside a server rack, blue lab light, shallow depth of field",
+  "ai": true,
+  "researched": true,
+  "image": null,
+  "about": {
+   "title": "대형 언어 모델",
+   "text": "대규모 언어 모델(영어: large language model, LLM) 또는 거대 언어 모델(巨大言語 - )은 수많은 파라미터(보통 수십억 웨이트 이상)를 보유한 인공 신경망으로 구성되는 언어 모델이다. 자기 지도 학습이나 반자기지도학습을 사용하여 레이블링되지 않은 상당한 양의 텍스트로 훈련된다. LLM은 2018년 즈음에 모습을 드러냈으며 다양한 작업을 위해 수행된다.",
+   "url": "https://ko.wikipedia.org/wiki/%EB%8C%80%ED%98%95_%EC%96%B8%EC%96%B4_%EB%AA%A8%EB%8D%B8"
   }
  },
  {
