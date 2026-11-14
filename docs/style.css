@@ -83,6 +83,7 @@ a:hover .ph img,a:hover .hero-img img{transform:scale(1.03)}
 .row{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;padding:20px 0;border-bottom:1px solid var(--rule)}
 .row h3{font-size:20px;font-weight:700}
 .row p{font-size:14.5px;color:var(--sub);margin:8px 0 0}
+.row.noph{grid-template-columns:minmax(0,1fr)}
 .story .kicker{font-size:13px}
 .story h1{font-size:clamp(28px,3.6vw,40px);font-weight:900;letter-spacing:-.02em}
 .dek{font-size:18px;color:var(--sub);margin:14px 0 0;padding-left:14px;border-left:3px solid var(--red);line-height:1.6}
@@ -94,7 +95,7 @@ a:hover .ph img,a:hover .hero-img img{transform:scale(1.03)}
 .fig figcaption a{text-decoration:underline}
 .text{font:18px/1.95 "Noto Serif KR",serif;margin-top:24px}
 .text p{margin:0 0 1.2em}
-.text>p:first-child::first-letter{float:left;font-size:3.3em;line-height:.95;font-weight:900;margin:6px 10px 0 0;color:var(--navy)}
+.text>p:first-child::first-letter{font-size:1.45em;font-weight:900;color:var(--navy);margin-right:1px}
 .tags{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 22px}
 .tg{font-size:13px;color:var(--sub);background:var(--soft);padding:3px 11px;border-radius:99px}
 .kp{background:var(--soft);border-left:4px solid var(--navy);padding:16px 20px;margin-top:24px}
@@ -127,7 +128,7 @@ a:hover .ph img,a:hover .hero-img img{transform:scale(1.03)}
 }
 @media (max-width:640px){
  .front,.secgrid{grid-template-columns:1fr}
- .row{grid-template-columns:120px minmax(0,1fr);gap:14px}.row h3{font-size:16.5px}.row p{display:none}
+ .row{grid-template-columns:120px minmax(0,1fr);gap:14px}.row.noph{grid-template-columns:minmax(0,1fr)}.row h3{font-size:16.5px}.row p{display:none}
  .mgrid{grid-template-columns:1fr 1fr}.hide-m{display:none}.gnb .wrap{justify-content:flex-start}
 }
 .fig.logo img{object-fit:contain;max-height:240px;padding:28px;background:var(--soft)}

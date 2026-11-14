@@ -2,7 +2,7 @@ name: 신문 발행
 
 on:
   schedule:
-    - cron: "17 */2 * * *"   # 2시간마다 (UTC). 비용을 줄이려면 간격을 늘리세요.
+    - cron: "17 */3 * * *"   # 3시간마다 (UTC). 비용을 줄이려면 간격을 늘리세요.
   workflow_dispatch:          # Actions 탭에서 수동 실행 가능
 
 permissions:

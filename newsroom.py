@@ -124,11 +124,73 @@ def write_free(items):
     return out
 
 
+def log_usage(model, n, u, extra=""):
+    pin, pout = PRICES.get(model, (0, 0))
+    searches = getattr(getattr(u, "server_tool_use", None), "web_search_requests", 0) or 0
+    cost = (u.input_tokens * pin + u.output_tokens * pout) / 1e6 + searches * 0.01
+    line = (f"{dt.datetime.now(KST):%Y-%m-%d %H:%M} model={model} items={n} {extra}"
+            f"in={u.input_tokens} out={u.output_tokens} search={searches} ≈${cost:.4f}")
+    print("[사용량]", line)
+    with USAGE_LOG.open("a", encoding="utf-8") as f:
+        f.write(line + "\n")
+
+
+RESEARCH_PROMPT = """당신은 신문사 취재 보조입니다. 각 뉴스 항목마다 web_search를 한 번씩 실행해 관련 보도를 찾고, 기사 작성에 쓸 사실 메모를 만듭니다.
+- 검색 결과에서 확인된 사실만: 누가, 언제, 어디서, 무엇을, 수치, 배경, 각 당사자의 입장·반응, 향후 일정.
+- 원문 문장을 베끼지 말고 짧은 메모체로 다시 씁니다. 직접 인용문은 옮기지 않습니다.
+- 항목당 8~15줄. 확인되지 않은 내용은 쓰지 않습니다.
+- 출력 형식(다른 말 없이):
+### <id>
+- 사실 메모
+- ...
+"""
+
+
+def research(items):
+    """기사별로 웹 검색 1회 → 사실 메모. 헤드라인만으로는 본문이 빈약해서 추가했다 (검색 1회 약 $0.01)."""
+    import anthropic
+
+    model = CFG["model"]
+    client = anthropic.Anthropic()
+    payload = [{"id": it["id"], "title": it["orig_title"], "related": it["related"][:3]} for it in items]
+    messages = [{"role": "user", "content": RESEARCH_PROMPT + "\n항목:\n"
+                 + json.dumps(payload, ensure_ascii=False, separators=(",", ":"))}]
+    text = ""
+    for _ in range(3):  # 서버 도구가 길어지면 pause_turn으로 멈추므로 이어서 진행
+        resp = client.messages.create(
+            model=model, max_tokens=12000, system="한국어로 답합니다.", messages=messages,
+            output_config={"effort": CFG.get("effort", "low")},
+            tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": len(items) + 1,
+                    "user_location": {"type": "approximate", "country": "KR", "timezone": "Asia/Seoul"}}])
+        log_usage(model, len(items), resp.usage, "research ")
+        text += "".join(b.text for b in resp.content if b.type == "text")
+        if resp.stop_reason != "pause_turn":
+            break
+        messages.append({"role": "assistant", "content": resp.content})
+    notes = {}
+    for part in re.split(r"^###\s*", text, flags=re.M):
+        head, _, rest = part.partition("\n")
+        if head.strip() and rest.strip():
+            notes[head.strip()] = rest.strip()[:2500]
+    return notes
+
+
 def write_ai(items, chunk=8):
     """한 번에 너무 많이 쓰면 출력이 잘리므로 8건씩 나눠 호출한다."""
     out = []
     for i in range(0, len(items), chunk):
-        out += write_ai_batch(items[i:i + chunk])
+        part = items[i:i + chunk]
+        if CFG.get("research", True):
+            want = [it for it in part if not it.get("researched")][:6]
+            for j in range(0, len(want), 3):  # 검색 결과가 길어 3건씩
+                try:
+                    notes = research(want[j:j + 3])
+                except Exception as e:
+                    print(f"[경고] 취재(웹 검색) 실패: {e}"); notes = {}
+                for it in want[j:j + 3]:
+                    if notes.get(it["id"]):
+                        it["notes"] = notes[it["id"]]
+        out += write_ai_batch(part)
     return out
 
 
@@ -138,7 +200,8 @@ def write_ai_batch(items):
     model = CFG["model"]
     system = (ROOT / "prompts" / "editor.md").read_text(encoding="utf-8")
     payload = [{"id": it["id"], "title": it["orig_title"], "source": it["source"],
-                "related": it["related"], "section_hint": it["section_hint"]} for it in items]
+                "related": it["related"], "section_hint": it["section_hint"],
+                **({"notes": it["notes"]} if it.get("notes") else {})} for it in items]
     fields = ["id", "headline", "summary", "key_points", "body", "section", "tags", "image_keyword", "image_prompt"]
     schema = {
         "type": "object", "additionalProperties": False, "required": ["articles"],
@@ -167,14 +230,7 @@ def write_ai_batch(items):
     else:
         resp = client.messages.create(**kwargs)
 
-    u = resp.usage
-    pin, pout = PRICES.get(model, (0, 0))
-    cost = (u.input_tokens * pin + u.output_tokens * pout) / 1e6
-    line = (f"{dt.datetime.now(KST):%Y-%m-%d %H:%M} model={model} items={len(items)} "
-            f"in={u.input_tokens} out={u.output_tokens} ≈${cost:.4f}")
-    print("[사용량]", line)
-    with USAGE_LOG.open("a", encoding="utf-8") as f:
-        f.write(line + "\n")
+    log_usage(model, len(items), resp.usage)
 
     if resp.stop_reason != "end_turn":
         print(f"[경고] stop_reason={resp.stop_reason} → 무료 모드로 대체")
@@ -186,7 +242,9 @@ def write_ai_batch(items):
         a = written.get(it["id"])
         if not a:
             out += write_free([it]); continue
-        out.append({**it, **{k: a[k] for k in fields[1:]}, "ai": True})
+        done = {k: v for k, v in it.items() if k != "notes"}
+        out.append({**done, **{k: a[k] for k in fields[1:]}, "ai": True,
+                    **({"researched": True} if it.get("notes") else {})})
     return out
 
 
@@ -218,7 +276,10 @@ def wiki_image(query, used):
                  if key in p["title"].replace(" ", "")]
     for p in pages:
         th, name = p.get("thumbnail"), p.get("pageimage")
-        if not th or not name or "/wikipedia/commons/" not in th["source"] or name in used:
+        if not th or not name or "/wikipedia/commons/" not in th["source"] or file_key(name) in used:
+            continue
+        # 로고·국기·지도·문장(SVG 그래픽)은 썸네일로 어색해서 제외 → AI 이미지로 대체
+        if name.lower().endswith(".svg") or re.search(r"logo|flag|seal|emblem|icon|map|symbol", name, re.I):
             continue
         meta_q = urllib.parse.urlencode({
             "action": "query", "format": "json", "titles": "File:" + name, "prop": "imageinfo",
@@ -226,7 +287,7 @@ def wiki_image(query, used):
         info = next(iter(wiki_get("https://commons.wikimedia.org/w/api.php?" + meta_q)
                          ["query"]["pages"].values())).get("imageinfo", [{}])[0]
         meta = info.get("extmetadata", {})
-        used.add(name)
+        used.add(file_key(name))
         return {"url": th["source"].split("?")[0], "w": th["width"], "h": th["height"],
                 "page": info.get("descriptionurl", ""), "subject": p["title"],
                 "artist": strip_tags(meta.get("Artist", {}).get("value", ""))[:60] or "작자 미상",
@@ -234,8 +295,33 @@ def wiki_image(query, used):
     return None
 
 
+def file_key(name):
+    return urllib.parse.unquote(name).replace(" ", "_").lower()
+
+
+def image_file(url):
+    """위키미디어 썸네일 URL → 원본 파일명 (…/thumb/a/ab/파일명/1280px-파일명)."""
+    parts = url.split("/")
+    return file_key(parts[parts.index("thumb") + 3] if "thumb" in parts else parts[-1])
+
+
+def dedupe_images(archive):
+    """같은 위키 사진이 여러 기사에 반복되지 않게: 최신 기사 하나만 남기고 나머지는 AI 이미지 대상으로."""
+    seen, n = set(), 0
+    for a in sorted(archive, key=lambda a: a["published"], reverse=True):
+        im = a.get("image")
+        if not im or im.get("generated"):
+            continue
+        k = image_file(im["url"])
+        if k in seen or re.search(r"\.svg|logo|flag|seal|emblem|icon|map|symbol", k):
+            a["image"] = None; n += 1
+        seen.add(k)
+    if n:
+        print(f"[사진] 중복·그래픽 사진 {n}건 정리")
+
+
 def add_images(archive, limit=40):
-    used = {a["image"]["url"].rsplit("/", 1)[-1] for a in archive if a.get("image")}
+    used = {image_file(a["image"]["url"]) for a in archive if a.get("image") and not a["image"].get("generated")}
     n = 0
     for a in archive:
         if not a.get("ai") or "image" in a or n >= limit:
@@ -283,8 +369,9 @@ def add_about(archive, limit=30):
 
 
 # ───────────────────────── AI 생성 이미지 (Cloudflare Workers AI, FLUX) ─────────────────────────
-STYLE = ("editorial illustration for a newspaper, semi-flat digital painting, muted natural colors, "
-         "soft light, clean composition, no text, no letters, no logos, no watermark")
+STYLE = ("realistic documentary news photograph, natural light, shot on 35mm, shallow depth of field, "
+         "photojournalism, no text, no letters, no logos, no watermark")
+STYLE_VER = 2  # 화풍을 바꾸면 올린다 → 예전 그림을 조금씩 새로 그림
 
 
 def gen_images(archive):
@@ -298,7 +385,10 @@ def gen_images(archive):
     MEDIA.mkdir(exist_ok=True)
     url = f"https://api.cloudflare.com/client/v4/accounts/{acct}/ai/run/{CFG.get('image_model', '@cf/black-forest-labs/flux-1-schnell')}"
     # 기사별 장면 묘사(image_prompt)가 있는 기사만 — 섹션 공용 장면은 비슷한 그림이 반복돼서 쓰지 않는다
-    todo = [a for a in archive if a.get("ai") and not a.get("image") and a.get("image_prompt")][:CFG.get("max_images_per_run", 10)]
+    fresh = [a for a in archive if a.get("ai") and not a.get("image") and a.get("image_prompt")]
+    redo = [a for a in archive if (a.get("image") or {}).get("generated")
+            and a["image"].get("style", 1) < STYLE_VER and a.get("image_prompt")]
+    todo = (fresh + redo)[:CFG.get("max_images_per_run", 10)]
     made = 0
     for a in todo:
         scene = a["image_prompt"]
@@ -322,7 +412,8 @@ def gen_images(archive):
             print(f"[경고] 이미지 생성 실패 {a['id']}: {e}")
             continue
         a["image"] = {"url": f"media/{name}", "w": im.width, "h": im.height, "generated": True,
-                      "subject": a["headline"], "artist": "AI 생성", "license": "", "page": ""}
+                      "subject": a["headline"], "artist": "AI 생성", "license": "", "page": "",
+                      "style": STYLE_VER}
         made += 1
     if todo:
         print(f"[AI 이미지] {made}/{len(todo)}장 생성")
@@ -466,7 +557,7 @@ def render(archive):
     for s in CFG["sections"]:
         items = [a for a in arts if a["section"] == s]
         rows = "".join(
-            f'<a class="row" href="{link(a, "../")}">{img_tag(a, "../")}<div><h3>{esc(a["headline"])}</h3>'
+            f'<a class="row{"" if a.get("image") else " noph"}" href="{link(a, "../")}">{img_tag(a, "../") if a.get("image") else ""}<div><h3>{esc(a["headline"])}</h3>'
             f'<p>{esc(a.get("summary"))}</p><span class="meta">{kst(a["published"]):%Y.%m.%d %H:%M}</span></div></a>'
             for a in items) or "<p>기사가 없습니다.</p>"
         b = (ticker(arts, "../") + f'<main class="wrap"><h1 class="ptitle">{esc(s)}</h1>'
@@ -482,8 +573,8 @@ def render(archive):
         badge = "AI 기자" if a.get("ai") else "자동 수집"
         im = a.get("image")
         if im and im.get("generated"):
-            fig = (f'<figure class="fig"><img src="{esc(src(im, "../"))}" alt="기사 내용을 표현한 AI 생성 일러스트">'
-                   f'<figcaption>AI 생성 일러스트 · 실제 현장 사진이 아닙니다 (Cloudflare Workers AI · FLUX)</figcaption></figure>')
+            fig = (f'<figure class="fig"><img src="{esc(src(im, "../"))}" alt="기사 내용을 표현한 AI 생성 이미지">'
+                   f'<figcaption>AI 생성 이미지 · 실제 현장 사진이 아닙니다 (Cloudflare Workers AI · FLUX)</figcaption></figure>')
         elif im:
             fig = (f'<figure class="fig{" logo" if ".svg" in im["url"] else ""}"><img src="{esc(im["url"])}" alt="{esc(im["subject"])}">'
                    f'<figcaption>{esc(im["subject"])} (참고 이미지) · 사진: {esc(im["artist"])} / '
@@ -508,7 +599,7 @@ def render(archive):
              f'{fig}{kp}<div class="text">{paras}</div>{ab}<div class="tags">{tags}</div>'
              f'<div class="src"><b>이 소식을 다룬 보도</b><ul>{cov}</ul></div>'
              + (f'<section class="more"><h2 class="rh">{esc(a["section"])} 다른 기사</h2><div class="mgrid">' + "".join(
-                 f'<a class="sub" href="{x["id"]}.html">{img_tag(x, "../")}<h3>{esc(x["headline"])}</h3></a>'
+                 f'<a class="sub" href="{x["id"]}.html">{img_tag(x, "../") if x.get("image") else ""}<h3>{esc(x["headline"])}</h3></a>'
                  for x in more) + '</div></section>' if more else "")
              + f'</article>{rail(arts, "../", exclude=a["id"])}</div></main>')
         (OUT / "a" / f"{a['id']}.html").write_text(
@@ -547,6 +638,11 @@ def main():
         use_ai = "--free" not in sys.argv and os.environ.get("ANTHROPIC_API_KEY")
         # 예전에 짧게 쓰였거나 무료 모드로 올라간 기사를 실행마다 조금씩 새 형식으로 다시 쓴다
         backlog = [a for a in archive if not (a.get("ai") and a.get("key_points"))][:CFG.get("max_backlog_per_run", 16)] if use_ai else []
+        # 웹 검색 취재 없이 쓰인 최근 기사도 조금씩 보강 (1면에 걸리는 최신 기사 위주)
+        cutoff = (dt.datetime.now(KST) - dt.timedelta(hours=CFG.get("research_backlog_hours", 36))).isoformat()
+        if use_ai and CFG.get("research", True):
+            backlog += [a for a in archive if a.get("ai") and not a.get("researched") and a not in backlog
+                        and a["published"] > cutoff][:CFG.get("research_backlog_per_run", 4)]
         todo = new + backlog
         if todo:
             if use_ai:
@@ -561,10 +657,13 @@ def main():
             by_id = {a["id"]: a for a in done}
             archive = [by_id.pop(a["id"], a) for a in archive] + list(by_id.values())
             archive = sorted(archive, key=lambda a: a["published"], reverse=True)[:CFG["max_archive"]]
+    dedupe_images(archive)
     add_images(archive)
     add_about(archive)
     if "--render" not in sys.argv:
         gen_images(archive)
+    for a in archive:
+        a.pop("notes", None)
     DATA.write_text(json.dumps(archive, ensure_ascii=False, indent=1), encoding="utf-8")
     render(archive)
 
