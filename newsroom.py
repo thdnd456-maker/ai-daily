@@ -404,7 +404,8 @@ def gen_images(archive):
             name = f"{a['id']}.webp"
             im.save(MEDIA / name, "WEBP", quality=72)  # 용량 절약 (보통 40~80KB)
         except urllib.error.HTTPError as e:
-            print(f"[경고] 이미지 생성 실패 {a['id']}: {e}")
+            detail = e.read()[:300].decode("utf-8", "replace")
+            print(f"[경고] 이미지 생성 실패 {a['id']}: {e} {detail}")
             if e.code == 429:  # 무료 일일 한도 소진 → 이번 실행은 중단, 다음 날 재개
                 break
             continue
