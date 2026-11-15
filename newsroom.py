@@ -551,7 +551,7 @@ def page(title, body, depth=0, desc="", active=""):
 <div class="flogo">{esc(CFG.get('site_hanja') or CFG['site_name'])}</div>
 <nav>{"".join(f'<a href="{up}section/{SLUGS[s]}.html">{esc(s)}</a>' for s in CFG["sections"])}</nav>
 <p>「{esc(CFG['site_name'])}」의 기사는 공개 보도의 헤드라인을 AI가 종합·재작성한 자동 브리핑입니다. 사실관계는 각 기사의 원문 링크에서 확인하세요.
-AI가 작성한 기사에는 오류가 있을 수 있습니다. 사진은 위키미디어 공용의 자유 라이선스 참고 이미지이거나, "AI 이미지"로 표시된 AI 생성 일러스트이며 기사 현장 사진이 아닙니다.</p>
+AI가 작성한 기사에는 오류가 있을 수 있습니다. 사진은 위키미디어 공용 등 저작권 걱정 없는 자유 라이선스 참고 사진이며, 기사 현장 사진이 아닐 수 있습니다.</p>
 <p class="copy">최종 업데이트 {now:%Y.%m.%d %H:%M} KST</p></div></footer>
 </body></html>"""
 
