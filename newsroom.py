@@ -705,7 +705,7 @@ def main():
     if "--render" not in sys.argv:
         new = collect(archive)
         print(f"[수집] 새 기사 {len(new)}건")
-        use_ai = "--free" not in sys.argv and os.environ.get("ANTHROPIC_API_KEY")
+        use_ai = CFG.get("ai", True) and "--free" not in sys.argv and os.environ.get("ANTHROPIC_API_KEY")
         # 예전에 짧게 쓰였거나 무료 모드로 올라간 기사를 실행마다 조금씩 새 형식으로 다시 쓴다
         backlog = [a for a in archive if not (a.get("ai") and a.get("key_points"))][:CFG.get("max_backlog_per_run", 16)] if use_ai else []
         # 웹 검색 취재 없이 쓰인 최근 기사도 조금씩 보강 (1면에 걸리는 최신 기사 위주)

@@ -52,5 +52,6 @@
   "ai_images": false,
   "write_effort": "medium",
   "research_backlog_hours": 99999,
-  "research_backlog_per_run": 12
+  "research_backlog_per_run": 12,
+  "ai": false
 }
