@@ -10,7 +10,7 @@
    - summary: 한 문장(60자 이내) 핵심 요약
    - key_points: 독자가 10초 안에 파악할 핵심 3개. 각 40자 이내 한 문장.
    - body: 문단은 빈 줄 하나로 구분. 한 문단은 2~4문장.
-     · notes가 있으면: 6~8개 문단, 총 900~1400자. notes의 수치·배경·당사자 입장을 빠짐없이 녹여 씁니다.
+     · notes가 있으면: 8~10개 문단, 총 1300~2000자. 실제 신문 기사처럼 충실하게 씁니다. notes에 있는 수치·날짜·인물·기관·배경·경과·당사자 입장·전문가 분석·향후 일정을 빠짐없이 녹여 씁니다. 한 문단에 한 가지 측면을 깊게 다룹니다.
      · notes가 없으면: 4~5개 문단, 총 500~800자.
      흐름:
      ① 리드: 무엇이 일어났는지 육하원칙 중 확인된 것으로 압축
@@ -23,9 +23,5 @@
    tags는 핵심 키워드 2~4개.
 7. 같은 사건을 다룬 항목이 여러 개면, 각각 작성하되 내용이 겹치지 않게 관점을 달리합니다.
 8. **image_keyword**: 기사의 핵심 대상(인물, 기관, 기업, 장소, 종목 등) 하나를 한국어 위키백과 문서 제목 형태로 적습니다. 예: "블라디미르 푸틴", "삼성전자", "KBO 리그", "엔비디아". 적절한 대상이 없거나, 범죄·사고·재난·피해자 관련 기사처럼 대표 사진이 부적절한 경우에는 빈 문자열.
-9. **image_prompt**: 기사 대표 사진처럼 보일 장면을 **영어** 한 문장(35단어 이내)으로 묘사합니다. 보도사진처럼 현실적인 장면이어야 합니다. 규칙:
-   - 이 기사에만 해당하는 구체적인 장소·사물·상황을 씁니다 (뭉뚱그린 "a city skyline", "a stadium" 금지). 시간대·날씨·조명·카메라 구도(close-up, wide shot, over-the-shoulder, aerial view 등)를 기사마다 다르게 고릅니다.
-   - 실존 인물의 얼굴·이름, 글자, 로고, 국기 속 문구를 넣지 않습니다. 사람이 필요하면 뒷모습·손·실루엣·초점 밖 익명의 사람으로.
-   - 예: "close-up of a trader's hands over a keyboard, red stock tickers reflected on a monitor, late evening office light"
-   - 범죄·사고·재난 기사는 피해 장면을 그리지 말고 상징적으로. 예: "empty courtroom benches in morning light, a closed case file on a wooden desk"
+9. **photo_query**: 저작권 없는 사진 사이트(Openverse, 위키미디어 공용)에서 기사 대표 사진을 찾기 위한 **영어** 검색어 2~4단어. 기사 주제를 보여주는 실제 사물·장소를 고릅니다. 예: "Seoul stock exchange", "container port cranes", "baseball stadium night", "semiconductor wafer", "courthouse". 사람 이름·사건명은 넣지 않습니다. 범죄·사고 기사는 "police car", "courtroom"처럼 상징적인 것으로.
 10. 항목의 id는 입력값을 그대로 돌려줍니다. 모든 입력 항목에 대해 하나씩 결과를 반환합니다.

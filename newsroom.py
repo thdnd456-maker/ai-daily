@@ -135,15 +135,22 @@ def log_usage(model, n, u, extra=""):
         f.write(line + "\n")
 
 
-RESEARCH_PROMPT = """당신은 신문사 취재 보조입니다. 각 뉴스 항목마다 web_search를 한 번씩 실행해 관련 보도를 찾고, 기사 작성에 쓸 사실 메모를 만듭니다.
-- 검색 결과에서 확인된 사실만: 누가, 언제, 어디서, 무엇을, 수치, 배경, 각 당사자의 입장·반응, 향후 일정.
-- 원문 문장을 베끼지 말고 짧은 메모체로 다시 씁니다. 직접 인용문은 옮기지 않습니다.
-- 항목당 8~15줄. 확인되지 않은 내용은 쓰지 않습니다.
+RESEARCH_PROMPT = """당신은 신문사 취재 기자입니다. 각 뉴스 항목마다:
+1) web_search로 관련 보도를 찾고,
+2) 가장 충실해 보이는 기사 1~2개를 web_fetch로 열어 본문 전체를 읽은 뒤,
+3) 기사 작성에 쓸 상세한 사실 메모를 만듭니다.
+메모에 담을 것: 무슨 일이 언제 어디서 어떻게 일어났는지, 구체적 수치·금액·날짜·규모, 관련 인물·기관과 직함,
+사건의 배경과 이전 경과, 각 당사자·전문가·업계의 입장과 반응(발언 취지), 향후 일정과 예상되는 영향.
+- 원문 문장을 그대로 베끼지 말고 메모체로 다시 씁니다. 발언은 따옴표 없이 취지만 요약합니다.
+- 항목당 18~30줄. 확인되지 않은 내용은 쓰지 않습니다.
 - 출력 형식(다른 말 없이):
 ### <id>
 - 사실 메모
 - ...
 """
+
+
+RESEARCH_V = 2  # 취재 방식을 바꾸면 올린다 → 예전 기사도 다시 취재
 
 
 def research(items):
@@ -158,10 +165,13 @@ def research(items):
     text = ""
     for _ in range(3):  # 서버 도구가 길어지면 pause_turn으로 멈추므로 이어서 진행
         resp = client.messages.create(
-            model=model, max_tokens=12000, system="한국어로 답합니다.", messages=messages,
+            model=model, max_tokens=14000, system="한국어로 답합니다.", messages=messages,
             output_config={"effort": CFG.get("effort", "low")},
             tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": len(items) + 1,
-                    "user_location": {"type": "approximate", "country": "KR", "timezone": "Asia/Seoul"}}])
+                    "user_location": {"type": "approximate", "country": "KR", "timezone": "Asia/Seoul"}},
+                   # 원문 읽기는 검색과 달리 건당 요금이 없고 토큰만 든다
+                   {"type": "web_fetch_20250910", "name": "web_fetch", "max_uses": len(items) * 2,
+                    "max_content_tokens": 6000}])
         log_usage(model, len(items), resp.usage, "research ")
         text += "".join(b.text for b in resp.content if b.type == "text")
         if resp.stop_reason != "pause_turn":
@@ -171,23 +181,23 @@ def research(items):
     for part in re.split(r"^###\s*", text, flags=re.M):
         head, _, rest = part.partition("\n")
         if head.strip() and rest.strip():
-            notes[head.strip()] = rest.strip()[:2500]
+            notes[head.strip()] = rest.strip()[:5000]
     return notes
 
 
-def write_ai(items, chunk=8):
-    """한 번에 너무 많이 쓰면 출력이 잘리므로 8건씩 나눠 호출한다."""
+def write_ai(items, chunk=4):
+    """본문이 길어 한 번에 4건씩 쓴다."""
     out = []
     for i in range(0, len(items), chunk):
         part = items[i:i + chunk]
         if CFG.get("research", True):
-            want = [it for it in part if not it.get("researched")][:6]
-            for j in range(0, len(want), 3):  # 검색 결과가 길어 3건씩
+            want = [it for it in part if it.get("researched", 0) < RESEARCH_V]
+            for j in range(0, len(want), 2):  # 원문까지 읽어 컨텍스트가 커서 2건씩
                 try:
-                    notes = research(want[j:j + 3])
+                    notes = research(want[j:j + 2])
                 except Exception as e:
                     print(f"[경고] 취재(웹 검색) 실패: {e}"); notes = {}
-                for it in want[j:j + 3]:
+                for it in want[j:j + 2]:
                     if notes.get(it["id"]):
                         it["notes"] = notes[it["id"]]
         out += write_ai_batch(part)
@@ -202,7 +212,7 @@ def write_ai_batch(items):
     payload = [{"id": it["id"], "title": it["orig_title"], "source": it["source"],
                 "related": it["related"], "section_hint": it["section_hint"],
                 **({"notes": it["notes"]} if it.get("notes") else {})} for it in items]
-    fields = ["id", "headline", "summary", "key_points", "body", "section", "tags", "image_keyword", "image_prompt"]
+    fields = ["id", "headline", "summary", "key_points", "body", "section", "tags", "image_keyword", "photo_query"]
     schema = {
         "type": "object", "additionalProperties": False, "required": ["articles"],
         "properties": {"articles": {"type": "array", "items": {
@@ -213,12 +223,12 @@ def write_ai_batch(items):
                 "key_points": {"type": "array", "items": {"type": "string"}},
                 "section": {"type": "string", "enum": CFG["sections"]},
                 "tags": {"type": "array", "items": {"type": "string"}},
-                "image_keyword": {"type": "string"}, "image_prompt": {"type": "string"},
+                "image_keyword": {"type": "string"}, "photo_query": {"type": "string"},
             }}}},
     }
     kwargs = dict(
-        model=model, max_tokens=16000, system=system,
-        output_config={"effort": CFG.get("effort", "low"),
+        model=model, max_tokens=20000, system=system,
+        output_config={"effort": CFG.get("write_effort", "medium"),
                        "format": {"type": "json_schema", "schema": schema}},
         messages=[{"role": "user", "content": "다음 뉴스 항목들로 기사를 작성하세요.\n"
                    + json.dumps(payload, ensure_ascii=False, separators=(",", ":"))}],
@@ -242,9 +252,9 @@ def write_ai_batch(items):
         a = written.get(it["id"])
         if not a:
             out += write_free([it]); continue
-        done = {k: v for k, v in it.items() if k != "notes"}
+        done = {k: v for k, v in it.items() if k not in ("notes", "photo_v")}  # 새 검색어로 사진 재검색
         out.append({**done, **{k: a[k] for k in fields[1:]}, "ai": True,
-                    **({"researched": True} if it.get("notes") else {})})
+                    **({"researched": RESEARCH_V} if it.get("notes") else {})})
     return out
 
 
@@ -314,35 +324,94 @@ def dedupe_images(archive):
             continue
         k = image_file(im["url"])
         if k in seen or re.search(r"\.svg|logo|flag|seal|emblem|icon|map|symbol", k):
-            a["image"] = None; n += 1
+            a["image"] = None; a.pop("photo_v", None); n += 1
         seen.add(k)
     if n:
         print(f"[사진] 중복·그래픽 사진 {n}건 정리")
 
 
-def add_images(archive, limit=40):
-    used = {image_file(a["image"]["url"]) for a in archive if a.get("image") and not a["image"].get("generated")}
-    n = 0
+BAD_NAME = re.compile(r"\.svg|logo|flag|seal|emblem|icon|map|symbol|diagram|chart|screenshot", re.I)
+
+
+OPENVERSE_DOWN = []
+
+
+def openverse_image(query, used):
+    """Openverse(CC 라이선스 사진 검색, 무료·키 불필요)에서 상업적 이용 가능한 가로 사진."""
+    url = "https://api.openverse.org/v1/images/?" + urllib.parse.urlencode(
+        {"q": query, "license_type": "commercial", "page_size": 20, "mature": "false",
+         "category": "photograph", "aspect_ratio": "wide"})
+    if OPENVERSE_DOWN:
+        return None
+    try:
+        res = json.loads(get(url, 10)).get("results", [])
+    except Exception as e:  # 장애 시 이번 실행에서는 더 묻지 않는다
+        print(f"[경고] Openverse 실패 → 이번 실행 건너뜀: {e}"); OPENVERSE_DOWN.append(1); return None
+    for r in res:
+        k = file_key(r.get("url", ""))
+        w, h = r.get("width") or 0, r.get("height") or 0
+        if not r.get("url") or k in used or w < 640 or (h and w < h * 1.2) or BAD_NAME.search(r.get("title") or ""):
+            continue
+        used.add(k)
+        lic = f'CC {r.get("license", "").upper()} {r.get("license_version", "")}'.replace("CC CC0", "CC0").strip()
+        return {"url": r["url"], "w": w, "h": h or int(w * .66), "page": r.get("foreign_landing_url", ""),
+                "subject": r.get("title") or query, "artist": (r.get("creator") or "작자 미상")[:60],
+                "license": lic}
+    return None
+
+
+def commons_image(query, used):
+    """위키미디어 공용 파일 검색 (모든 파일이 자유 라이선스)."""
+    try:
+        pages = wiki_get("https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode({
+            "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
+            "gsrsearch": f"{query} filetype:bitmap", "gsrlimit": 12, "prop": "imageinfo",
+            "iiprop": "url|size|extmetadata", "iiurlwidth": 1000,
+            "iiextmetadatafilter": "Artist|LicenseShortName"})).get("query", {}).get("pages", {})
+    except Exception as e:
+        print(f"[경고] 공용 검색 실패 {query}: {e}"); return None
+    for p in sorted(pages.values(), key=lambda p: p.get("index", 99)):
+        ii = (p.get("imageinfo") or [{}])[0]
+        name = p["title"].split(":", 1)[-1]
+        if not ii.get("thumburl") or file_key(name) in used or BAD_NAME.search(name):
+            continue
+        if ii.get("width", 0) < 800 or ii["width"] < ii.get("height", 0) * 1.2:
+            continue
+        meta = ii.get("extmetadata", {})
+        used.add(file_key(name))
+        return {"url": ii["thumburl"].split("?")[0], "w": ii.get("thumbwidth", 1000), "h": ii.get("thumbheight", 660),
+                "page": ii.get("descriptionurl", ""), "subject": re.sub(r"\.\w+$", "", name),
+                "artist": strip_tags(meta.get("Artist", {}).get("value", ""))[:60] or "작자 미상",
+                "license": meta.get("LicenseShortName", {}).get("value", "")}
+    return None
+
+
+PHOTO_V = 2  # 사진 찾기 방식을 바꾸면 올린다 → 사진 없는 기사를 다시 찾음
+
+
+def add_images(archive, limit=60):
+    """실제 사진만 쓴다 (AI 생성 이미지 미사용).
+    ① 핵심 대상의 한국어 위키백과 대표 사진 ② 위키미디어 공용 검색 ③ Openverse CC 사진."""
+    used = {image_file(a["image"]["url"]) if "wikimedia" in a["image"]["url"] else file_key(a["image"]["url"])
+            for a in archive if a.get("image")}
+    n = found = 0
     for a in archive:
-        if not a.get("ai") or "image" in a or n >= limit:
+        if not a.get("ai") or a.get("image") or a.get("photo_v", 0) >= PHOTO_V or n >= limit:
             continue
         n += 1
-        a["image"] = None
-        # AI가 image_keyword를 비워 두면(범죄·사고 등) 사진을 넣지 않는다. 구형 기사만 태그로 대체 검색.
-        queries = [a["image_keyword"]] if "image_keyword" in a else a.get("tags", [])[:2]
-        for q in queries:
-            if not q:
-                continue
-            try:
-                img = wiki_image(q, used)
-            except Exception as e:
-                print(f"[경고] 사진 검색 실패 {q}: {e}")
-                a.pop("image", None)  # 다음 실행 때 다시 시도
-                break
-            if img:
-                a["image"] = img; break
+        kw, pq = a.get("image_keyword", ""), a.get("photo_query", "")
+        img = None
+        try:
+            if kw:
+                img = wiki_image(kw, used)
+            if not img and pq:
+                img = commons_image(pq, used) or openverse_image(pq, used)
+        except Exception as e:
+            print(f"[경고] 사진 검색 실패 {kw or pq}: {e}"); continue  # 다음 실행 때 다시
+        a["image"], a["photo_v"] = img, PHOTO_V
+        found += bool(img)
     if n:
-        print(f"[사진] {n}건 검색, {sum(1 for a in archive if a.get('image'))}건 보유")
+        print(f"[사진] {n}건 검색 → {found}건 찾음, 전체 {sum(1 for a in archive if a.get('image'))}건 보유")
 
 
 def add_about(archive, limit=30):
@@ -642,7 +711,7 @@ def main():
         # 웹 검색 취재 없이 쓰인 최근 기사도 조금씩 보강 (1면에 걸리는 최신 기사 위주)
         cutoff = (dt.datetime.now(KST) - dt.timedelta(hours=CFG.get("research_backlog_hours", 36))).isoformat()
         if use_ai and CFG.get("research", True):
-            backlog += [a for a in archive if a.get("ai") and not a.get("researched") and a not in backlog
+            backlog += [a for a in archive if a.get("ai") and a.get("researched", 0) < RESEARCH_V and a not in backlog
                         and a["published"] > cutoff][:CFG.get("research_backlog_per_run", 4)]
         todo = new + backlog
         if todo:
@@ -658,10 +727,13 @@ def main():
             by_id = {a["id"]: a for a in done}
             archive = [by_id.pop(a["id"], a) for a in archive] + list(by_id.values())
             archive = sorted(archive, key=lambda a: a["published"], reverse=True)[:CFG["max_archive"]]
+    for a in archive:  # AI 생성 이미지는 쓰지 않기로 함 → 실제 사진으로 다시 찾기
+        if (a.get("image") or {}).get("generated"):
+            a["image"] = None; a.pop("photo_v", None)
     dedupe_images(archive)
     add_images(archive)
     add_about(archive)
-    if "--render" not in sys.argv:
+    if "--render" not in sys.argv and CFG.get("ai_images"):
         gen_images(archive)
     for a in archive:
         a.pop("notes", None)
