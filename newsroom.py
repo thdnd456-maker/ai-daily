@@ -369,7 +369,7 @@ def commons_image(query, used):
             "iiprop": "url|size|extmetadata", "iiurlwidth": 1000,
             "iiextmetadatafilter": "Artist|LicenseShortName"})).get("query", {}).get("pages", {})
     except Exception as e:
-        print(f"[경고] 공용 검색 실패 {query}: {e}"); return None
+        raise RuntimeError(f"공용 검색 {e}")  # 다음 실행 때 다시
     for p in sorted(pages.values(), key=lambda p: p.get("index", 99)):
         ii = (p.get("imageinfo") or [{}])[0]
         name = p["title"].split(":", 1)[-1]
