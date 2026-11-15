@@ -93,3 +93,59 @@
 2026-11-15 13:08 model=claude-haiku-5-5 items=8 in=11486 out=10558 search=0 ≈$0.0064
 2026-11-15 13:08 model=claude-haiku-5-5 items=2 research in=29913 out=4962 search=2 ≈$0.0255
 2026-11-15 13:08 model=claude-haiku-5-5 items=2 in=6124 out=2245 search=0 ≈$0.0017
+2026-11-15 13:52 model=claude-haiku-5-5 items=2 research in=75670 out=4270 search=2 ≈$0.0297
+2026-11-15 13:53 model=claude-haiku-5-5 items=2 research in=66535 out=5750 search=2 ≈$0.0295
+2026-11-15 13:53 model=claude-haiku-5-5 items=4 in=9068 out=7623 search=0 ≈$0.0047
+2026-11-15 13:54 model=claude-haiku-5-5 items=2 research in=74680 out=4986 search=2 ≈$0.0300
+2026-11-15 13:54 model=claude-haiku-5-5 items=2 research in=79517 out=4662 search=2 ≈$0.0303
+2026-11-15 13:55 model=claude-haiku-5-5 items=4 in=9469 out=12022 search=0 ≈$0.0070
+2026-11-15 13:55 model=claude-haiku-5-5 items=2 research in=74345 out=9359 search=2 ≈$0.0321
+2026-11-15 13:56 model=claude-haiku-5-5 items=2 research in=91085 out=7287 search=2 ≈$0.0328
+2026-11-15 13:56 model=claude-haiku-5-5 items=4 in=11053 out=6212 search=0 ≈$0.0042
+2026-11-15 13:57 model=claude-haiku-5-5 items=2 research in=90831 out=6400 search=2 ≈$0.0323
+2026-11-15 13:57 model=claude-haiku-5-5 items=2 research in=73397 out=5956 search=2 ≈$0.0303
+2026-11-15 13:58 model=claude-haiku-5-5 items=4 in=10551 out=10525 search=0 ≈$0.0063
+2026-11-15 13:59 model=claude-haiku-5-5 items=2 research in=75628 out=6066 search=2 ≈$0.0306
+2026-11-15 13:59 model=claude-haiku-5-5 items=2 research in=76029 out=4769 search=2 ≈$0.0300
+2026-11-15 14:00 model=claude-haiku-5-5 items=4 in=9884 out=15461 search=0 ≈$0.0087
+2026-11-15 14:00 model=claude-haiku-5-5 items=2 research in=126759 out=6798 search=2 ≈$0.0361
+2026-11-15 14:01 model=claude-haiku-5-5 items=2 research in=72196 out=9623 search=2 ≈$0.0320
+2026-11-15 14:02 model=claude-haiku-5-5 items=4 in=12860 out=14588 search=0 ≈$0.0086
+2026-11-15 14:02 model=claude-haiku-5-5 items=2 research in=76450 out=8085 search=2 ≈$0.0317
+2026-11-15 14:03 model=claude-haiku-5-5 items=2 research in=79758 out=5806 search=2 ≈$0.0309
+2026-11-15 14:04 model=claude-haiku-5-5 items=4 in=10623 out=11923 search=0 ≈$0.0070
+2026-11-15 14:04 model=claude-haiku-5-5 items=2 research in=79721 out=4426 search=2 ≈$0.0302
+2026-11-15 14:05 model=claude-haiku-5-5 items=2 research in=87044 out=8938 search=2 ≈$0.0332
+2026-11-15 14:06 model=claude-haiku-5-5 items=4 in=11365 out=16111 search=0 ≈$0.0092
+2026-11-15 14:06 model=claude-haiku-5-5 items=2 research in=74834 out=3596 search=2 ≈$0.0293
+2026-11-15 14:07 model=claude-haiku-5-5 items=2 research in=67978 out=5539 search=2 ≈$0.0296
+2026-11-15 14:07 model=claude-haiku-5-5 items=4 in=9094 out=14251 search=0 ≈$0.0080
+2026-11-15 14:08 model=claude-haiku-5-5 items=2 research in=73520 out=4258 search=2 ≈$0.0295
+2026-11-15 14:08 model=claude-haiku-5-5 items=2 research in=94217 out=6296 search=2 ≈$0.0326
+2026-11-15 14:09 model=claude-haiku-5-5 items=4 in=9246 out=15253 search=0 ≈$0.0086
+2026-11-15 14:10 model=claude-haiku-5-5 items=2 research in=76311 out=6993 search=2 ≈$0.0311
+2026-11-15 14:10 model=claude-haiku-5-5 items=2 research in=86855 out=4184 search=2 ≈$0.0308
+2026-11-15 14:11 model=claude-haiku-5-5 items=4 in=9025 out=9262 search=0 ≈$0.0055
+2026-11-15 14:11 model=claude-haiku-5-5 items=2 research in=82984 out=6544 search=2 ≈$0.0316
+2026-11-15 14:12 model=claude-haiku-5-5 items=2 research in=67946 out=3958 search=2 ≈$0.0288
+2026-11-15 14:13 model=claude-haiku-5-5 items=4 in=5817 out=15416 search=0 ≈$0.0083
+2026-11-15 14:13 model=claude-haiku-5-5 items=2 research in=82326 out=10985 search=2 ≈$0.0337
+2026-11-15 14:14 model=claude-haiku-5-5 items=2 research in=79537 out=5203 search=2 ≈$0.0306
+2026-11-15 14:15 model=claude-haiku-5-5 items=4 in=13069 out=15790 search=0 ≈$0.0092
+2026-11-15 14:15 model=claude-haiku-5-5 items=2 research in=77586 out=9368 search=2 ≈$0.0324
+2026-11-15 14:16 model=claude-haiku-5-5 items=2 research in=70616 out=5997 search=2 ≈$0.0301
+2026-11-15 14:17 model=claude-haiku-5-5 items=4 in=10457 out=17510 search=0 ≈$0.0098
+2026-11-15 14:18 model=claude-haiku-5-5 items=2 research in=121113 out=5893 search=2 ≈$0.0351
+2026-11-15 14:18 model=claude-haiku-5-5 items=2 research in=101875 out=5523 search=2 ≈$0.0329
+2026-11-15 14:19 model=claude-haiku-5-5 items=4 in=9971 out=14855 search=0 ≈$0.0084
+2026-11-15 14:19 model=claude-haiku-5-5 items=2 research in=81721 out=4708 search=2 ≈$0.0305
+2026-11-15 14:20 model=claude-haiku-5-5 items=2 research in=128831 out=9651 search=2 ≈$0.0377
+2026-11-15 14:21 model=claude-haiku-5-5 items=4 in=10139 out=11232 search=0 ≈$0.0066
+2026-11-15 14:21 model=claude-haiku-5-5 items=2 research in=79975 out=5455 search=2 ≈$0.0307
+2026-11-15 14:22 model=claude-haiku-5-5 items=2 research in=91741 out=6429 search=2 ≈$0.0324
+2026-11-15 14:22 model=claude-haiku-5-5 items=4 in=9884 out=7975 search=0 ≈$0.0050
+2026-11-15 14:23 model=claude-haiku-5-5 items=2 research in=82629 out=7504 search=2 ≈$0.0320
+2026-11-15 14:24 model=claude-haiku-5-5 items=2 research in=97901 out=7642 search=2 ≈$0.0336
+2026-11-15 14:25 model=claude-haiku-5-5 items=4 in=10185 out=19906 search=0 ≈$0.0110
+2026-11-15 14:25 model=claude-haiku-5-5 items=2 research in=67569 out=5417 search=2 ≈$0.0295
+2026-11-15 14:26 model=claude-haiku-5-5 items=2 in=5839 out=3324 search=0 ≈$0.0022
