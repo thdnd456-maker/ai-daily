@@ -159,22 +159,29 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 child: LinearProgressIndicator(value: _page / 6, color: GymColors.accent, backgroundColor: GymColors.line),
               ),
             ),
+      // 버튼을 본문 안에 두어 키보드가 올라와도 가려지지 않게 함
       body: SafeArea(
-        child: PageView(
-          controller: _pc,
-          physics: const NeverScrollableScrollPhysics(),
-          onPageChanged: (i) => setState(() => _page = i),
-          children: [_welcome(), _basic(), _goalsPage(), _expPage(), _schedule(), _envPage(), _bodyPage()],
-        ),
-      ),
-      bottomNavigationBar: _page == 0
-          ? null
-          : SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
-                child: FilledButton(onPressed: _next, child: Text(_page == 6 ? (widget.editMode ? '저장' : '내 프로그램 만들기') : '다음')),
+        child: Column(
+          children: [
+            Expanded(
+              child: PageView(
+                controller: _pc,
+                physics: const NeverScrollableScrollPhysics(),
+                onPageChanged: (i) => setState(() => _page = i),
+                children: [_welcome(), _basic(), _goalsPage(), _expPage(), _schedule(), _envPage(), _bodyPage()],
               ),
             ),
+            if (_page > 0)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: FilledButton(onPressed: _next, child: Text(_page == 6 ? (widget.editMode ? '저장' : '내 프로그램 만들기') : '다음')),
+                ),
+              ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -183,28 +190,44 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   Widget _welcome() => Padding(
     padding: const EdgeInsets.all(24),
     child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Spacer(),
-        const Icon(Icons.fitness_center, size: 56, color: GymColors.accent),
-        const SizedBox(height: 16),
-        const Text('AI GYM LAB', style: TextStyle(fontSize: 34, fontWeight: FontWeight.w900, letterSpacing: 1)),
-        const SizedBox(height: 8),
-        const Text('운동과학 기반 개인 맞춤형 트레이너', style: TextStyle(fontSize: 17, color: GymColors.textDim)),
-        const SizedBox(height: 28),
-        for (final t in ['오늘 할 운동·중량·반복·세트를 바로 확인', '기록할수록 다음 운동이 자동으로 조정', '추천 이유와 연구 근거를 투명하게 표시', '인터넷 없이도 기록과 자동 추천이 동작'])
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: Row(
-              children: [
-                const Icon(Icons.check_circle, color: GymColors.accent, size: 20),
-                const SizedBox(width: 10),
-                Expanded(child: Text(t, style: const TextStyle(fontSize: 15))),
-              ],
+        // 작은 화면·큰 글씨에서도 「시작하기」 버튼이 항상 보이도록 내용만 스크롤
+        Expanded(
+          child: LayoutBuilder(
+            builder: (context, box) => SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: box.maxHeight),
+                child: IntrinsicHeight(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Spacer(),
+                      const Icon(Icons.fitness_center, size: 56, color: GymColors.accent),
+                      const SizedBox(height: 16),
+                      const Text('AI GYM LAB', style: TextStyle(fontSize: 34, fontWeight: FontWeight.w900, letterSpacing: 1)),
+                      const SizedBox(height: 8),
+                      const Text('운동과학 기반 개인 맞춤형 트레이너', style: TextStyle(fontSize: 17, color: GymColors.textDim)),
+                      const SizedBox(height: 28),
+                      for (final t in ['오늘 할 운동·중량·반복·세트를 바로 확인', '기록할수록 다음 운동이 자동으로 조정', '추천 이유와 연구 근거를 투명하게 표시', '인터넷 없이도 기록과 자동 추천이 동작'])
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.check_circle, color: GymColors.accent, size: 20),
+                              const SizedBox(width: 10),
+                              Expanded(child: Text(t, style: const TextStyle(fontSize: 15))),
+                            ],
+                          ),
+                        ),
+                      const Spacer(),
+                      const Text('입력한 건강 관련 정보는 이 기기에만 저장되며 운동 조정 참고용으로만 사용됩니다.', style: TextStyle(color: GymColors.textDim, fontSize: 12)),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
-        const Spacer(),
-        const Text('입력한 건강 관련 정보는 이 기기에만 저장되며 운동 조정 참고용으로만 사용됩니다.', style: TextStyle(color: GymColors.textDim, fontSize: 12)),
+        ),
         const SizedBox(height: 12),
         SizedBox(
           width: double.infinity,
