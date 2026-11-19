@@ -12,6 +12,7 @@ import '../../data/db/database.dart';
 import '../../data/repository.dart';
 import '../../domain/engines/progression_engine.dart';
 import '../../domain/models.dart';
+import '../../app/exercise_visuals.dart';
 import '../exercise/exercise_library_screen.dart';
 import '../exercise/substitution_sheet.dart';
 
@@ -295,128 +296,132 @@ class _ExerciseCard extends ConsumerWidget {
     final inc = ref.watch(incrementProvider(e.id)).value ?? e.primaryEquipment.defaultIncrementKg;
     final rec = item.recommendation;
     final allDone = item.sets.isNotEmpty && item.sets.every((s) => s.completed);
-    return SectionCard(
-      padding: const EdgeInsets.fromLTRB(14, 12, 10, 12),
-      color: allDone ? GymColors.accent.withValues(alpha: 0.05) : null,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: InkWell(
-                  onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExerciseDetailScreen(exercise: e))),
-                  child: Text(e.nameKo, style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w900)),
-                ),
+    final rest = row.restSec >= 60 ? '${row.restSec ~/ 60}분${row.restSec % 60 > 0 ? ' ${row.restSec % 60}초' : ''}' : '${row.restSec}초';
+    final menu = readOnly
+        ? null
+        : PopupMenuButton<String>(
+            icon: const Icon(Icons.more_vert, color: GymColors.textDim),
+            onSelected: (v) async {
+              switch (v) {
+                case 'sub':
+                  final id = await showSubstitutionSheet(context, ref, e);
+                  if (id != null) await act(() => repo.substitute(row.id, id));
+                case 'pain':
+                  await act(() => repo.setFlags(row.id, pain: !row.pain));
+                case 'form':
+                  await act(() => repo.setFlags(row.id, formUnstable: !row.formUnstable));
+                case 'detail':
+                  if (context.mounted) Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExerciseDetailScreen(exercise: e)));
+              }
+            },
+            itemBuilder: (_) => [
+              const PopupMenuItem(
+                value: 'sub',
+                child: ListTile(leading: Icon(Icons.swap_horiz), title: Text('다른 운동으로 바꾸기')),
               ),
-              if (row.pain)
-                const Padding(
-                  padding: EdgeInsets.only(right: 4),
-                  child: Pill('통증', color: GymColors.danger),
-                ),
-              if (row.formUnstable)
-                const Padding(
-                  padding: EdgeInsets.only(right: 4),
-                  child: Pill('자세', color: GymColors.warn),
-                ),
-              if (!readOnly)
-                PopupMenuButton<String>(
-                  onSelected: (v) async {
-                    switch (v) {
-                      case 'sub':
-                        final id = await showSubstitutionSheet(context, ref, e);
-                        if (id != null) await act(() => repo.substitute(row.id, id));
-                      case 'pain':
-                        await act(() => repo.setFlags(row.id, pain: !row.pain));
-                      case 'form':
-                        await act(() => repo.setFlags(row.id, formUnstable: !row.formUnstable));
-                      case 'detail':
-                        if (context.mounted) Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExerciseDetailScreen(exercise: e)));
-                    }
-                  },
-                  itemBuilder: (_) => [
-                    const PopupMenuItem(
-                      value: 'sub',
-                      child: ListTile(leading: Icon(Icons.swap_horiz), title: Text('대체 운동')),
-                    ),
-                    PopupMenuItem(
-                      value: 'pain',
-                      child: ListTile(leading: const Icon(Icons.healing), title: Text(row.pain ? '통증 표시 해제' : '통증 발생 표시')),
-                    ),
-                    PopupMenuItem(
-                      value: 'form',
-                      child: ListTile(leading: const Icon(Icons.accessibility_new), title: Text(row.formUnstable ? '자세 불안정 해제' : '자세 불안정 표시')),
-                    ),
-                    const PopupMenuItem(
-                      value: 'detail',
-                      child: ListTile(leading: Icon(Icons.info_outline), title: Text('운동 상세/자세')),
-                    ),
-                  ],
-                ),
+              PopupMenuItem(
+                value: 'pain',
+                child: ListTile(leading: const Icon(Icons.healing), title: Text(row.pain ? '통증 표시 해제' : '통증 있었음')),
+              ),
+              PopupMenuItem(
+                value: 'form',
+                child: ListTile(leading: const Icon(Icons.accessibility_new), title: Text(row.formUnstable ? '자세 불안정 해제' : '자세가 불안정했음')),
+              ),
+              const PopupMenuItem(
+                value: 'detail',
+                child: ListTile(leading: Icon(Icons.menu_book_outlined), title: Text('자세 설명 보기')),
+              ),
             ],
-          ),
-          if (row.substitutedFrom != null)
-            Text('${repo.exercises[row.substitutedFrom]?.nameKo ?? row.substitutedFrom} 대체', style: const TextStyle(color: GymColors.info, fontSize: 12)),
-          const SizedBox(height: 4),
-          Text(
-            '목표: ${row.targetSets}세트 × ${row.repMin}~${row.repMax}$unit · RIR ${row.targetRir} · 휴식 ${row.restSec}초',
-            style: const TextStyle(color: GymColors.textDim),
-          ),
-          const SizedBox(height: 8),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('지난 운동', style: TextStyle(color: GymColors.textDim, fontSize: 12)),
-                    Text(
-                      last == null ? '기록 없음' : last.completedSets.map((x) => '${fmtKg(x.weight)}×${x.reps}').join(', '),
-                      style: const TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                ),
-              ),
-              if (rec != null)
-                Expanded(
-                  child: InkWell(
-                    onTap: () => _showWhy(context, rec, e),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            const Text(
-                              '오늘 추천',
-                              style: TextStyle(color: GymColors.accent, fontSize: 12, fontWeight: FontWeight.w700),
-                            ),
-                            const SizedBox(width: 4),
-                            const Icon(Icons.help_outline, size: 14, color: GymColors.accent),
-                          ],
+          );
+    return Card(
+      color: allDone ? const Color(0xFF1C2318) : null,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(12, 12, 8, 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: () => showExercisePhotoViewer(context, e),
+                  child: Stack(
+                    children: [
+                      ExercisePhoto(exercise: e, width: 92, height: 92, radius: 16, animate: !allDone),
+                      if (allDone)
+                        Positioned.fill(
+                          child: Container(
+                            decoration: BoxDecoration(color: Colors.black54, borderRadius: BorderRadius.circular(16)),
+                            child: const Icon(Icons.check_circle, color: GymColors.accent, size: 36),
+                          ),
                         ),
-                        Text(
-                          rec.summary(timed: e.timed, assisted: e.assisted),
-                          style: const TextStyle(fontWeight: FontWeight.w800),
-                        ),
-                        Text(rec.action.ko, style: const TextStyle(color: GymColors.textDim, fontSize: 12)),
-                      ],
-                    ),
+                    ],
                   ),
                 ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          for (final set in item.sets) _SetRow(set: set, exercise: e, increment: inc, restSec: row.restSec, act: act, readOnly: readOnly),
-          if (!readOnly)
-            Row(
-              children: [
-                TextButton.icon(onPressed: () => act(() => repo.addSet(row.id)), icon: const Icon(Icons.add), label: const Text('세트 추가')),
-                if (item.sets.length > 1)
-                  TextButton.icon(onPressed: () => act(() => repo.removeLastSet(row.id)), icon: const Icon(Icons.remove), label: const Text('세트 삭제')),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(e.nameKo, maxLines: 2, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w900, height: 1.2)),
+                      const SizedBox(height: 3),
+                      Text('${row.targetSets}세트 · ${row.repMin}~${row.repMax}$unit · 휴식 $rest', style: const TextStyle(color: GymColors.textDim, fontSize: 13)),
+                      if (row.substitutedFrom != null)
+                        Text(
+                          '${repo.exercises[row.substitutedFrom]?.nameKo ?? row.substitutedFrom} 대신',
+                          style: const TextStyle(color: GymColors.info, fontSize: 12),
+                        ),
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 6,
+                        runSpacing: 6,
+                        children: [
+                          if (rec != null)
+                            InkWell(
+                              borderRadius: BorderRadius.circular(20),
+                              onTap: () => _showWhy(context, rec, e),
+                              child: _Chip(
+                                icon: rec.action == ProgressionAction.increaseWeight ? Icons.arrow_upward_rounded : Icons.flag_outlined,
+                                text: rec.weight == null ? '오늘: 기준 찾기' : '오늘 ${fmtKg(rec.weight!)}kg',
+                                color: rec.weight == null ? GymColors.info : GymColors.accent,
+                                trailingHelp: true,
+                              ),
+                            ),
+                          _Chip(
+                            icon: Icons.history,
+                            text: last == null ? '첫 기록' : '지난 ${fmtKg(last.workingWeight)}kg × ${last.completedSets.map((x) => x.reps).join('·')}',
+                            color: GymColors.textDim,
+                          ),
+                          if (row.pain) const _Chip(icon: Icons.healing, text: '통증', color: GymColors.danger),
+                          if (row.formUnstable) const _Chip(icon: Icons.accessibility_new, text: '자세', color: GymColors.warn),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                ?menu,
               ],
             ),
-        ],
+            const SizedBox(height: 12),
+            for (final set in item.sets) _SetRow(set: set, exercise: e, increment: inc, restSec: row.restSec, act: act, readOnly: readOnly),
+            if (!readOnly)
+              Row(
+                children: [
+                  TextButton.icon(onPressed: () => act(() => repo.addSet(row.id)), icon: const Icon(Icons.add, size: 18), label: const Text('세트')),
+                  if (item.sets.length > 1)
+                    TextButton.icon(
+                      onPressed: () => act(() => repo.removeLastSet(row.id)),
+                      icon: const Icon(Icons.remove, size: 18),
+                      label: const Text('세트'),
+                      style: TextButton.styleFrom(foregroundColor: GymColors.textDim),
+                    ),
+                  const Spacer(),
+                  Text('목표 RIR ${row.targetRir}', style: const TextStyle(color: GymColors.textDim, fontSize: 12)),
+                  const SizedBox(width: 8),
+                ],
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -557,4 +562,32 @@ class _SetRow extends ConsumerWidget {
       ),
     );
   }
+}
+
+class _Chip extends StatelessWidget {
+  final IconData icon;
+  final String text;
+  final Color color;
+  final bool trailingHelp;
+  const _Chip({required this.icon, required this.text, required this.color, this.trailingHelp = false});
+  @override
+  Widget build(BuildContext context) => Container(
+    padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
+    decoration: BoxDecoration(color: color.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(20)),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, size: 14, color: color),
+        const SizedBox(width: 4),
+        Flexible(
+          child: Text(
+            text,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(color: color, fontSize: 12.5, fontWeight: FontWeight.w700),
+          ),
+        ),
+        if (trailingHelp) ...[const SizedBox(width: 3), Icon(Icons.help_outline, size: 13, color: color)],
+      ],
+    ),
+  );
 }

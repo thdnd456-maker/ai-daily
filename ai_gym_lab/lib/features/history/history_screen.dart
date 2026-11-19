@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../app/exercise_visuals.dart';
 import '../../app/providers.dart';
 import '../../app/theme.dart';
 import '../../app/widgets.dart';
@@ -128,6 +129,8 @@ class SessionDetailScreen extends ConsumerWidget {
                             children: [
                               Row(
                                 children: [
+                                  ExercisePhoto(exercise: e.exercise, width: 44, height: 44, radius: 10),
+                                  const SizedBox(width: 10),
                                   Expanded(
                                     child: Text(e.exercise.nameKo, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16)),
                                   ),

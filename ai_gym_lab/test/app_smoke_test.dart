@@ -53,9 +53,9 @@ void main() {
     expect(find.text('홈'), findsOneWidget);
     expect(find.text('AI 트레이너'), findsWidgets);
 
-    await t.ensureVisible(find.text('오늘의 운동 시작'));
+    await t.ensureVisible(find.text('운동 시작'));
     await t.pump();
-    await t.tap(find.text('오늘의 운동 시작'));
+    await t.tap(find.text('운동 시작'));
     await settle(t);
     // 오늘의 상태: 건너뛰기 → 바로 시작
     expect(find.textContaining('오늘의 상태'), findsOneWidget);
@@ -70,7 +70,7 @@ void main() {
     await settle(t, rounds: 25);
 
     expect(find.text('바벨 벤치프레스'), findsOneWidget);
-    expect(find.text('기준 중량 찾기'), findsWidgets); // 기록이 없으므로 중량 단정 안 함
+    expect(find.text('오늘: 기준 찾기'), findsWidgets); // 기록이 없으므로 중량 단정 안 함
 
     final session = await t.runAsync(() => repo.inProgressSession());
     expect(session, isNotNull);

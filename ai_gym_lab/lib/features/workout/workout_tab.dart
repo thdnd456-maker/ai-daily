@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../app/exercise_visuals.dart';
 import '../../app/providers.dart';
 import '../../app/theme.dart';
 import '../../app/widgets.dart';
@@ -170,10 +171,8 @@ class WorkoutTab extends ConsumerWidget {
             Text(d.row.name, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900)),
             const SizedBox(height: 8),
             for (final x in d.exercises)
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                title: Text(repo.exercises[x.exerciseId]!.nameKo),
-                subtitle: Text('휴식 ${x.restSec}초 · RIR ${x.targetRir}', style: const TextStyle(color: GymColors.textDim)),
+              ExerciseTile(
+                exercise: repo.exercises[x.exerciseId]!,
                 trailing: Text('${x.sets} × ${x.repMin}~${x.repMax}', style: const TextStyle(fontWeight: FontWeight.w800)),
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExerciseDetailScreen(exercise: repo.exercises[x.exerciseId]!))),
               ),

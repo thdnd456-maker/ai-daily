@@ -66,7 +66,8 @@ void main() {
 
     // 홈: 기록이 있으므로 이번 주 운동/최근 성과
     expect(find.text('오늘의 운동'), findsOneWidget);
-    expect(find.textContaining('이번 주 운동'), findsOneWidget);
+    expect(find.text('이번 주'), findsOneWidget);
+    expect(find.text('오늘 추천 중량'), findsOneWidget);
 
     // 운동 탭
     await t.tap(find.text('운동').last);

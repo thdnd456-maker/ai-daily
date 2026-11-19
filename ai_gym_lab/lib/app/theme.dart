@@ -2,10 +2,10 @@ import 'package:material_ui/material_ui.dart';
 
 /// 다크모드 기본 · 블랙/차콜 배경 · 선명한 라임 포인트 컬러
 class GymColors {
-  static const bg = Color(0xFF0B0C0E);
-  static const surface = Color(0xFF16181C);
-  static const surface2 = Color(0xFF1F2227);
-  static const line = Color(0xFF2C3036);
+  static const bg = Color(0xFF0E1013);
+  static const surface = Color(0xFF181B20);
+  static const surface2 = Color(0xFF23272E);
+  static const line = Color(0xFF2C313A);
   static const accent = Color(0xFFC6FF3D);
   static const accentDim = Color(0xFF8DB82A);
   static const text = Color(0xFFF2F4F5);
@@ -29,15 +29,19 @@ ThemeData buildTheme() {
     useMaterial3: true,
     colorScheme: scheme,
     scaffoldBackgroundColor: GymColors.bg,
-    appBarTheme: const AppBarTheme(backgroundColor: GymColors.bg, foregroundColor: GymColors.text, elevation: 0, centerTitle: false),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: GymColors.bg,
+      foregroundColor: GymColors.text,
+      elevation: 0,
+      scrolledUnderElevation: 0,
+      centerTitle: false,
+      titleTextStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: GymColors.text),
+    ),
     cardTheme: CardThemeData(
       color: GymColors.surface,
       elevation: 0,
       margin: EdgeInsets.zero,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
-        side: const BorderSide(color: GymColors.line),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
     ),
     navigationBarTheme: NavigationBarThemeData(
       backgroundColor: GymColors.surface,
@@ -78,11 +82,18 @@ ThemeData buildTheme() {
     chipTheme: ChipThemeData(
       backgroundColor: GymColors.surface2,
       selectedColor: GymColors.accent.withValues(alpha: 0.22),
-      side: const BorderSide(color: GymColors.line),
+      side: BorderSide.none,
       labelStyle: const TextStyle(color: GymColors.text),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      showCheckmark: false,
     ),
-    dividerTheme: const DividerThemeData(color: GymColors.line, space: 1),
+    dividerTheme: const DividerThemeData(color: GymColors.line, space: 1, thickness: 0.6),
+    listTileTheme: const ListTileThemeData(iconColor: GymColors.textDim),
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: GymColors.surface,
+      showDragHandle: true,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
+    ),
     snackBarTheme: const SnackBarThemeData(behavior: SnackBarBehavior.floating),
   );
 }

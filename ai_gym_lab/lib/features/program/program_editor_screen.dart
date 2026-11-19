@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../app/exercise_visuals.dart';
 import '../../app/providers.dart';
 import '../../app/theme.dart';
 import '../../app/widgets.dart';
@@ -232,7 +233,8 @@ class _ProgramEditorScreenState extends ConsumerState<ProgramEditorScreen> {
                       margin: const EdgeInsets.only(bottom: 8),
                       child: ListTile(
                         onTap: () => _editExercise(_sel, i),
-                        leading: const Icon(Icons.drag_indicator, color: GymColors.textDim),
+                        contentPadding: const EdgeInsets.fromLTRB(10, 4, 4, 4),
+                        leading: ExercisePhoto(exercise: repo.exercises[_days[_sel].exercises[i].exerciseId]!, width: 48, height: 48, radius: 10),
                         title: Text(repo.exercises[_days[_sel].exercises[i].exerciseId]!.nameKo),
                         subtitle: Text(_desc(_days[_sel].exercises[i]), style: const TextStyle(color: GymColors.textDim)),
                         trailing: IconButton(

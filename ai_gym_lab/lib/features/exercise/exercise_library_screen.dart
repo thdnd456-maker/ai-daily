@@ -1,7 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../app/exercise_visuals.dart';
 import '../../app/providers.dart';
+import '../../domain/catalog/exercise_photos.dart';
 import '../../app/theme.dart';
 import '../../app/widgets.dart';
 import '../../domain/catalog/research.dart';
@@ -74,21 +76,52 @@ class _ExerciseLibraryScreenState extends ConsumerState<ExerciseLibraryScreen> {
           Expanded(
             child: list.isEmpty
                 ? const EmptyState(icon: Icons.search_off, title: '조건에 맞는 운동이 없습니다')
-                : ListView.separated(
+                : GridView.builder(
+                    padding: const EdgeInsets.fromLTRB(12, 4, 12, 24),
+                    gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 220,
+                      mainAxisSpacing: 12,
+                      crossAxisSpacing: 12,
+                      childAspectRatio: 0.82,
+                    ),
                     itemCount: list.length,
-                    separatorBuilder: (_, _) => const Divider(height: 1, indent: 16),
                     itemBuilder: (_, i) {
                       final e = list[i];
-                      return ListTile(
-                        title: Text(e.nameKo),
-                        subtitle: Text(
-                          '${e.primary.map((m) => m.ko).join('·')} · ${e.equipment.map((q) => q.ko).join('+')}',
-                          style: const TextStyle(color: GymColors.textDim, fontSize: 12),
+                      return Card(
+                        clipBehavior: Clip.antiAlias,
+                        child: InkWell(
+                          onTap: () => widget.pickMode ? Navigator.pop(context, e.id) : _detail(e),
+                          onLongPress: () => _detail(e),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                child: ExercisePhoto(exercise: e, width: double.infinity, radius: 0),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      e.nameKo,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(fontWeight: FontWeight.w700),
+                                    ),
+                                    const SizedBox(height: 2),
+                                    Text(
+                                      exerciseSubtitle(e),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(color: GymColors.textDim, fontSize: 12),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        trailing: widget.pickMode
-                            ? IconButton(icon: const Icon(Icons.info_outline), onPressed: () => _detail(e))
-                            : Text(['', '초급', '중급', '고급'][e.difficulty], style: const TextStyle(color: GymColors.textDim)),
-                        onTap: () => widget.pickMode ? Navigator.pop(context, e.id) : _detail(e),
                       );
                     },
                   ),
@@ -138,12 +171,31 @@ class ExerciseDetailScreen extends ConsumerWidget {
           );
     final stress = e.jointStress.entries.where((kv) => kv.value > 0).toList();
     return Scaffold(
-      appBar: AppBar(title: Text(e.nameKo)),
+      appBar: AppBar(title: Text(e.nameKo, style: const TextStyle(fontSize: 18))),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 4, 16, 32),
         children: [
+          AspectRatio(
+            aspectRatio: 4 / 3,
+            child: ExercisePhoto(exercise: e, animate: true, showApproxBadge: true, radius: 20),
+          ),
+          const SizedBox(height: 14),
+          Text(e.nameKo, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w900)),
           Text(e.nameEn, style: const TextStyle(color: GymColors.textDim)),
           const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (final q in e.equipment)
+                Chip(
+                  avatar: Icon(equipmentIcon(q), size: 16, color: GymColors.accent),
+                  label: Text(q.ko),
+                  visualDensity: VisualDensity.compact,
+                ),
+            ],
+          ),
+          const SizedBox(height: 8),
           Wrap(
             spacing: 6,
             runSpacing: 6,
@@ -168,9 +220,6 @@ class ExerciseDetailScreen extends ConsumerWidget {
                     ),
                     Expanded(
                       child: StatTile(label: '권장 휴식', value: '${e.restSec}초'),
-                    ),
-                    Expanded(
-                      child: StatTile(label: '기구', value: e.equipment.map((q) => q.ko).join('+')),
                     ),
                   ],
                 ),
@@ -233,9 +282,12 @@ class ExerciseDetailScreen extends ConsumerWidget {
                   ),
                 ),
           ],
-          const SectionTitle('운동 영상'),
-          SectionCard(
-            child: Text(e.videoUrl ?? '저작권이 확인된 영상이 아직 등록되지 않았습니다. 위의 자세 설명을 참고하세요.', style: const TextStyle(color: GymColors.textDim)),
+          const SizedBox(height: 16),
+          Text(
+            exercisePhotos.containsKey(e.id)
+                ? '운동 사진: Free Exercise DB (퍼블릭 도메인)${exercisePhotos[e.id]!.approx ? ' · 같은 운동 사진이 없어 비슷한 동작 사진을 표시합니다.' : ''}'
+                : '이 운동은 아직 사진이 없어 기구 아이콘으로 표시합니다. 위의 자세 설명을 참고하세요.',
+            style: const TextStyle(color: GymColors.textDim, fontSize: 11.5),
           ),
         ],
       ),

@@ -113,7 +113,8 @@ class SettingsScreen extends ConsumerWidget {
             child: Text(
               'AI GYM LAB은 의료기기가 아니며 진단·치료를 하지 않습니다. 통증·질환 정보는 운동 조정 참고용입니다.\n\n'
               '운동 처방(중량·반복·세트)은 검증 가능한 규칙 기반 엔진이 계산하며, AI 언어모델은 설명과 질의응답, 변경 제안에만 사용됩니다.\n\n'
-              '모든 데이터는 이 기기에만 저장됩니다(서버 없음).',
+              '모든 데이터는 이 기기에만 저장됩니다(서버 없음).\n\n'
+            '운동 사진: Free Exercise DB (github.com/yuhonas/free-exercise-db), 퍼블릭 도메인(Unlicense).',
               style: TextStyle(color: GymColors.textDim, height: 1.4, fontSize: 13),
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../app/exercise_visuals.dart';
 import '../../app/providers.dart';
 import '../../app/theme.dart';
 import '../../app/widgets.dart';
@@ -57,13 +58,10 @@ class ProgramReviewScreen extends ConsumerWidget {
               child: Column(
                 children: [
                   for (final x in d.exercises)
-                    ListTile(
-                      dense: true,
-                      title: Text(repo.exercises[x.exerciseId]!.nameKo, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
-                      subtitle: Text(
-                        '휴식 ${x.restSec ~/ 60}분${x.restSec % 60 > 0 ? ' ${x.restSec % 60}초' : ''} · 목표 RIR ${x.targetRir}',
-                        style: const TextStyle(color: GymColors.textDim),
-                      ),
+                    ExerciseTile(
+                      exercise: repo.exercises[x.exerciseId]!,
+                      thumb: 48,
+                      onTap: () => showExercisePhotoViewer(context, repo.exercises[x.exerciseId]!),
                       trailing: Text(
                         '${x.sets} × ${x.repMin}~${x.repMax}${repo.exercises[x.exerciseId]!.timed ? '초' : ''}',
                         style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15),

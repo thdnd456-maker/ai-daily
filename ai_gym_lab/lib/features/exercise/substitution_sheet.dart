@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../../app/exercise_visuals.dart';
 import '../../app/providers.dart';
 import '../../app/theme.dart';
 import '../../domain/engines/substitution_engine.dart';
@@ -73,7 +74,8 @@ class _SubstitutionSheetState extends ConsumerState<_SubstitutionSheet> {
             Card(
               margin: const EdgeInsets.only(bottom: 8),
               child: ListTile(
-                leading: CircleAvatar(radius: 14, backgroundColor: GymColors.surface2, child: Text('${i + 1}')),
+                contentPadding: const EdgeInsets.fromLTRB(10, 6, 4, 6),
+                leading: ExercisePhoto(exercise: cands[i].exercise, width: 56, height: 56, radius: 12),
                 title: Text(cands[i].exercise.nameKo, style: const TextStyle(fontWeight: FontWeight.w700)),
                 subtitle: Text(cands[i].reasons.take(3).join(' · '), style: const TextStyle(color: GymColors.textDim, fontSize: 12)),
                 trailing: IconButton(

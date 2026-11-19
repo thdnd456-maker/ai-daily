@@ -73,7 +73,11 @@ class HomeSummary {
   final String? recentGain;
   final List<ScheduledWorkout> plan;
   final String? consecutiveWarning;
+
+  /// 이번 주 운동한 요일(1=월~7=일)
+  final Set<int> trainedWeekdays;
   const HomeSummary({
+    this.trainedWeekdays = const {},
     required this.profile,
     required this.program,
     required this.nextIndex,
@@ -161,6 +165,7 @@ final homeSummaryProvider = FutureProvider<HomeSummary>((ref) async {
     recentGain: gain,
     plan: plan,
     consecutiveWarning: warn,
+    trainedWeekdays: {for (final x in sessions.where((x) => !x.row.startedAt.isBefore(ws))) x.row.startedAt.weekday},
   );
 });
 
