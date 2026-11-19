@@ -204,6 +204,84 @@ def write_ai(items, chunk=4):
     return out
 
 
+# ───────────────────────── Ollama Cloud (무료 플랜) ─────────────────────────
+OLLAMA = "https://ollama.com/api"
+
+
+def ollama_post(path, body, timeout=300):
+    req = urllib.request.Request(OLLAMA + path, data=json.dumps(body).encode(), method="POST", headers={
+        "Authorization": "Bearer " + os.environ["OLLAMA_API_KEY"], "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return json.loads(r.read().decode("utf-8"))
+
+
+def ollama_research(it):
+    """Ollama 웹 검색으로 관련 보도 내용을 모아 사실 메모로 쓴다 (모델 호출 없음)."""
+    res = ollama_post("/web_search", {"query": it["orig_title"], "max_results": 5}, timeout=60)
+    parts = [f"[{r.get('title', '')}]\n{(r.get('content') or '')[:1500]}" for r in res.get("results", [])]
+    return "\n\n".join(p for p in parts if p.strip())[:6000]
+
+
+def ollama_write(items, chunk=2):
+    out = []
+    for i in range(0, len(items), chunk):
+        part = items[i:i + chunk]
+        if CFG.get("research", True):
+            for it in part:
+                if it.get("researched", 0) < RESEARCH_V:
+                    try:
+                        notes = ollama_research(it)
+                        if notes:
+                            it["notes"] = notes
+                    except Exception as e:
+                        print(f"[경고] Ollama 웹 검색 실패: {e}")
+        try:
+            out += ollama_write_batch(part)
+        except Exception as e:
+            print(f"[경고] Ollama 작성 실패 → 무료 형식: {e}")
+            out += [x if x.get("ai") else write_free([x])[0] for x in part]
+            if "429" in str(e) or "403" in str(e) or "402" in str(e):  # 무료 한도 소진 → 나머지는 무료 형식
+                rest = items[i + chunk:]
+                return out + [x if x.get("ai") else write_free([x])[0] for x in rest]
+    return out
+
+
+def ollama_write_batch(items):
+    model = CFG.get("ollama_model", "gemma4:31b")
+    system = (ROOT / "prompts" / "editor.md").read_text(encoding="utf-8") + (
+        "\n\n## 출력 형식\n다른 말 없이 JSON 하나만 출력합니다:\n"
+        '{"articles":[{"id":"","headline":"","summary":"","key_points":["","",""],"body":"",'
+        '"section":"","tags":[""],"image_keyword":"","photo_query":""}]}\n'
+        "notes는 검색으로 모은 여러 매체의 보도 내용입니다. 문장을 옮기지 말고 사실만 뽑아 새 문장으로 씁니다.")
+    payload = [{"id": it["id"], "title": it["orig_title"], "source": it["source"],
+                "related": it["related"], "section_hint": it["section_hint"],
+                **({"notes": it["notes"]} if it.get("notes") else {})} for it in items]
+    resp = ollama_post("/chat", {"model": model, "stream": False, "messages": [
+        {"role": "system", "content": system},
+        {"role": "user", "content": "다음 뉴스 항목들로 기사를 작성하세요.\n"
+         + json.dumps(payload, ensure_ascii=False, separators=(",", ":"))}]})
+    text = (resp.get("message") or {}).get("content", "")
+    line = (f"{dt.datetime.now(KST):%Y-%m-%d %H:%M} model=ollama:{model} items={len(items)} "
+            f"in={resp.get('prompt_eval_count', 0)} out={resp.get('eval_count', 0)} ≈$0 (무료)")
+    print("[사용량]", line)
+    with USAGE_LOG.open("a", encoding="utf-8") as f:
+        f.write(line + "\n")
+    m = re.search(r"\{.*\}", text, re.S)
+    written = {a.get("id"): a for a in json.loads(m.group(0))["articles"]} if m else {}
+    fields = ["headline", "summary", "key_points", "body", "section", "tags", "image_keyword", "photo_query"]
+    out = []
+    for it in items:
+        a = written.get(it["id"])
+        if not a or len(a.get("body") or "") < 200:
+            out.append(it if it.get("ai") else write_free([it])[0]); continue
+        if a.get("section") not in CFG["sections"]:
+            a["section"] = it["section_hint"]
+        done = {k: v for k, v in it.items() if k not in ("notes", "photo_v")}
+        out.append({**done, **{k: a.get(k, "" if k not in ("key_points", "tags") else []) for k in fields},
+                    "ai": True, **({"researched": RESEARCH_V} if it.get("notes") else {})})
+    return out
+
+
 def write_ai_batch(items):
     import anthropic
 
@@ -706,6 +784,17 @@ def main():
         new = collect(archive)
         print(f"[수집] 새 기사 {len(new)}건")
         use_ai = CFG.get("ai", True) and "--free" not in sys.argv and os.environ.get("ANTHROPIC_API_KEY")
+        use_ollama = (not use_ai and CFG.get("ollama", False) and "--free" not in sys.argv
+                      and os.environ.get("OLLAMA_API_KEY"))
+        if use_ollama:  # 무료 모드로 짧게 올라간 기사도 실행마다 몇 건씩 다시 쓴다
+            backlog = [a for a in archive if not a.get("ai")][:CFG.get("ollama_backlog_per_run", 4)]
+            todo = new + backlog
+            print(f"[모드] Ollama Cloud ({CFG.get('ollama_model', 'gemma4:31b')}) 새 기사 {len(new)} + 보강 {len(backlog)}")
+            done = ollama_write(todo) if todo else []
+            by_id = {a["id"]: a for a in done}
+            archive = [by_id.pop(a["id"], a) for a in archive] + list(by_id.values())
+            archive = sorted(archive, key=lambda a: a["published"], reverse=True)[:CFG["max_archive"]]
+            new = []
         # 예전에 짧게 쓰였거나 무료 모드로 올라간 기사를 실행마다 조금씩 새 형식으로 다시 쓴다
         backlog = [a for a in archive if not (a.get("ai") and a.get("key_points"))][:CFG.get("max_backlog_per_run", 16)] if use_ai else []
         # 웹 검색 취재 없이 쓰인 최근 기사도 조금씩 보강 (1면에 걸리는 최신 기사 위주)

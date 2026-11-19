@@ -53,5 +53,8 @@
   "write_effort": "medium",
   "research_backlog_hours": 99999,
   "research_backlog_per_run": 12,
-  "ai": false
+  "ai": false,
+  "ollama": true,
+  "ollama_model": "gemma4:31b",
+  "ollama_backlog_per_run": 4
 }
