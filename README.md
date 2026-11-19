@@ -29,3 +29,6 @@ py -m http.server 8765 -d docs   # http://localhost:8765 에서 확인
 ## 소스 선택 주의
 기본 소스는 Google News 토픽 RSS(헤드라인 + 원문 링크)입니다. 연합뉴스 RSS는 "AI 학습 및 활용 금지"를 명시하고 있어 넣지 않았습니다.
 피드를 추가할 때는 해당 매체의 이용 조건을 확인하세요.
+
+## 함께 들어 있는 프로젝트
+- [`ai_gym_lab/`](ai_gym_lab/README.md) — AI GYM LAB: 운동과학 기반 개인 맞춤형 헬스 트레이너 앱 (Flutter, Android/iOS)
