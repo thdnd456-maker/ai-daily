@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.1+2
+version: 1.0.2+3
 
 environment:
   sdk: ^3.14.0
@@ -101,3 +101,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+# path_provider_android 2.3.x(JNI 방식)는 jni 1.2.0과 조합 시 실기기(Android)에서
+# "ClassNotFoundException: Landroid/content/Context;"로 실패 → 검증된 메서드 채널 버전으로 고정
+dependency_overrides:
+  path_provider_android: 2.2.23
