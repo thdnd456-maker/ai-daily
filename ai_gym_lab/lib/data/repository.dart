@@ -909,6 +909,76 @@ class GymRepository {
     };
   }
 
+  /// [exportAll]로 내보낸 JSON을 다시 불러옵니다(다른 기기·재설치 후 기록 옮기기).
+  /// 현재 기기의 개인 데이터는 모두 지우고 내보낸 내용으로 바꿉니다. 전부 성공하거나 전부 취소됩니다.
+  /// 이 기기 운동 목록에 없는 운동을 가리키는 기록은 건너뛰고 [ImportResult.skipped]에 셉니다.
+  Future<ImportResult> importAll(Map<String, dynamic> data) async {
+    if (data['app'] != 'AI GYM LAB' || data['user_profiles'] is! List) {
+      throw const FormatException('AI GYM LAB에서 내보낸 데이터가 아닙니다.');
+    }
+    final schema = data['schemaVersion'];
+    if (schema is int && schema > db.schemaVersion) {
+      throw const FormatException('더 새로운 버전의 앱에서 내보낸 데이터입니다. 앱을 먼저 업데이트하세요.');
+    }
+    List<Map<String, dynamic>> rows(String key) => [
+      for (final r in (data[key] as List?) ?? const []) Map<String, dynamic>.from(r as Map),
+    ];
+    final known = {for (final r in await db.select(db.exercises).get()) r.id};
+    var skipped = 0;
+    late int sessions, sets;
+
+    await db.transaction(() async {
+      await deleteAllUserData();
+      await _ensureUser();
+      Future<void> put<T extends Table, D extends DataClass>(TableInfo<T, D> t, Iterable<Insertable<D>> items) async {
+        for (final i in items) {
+          await db.into(t).insert(i, mode: InsertMode.insertOrReplace);
+        }
+      }
+
+      final userIds = {
+        for (final k in ['user_profiles', 'user_goals', 'user_equipment', 'user_limitations', 'workout_programs'])
+          for (final r in rows(k))
+            if (r['userId'] is int) r['userId'] as int,
+      };
+      await put(db.users, [for (final id in userIds) UsersCompanion.insert(id: Value(id))]);
+      await put(db.userProfiles, rows('user_profiles').map(UserProfileRow.fromJson));
+      await put(db.userGoals, rows('user_goals').map(UserGoal.fromJson));
+      await put(db.userEquipment, rows('user_equipment').map(UserEquipmentData.fromJson));
+      await put(db.userLimitations, rows('user_limitations').map(UserLimitation.fromJson));
+      await put(db.workoutPrograms, rows('workout_programs').map(WorkoutProgram.fromJson));
+      await put(db.workoutDays, rows('workout_days').map(WorkoutDay.fromJson));
+
+      final wex = rows('workout_exercises').map(WorkoutExercise.fromJson).toList();
+      skipped += wex.where((e) => !known.contains(e.exerciseId)).length;
+      await put(db.workoutExercises, wex.where((e) => known.contains(e.exerciseId)));
+
+      final ses = rows('workout_sessions').map(WorkoutSession.fromJson).toList();
+      sessions = ses.length;
+      await put(db.workoutSessions, ses);
+
+      final sex = rows('workout_session_exercises').map(SessionExercise.fromJson).toList();
+      final keptSex = {for (final e in sex) if (known.contains(e.exerciseId)) e.id};
+      skipped += sex.length - keptSex.length;
+      await put(db.workoutSessionExercises, sex.where((e) => keptSex.contains(e.id)));
+
+      final st = rows('workout_sets').map(WorkoutSet.fromJson).toList();
+      final keptSets = st.where((s) => keptSex.contains(s.sessionExerciseId)).toList();
+      skipped += st.length - keptSets.length;
+      sets = keptSets.length;
+      await put(db.workoutSets, keptSets);
+
+      await put(db.bodyMeasurements, rows('body_measurements').map(BodyMeasurement.fromJson));
+      await put(db.recoveryLogs, rows('recovery_logs').map(RecoveryLog.fromJson));
+      await put(db.progressionRecommendations, rows('progression_recommendations').map(ProgressionRecommendationRow.fromJson));
+      await put(db.aiRecommendations, rows('ai_recommendations').map(AiRecommendation.fromJson));
+      await put(db.chatMessages, rows('chat_messages').map(ChatMessage.fromJson));
+      // 운동 목록 버전(seed.version)은 이 기기 값을 유지
+      await put(db.appSettings, rows('app_settings').map(AppSetting.fromJson).where((s) => s.key != 'seed.version' && !s.key.contains('apiKey')));
+    });
+    return ImportResult(sessions: sessions, sets: sets, skipped: skipped);
+  }
+
   Future<void> deleteAllUserData() async {
     await db.transaction(() async {
       for (final TableInfo t in <TableInfo>[
@@ -934,4 +1004,11 @@ class GymRepository {
       await (db.delete(db.appSettings)..where((t) => t.key.equals('seed.version').not())).go();
     });
   }
+}
+
+class ImportResult {
+  final int sessions;
+  final int sets;
+  final int skipped;
+  const ImportResult({required this.sessions, required this.sets, required this.skipped});
 }

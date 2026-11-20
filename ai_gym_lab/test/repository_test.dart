@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:ai_gym_lab/data/db/database.dart';
@@ -164,6 +165,75 @@ void main() {
     await repo.deleteAllUserData();
     expect(await repo.getProfile(), isNull);
     expect(await repo.db.exercises.count().getSingle(), greaterThanOrEqualTo(150));
+    await repo.db.close();
+  });
+  test('기록 옮기기: 내보내기 → 새 설치(빈 DB)에 불러오기 → 기록·다음 추천이 같다', () async {
+    // 이전 폰: 프로필·프로그램·운동 1회 기록
+    final old = await open();
+    await old.saveProfile(profile);
+    await old.saveProgram(ProgramGenerator(old.exerciseList).generate(profile), source: 'ai');
+    final program = (await old.getActiveProgram())!;
+    final t0 = DateTime(2026, 11, 16, 18);
+    final sid = await old.startSession(program: program, dayIndex: 0, now: t0);
+    final bench = (await old.getSession(sid))!.exercises.first;
+    for (final set in bench.sets) {
+      await old.updateSet(set.id, weight: 40, reps: 8, rir: 2);
+      await old.setCompleted(set.id, true);
+    }
+    await old.finishSession(sid, at: t0.add(const Duration(minutes: 70)));
+    // 실제 앱처럼 JSON 문자열(클립보드)을 거쳐 옮김
+    final text = jsonEncode(await old.exportAll());
+    await old.db.close();
+
+    // 새 폰: 빈 DB
+    final newFile = File('${dir.path}/new.sqlite');
+    final repo = GymRepository(AppDatabase(NativeDatabase(newFile)));
+    await repo.init();
+    expect(await repo.getProfile(), isNull);
+    final r = await repo.importAll(jsonDecode(text) as Map<String, dynamic>);
+    expect(r.sessions, 1);
+    expect(r.sets, ((jsonDecode(text) as Map)['workout_sets'] as List).length);
+    expect(r.sets, greaterThan(bench.sets.length));
+    expect(r.skipped, 0);
+
+    expect((await repo.getProfile())!.daysPerWeek, 4);
+    final p2 = (await repo.getActiveProgram())!;
+    expect(p2.days.length, program.days.length);
+    expect(await repo.nextDayIndex(p2), 1);
+    final s2 = (await repo.getSession(sid))!;
+    expect(s2.exercises.first.sets.every((x) => x.completed && x.actualWeight == 40 && x.actualReps == 8), isTrue);
+    final rec = await repo.recommendFor(
+      repo.exercises['barbell_bench_press']!,
+      sets: 3,
+      repMin: 6,
+      repMax: 8,
+      targetRir: 2,
+      now: t0.add(const Duration(days: 3)),
+    );
+    expect(rec.weight, 42.5);
+
+    // 같은 내용을 두 번 불러와도 중복되지 않음
+    await repo.importAll(jsonDecode(text) as Map<String, dynamic>);
+    expect(await repo.db.workoutSessions.count().getSingle(), 1);
+    await repo.db.close();
+  });
+
+  test('기록 불러오기: 잘못된 데이터는 거부하고 기존 기록을 지우지 않는다', () async {
+    final repo = await open();
+    await repo.saveProfile(profile);
+    await expectLater(repo.importAll({'app': 'other'}), throwsA(isA<FormatException>()));
+    // 형식은 맞지만 중간에 깨진 데이터 → 전체 취소
+    await expectLater(
+      repo.importAll({
+        'app': 'AI GYM LAB',
+        'schemaVersion': 1,
+        'user_profiles': [
+          {'userId': 1},
+        ],
+      }),
+      throwsA(anything),
+    );
+    expect((await repo.getProfile())!.daysPerWeek, 4);
     await repo.db.close();
   });
 }

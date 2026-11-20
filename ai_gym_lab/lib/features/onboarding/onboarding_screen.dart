@@ -7,6 +7,7 @@ import '../../app/widgets.dart';
 import '../../domain/engines/program_generator.dart';
 import '../../domain/models.dart';
 import '../program/program_review_screen.dart';
+import '../settings/import_dialog.dart';
 
 /// 최초 실행: 시작 화면 → 기본 정보 → 운동 목표 → 경험 → 일정 → 환경/기구 → 신체 상태 → 프로그램 추천
 /// editMode: 설정에서 프로필 수정
@@ -234,6 +235,14 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
           child: FilledButton(
             onPressed: () => _pc.nextPage(duration: const Duration(milliseconds: 250), curve: Curves.easeOut),
             child: const Text('시작하기'),
+          ),
+        ),
+        SizedBox(
+          width: double.infinity,
+          child: TextButton.icon(
+            onPressed: () => showImportDialog(context, ref),
+            icon: const Icon(Icons.upload_outlined),
+            label: const Text('이전 기록 불러오기'),
           ),
         ),
       ],

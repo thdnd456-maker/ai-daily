@@ -14,6 +14,7 @@ import '../../domain/catalog/research.dart';
 import '../../domain/models.dart';
 import '../exercise/exercise_library_screen.dart';
 import '../onboarding/onboarding_screen.dart';
+import 'import_dialog.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -95,6 +96,12 @@ class SettingsScreen extends ConsumerWidget {
             title: const Text('데이터 내보내기 (JSON)'),
             subtitle: const Text('API 키는 포함되지 않습니다'),
             onTap: () => _export(context, ref),
+          ),
+          ListTile(
+            leading: const Icon(Icons.upload_outlined),
+            title: const Text('기록 불러오기'),
+            subtitle: const Text('내보내기로 복사한 기록을 이 폰에 넣습니다'),
+            onTap: () => showImportDialog(context, ref),
           ),
           ListTile(
             leading: const Icon(Icons.delete_forever_outlined, color: GymColors.danger),
