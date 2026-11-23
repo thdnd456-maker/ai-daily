@@ -641,14 +641,30 @@ class GymRepository {
     ]);
   }
 
+  /// 세트 값 수정. 중량을 바꾸면 같은 운동의 **뒤 세트 중 아직 완료하지 않은 세트**에도 같은 중량을 채웁니다.
+  /// 단, 뒤 세트에 따로 다른 중량을 넣어 둔 경우(예: 드롭 세트)는 건드리지 않습니다
+  /// (비어 있거나 이 세트의 이전 중량과 같던 세트만 따라 바뀜).
   Future<void> updateSet(int setId, {double? weight, int? reps, int? rir, bool clearRir = false}) async {
-    await (db.update(db.workoutSets)..where((t) => t.id.equals(setId))).write(
-      WorkoutSetsCompanion(
-        actualWeight: weight == null ? const Value.absent() : Value(weight),
-        actualReps: reps == null ? const Value.absent() : Value(reps),
-        rir: clearRir ? const Value(null) : (rir == null ? const Value.absent() : Value(rir)),
-      ),
-    );
+    await db.transaction(() async {
+      final before = weight == null ? null : await (db.select(db.workoutSets)..where((t) => t.id.equals(setId))).getSingleOrNull();
+      await (db.update(db.workoutSets)..where((t) => t.id.equals(setId))).write(
+        WorkoutSetsCompanion(
+          actualWeight: weight == null ? const Value.absent() : Value(weight),
+          actualReps: reps == null ? const Value.absent() : Value(reps),
+          rir: clearRir ? const Value(null) : (rir == null ? const Value.absent() : Value(rir)),
+        ),
+      );
+      if (before == null || before.completed) return;
+      final old = before.actualWeight;
+      await (db.update(db.workoutSets)..where(
+            (t) =>
+                t.sessionExerciseId.equals(before.sessionExerciseId) &
+                t.setNumber.isBiggerThanValue(before.setNumber) &
+                t.completed.equals(false) &
+                (old == null ? t.actualWeight.isNull() : (t.actualWeight.isNull() | t.actualWeight.equals(old))),
+          ))
+          .write(WorkoutSetsCompanion(actualWeight: Value(weight)));
+    });
   }
 
   /// 세트 완료 토글. 같은 세트를 여러 번 눌러도 행은 하나만 유지됩니다.

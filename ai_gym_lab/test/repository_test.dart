@@ -236,4 +236,39 @@ void main() {
     expect((await repo.getProfile())!.daysPerWeek, 4);
     await repo.db.close();
   });
+  test('중량 이어 채우기: 첫 세트에 넣은 중량이 뒤 세트에 자동으로 들어간다', () async {
+    final repo = await open();
+    await repo.saveProfile(profile);
+    await repo.saveProgram(ProgramGenerator(repo.exerciseList).generate(profile), source: 'ai');
+    final program = (await repo.getActiveProgram())!;
+    final sid = await repo.startSession(program: program, dayIndex: 0);
+    Future<List<double?>> weights() async => (await repo.getSession(sid))!.exercises.first.sets.map((x) => x.actualWeight).toList();
+    final sets = (await repo.getSession(sid))!.exercises.first.sets;
+    expect(sets.length, greaterThanOrEqualTo(3));
+    expect(await weights(), everyElement(isNull)); // 첫 기록: 비어 있음
+
+    // 1세트에 40kg 입력 → 뒤 세트 모두 40kg
+    await repo.updateSet(sets[0].id, weight: 40);
+    expect(await weights(), everyElement(40.0));
+
+    // 1세트 완료 후 2세트를 45kg로 바꾸면 → 1세트는 그대로, 뒤 세트만 45kg
+    await repo.setCompleted(sets[0].id, true);
+    await repo.updateSet(sets[1].id, weight: 45);
+    var w = await weights();
+    expect(w[0], 40);
+    expect(w.skip(1), everyElement(45.0));
+
+    // 마지막 세트를 따로 30kg(드롭 세트)로 바꾼 뒤 2세트를 50kg로 → 마지막 세트는 30kg 유지
+    await repo.updateSet(sets.last.id, weight: 30);
+    await repo.updateSet(sets[1].id, weight: 50);
+    w = await weights();
+    expect(w[1], 50);
+    expect(w.last, 30);
+    if (w.length > 3) expect(w.sublist(2, w.length - 1), everyElement(50.0));
+
+    // 반복 횟수만 바꾸면 중량은 그대로
+    await repo.updateSet(sets[1].id, reps: 5);
+    expect(await weights(), w);
+    await repo.db.close();
+  });
 }
