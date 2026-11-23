@@ -1,3 +1,4 @@
+import 'app/update_dialog.dart';
 import 'dart:async';
 import 'dart:io';
 
@@ -153,7 +154,7 @@ class GymLabApp extends StatelessWidget {
         child: child!,
       );
     },
-    home: const RootGate(),
+    home: const UpdateCheckHost(child: RootGate()),
   );
 }
 

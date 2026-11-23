@@ -14,6 +14,7 @@ import '../../domain/catalog/research.dart';
 import '../../domain/models.dart';
 import '../exercise/exercise_library_screen.dart';
 import '../onboarding/onboarding_screen.dart';
+import '../../app/update_dialog.dart';
 import 'import_dialog.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -113,6 +114,13 @@ class SettingsScreen extends ConsumerWidget {
               ref.refreshData();
               if (context.mounted) Navigator.of(context).popUntil((r) => r.isFirst);
             },
+          ),
+          const _Header('앱'),
+          ListTile(
+            leading: const Icon(Icons.system_update_outlined),
+            title: const Text('업데이트 확인'),
+            subtitle: const Text('새 버전이 있으면 바로 설치할 수 있어요'),
+            onTap: () => manualCheckForUpdate(context),
           ),
           const _Header('정보'),
           const Padding(

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 앱 업데이트: 내려받은 설치 파일을 안드로이드 설치 화면에 넘기기 위한 경로 -->
+<paths>
+    <cache-path name="updates" path="updates/" />
+</paths>
