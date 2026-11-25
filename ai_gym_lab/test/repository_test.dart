@@ -269,6 +269,16 @@ void main() {
     // 반복 횟수만 바꾸면 중량은 그대로
     await repo.updateSet(sets[1].id, reps: 5);
     expect(await weights(), w);
+
+    // 2세트를 완료(✓)하면 → 그 무게(50kg)가 아래 미완료 세트 전부에 그대로 (따로 넣은 30kg도 50kg로)
+    await repo.setCompleted(sets[1].id, true);
+    w = await weights();
+    expect(w[0], 40);
+    expect(w.skip(1), everyElement(50.0));
+
+    // 완료 취소는 무게를 건드리지 않음
+    await repo.setCompleted(sets[1].id, false);
+    expect(await weights(), w);
     await repo.db.close();
   });
 }

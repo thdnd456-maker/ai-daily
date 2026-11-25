@@ -668,10 +668,20 @@ class GymRepository {
   }
 
   /// 세트 완료 토글. 같은 세트를 여러 번 눌러도 행은 하나만 유지됩니다.
+  /// 완료로 바꿀 때는 이 세트의 중량을 같은 운동의 **뒤쪽 미완료 세트 전부**에 그대로 채웁니다.
   Future<void> setCompleted(int setId, bool completed) async {
-    await (db.update(
-      db.workoutSets,
-    )..where((t) => t.id.equals(setId))).write(WorkoutSetsCompanion(completed: Value(completed), completedAt: Value(completed ? DateTime.now() : null)));
+    await db.transaction(() async {
+      await (db.update(
+        db.workoutSets,
+      )..where((t) => t.id.equals(setId))).write(WorkoutSetsCompanion(completed: Value(completed), completedAt: Value(completed ? DateTime.now() : null)));
+      if (!completed) return;
+      final s = await (db.select(db.workoutSets)..where((t) => t.id.equals(setId))).getSingleOrNull();
+      if (s == null || s.actualWeight == null) return;
+      await (db.update(db.workoutSets)..where(
+            (t) => t.sessionExerciseId.equals(s.sessionExerciseId) & t.setNumber.isBiggerThanValue(s.setNumber) & t.completed.equals(false),
+          ))
+          .write(WorkoutSetsCompanion(actualWeight: Value(s.actualWeight)));
+    });
   }
 
   Future<void> addSet(int sessionExerciseId) async {
