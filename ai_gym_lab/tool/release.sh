@@ -39,6 +39,10 @@ echo "▶ APK 빌드"
 flutter build apk --release --split-per-abi | grep -E '✓.*arm64'
 OUT="$(cd ../.. && pwd)/AI_GYM_LAB_v$VERSION.apk"
 cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk "$OUT"
+# 용량 절약: 폴더에는 최신 설치 파일 하나만 두고, 옛 버전은 휴지통으로 (GitHub에는 모두 남아 있음)
+for old in "$(dirname "$OUT")"/AI_GYM_LAB_v*.apk; do
+  [ "$old" != "$OUT" ] && [ -f "$old" ] && mv "$old" ~/.Trash/ && echo "  옛 설치 파일 휴지통으로: $(basename "$old")"
+done
 
 CERT=$("$APKSIGNER" verify --print-certs "$OUT" | sed -n 's/.*SHA-256 digest: //p' | head -1)
 if [ "$CERT" != "$EXPECTED_CERT" ]; then
