@@ -36,7 +36,8 @@ abstract class AiProvider {
 
 /// Anthropic Messages API (raw HTTP — Dart용 공식 SDK가 없음)
 class AnthropicProvider implements AiProvider {
-  static const defaultModel = 'claude-opus-5-5';
+  // 비용 절약: Opus 5.5 대비 약 1/40 가격. 설정에서 다른 모델로 바꿀 수 있음
+  static const defaultModel = 'claude-haiku-5-5';
   // 서버 측 거절 시 대체 모델 라우팅을 지원하는 모델
   static const _fallbackModels = {'claude-opus-5-5', 'claude-fable-5-2', 'claude-fable-5-1', 'claude-opus-5', 'claude-sonnet-5-5'};
 
