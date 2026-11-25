@@ -602,7 +602,9 @@ def img_tag(a, up, cls="ph", size=""):
     return f'<div class="{cls} noimg s-{SLUGS[a["section"]]}"><span>{esc(a["section"])}</span></div>'
 
 
-def page(title, body, depth=0, desc="", active=""):
+def page(title, body, depth=0, desc="", active="", fixed=False):
+    # fixed=True(기사 페이지): 실행마다 바뀌는 날짜·호수·업데이트 시각을 HTML에 넣지 않고
+    # 공용 latest.js가 채운다. 그래야 새 기사가 없을 때 기사 파일이 그대로 남아 저장소가 덜 커진다.
     up = "../" * depth
     nav = f'<a href="{up}index.html" class="{"on" if active == "home" else ""}">홈</a>' + "".join(
         f'<a href="{up}section/{SLUGS[s]}.html" class="{"on" if active == s else ""}">{esc(s)}</a>'
@@ -610,6 +612,12 @@ def page(title, body, depth=0, desc="", active=""):
     now = dt.datetime.now(KST)
     wd = "월화수목금토일"[now.weekday()]
     no = (now.date() - FOUNDED).days + 1
+    if fixed:
+        util = '<span id="js-date"></span><span class="hide-m" id="js-no">매일 24시간 자동 발행</span>'
+        copy = f'<p class="copy" id="js-upd"></p><script src="{up}latest.js"></script>'
+    else:
+        util = f'<span>{now:%Y년 %m월 %d일} {wd}요일</span><span class="hide-m">제{no}호 · 매일 24시간 자동 발행</span>'
+        copy = f'<p class="copy">최종 업데이트 {now:%Y.%m.%d %H:%M} KST</p>'
     return f"""<!doctype html>
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -619,7 +627,7 @@ def page(title, body, depth=0, desc="", active=""):
 <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap&text={urllib.parse.quote(CFG.get('site_hanja', ''))}" rel="stylesheet">
 <link rel="stylesheet" href="{up}style.css"><link rel="alternate" type="application/rss+xml" href="{up}feed.xml">
 </head><body>
-<div class="util"><div class="wrap"><span>{now:%Y년 %m월 %d일} {wd}요일</span><span class="hide-m">제{no}호 · 매일 24시간 자동 발행</span><a href="{up}feed.xml">RSS</a></div></div>
+<div class="util"><div class="wrap">{util}<a href="{up}feed.xml">RSS</a></div></div>
 <header class="mast"><div class="wrap">
 <a class="logo" href="{up}index.html" aria-label="{esc(CFG['site_name'])}">{esc(CFG.get('site_hanja') or CFG['site_name'])}</a>
 <p class="tag"><b>{esc(CFG['site_name'])}</b> · {esc(CFG['tagline'])}</p></div></header>
@@ -630,7 +638,7 @@ def page(title, body, depth=0, desc="", active=""):
 <nav>{"".join(f'<a href="{up}section/{SLUGS[s]}.html">{esc(s)}</a>' for s in CFG["sections"])}</nav>
 <p>「{esc(CFG['site_name'])}」의 기사는 공개 보도의 헤드라인을 AI가 종합·재작성한 자동 브리핑입니다. 사실관계는 각 기사의 원문 링크에서 확인하세요.
 AI가 작성한 기사에는 오류가 있을 수 있습니다. 사진은 위키미디어 공용 등 저작권 걱정 없는 자유 라이선스 참고 사진이며, 기사 현장 사진이 아닐 수 있습니다.</p>
-<p class="copy">최종 업데이트 {now:%Y.%m.%d %H:%M} KST</p></div></footer>
+{copy}</div></footer>
 </body></html>"""
 
 
@@ -717,7 +725,6 @@ def render(archive):
     for a in arts:
         paras = "".join(f"<p>{esc(p)}</p>" for p in a["body"].split("\n\n") if p.strip())
         tags = "".join(f'<span class="tg">#{esc(t)}</span>' for t in a.get("tags", []))
-        more = [x for x in arts if x["section"] == a["section"] and x["id"] != a["id"]][:3]
         badge = "AI 기자" if a.get("ai") else "자동 수집"
         im = a.get("image")
         if im and im.get("generated"):
@@ -746,13 +753,34 @@ def render(archive):
              f'<div class="byline"><span class="badge">{badge}</span>입력 {kst(a["published"]):%Y.%m.%d %H:%M}</div>'
              f'{fig}{kp}<div class="text">{paras}</div>{ab}<div class="tags">{tags}</div>'
              f'<div class="src"><b>이 소식을 다룬 보도</b><ul>{cov}</ul></div>'
-             + (f'<section class="more"><h2 class="rh">{esc(a["section"])} 다른 기사</h2><div class="mgrid">' + "".join(
-                 f'<a class="sub" href="{x["id"]}.html">{img_tag(x, "../") if x.get("image") else ""}<h3>{esc(x["headline"])}</h3></a>'
-                 for x in more) + '</div></section>' if more else "")
-             + f'</article>{rail(arts, "../", exclude=a["id"])}</div></main>')
+             # '다른 기사'와 '최신 뉴스'는 새 기사가 들어올 때마다 바뀌므로 latest.js가 채운다
+             f'<section class="more" id="js-more" data-sec="{SLUGS[a["section"]]}" data-id="{a["id"]}" hidden>'
+             f'<h2 class="rh">{esc(a["section"])} 다른 기사</h2><div class="mgrid"></div></section>'
+             f'</article><aside class="rail" id="js-rail" data-id="{a["id"]}"><h2 class="rh">최신 뉴스</h2><ol></ol></aside>'
+             f'</div></main>')
         (OUT / "a" / f"{a['id']}.html").write_text(
-            page(f"{a['headline']} - {CFG['site_name']}", b, 1, a.get("summary", ""), active=a["section"]),
+            page(f"{a['headline']} - {CFG['site_name']}", b, 1, a.get("summary", ""), active=a["section"], fixed=True),
             encoding="utf-8")
+
+    # ── 기사 페이지 공용 latest.js (날짜·호수·업데이트 시각·최신 뉴스·분야별 다른 기사)
+    now = dt.datetime.now(KST)
+    latest = {
+        "date": f'{now:%Y년 %m월 %d일} {"월화수목금토일"[now.weekday()]}요일',
+        "no": f'제{(now.date() - FOUNDED).days + 1}호 · 매일 24시간 자동 발행',
+        "upd": f'최종 업데이트 {now:%Y.%m.%d %H:%M} KST',
+        "rail": [[x["id"], f'<li><a href="{link(x, "../")}">{esc(x["headline"])}</a>{meta(x)}</li>'] for x in arts[:9]],
+        "more": {SLUGS[s]: [[x["id"], f'<a class="sub" href="{link(x, "../")}">{img_tag(x, "../") if x.get("image") else ""}'
+                                      f'<h3>{esc(x["headline"])}</h3></a>']
+                            for x in [y for y in arts if y["section"] == s][:4]] for s in CFG["sections"]},
+    }
+    (OUT / "latest.js").write_text(
+        "(function(){var L=" + json.dumps(latest, ensure_ascii=False) + ";"
+        "function $(i){return document.getElementById(i)}"
+        "function pick(l,id,n){return l.filter(function(x){return x[0]!==id}).slice(0,n).map(function(x){return x[1]}).join('')}"
+        "$('js-date').textContent=L.date;$('js-no').textContent=L.no;$('js-upd').textContent=L.upd;"
+        "var r=$('js-rail');if(r)r.querySelector('ol').innerHTML=pick(L.rail,r.dataset.id,8);"
+        "var m=$('js-more');if(m){var h=pick(L.more[m.dataset.sec]||[],m.dataset.id,3);"
+        "if(h){m.querySelector('.mgrid').innerHTML=h;m.hidden=false}}})();\n", encoding="utf-8")
 
     # ── RSS
     base = CFG.get("base_url", "").rstrip("/")
