@@ -138,7 +138,6 @@ class _TotalsCard extends StatelessWidget {
     final kcal = _sum(eaten, (m) => m.kcal);
     final left = target.kcal - kcal;
     final r = target.kcal <= 0 ? 0.0 : kcal / target.kcal;
-    final showMacros = plan.level == DietLevel.intermediate || plan.level == DietLevel.expert;
     return SectionCard(
       child: Row(
         children: [
@@ -178,10 +177,8 @@ class _TotalsCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 _MacroRow(label: '단백질', value: _sum(eaten, (m) => m.proteinG), goal: target.proteinG, color: GymColors.info),
-                if (showMacros) ...[
-                  _MacroRow(label: '탄수', value: _sum(eaten, (m) => m.carbsG), goal: target.carbsG, color: GymColors.accent),
-                  _MacroRow(label: '지방', value: _sum(eaten, (m) => m.fatG), goal: target.fatG, color: GymColors.warn),
-                ],
+                _MacroRow(label: '탄수화물', value: _sum(eaten, (m) => m.carbsG), goal: target.carbsG, color: GymColors.accent),
+                _MacroRow(label: '지방', value: _sum(eaten, (m) => m.fatG), goal: target.fatG, color: GymColors.warn),
                 Text(
                   '${plan.phase.ko}${plan.level == DietLevel.expert ? (trained ? ' · 운동일' : ' · 휴식일') : ''}',
                   style: const TextStyle(color: GymColors.textDim, fontSize: 11.5),
@@ -242,6 +239,8 @@ class _MealCard extends ConsumerWidget {
     final (label, emoji, share) = meta;
     final kcal = _sum(items, (m) => m.kcal);
     final goal = (target.kcal * share).round();
+    final p = _sum(items, (m) => m.proteinG), c = _sum(items, (m) => m.carbsG), f = _sum(items, (m) => m.fatG);
+    final gp = target.proteinG * share, gc = target.carbsG * share, gf = target.fatG * share;
     return Padding(
       padding: const EdgeInsets.only(top: 12),
       child: Card(
@@ -275,10 +274,21 @@ class _MealCard extends ConsumerWidget {
                   ),
                   IconButton.filledTonal(
                     tooltip: '$label 추가',
-                    onPressed: () => showAddFoodSheet(context, ref, day: day, slot: slot, label: label),
+                    onPressed: () => showAddFoodSheet(context, ref, day: day, slot: slot, label: label, need: (gp - p, gc - c, gf - f)),
                     icon: const Icon(Icons.add),
                   ),
                 ],
+              ),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Row(
+                  children: [
+                    _MacroCell(label: '단백질', value: p, goal: gp, color: GymColors.info),
+                    _MacroCell(label: '탄수화물', value: c, goal: gc, color: GymColors.accent),
+                    _MacroCell(label: '지방', value: f, goal: gf, color: GymColors.warn),
+                  ],
+                ),
               ),
               if (items.isEmpty) ...[
                 const SizedBox(height: 10),
@@ -286,61 +296,89 @@ class _MealCard extends ConsumerWidget {
                   spacing: 6,
                   runSpacing: 6,
                   children: [
-                    for (final s in mealSuggestion(slot, plan.phase))
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: GymColors.line),
-                          borderRadius: BorderRadius.circular(20),
+                    for (final (food, t) in mealSuggestionFoods(slot, plan.phase))
+                      InkWell(
+                        borderRadius: BorderRadius.circular(12),
+                        onTap: () async {
+                          await _addFood(ref, day: day, slot: slot, food: food, times: t);
+                          if (context.mounted) showSnack(context, '$label에 「${food.name}」 추가');
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: GymColors.line),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                '${food.emoji} ${_short(food.name)} ${servingLabel(food, t)}',
+                                style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w600),
+                              ),
+                              _MacroText(food.proteinG * t, food.carbsG * t, food.fatG * t, kcal: food.kcal * t, short: true),
+                            ],
+                          ),
                         ),
-                        child: Text(s, style: const TextStyle(fontSize: 12.5)),
                       ),
                   ],
                 ),
                 const Padding(
                   padding: EdgeInsets.only(top: 6, left: 2),
-                  child: Text('추천 예시', style: TextStyle(color: GymColors.textDim, fontSize: 11)),
+                  child: Row(
+                    children: [
+                      Text('추천 예시', style: TextStyle(color: GymColors.textDim, fontSize: 11)),
+                      Text(' · 누르면 바로 기록돼요', style: TextStyle(color: GymColors.textDim, fontSize: 11)),
+                    ],
+                  ),
                 ),
               ],
               for (final m in items)
-                Padding(
-                  padding: const EdgeInsets.only(top: 6),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 52,
-                        child: Center(child: Text(foodEmoji(m.name), style: const TextStyle(fontSize: 20))),
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              m.name,
-                              style: const TextStyle(fontWeight: FontWeight.w600),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Text(
-                              '${m.amount.isEmpty ? '' : '${m.amount} · '}단백질 ${m.proteinG.round()}g',
-                              style: const TextStyle(color: GymColors.textDim, fontSize: 12),
-                            ),
-                          ],
+                InkWell(
+                  onTap: () => showSwapSheet(context, ref, m, label: label),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 6),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 52,
+                          child: Center(child: Text(foodEmoji(m.name), style: const TextStyle(fontSize: 20))),
                         ),
-                      ),
-                      Text('${m.kcal.round()}kcal', style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
-                      IconButton(
-                        visualDensity: VisualDensity.compact,
-                        icon: const Icon(Icons.close, size: 18, color: GymColors.textDim),
-                        tooltip: '지우기',
-                        onPressed: () async {
-                          await ref.read(repositoryProvider).deleteMeal(m.id);
-                          ref.refreshData();
-                        },
-                      ),
-                    ],
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                m.name,
+                                style: const TextStyle(fontWeight: FontWeight.w600),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              if (m.amount.isNotEmpty) Text(m.amount, style: const TextStyle(color: GymColors.textDim, fontSize: 11.5)),
+                              _MacroText(m.proteinG, m.carbsG, m.fatG),
+                            ],
+                          ),
+                        ),
+                        Text('${m.kcal.round()}kcal', style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
+                        IconButton(
+                          visualDensity: VisualDensity.compact,
+                          icon: const Icon(Icons.close, size: 18, color: GymColors.textDim),
+                          tooltip: '지우기',
+                          onPressed: () async {
+                            await ref.read(repositoryProvider).deleteMeal(m.id);
+                            ref.refreshData();
+                          },
+                        ),
+                      ],
+                    ),
                   ),
+                ),
+              if (items.isNotEmpty)
+                const Padding(
+                  padding: EdgeInsets.only(top: 4, left: 2),
+                  child: Text('음식을 누르면 비슷한 칼로리로 바꿀 메뉴를 보여 줘요', style: TextStyle(color: GymColors.textDim, fontSize: 11)),
                 ),
             ],
           ),
@@ -419,20 +457,27 @@ String _weekAdvice(double avgK, NutritionPlan plan) {
 
 // ───────────────────────── 음식 추가 ─────────────────────────
 
-Future<void> showAddFoodSheet(BuildContext context, WidgetRef ref, {required DateTime day, required String slot, required String label}) =>
-    showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      showDragHandle: true,
-      backgroundColor: GymColors.surface,
-      builder: (ctx) => _AddFoodSheet(day: day, slot: slot, label: label),
-    );
+Future<void> showAddFoodSheet(
+  BuildContext context,
+  WidgetRef ref, {
+  required DateTime day,
+  required String slot,
+  required String label,
+  (double, double, double)? need,
+}) => showModalBottomSheet<void>(
+  context: context,
+  isScrollControlled: true,
+  showDragHandle: true,
+  backgroundColor: GymColors.surface,
+  builder: (ctx) => _AddFoodSheet(day: day, slot: slot, label: label, need: need),
+);
 
 class _AddFoodSheet extends ConsumerStatefulWidget {
   final DateTime day;
   final String slot;
   final String label;
-  const _AddFoodSheet({required this.day, required this.slot, required this.label});
+  final (double, double, double)? need;
+  const _AddFoodSheet({required this.day, required this.slot, required this.label, this.need});
   @override
   ConsumerState<_AddFoodSheet> createState() => _AddFoodSheetState();
 }
@@ -455,10 +500,9 @@ class _AddFoodSheetState extends ConsumerState<_AddFoodSheet> {
       builder: (_) => _AmountDialog(food: food),
     );
     if (times == null) return;
-    final t = times == times.roundToDouble() ? times.toInt().toString() : times.toString();
     await _save(
       name: food.name,
-      amount: '${food.serving}${times == 1 ? '' : ' × $t'}',
+      amount: servingLabel(food, times),
       kcal: food.kcal * times,
       p: food.proteinG * times,
       c: food.carbsG * times,
@@ -495,6 +539,16 @@ class _AddFoodSheetState extends ConsumerState<_AddFoodSheet> {
                 ],
               ),
             ),
+            if (widget.need case final n?)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                child: Wrap(crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    const Text('이 끼니에 더 필요한 양  ', style: TextStyle(fontSize: 12, color: GymColors.textDim)),
+                    _MacroText(n.$1 < 0 ? 0 : n.$1, n.$2 < 0 ? 0 : n.$2, n.$3 < 0 ? 0 : n.$3),
+                  ],
+                ),
+              ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: TextField(
@@ -513,7 +567,7 @@ class _AddFoodSheetState extends ConsumerState<_AddFoodSheet> {
                         dense: true,
                         leading: Text(foodEmoji(m.name), style: const TextStyle(fontSize: 22)),
                         title: Text(m.name),
-                        subtitle: Text(m.amount),
+                        subtitle: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(m.amount), _MacroText(m.proteinG, m.carbsG, m.fatG)]),
                         trailing: Text('${m.kcal.round()}kcal'),
                         onTap: () => _save(name: m.name, amount: m.amount, kcal: m.kcal, p: m.proteinG, c: m.carbsG, f: m.fatG),
                       ),
@@ -526,7 +580,10 @@ class _AddFoodSheetState extends ConsumerState<_AddFoodSheet> {
                           dense: true,
                           leading: Text(f.emoji, style: const TextStyle(fontSize: 22)),
                           title: Text(f.name),
-                          subtitle: Text('${f.serving} · 단 ${f.proteinG}g'),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [Text(f.serving), _MacroText(f.proteinG.toDouble(), f.carbsG.toDouble(), f.fatG.toDouble())],
+                          ),
                           trailing: Text('${f.kcal}kcal'),
                           onTap: () => _pickFood(f),
                         ),
@@ -679,3 +736,176 @@ class _CustomDialogState extends State<_CustomDialog> {
     ],
   );
 }
+
+// ───────────────────────── 탄·단·지 표시 ─────────────────────────
+
+/// 「단백질 20g · 탄수 8g · 지방 6g」 (색으로 구분)
+class _MacroText extends StatelessWidget {
+  final double p, c, f;
+  final double? kcal;
+  final bool short;
+  const _MacroText(this.p, this.c, this.f, {this.kcal, this.short = false});
+  @override
+  Widget build(BuildContext context) {
+    TextSpan part(String l, double v, Color col) => TextSpan(
+      text: '$l ${v.round()}g',
+      style: TextStyle(color: col, fontWeight: FontWeight.w600),
+    );
+    const dot = TextSpan(text: ' · ');
+    return Text.rich(
+      TextSpan(
+        style: TextStyle(fontSize: short ? 11 : 11.5, color: GymColors.textDim),
+        children: [
+          part(short ? '단' : '단백질', p, GymColors.info),
+          dot,
+          part(short ? '탄' : '탄수', c, GymColors.accent),
+          dot,
+          part(short ? '지' : '지방', f, GymColors.warn),
+          if (kcal != null) TextSpan(text: ' · ${kcal!.round()}kcal'),
+        ],
+      ),
+    );
+  }
+}
+
+/// 끼니 카드 안의 칸 하나: 「단백질 / 25 / 40g」 + 막대
+class _MacroCell extends StatelessWidget {
+  final String label;
+  final double value, goal;
+  final Color color;
+  const _MacroCell({required this.label, required this.value, required this.goal, required this.color});
+  @override
+  Widget build(BuildContext context) {
+    final r = goal <= 0 ? 0.0 : value / goal;
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              label,
+              style: TextStyle(color: color, fontSize: 11.5, fontWeight: FontWeight.w700),
+            ),
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: '${value.round()}',
+                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+                  ),
+                  TextSpan(
+                    text: ' / ${goal.round()}g',
+                    style: const TextStyle(fontSize: 11.5, color: GymColors.textDim),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 3),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(4),
+              child: LinearProgressIndicator(
+                value: r.clamp(0, 1).toDouble(),
+                minHeight: 4,
+                backgroundColor: GymColors.surface2,
+                color: r > 1.15 ? GymColors.warn : color,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+String _short(String name) => name.replaceAll(RegExp(r' \(.*\)'), '');
+
+Future<void> _addFood(WidgetRef ref, {required DateTime day, required String slot, required FoodItem food, required double times}) async {
+  await ref
+      .read(repositoryProvider)
+      .addMeal(
+        date: day,
+        meal: slot,
+        name: food.name,
+        amount: servingLabel(food, times),
+        kcal: food.kcal * times,
+        protein: food.proteinG * times,
+        carbs: food.carbsG * times,
+        fat: food.fatG * times,
+      );
+  ref.refreshData();
+}
+
+// ───────────────────────── 메뉴 바꾸기 ─────────────────────────
+
+Future<void> showSwapSheet(BuildContext context, WidgetRef ref, MealLog m, {required String label}) => showModalBottomSheet<void>(
+  context: context,
+  isScrollControlled: true,
+  showDragHandle: true,
+  backgroundColor: GymColors.surface,
+  builder: (ctx) {
+    final list = swapCandidates(name: m.name, kcal: m.kcal);
+    String d(double v) => v >= 0.5 ? '+${v.round()}' : (v <= -0.5 ? '−${(-v).round()}' : '±0');
+    Future<void> replace(FoodItem f, double t) async {
+      await ref.read(repositoryProvider).deleteMeal(m.id);
+      await _addFood(ref, day: m.date, slot: m.meal, food: f, times: t);
+      if (ctx.mounted) {
+        Navigator.of(ctx).pop();
+        showSnack(context, '「${m.name}」 → 「${f.name}」로 바꿨어요');
+      }
+    }
+
+    return SizedBox(
+      height: MediaQuery.of(ctx).size.height * 0.75,
+      child: ListView(
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+        children: [
+          Text('${foodEmoji(m.name)} ${m.name}', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+          const SizedBox(height: 2),
+          Text('${m.amount.isEmpty ? '' : '${m.amount} · '}${m.kcal.round()}kcal', style: const TextStyle(color: GymColors.textDim, fontSize: 12.5)),
+          const SizedBox(height: 4),
+          _MacroText(m.proteinG, m.carbsG, m.fatG),
+          const SizedBox(height: 10),
+          OutlinedButton.icon(
+            onPressed: () async {
+              await ref.read(repositoryProvider).deleteMeal(m.id);
+              ref.refreshData();
+              if (ctx.mounted) Navigator.of(ctx).pop();
+            },
+            icon: const Icon(Icons.remove_circle_outline, size: 18),
+            label: Text('빼기 (${m.kcal.round()}kcal · 단백질 ${m.proteinG.round()}g 줄어듦)'),
+          ),
+          const SizedBox(height: 14),
+          const Text('비슷한 칼로리로 바꾸면', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15)),
+          const Text('단백질이 많은 순 · 누르면 바로 바뀌어요', style: TextStyle(color: GymColors.textDim, fontSize: 11.5)),
+          if (list.isEmpty)
+            const Padding(
+              padding: EdgeInsets.only(top: 12),
+              child: Text('비슷한 칼로리의 음식이 목록에 없어요', style: TextStyle(color: GymColors.textDim)),
+            ),
+          for (final (f, t) in list)
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              dense: true,
+              leading: Text(f.emoji, style: const TextStyle(fontSize: 22)),
+              title: Text('${_short(f.name)} ${servingLabel(f, t)}'),
+              subtitle: Text.rich(
+                TextSpan(
+                  style: const TextStyle(fontSize: 11.5, color: GymColors.textDim),
+                  children: [
+                    TextSpan(
+                      text: '단백질 ${d(f.proteinG * t - m.proteinG)}',
+                      style: TextStyle(color: f.proteinG * t >= m.proteinG ? GymColors.accent : GymColors.warn, fontWeight: FontWeight.w700),
+                    ),
+                    TextSpan(text: ' · 탄수 ${d(f.carbsG * t - m.carbsG)} · 지방 ${d(f.fatG * t - m.fatG)}g'),
+                  ],
+                ),
+              ),
+              trailing: Text('${(f.kcal * t).round()}kcal\n${d(f.kcal * t - m.kcal)}', textAlign: TextAlign.end, style: const TextStyle(fontSize: 12)),
+              onTap: () => replace(f, t),
+            ),
+        ],
+      ),
+    );
+  },
+);

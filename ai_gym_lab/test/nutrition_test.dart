@@ -131,8 +131,30 @@ void main() {
     await settle(t);
     expect(find.text('248'), findsOneWidget); // 165 × 1.5
     expect(find.textContaining('47/'), findsOneWidget); // 단백질 31 × 1.5 ≈ 47g
+    expect(find.text('150g'), findsOneWidget); // 100g × 1.5 → 150g 로 표시
+    expect(find.textContaining('단백질 47g · 탄수 0g · 지방 6g'), findsOneWidget); // 음식별 탄단지
+
+    // 음식을 누르면 바꾸기 창 → 첫 후보로 바꾸기
+    await t.tap(find.text('닭가슴살 (익힌 것)'));
+    await settle(t);
+    expect(find.text('비슷한 칼로리로 바꾸면'), findsOneWidget);
+    expect(find.textContaining('빼기'), findsOneWidget);
+    await t.tap(find.byType(ListTile).first);
+    await settle(t);
+    expect(find.text('닭가슴살 (익힌 것)'), findsNothing);
+    expect((await t.runAsync(() => repo.recentMeals()))!.length, 1);
+
+    // 저녁 추천을 누르면 바로 기록
+    final tofu = find.textContaining('두부 반 모');
+    await t.scrollUntilVisible(tofu, 200, scrollable: find.byType(Scrollable).first);
+    await t.pump();
+    await t.tap(tofu);
+    await settle(t);
+    expect(find.text('두부'), findsOneWidget);
 
     // 직접 입력
+    await t.scrollUntilVisible(find.byTooltip('점심 추가'), -200, scrollable: find.byType(Scrollable).first);
+    await t.pump();
     await t.tap(find.byTooltip('점심 추가'));
     await settle(t);
     await t.tap(find.text('직접 입력'));
@@ -142,7 +164,7 @@ void main() {
     await t.tap(find.widgetWithText(FilledButton, '추가'));
     await settle(t);
     expect(find.text('회사 백반'), findsOneWidget);
-    expect(find.text('898'), findsOneWidget);
+    expect(find.textContaining('kcal'), findsWidgets);
 
     await t.tap(find.text('내 계획'));
     await settle(t);

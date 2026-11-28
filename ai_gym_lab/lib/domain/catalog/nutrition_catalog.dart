@@ -197,6 +197,8 @@ const dishFoods = <FoodItem>[
   FoodItem('떡볶이', '1인분', 11, 95, 6, 480, '🌶️'),
   FoodItem('편의점 도시락', '1개', 25, 100, 22, 700, '🍱'),
   FoodItem('샐러드 (드레싱 포함)', '1그릇', 4, 15, 14, 200, '🥗'),
+  FoodItem('나물·김치 반찬', '1접시', 2, 6, 1, 40, '🥬'),
+  FoodItem('채소 (생·데친 것)', '1접시 100g', 2, 7, 0, 35, '🥦'),
 ];
 
 /// 간식·음료 (대략값)
@@ -244,6 +246,45 @@ List<String> mealSuggestion(String slot, DietPhase phase) {
     'dinner' => ['🍚 밥 ${rice.$2}', '🐟 생선 1토막 또는 두부 반 모', '🥗 채소 듬뿍'],
     _ => [phase == DietPhase.gain ? '🥤 셰이크 1스쿱 + 🍠 고구마' : '🥛 우유 200ml 또는 🥤 셰이크', if (phase == DietPhase.gain) '🥜 견과류 한 줌'],
   };
+}
+
+/// 끼니 추천: (음식, 몇 배). 화면에서 누르면 바로 기록됩니다.
+List<(FoodItem, double)> mealSuggestionFoods(String slot, DietPhase phase) {
+  FoodItem f(String name) => foodGroups.expand((g) => g.$2).firstWhere((x) => x.name == name);
+  final (lunchRice, dinnerRice) = switch (phase) {
+    DietPhase.cut => (0.67, 0.5),
+    DietPhase.maintain => (1.0, 0.67),
+    DietPhase.gain => (1.5, 1.0),
+  };
+  return switch (slot) {
+    'breakfast' => [(f('그릭요거트 (무가당)'), 2.0), (f('오트밀'), 1.0), phase == DietPhase.cut ? (f('사과'), 0.5) : (f('바나나'), 1.0)],
+    'lunch' => [(f('쌀밥'), lunchRice), (f('닭가슴살 (익힌 것)'), 1.5), (f('나물·김치 반찬'), 1.0)],
+    'dinner' => [(f('쌀밥'), dinnerRice), (f('두부'), 1.0), (f('채소 (생·데친 것)'), 1.0)],
+    _ => phase == DietPhase.gain ? [(f('단백질 보충제'), 1.0), (f('고구마'), 1.0), (f('견과류'), 1.0)] : [(f('우유'), 1.0), (f('단백질 보충제'), 1.0)],
+  };
+}
+
+/// 양 표시: 「100g」×2 → 「200g」, 그 밖에는 「1공기 210g × 1.5」
+String servingLabel(FoodItem f, double times) {
+  if (times == 1) return f.serving;
+  final m = RegExp(r'^(\d+)(g|ml)$').firstMatch(f.serving);
+  if (m != null) return '${(int.parse(m[1]!) * times).round()}${m[2]}';
+  final t = times == times.roundToDouble() ? times.toInt().toString() : (times == 0.67 ? '2/3' : '$times');
+  return '${f.serving} × $t';
+}
+
+/// 비슷한 칼로리로 바꿀 만한 음식 (음식, 배수). 단백질이 많은 순.
+List<(FoodItem, double)> swapCandidates({required String name, required double kcal, int limit = 8}) {
+  if (kcal <= 0) return const [];
+  final out = <(FoodItem, double)>[];
+  for (final f in foodGroups.expand((g) => g.$2)) {
+    if (f.name == name || f.kcal <= 0) continue;
+    final t = const [0.5, 1.0, 1.5, 2.0, 3.0].reduce((a, b) => ((f.kcal * a) - kcal).abs() <= ((f.kcal * b) - kcal).abs() ? a : b);
+    if (((f.kcal * t) - kcal).abs() > kcal * 0.35) continue;
+    out.add((f, t));
+  }
+  out.sort((a, b) => (b.$1.proteinG * b.$2).compareTo(a.$1.proteinG * a.$2));
+  return out.take(limit).toList();
 }
 
 /// 전문가 단계 추가 안내
