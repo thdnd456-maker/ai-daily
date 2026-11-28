@@ -35,6 +35,10 @@ echo "▶ 테스트"
 flutter test --reporter=expanded | tail -1
 flutter analyze | tail -1
 
+# 빌드 임시 폴더에 「파일 2.jpg」 같은 복사본이 섞이면 설치 파일이 10MB 넘게 커짐 → 임시 폴더 비우고 빌드
+if [ -d build ] && [ -n "$(find build -name '* [0-9].*' -print -quit)" ]; then
+  echo "  빌드 임시 폴더에 복사본 파일이 있어 비웁니다 (flutter clean)"; flutter clean >/dev/null
+fi
 echo "▶ APK 빌드"
 flutter build apk --release --split-per-abi | grep -E '✓.*arm64'
 OUT="$(cd ../.. && pwd)/AI_GYM_LAB_v$VERSION.apk"
