@@ -8,6 +8,7 @@ import '../../app/theme.dart';
 import '../../app/widgets.dart';
 import '../../domain/engines/progression_engine.dart';
 import '../../domain/models.dart';
+import '../diet/diet_screen.dart';
 import '../exercise/exercise_library_screen.dart';
 import '../settings/settings_screen.dart';
 import '../workout/start_flow.dart';
@@ -108,6 +109,26 @@ class HomeScreen extends ConsumerWidget {
                       padding: const EdgeInsets.only(top: 8, left: 4),
                       child: Text('최근 성과: ${s.recentGain}', style: const TextStyle(color: GymColors.textDim, fontSize: 12.5)),
                     ),
+                  const SizedBox(height: 12),
+                  SectionCard(
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const DietScreen())),
+                    child: const Row(
+                      children: [
+                        Icon(Icons.restaurant_menu, color: GymColors.accent),
+                        SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('식단', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16)),
+                              Text('내 목표에 맞는 하루 식사량 · 입문~전문가', style: TextStyle(color: GymColors.textDim, fontSize: 12.5)),
+                            ],
+                          ),
+                        ),
+                        Icon(Icons.chevron_right, color: GymColors.textDim),
+                      ],
+                    ),
+                  ),
                   if (items.isNotEmpty) ...[
                     const SectionTitle('오늘 추천 중량'),
                     Card(
