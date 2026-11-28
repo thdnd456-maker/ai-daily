@@ -6,6 +6,11 @@ import 'package:ai_gym_lab/domain/catalog/nutrition_catalog.dart';
 import 'package:ai_gym_lab/domain/engines/nutrition_engine.dart';
 import 'package:ai_gym_lab/domain/models.dart';
 import 'package:ai_gym_lab/features/diet/diet_screen.dart';
+import 'package:ai_gym_lab/features/diet/diet_tab.dart';
+
+import 'dart:io';
+
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -100,6 +105,7 @@ void main() {
     addTearDown(t.view.reset);
     late GymRepository repo;
     await t.runAsync(() async {
+      await initializeDateFormatting('ko_KR');
       repo = GymRepository(AppDatabase(NativeDatabase.memory()));
       await repo.init();
       await repo.saveProfile(man);
@@ -107,32 +113,114 @@ void main() {
     await t.pumpWidget(
       ProviderScope(
         overrides: [repositoryProvider.overrideWithValue(repo)],
-        child: MaterialApp(theme: buildTheme(), home: const DietScreen()),
+        child: MaterialApp(theme: buildTheme(), home: const DietTab()),
       ),
     );
     await settle(t);
+
+    // 오늘 기록: 아침에 닭가슴살 1.5배 추가 → 합계에 반영
+    expect(find.text('아직 기록이 없어요'), findsNWidgets(4));
+    await t.tap(find.text('추가').first);
+    await settle(t);
+    await t.tap(find.text('닭가슴살 (익힌 것)'));
+    await settle(t);
+    await t.tap(find.text('1.5배'));
+    await settle(t);
+    await t.tap(find.widgetWithText(FilledButton, '추가'));
+    await settle(t);
+    expect(find.textContaining('248 / '), findsOneWidget); // 165 × 1.5
+    expect(find.text('아직 기록이 없어요'), findsNWidgets(3));
+    expect(find.textContaining('47 / '), findsOneWidget); // 단백질 31 × 1.5 ≈ 47g
+
+    // 직접 입력
+    await t.tap(find.text('추가').at(1));
+    await settle(t);
+    await t.tap(find.text('직접 입력'));
+    await settle(t);
+    await t.enterText(find.byType(TextField).at(1), '회사 백반');
+    await t.enterText(find.byType(TextField).at(2), '650');
+    await t.tap(find.widgetWithText(FilledButton, '추가'));
+    await settle(t);
+    expect(find.text('회사 백반'), findsOneWidget);
+    expect(find.textContaining('898 / '), findsOneWidget);
+
+    await t.tap(find.text('내 계획'));
+    await settle(t);
+    final planScroll = find.descendant(of: find.byType(DietPlanView), matching: find.byType(Scrollable)).first;
     expect(find.text('하루 목표'), findsOneWidget); // 1~3년 → 중급
     expect(find.text('체중 추세로 점검'), findsOneWidget);
 
     await t.tap(find.text('입문'));
     await settle(t);
     expect(find.text('끼니마다 이만큼'), findsOneWidget);
+    await t.scrollUntilVisible(find.text('이것부터 하나씩'), 300, scrollable: planScroll);
     expect(find.text('이것부터 하나씩'), findsOneWidget);
 
+    await t.scrollUntilVisible(find.text('전문가'), -300, scrollable: planScroll);
     await t.tap(find.text('전문가'));
     await settle(t);
-    await t.scrollUntilVisible(find.text('운동하는 날 / 쉬는 날'), 200);
+    await t.scrollUntilVisible(find.text('운동하는 날 / 쉬는 날'), 200, scrollable: planScroll);
     expect(find.text('운동하는 날 / 쉬는 날'), findsOneWidget);
 
-    await t.scrollUntilVisible(find.text('자동으로 되돌리기'), -200);
+    await t.scrollUntilVisible(find.text('자동으로 되돌리기'), -200, scrollable: planScroll);
     await t.tap(find.text('감량'));
     await settle(t);
-    await t.scrollUntilVisible(find.text('초급'), -200);
+    await t.scrollUntilVisible(find.text('초급'), -200, scrollable: planScroll);
     await t.tap(find.text('초급'));
     await settle(t);
     expect(find.text('하루 목표'), findsOneWidget);
     expect(find.text('체중 추세로 점검'), findsNothing);
     expect(t.takeException(), isNull);
     await t.runAsync(() => repo.db.close());
+  });
+
+  test('식사 기록: 저장·지우기·최근 목록·내보내기/불러오기', () async {
+    final repo = GymRepository(AppDatabase(NativeDatabase.memory()));
+    await repo.init();
+    await repo.saveProfile(man);
+    final d = DateTime(2026, 11, 28, 13, 5);
+    final id = await repo.addMeal(date: d, meal: 'lunch', name: '김밥', amount: '1줄', kcal: 450, protein: 13, carbs: 70, fat: 12);
+    await repo.addMeal(date: d.subtract(const Duration(days: 8)), meal: 'dinner', name: '라면', kcal: 500);
+    final week = await repo.mealsBetween(d.subtract(const Duration(days: 6)), d);
+    expect(week.map((m) => m.name), ['김밥']);
+    expect(week.first.date, DateTime(2026, 11, 28)); // 날짜만 저장
+    expect((await repo.recentMeals()).map((m) => m.name), ['라면', '김밥']);
+
+    // 내보내기 → 지우기 → 불러오기
+    final json = await repo.exportAll();
+    expect((json['meal_logs'] as List).length, 2);
+    await repo.deleteMeal(id);
+    expect((await repo.mealsBetween(d, d)), isEmpty);
+    await repo.importAll(json);
+    expect((await repo.mealsBetween(d, d)).single.kcal, 450);
+
+    // 식사 기록이 없던 예전 앱(1.2.x)에서 내보낸 기록도 불러와짐
+    json.remove('meal_logs');
+    json['schemaVersion'] = 1;
+    await repo.importAll(json);
+    expect(await repo.mealsBetween(d.subtract(const Duration(days: 30)), d), isEmpty);
+    await repo.db.close();
+  });
+
+  test('예전 앱(데이터베이스 1판)에서 업데이트하면 식사 기록 칸이 생기고 기존 기록은 그대로', () async {
+    final dir = await Directory.systemTemp.createTemp('gym_mig');
+    final file = File('${dir.path}/db.sqlite');
+    var repo = GymRepository(AppDatabase(NativeDatabase(file)));
+    await repo.init();
+    await repo.saveProfile(man);
+    await repo.addMeasurement(date: DateTime(2026, 11, 1), weight: 80);
+    // 1판 상태로 되돌리기 (식사 기록 칸 없음)
+    await repo.db.customStatement('DROP TABLE meal_logs');
+    await repo.db.customStatement('PRAGMA user_version = 1');
+    await repo.db.close();
+
+    repo = GymRepository(AppDatabase(NativeDatabase(file)));
+    await repo.init();
+    expect((await repo.getProfile())!.weightKg, 80);
+    expect((await repo.measurements()).single.weightKg, 80);
+    await repo.addMeal(date: DateTime(2026, 11, 28), meal: 'snack', name: '사과', kcal: 95);
+    expect((await repo.recentMeals()).single.name, '사과');
+    await repo.db.close();
+    await dir.delete(recursive: true);
   });
 }

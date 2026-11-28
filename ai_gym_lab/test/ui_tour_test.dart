@@ -118,7 +118,7 @@ void main() {
     await settle(t);
 
     // AI 트레이너 (오프라인): 중량 질문 + 시간 변경 제안 → 승인
-    await t.tap(find.text('AI 트레이너').last);
+    await t.tap(find.text('트레이너').last);
     await settle(t);
     await t.tap(find.text('오늘 벤치프레스 몇 kg으로 해야 해?').first);
     await settle(t, rounds: 30);

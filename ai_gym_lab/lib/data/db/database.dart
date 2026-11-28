@@ -197,6 +197,26 @@ class BodyMeasurements extends Table {
   TextColumn get notes => text().withDefault(const Constant(''))();
 }
 
+/// 식사 기록 (식단 탭). 영양값은 기록할 때의 값(양 반영)을 그대로 저장합니다.
+class MealLogs extends Table {
+  IntColumn get id => integer().autoIncrement()();
+
+  /// 먹은 날 (자정 기준 날짜)
+  DateTimeColumn get date => dateTime()();
+
+  /// breakfast | lunch | dinner | snack
+  TextColumn get meal => text()();
+  TextColumn get name => text()();
+
+  /// 예: '100g × 1.5'
+  TextColumn get amount => text().withDefault(const Constant(''))();
+  RealColumn get kcal => real()();
+  RealColumn get proteinG => real().withDefault(const Constant(0))();
+  RealColumn get carbsG => real().withDefault(const Constant(0))();
+  RealColumn get fatG => real().withDefault(const Constant(0))();
+  DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
+}
+
 class RecoveryLogs extends Table {
   IntColumn get id => integer().autoIncrement()();
   DateTimeColumn get date => dateTime()();
@@ -296,6 +316,7 @@ class AiUsageLogs extends Table {
     WorkoutSessionExercises,
     WorkoutSets,
     BodyMeasurements,
+    MealLogs,
     RecoveryLogs,
     ProgressionRecommendations,
     AiRecommendations,
@@ -309,11 +330,15 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase(super.e);
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
     onCreate: (m) => m.createAll(),
+    onUpgrade: (m, from, to) async {
+      // 2: 식사 기록 추가 (기존 기록은 그대로)
+      if (from < 2) await m.createTable(mealLogs);
+    },
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
     },

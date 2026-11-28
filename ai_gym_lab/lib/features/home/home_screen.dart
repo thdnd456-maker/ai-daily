@@ -8,7 +8,6 @@ import '../../app/theme.dart';
 import '../../app/widgets.dart';
 import '../../domain/engines/progression_engine.dart';
 import '../../domain/models.dart';
-import '../diet/diet_screen.dart';
 import '../exercise/exercise_library_screen.dart';
 import '../settings/settings_screen.dart';
 import '../workout/start_flow.dart';
@@ -99,7 +98,7 @@ class HomeScreen extends ConsumerWidget {
                           icon: Icons.trending_up,
                           label: '최근 성과',
                           value: s.recentGain == null ? '-' : s.recentGain!.split(' ').last,
-                          onTap: () => onNavigate(3),
+                          onTap: () => onNavigate(4),
                         ),
                       ),
                     ],
@@ -111,7 +110,7 @@ class HomeScreen extends ConsumerWidget {
                     ),
                   const SizedBox(height: 12),
                   SectionCard(
-                    onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const DietScreen())),
+                    onTap: () => onNavigate(2),
                     child: const Row(
                       children: [
                         Icon(Icons.restaurant_menu, color: GymColors.accent),

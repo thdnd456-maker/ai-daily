@@ -847,6 +847,57 @@ class GymRepository {
 
   Future<List<BodyMeasurement>> measurements() => (db.select(db.bodyMeasurements)..orderBy([(t) => OrderingTerm(expression: t.date)])).get();
 
+  // ───────────────────────── 식사 기록 ─────────────────────────
+
+  static DateTime dayOf(DateTime d) => DateTime(d.year, d.month, d.day);
+
+  Future<int> addMeal({
+    required DateTime date,
+    required String meal,
+    required String name,
+    String amount = '',
+    required double kcal,
+    double protein = 0,
+    double carbs = 0,
+    double fat = 0,
+  }) => db
+      .into(db.mealLogs)
+      .insert(
+        MealLogsCompanion.insert(
+          date: dayOf(date),
+          meal: meal,
+          name: name,
+          amount: Value(amount),
+          kcal: kcal,
+          proteinG: Value(protein),
+          carbsG: Value(carbs),
+          fatG: Value(fat),
+        ),
+      );
+
+  Future<void> deleteMeal(int id) => (db.delete(db.mealLogs)..where((t) => t.id.equals(id))).go();
+
+  /// [from]부터 [to]까지(둘 다 포함, 날짜 기준) 식사 기록
+  Future<List<MealLog>> mealsBetween(DateTime from, DateTime to) =>
+      (db.select(db.mealLogs)
+            ..where((t) => t.date.isBetweenValues(dayOf(from), dayOf(to)))
+            ..orderBy([(t) => OrderingTerm(expression: t.date), (t) => OrderingTerm(expression: t.id)]))
+          .get();
+
+  /// 최근에 먹은 음식 (이름 중복 없이, 최근 순)
+  Future<List<MealLog>> recentMeals({int limit = 12}) async {
+    final rows =
+        await (db.select(db.mealLogs)
+              ..orderBy([(t) => OrderingTerm.desc(t.id)])
+              ..limit(200))
+            .get();
+    final seen = <String>{};
+    return [
+      for (final r in rows)
+        if (seen.add('${r.name}|${r.amount}')) r,
+    ].take(limit).toList();
+  }
+
   Future<void> deleteMeasurement(int id) => (db.delete(db.bodyMeasurements)..where((t) => t.id.equals(id))).go();
 
   // ───────────────────────── AI 관련 ─────────────────────────
@@ -923,6 +974,7 @@ class GymRepository {
       'workout_session_exercises': await dump(db.workoutSessionExercises),
       'workout_sets': await dump(db.workoutSets),
       'body_measurements': await dump(db.bodyMeasurements),
+      'meal_logs': await dump(db.mealLogs),
       'recovery_logs': await dump(db.recoveryLogs),
       'progression_recommendations': await dump(db.progressionRecommendations),
       'ai_recommendations': await dump(db.aiRecommendations),
@@ -995,6 +1047,7 @@ class GymRepository {
       await put(db.workoutSets, keptSets);
 
       await put(db.bodyMeasurements, rows('body_measurements').map(BodyMeasurement.fromJson));
+      await put(db.mealLogs, rows('meal_logs').map(MealLog.fromJson));
       await put(db.recoveryLogs, rows('recovery_logs').map(RecoveryLog.fromJson));
       await put(db.progressionRecommendations, rows('progression_recommendations').map(ProgressionRecommendationRow.fromJson));
       await put(db.aiRecommendations, rows('ai_recommendations').map(AiRecommendation.fromJson));
@@ -1019,6 +1072,7 @@ class GymRepository {
         db.chatMessages,
         db.aiUsageLogs,
         db.bodyMeasurements,
+        db.mealLogs,
         db.recoveryLogs,
         db.userLimitations,
         db.userEquipment,

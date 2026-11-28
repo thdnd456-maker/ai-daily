@@ -51,7 +51,7 @@ void main() {
     expect(find.text('오늘의 운동'), findsOneWidget);
     expect(find.text('상체 A'), findsWidgets);
     expect(find.text('홈'), findsOneWidget);
-    expect(find.text('AI 트레이너'), findsWidgets);
+    expect(find.text('식단'), findsWidgets);
 
     await t.ensureVisible(find.text('운동 시작'));
     await t.pump();
