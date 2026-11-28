@@ -677,9 +677,8 @@ class GymRepository {
       if (!completed) return;
       final s = await (db.select(db.workoutSets)..where((t) => t.id.equals(setId))).getSingleOrNull();
       if (s == null || s.actualWeight == null) return;
-      await (db.update(db.workoutSets)..where(
-            (t) => t.sessionExerciseId.equals(s.sessionExerciseId) & t.setNumber.isBiggerThanValue(s.setNumber) & t.completed.equals(false),
-          ))
+      await (db.update(db.workoutSets)
+            ..where((t) => t.sessionExerciseId.equals(s.sessionExerciseId) & t.setNumber.isBiggerThanValue(s.setNumber) & t.completed.equals(false)))
           .write(WorkoutSetsCompanion(actualWeight: Value(s.actualWeight)));
     });
   }
@@ -998,9 +997,7 @@ class GymRepository {
     if (schema is int && schema > db.schemaVersion) {
       throw const FormatException('더 새로운 버전의 앱에서 내보낸 데이터입니다. 앱을 먼저 업데이트하세요.');
     }
-    List<Map<String, dynamic>> rows(String key) => [
-      for (final r in (data[key] as List?) ?? const []) Map<String, dynamic>.from(r as Map),
-    ];
+    List<Map<String, dynamic>> rows(String key) => [for (final r in (data[key] as List?) ?? const []) Map<String, dynamic>.from(r as Map)];
     final known = {for (final r in await db.select(db.exercises).get()) r.id};
     var skipped = 0;
     late int sessions, sets;
@@ -1036,7 +1033,10 @@ class GymRepository {
       await put(db.workoutSessions, ses);
 
       final sex = rows('workout_session_exercises').map(SessionExercise.fromJson).toList();
-      final keptSex = {for (final e in sex) if (known.contains(e.exerciseId)) e.id};
+      final keptSex = {
+        for (final e in sex)
+          if (known.contains(e.exerciseId)) e.id,
+      };
       skipped += sex.length - keptSex.length;
       await put(db.workoutSessionExercises, sex.where((e) => keptSex.contains(e.id)));
 

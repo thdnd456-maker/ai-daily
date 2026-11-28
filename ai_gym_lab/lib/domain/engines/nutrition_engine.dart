@@ -191,7 +191,9 @@ NutritionPlan buildNutritionPlan(UserProfile p, {DietLevel? level, DietPhase? ph
     DietPhase.maintain => 1.6,
   };
   final protein = refW * perKg;
-  why.add('단백질: 체중 1kg당 ${perKg}g${refW < p.weightKg ? ' (BMI 25 기준 체중 ${refW.toStringAsFixed(0)}kg로 계산)' : ''} — Morton 2018, ISSN 2017${ph == DietPhase.cut ? ', 감량 중 근육 지키기 Helms 2014' : ''}');
+  why.add(
+    '단백질: 체중 1kg당 ${perKg}g${refW < p.weightKg ? ' (BMI 25 기준 체중 ${refW.toStringAsFixed(0)}kg로 계산)' : ''} — Morton 2018, ISSN 2017${ph == DietPhase.cut ? ', 감량 중 근육 지키기 Helms 2014' : ''}',
+  );
 
   // 지방: 열량의 20~35% 권장 범위 중 25%(감량 22%), 체중 1kg당 최소 0.6g (앱 기본값)
   var fat = math.max(kcal * (ph == DietPhase.cut ? 0.22 : 0.25) / 9, refW * 0.6);

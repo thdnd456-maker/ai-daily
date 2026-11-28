@@ -11,6 +11,7 @@ import '../../domain/models.dart';
 import '../exercise/exercise_library_screen.dart';
 import '../settings/settings_screen.dart';
 import '../workout/start_flow.dart';
+import '../workout/workout_tab.dart';
 
 /// 다음 운동의 운동별 오늘 추천
 final nextPreviewProvider = FutureProvider<List<(Exercise, ProgressionRecommendation, String)>>((ref) async {
@@ -73,6 +74,13 @@ class HomeScreen extends ConsumerWidget {
                       ),
                       IconButton.filledTonal(
                         style: IconButton.styleFrom(backgroundColor: GymColors.surface),
+                        tooltip: '운동 데이터베이스',
+                        icon: const Icon(Icons.menu_book_outlined),
+                        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ExerciseLibraryScreen())),
+                      ),
+                      const SizedBox(width: 6),
+                      IconButton.filledTonal(
+                        style: IconButton.styleFrom(backgroundColor: GymColors.surface),
                         icon: const Icon(Icons.settings_outlined),
                         onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SettingsScreen())),
                       ),
@@ -98,7 +106,7 @@ class HomeScreen extends ConsumerWidget {
                           icon: Icons.trending_up,
                           label: '최근 성과',
                           value: s.recentGain == null ? '-' : s.recentGain!.split(' ').last,
-                          onTap: () => onNavigate(4),
+                          onTap: () => onNavigate(3),
                         ),
                       ),
                     ],
@@ -108,26 +116,6 @@ class HomeScreen extends ConsumerWidget {
                       padding: const EdgeInsets.only(top: 8, left: 4),
                       child: Text('최근 성과: ${s.recentGain}', style: const TextStyle(color: GymColors.textDim, fontSize: 12.5)),
                     ),
-                  const SizedBox(height: 12),
-                  SectionCard(
-                    onTap: () => onNavigate(2),
-                    child: const Row(
-                      children: [
-                        Icon(Icons.restaurant_menu, color: GymColors.accent),
-                        SizedBox(width: 12),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('식단', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16)),
-                              Text('내 목표에 맞는 하루 식사량 · 입문~전문가', style: TextStyle(color: GymColors.textDim, fontSize: 12.5)),
-                            ],
-                          ),
-                        ),
-                        Icon(Icons.chevron_right, color: GymColors.textDim),
-                      ],
-                    ),
-                  ),
                   if (items.isNotEmpty) ...[
                     const SectionTitle('오늘 추천 중량'),
                     Card(
@@ -148,6 +136,7 @@ class HomeScreen extends ConsumerWidget {
                     ),
                   ],
                   if (s.consecutiveWarning != null) ...[const SizedBox(height: 12), _Notice(text: s.consecutiveWarning!)],
+                  ProgramPanel(s: s),
                 ],
               ),
             );

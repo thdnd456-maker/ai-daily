@@ -45,10 +45,24 @@ class DietPlanView extends ConsumerWidget {
     final showGrams = lv != DietLevel.beginner;
     final showMacros = lv == DietLevel.intermediate || lv == DietLevel.expert;
 
+    Widget fold(String title, List<Widget> children) => Card(
+      margin: const EdgeInsets.only(top: 8),
+      clipBehavior: Clip.antiAlias,
+      child: ExpansionTile(
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15)),
+        childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+        children: children,
+      ),
+    );
+    Widget line(String t) => Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Text(t, style: const TextStyle(height: 1.4, fontSize: 13)),
+    );
+
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 4, 16, 32),
       children: [
-        // ── 단계 고르기
         const SectionTitle('내 단계'),
         SegmentedButton<DietLevel>(
           showSelectedIcon: false,
@@ -56,22 +70,14 @@ class DietPlanView extends ConsumerWidget {
           selected: {lv},
           onSelectionChanged: (s) => save('diet.level', s.first.name),
         ),
-        const SizedBox(height: 8),
-        Text(lv.summary, style: const TextStyle(color: GymColors.textDim, fontSize: 13)),
-        if (prefs.$1 == null) const Text('운동 경력에 맞춰 자동으로 골랐어요. 눌러서 바꿀 수 있어요.', style: TextStyle(color: GymColors.textDim, fontSize: 12)),
-
-        // ── 목표
+        const SizedBox(height: 6),
+        Text(lv.summary, style: const TextStyle(color: GymColors.textDim, fontSize: 12.5)),
         const SectionTitle('지금 목표'),
         SegmentedButton<DietPhase>(
           showSelectedIcon: false,
           segments: [for (final p in DietPhase.values) ButtonSegment(value: p, label: Text(p.ko))],
           selected: {plan.phase},
           onSelectionChanged: (s) => save('diet.phase', s.first.name),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          prefs.$2 == null ? '프로필의 운동 목표(${profile.primaryGoal.ko})에 맞춰 자동으로 골랐어요.' : '직접 고른 목표예요.',
-          style: const TextStyle(color: GymColors.textDim, fontSize: 12),
         ),
         if (prefs.$1 != null || prefs.$2 != null)
           Align(
@@ -86,151 +92,70 @@ class DietPlanView extends ConsumerWidget {
             ),
           ),
 
-        // ── 오늘 목표
         SectionTitle(showGrams ? '하루 목표' : '끼니마다 이만큼'),
         if (!showGrams) _HandsCard(plan: plan) else _TargetCard(plan: plan, showMacros: showMacros),
 
-        // ── 전문가: 운동일/휴식일
         if (plan.trainingDay != null && plan.restDay != null) ...[
-          const SectionTitle('운동하는 날 / 쉬는 날'),
+          const SizedBox(height: 8),
           SectionCard(
             child: Column(
               children: [
-                _DayRow(label: '운동일 (주 ${profile.daysPerWeek.clamp(1, 6)}일)', d: plan.trainingDay!),
-                const Divider(height: 20),
-                _DayRow(label: '휴식일', d: plan.restDay!),
-                const SizedBox(height: 8),
-                const Text('단백질·지방은 같고 탄수화물만 바꿉니다. 일주일 합계는 같아요.', style: TextStyle(color: GymColors.textDim, fontSize: 12)),
+                _DayRow(label: '🏋️ 운동일', d: plan.trainingDay!),
+                const Divider(height: 18),
+                _DayRow(label: '😴 휴식일', d: plan.restDay!),
               ],
             ),
           ),
         ],
 
-        // ── 중급 이상: 체중 추세
-        if (lv == DietLevel.intermediate || lv == DietLevel.expert) ...[const SectionTitle('체중 추세로 점검'), _TrendCard(plan: plan, trend: trend)],
+        if (lv == DietLevel.intermediate || lv == DietLevel.expert) ...[const SectionTitle('체중 추세'), _TrendCard(plan: plan, trend: trend)],
 
-        // ── 입문: 습관
-        if (lv == DietLevel.beginner) ...[
-          const SectionTitle('이것부터 하나씩'),
-          SectionCard(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                for (final (i, h) in beginnerHabits.indexed)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${i + 1}. ',
-                          style: const TextStyle(fontWeight: FontWeight.w800, color: GymColors.accent),
-                        ),
-                        Expanded(child: Text(h, style: const TextStyle(height: 1.4))),
-                      ],
-                    ),
-                  ),
-                const Text('한 번에 다 하지 말고, 1번이 익숙해지면 2번을 더하세요.', style: TextStyle(color: GymColors.textDim, fontSize: 12)),
-              ],
-            ),
-          ),
-        ],
-
-        // ── 하루 예시
-        const SectionTitle('하루 예시 (한식)'),
-        SectionCard(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              for (final (slot, what) in sampleDay(plan.phase))
+        const SizedBox(height: 8),
+        if (lv == DietLevel.beginner) fold('✅ 습관 ${beginnerHabits.length}가지', [for (final (i, h) in beginnerHabits.indexed) line('${i + 1}. $h')]),
+        if (lv == DietLevel.expert) fold('⏱️ 타이밍 · 보충제', [for (final t in expertTips) line('· $t')]),
+        if (showGrams)
+          fold('🍽️ 음식별 영양', [
+            for (final (title, foods) in foodGroups) ...[
+              Padding(
+                padding: const EdgeInsets.only(top: 6, bottom: 4),
+                child: Text(
+                  title,
+                  style: const TextStyle(color: GymColors.accent, fontWeight: FontWeight.w800, fontSize: 13),
+                ),
+              ),
+              for (final f in foods)
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
+                  padding: const EdgeInsets.only(bottom: 4),
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        width: 72,
-                        child: Text(slot, style: const TextStyle(fontWeight: FontWeight.w800)),
-                      ),
-                      Expanded(child: Text(what, style: const TextStyle(height: 1.4))),
+                      Text(f.emoji),
+                      const SizedBox(width: 8),
+                      Expanded(child: Text('${f.name} · ${f.serving}', style: const TextStyle(fontSize: 13))),
+                      Text('${f.kcal}kcal · 단 ${f.proteinG}g', style: const TextStyle(fontSize: 12, color: GymColors.textDim)),
                     ],
                   ),
                 ),
-              Text(
-                showGrams ? '목표 칼로리에 맞추려면 밥 양으로 조절하세요 (밥 1공기 ≈ 300kcal).' : '배고프면 채소와 단백질부터 더 드세요.',
-                style: const TextStyle(color: GymColors.textDim, fontSize: 12),
+            ],
+          ]),
+        fold('📐 계산 근거', [for (final r in plan.rationale) line('· $r'), if (showGrams) line('기초대사량 ${plan.bmr}kcal · 하루 소모량(추정) ${plan.tdee}kcal')]),
+        fold('📚 참고 논문 ${nutritionReferences.length}편', [
+          for (final r in nutritionReferences)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(r.keyFindings, style: const TextStyle(fontSize: 13, height: 1.4)),
+                  Text(r.citation, style: const TextStyle(fontSize: 11.5, color: GymColors.research)),
+                ],
               ),
-            ],
-          ),
-        ),
-
-        // ── 전문가 팁
-        if (lv == DietLevel.expert) ...[
-          const SectionTitle('끼니 타이밍·보충제'),
-          SectionCard(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                for (final t in expertTips)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Text('· $t', style: const TextStyle(height: 1.4)),
-                  ),
-              ],
             ),
-          ),
-        ],
-
-        // ── 음식표
-        if (showGrams) ...[
-          const SectionTitle('음식별 영양 (대략)'),
-          _FoodTable(title: '단백질 식품', foods: proteinFoods),
-          _FoodTable(title: '탄수화물 식품', foods: carbFoods),
-          if (showMacros) _FoodTable(title: '지방 식품', foods: fatFoods),
-        ],
-
-        // ── 계산 근거
-        const SectionTitle('어떻게 계산했나요'),
-        SectionCard(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              for (final r in plan.rationale)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text('· $r', style: const TextStyle(height: 1.4, fontSize: 13)),
-                ),
-              if (showGrams) Text('기초대사량 ${plan.bmr}kcal · 하루 소모량(추정) ${plan.tdee}kcal', style: const TextStyle(color: GymColors.textDim, fontSize: 12)),
-            ],
-          ),
-        ),
-        const SizedBox(height: 8),
-        Card(
-          clipBehavior: Clip.antiAlias,
-          child: ExpansionTile(
-            title: Text('참고한 논문 ${nutritionReferences.length}편', style: const TextStyle(fontWeight: FontWeight.w700)),
-            children: [
-              for (final r in nutritionReferences)
-                ListTile(
-                  title: Text(r.keyFindings, style: const TextStyle(fontSize: 13, height: 1.4)),
-                  subtitle: Padding(
-                    padding: const EdgeInsets.only(top: 4),
-                    child: Text('${r.citation}\n한계: ${r.limitations}', style: const TextStyle(fontSize: 11.5, color: GymColors.research)),
-                  ),
-                ),
-            ],
-          ),
-        ),
+        ]),
         const SizedBox(height: 12),
-        const Text(
-          '이 화면은 건강한 성인을 위한 일반 안내입니다. 임신·수유 중이거나, 당뇨·신장 질환 등이 있거나, 식사 문제(폭식·거식)를 겪고 있다면 의사나 영양사와 먼저 상의하세요.',
-          style: TextStyle(color: GymColors.textDim, fontSize: 12, height: 1.4),
+        Text(
+          profile.age < 18 ? '18세 미만은 칼로리를 줄이지 말고 골고루 충분히 드세요.' : '임신 중이거나 질환이 있으면 의사와 먼저 상의하세요.',
+          style: TextStyle(color: profile.age < 18 ? GymColors.warn : GymColors.textDim, fontSize: 12),
         ),
-        if (profile.age < 18)
-          const Padding(
-            padding: EdgeInsets.only(top: 6),
-            child: Text('18세 미만은 성장기라 칼로리를 줄이지 말고 골고루 충분히 드세요.', style: TextStyle(color: GymColors.warn, fontSize: 12)),
-          ),
       ],
     );
   }
@@ -381,25 +306,4 @@ class _TrendCard extends StatelessWidget {
       ),
     );
   }
-}
-
-class _FoodTable extends StatelessWidget {
-  final String title;
-  final List<FoodItem> foods;
-  const _FoodTable({required this.title, required this.foods});
-  @override
-  Widget build(BuildContext context) => Card(
-    clipBehavior: Clip.antiAlias,
-    child: ExpansionTile(
-      title: Text(title, style: const TextStyle(fontWeight: FontWeight.w700)),
-      children: [
-        for (final f in foods)
-          ListTile(
-            dense: true,
-            title: Text('${f.name} · ${f.serving}'),
-            trailing: Text('단 ${f.proteinG} · 탄 ${f.carbsG} · 지 ${f.fatG}g\n${f.kcal}kcal', textAlign: TextAlign.right, style: const TextStyle(fontSize: 12)),
-          ),
-      ],
-    ),
-  );
 }

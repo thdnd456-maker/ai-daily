@@ -75,11 +75,7 @@ Future<void> _offer(BuildContext context, UpdateInfo info) async {
   if (!context.mounted) return;
   if (!await updater.canInstall()) {
     if (!context.mounted) return;
-    await _message(
-      context,
-      '처음 한 번만 허용해 주세요',
-      '다음 화면에서 「이 출처 허용」(또는 「알 수 없는 앱 설치」)을 켠 뒤 뒤로 돌아오면 설치 화면이 나옵니다.',
-    );
+    await _message(context, '처음 한 번만 허용해 주세요', '다음 화면에서 「이 출처 허용」(또는 「알 수 없는 앱 설치」)을 켠 뒤 뒤로 돌아오면 설치 화면이 나옵니다.');
   }
   try {
     await updater.install(path);

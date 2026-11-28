@@ -69,8 +69,9 @@ void main() {
     expect(find.text('이번 주'), findsOneWidget);
     expect(find.text('오늘 추천 중량'), findsOneWidget);
 
-    // 운동 탭
-    await t.tap(find.text('운동').last);
+    // 홈 아래쪽: 주간 운동 일정 (예전 운동 탭)
+    await t.scrollUntilVisible(find.text('구성 이유'), 300, scrollable: find.byType(Scrollable).first);
+    await t.drag(find.byType(Scrollable).first, const Offset(0, -300));
     await settle(t);
     expect(find.text('주간 운동 일정'), findsOneWidget);
     await t.tap(find.text('구성 이유'));
@@ -88,7 +89,9 @@ void main() {
     await t.pageBack();
     await settle(t);
 
-    // 운동 데이터베이스 → 상세
+    // 운동 데이터베이스 → 상세 (홈 맨 위 버튼)
+    await t.drag(find.byType(Scrollable).first, const Offset(0, 3000));
+    await settle(t);
     await t.tap(find.byTooltip('운동 데이터베이스'));
     await settle(t);
     await t.enterText(find.byType(TextField).first, '벤치');
@@ -118,7 +121,7 @@ void main() {
     await settle(t);
 
     // AI 트레이너 (오프라인): 중량 질문 + 시간 변경 제안 → 승인
-    await t.tap(find.text('트레이너').last);
+    await t.tap(find.text('AI 트레이너').last);
     await settle(t);
     await t.tap(find.text('오늘 벤치프레스 몇 kg으로 해야 해?').first);
     await settle(t, rounds: 30);

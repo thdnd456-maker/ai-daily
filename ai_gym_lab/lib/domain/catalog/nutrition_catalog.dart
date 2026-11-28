@@ -148,75 +148,70 @@ class FoodItem {
   final int carbsG;
   final int fatG;
   final int kcal;
-  const FoodItem(this.name, this.serving, this.proteinG, this.carbsG, this.fatG, this.kcal);
+  final String emoji;
+  const FoodItem(this.name, this.serving, this.proteinG, this.carbsG, this.fatG, this.kcal, [this.emoji = '🍽️']);
 }
 
 /// 자주 먹는 음식 (대략값)
 const proteinFoods = <FoodItem>[
-  FoodItem('닭가슴살 (익힌 것)', '100g', 31, 0, 4, 165),
-  FoodItem('달걀', '1개', 6, 0, 5, 75),
-  FoodItem('소고기 우둔·홍두깨 (익힌 것)', '100g', 29, 0, 6, 180),
-  FoodItem('돼지 안심 (익힌 것)', '100g', 27, 0, 4, 150),
-  FoodItem('고등어구이', '1토막 100g', 23, 0, 17, 250),
-  FoodItem('참치캔 (기름 뺀 것)', '100g', 24, 0, 2, 130),
-  FoodItem('두부', '반 모 150g', 13, 3, 7, 120),
-  FoodItem('그릭요거트 (무가당)', '100g', 9, 4, 3, 75),
-  FoodItem('우유', '200ml', 6, 10, 7, 130),
-  FoodItem('단백질 보충제', '1스쿱 30g', 24, 3, 2, 120),
+  FoodItem('닭가슴살 (익힌 것)', '100g', 31, 0, 4, 165, '🍗'),
+  FoodItem('달걀', '1개', 6, 0, 5, 75, '🥚'),
+  FoodItem('소고기 우둔·홍두깨 (익힌 것)', '100g', 29, 0, 6, 180, '🥩'),
+  FoodItem('돼지 안심 (익힌 것)', '100g', 27, 0, 4, 150, '🥩'),
+  FoodItem('고등어구이', '1토막 100g', 23, 0, 17, 250, '🐟'),
+  FoodItem('참치캔 (기름 뺀 것)', '100g', 24, 0, 2, 130, '🐟'),
+  FoodItem('두부', '반 모 150g', 13, 3, 7, 120, '🧈'),
+  FoodItem('그릭요거트 (무가당)', '100g', 9, 4, 3, 75, '🥣'),
+  FoodItem('우유', '200ml', 6, 10, 7, 130, '🥛'),
+  FoodItem('단백질 보충제', '1스쿱 30g', 24, 3, 2, 120, '🥤'),
 ];
 
 const carbFoods = <FoodItem>[
-  FoodItem('쌀밥', '1공기 210g', 6, 65, 1, 300),
-  FoodItem('고구마', '중 1개 150g', 2, 30, 0, 130),
-  FoodItem('바나나', '1개', 1, 27, 0, 105),
-  FoodItem('오트밀', '40g', 5, 27, 3, 150),
-  FoodItem('통밀빵', '1장', 4, 15, 1, 80),
+  FoodItem('쌀밥', '1공기 210g', 6, 65, 1, 300, '🍚'),
+  FoodItem('고구마', '중 1개 150g', 2, 30, 0, 130, '🍠'),
+  FoodItem('바나나', '1개', 1, 27, 0, 105, '🍌'),
+  FoodItem('오트밀', '40g', 5, 27, 3, 150, '🥣'),
+  FoodItem('통밀빵', '1장', 4, 15, 1, 80, '🍞'),
 ];
 
 const fatFoods = <FoodItem>[
-  FoodItem('견과류', '한 줌 25g', 5, 5, 13, 150),
-  FoodItem('올리브유', '1큰술', 0, 0, 14, 120),
-  FoodItem('아보카도', '반 개', 1, 6, 15, 160),
+  FoodItem('견과류', '한 줌 25g', 5, 5, 13, 150, '🥜'),
+  FoodItem('올리브유', '1큰술', 0, 0, 14, 120, '🫒'),
+  FoodItem('아보카도', '반 개', 1, 6, 15, 160, '🥑'),
 ];
 
 /// 한식·외식 1인분 (대략값, 식당마다 차이 큼)
 const dishFoods = <FoodItem>[
-  FoodItem('김치찌개', '1인분', 15, 10, 17, 260),
-  FoodItem('된장찌개', '1인분', 10, 10, 7, 150),
-  FoodItem('비빔밥', '1그릇', 20, 90, 17, 600),
-  FoodItem('김밥', '1줄', 13, 70, 12, 450),
-  FoodItem('라면', '1개', 10, 78, 16, 500),
-  FoodItem('짜장면', '1그릇', 20, 120, 25, 800),
-  FoodItem('제육볶음', '1인분', 28, 15, 30, 450),
-  FoodItem('닭갈비', '1인분', 35, 25, 20, 450),
-  FoodItem('삼겹살 구이', '1인분 (생 200g)', 34, 0, 57, 660),
-  FoodItem('후라이드 치킨', '3조각', 36, 24, 38, 600),
-  FoodItem('돈까스', '1인분', 30, 60, 42, 750),
-  FoodItem('순대국', '1그릇', 30, 45, 25, 550),
-  FoodItem('떡볶이', '1인분', 11, 95, 6, 480),
-  FoodItem('편의점 도시락', '1개', 25, 100, 22, 700),
-  FoodItem('샐러드 (드레싱 포함)', '1그릇', 4, 15, 14, 200),
+  FoodItem('김치찌개', '1인분', 15, 10, 17, 260, '🍲'),
+  FoodItem('된장찌개', '1인분', 10, 10, 7, 150, '🍲'),
+  FoodItem('비빔밥', '1그릇', 20, 90, 17, 600, '🍚'),
+  FoodItem('김밥', '1줄', 13, 70, 12, 450, '🍙'),
+  FoodItem('라면', '1개', 10, 78, 16, 500, '🍜'),
+  FoodItem('짜장면', '1그릇', 20, 120, 25, 800, '🍜'),
+  FoodItem('제육볶음', '1인분', 28, 15, 30, 450, '🥘'),
+  FoodItem('닭갈비', '1인분', 35, 25, 20, 450, '🥘'),
+  FoodItem('삼겹살 구이', '1인분 (생 200g)', 34, 0, 57, 660, '🥓'),
+  FoodItem('후라이드 치킨', '3조각', 36, 24, 38, 600, '🍗'),
+  FoodItem('돈까스', '1인분', 30, 60, 42, 750, '🍛'),
+  FoodItem('순대국', '1그릇', 30, 45, 25, 550, '🍲'),
+  FoodItem('떡볶이', '1인분', 11, 95, 6, 480, '🌶️'),
+  FoodItem('편의점 도시락', '1개', 25, 100, 22, 700, '🍱'),
+  FoodItem('샐러드 (드레싱 포함)', '1그릇', 4, 15, 14, 200, '🥗'),
 ];
 
 /// 간식·음료 (대략값)
 const snackFoods = <FoodItem>[
-  FoodItem('사과', '1개', 0, 25, 0, 95),
-  FoodItem('프로틴바', '1개', 20, 20, 7, 200),
-  FoodItem('단팥빵', '1개', 7, 50, 5, 280),
-  FoodItem('아메리카노', '1잔', 0, 2, 0, 10),
-  FoodItem('카페라떼', '1잔 (톨)', 9, 14, 9, 180),
-  FoodItem('맥주', '500ml', 2, 17, 0, 210),
-  FoodItem('소주', '1병', 0, 0, 0, 400),
+  FoodItem('사과', '1개', 0, 25, 0, 95, '🍎'),
+  FoodItem('프로틴바', '1개', 20, 20, 7, 200, '🍫'),
+  FoodItem('단팥빵', '1개', 7, 50, 5, 280, '🥐'),
+  FoodItem('아메리카노', '1잔', 0, 2, 0, 10, '☕'),
+  FoodItem('카페라떼', '1잔 (톨)', 9, 14, 9, 180, '☕'),
+  FoodItem('맥주', '500ml', 2, 17, 0, 210, '🍺'),
+  FoodItem('소주', '1병', 0, 0, 0, 400, '🍶'),
 ];
 
 /// 기록 화면의 음식 고르기 목록
-const foodGroups = <(String, List<FoodItem>)>[
-  ('단백질', proteinFoods),
-  ('밥·탄수화물', carbFoods),
-  ('한식·외식', dishFoods),
-  ('간식·음료', snackFoods),
-  ('지방', fatFoods),
-];
+const foodGroups = <(String, List<FoodItem>)>[('단백질', proteinFoods), ('밥·탄수화물', carbFoods), ('한식·외식', dishFoods), ('간식·음료', snackFoods), ('지방', fatFoods)];
 
 /// 입문 단계 습관 (실천하기 쉬운 순서)
 const beginnerHabits = <String>[
@@ -228,19 +223,27 @@ const beginnerHabits = <String>[
   '주 1~2번 아침 공복 체중을 「기록」 탭에 적기',
 ];
 
-/// 하루 예시 식단 (한식 기준). 밥 양으로 칼로리를 맞춥니다.
-List<(String, String)> sampleDay(DietPhase phase) {
+/// 끼니별 그림과 칼로리 배분 (아침 25% · 점심 35% · 저녁 30% · 간식 10%, 앱 기본값)
+const mealMeta = <String, (String, String, double)>{
+  'breakfast': ('아침', '🍳', 0.25),
+  'lunch': ('점심', '🍱', 0.35),
+  'dinner': ('저녁', '🍲', 0.30),
+  'snack': ('간식', '🍎', 0.10),
+};
+
+/// 끼니별 추천 메뉴 (한식, 짧게). 목표에 따라 밥 양이 달라집니다.
+List<String> mealSuggestion(String slot, DietPhase phase) {
   final rice = switch (phase) {
     DietPhase.cut => ('2/3공기', '반 공기'),
     DietPhase.maintain => ('1공기', '2/3공기'),
-    DietPhase.gain => ('1공기 반', '1공기'),
+    DietPhase.gain => ('1.5공기', '1공기'),
   };
-  return [
-    ('아침', '그릭요거트 200g + 오트밀 40g + 바나나 1개${phase == DietPhase.gain ? ' + 견과류 한 줌' : ''}'),
-    ('점심', '밥 ${rice.$1} + 닭가슴살·살코기 150g (제육은 기름 적게) + 나물·김치'),
-    ('운동 전후', '단백질 셰이크 1스쿱 또는 우유 200ml + ${phase == DietPhase.cut ? '바나나 반 개' : '고구마 1개'}'),
-    ('저녁', '밥 ${rice.$2} + 생선구이 1토막 또는 두부 반 모 + 채소 듬뿍${phase == DietPhase.cut ? ' (국물은 적게)' : ''}'),
-  ];
+  return switch (slot) {
+    'breakfast' => ['🥣 그릭요거트 200g', '🌾 오트밀 40g', phase == DietPhase.cut ? '🍎 사과 반 개' : '🍌 바나나 1개'],
+    'lunch' => ['🍚 밥 ${rice.$1}', '🍗 닭가슴살·살코기 150g', '🥬 나물·김치'],
+    'dinner' => ['🍚 밥 ${rice.$2}', '🐟 생선 1토막 또는 두부 반 모', '🥗 채소 듬뿍'],
+    _ => [phase == DietPhase.gain ? '🥤 셰이크 1스쿱 + 🍠 고구마' : '🥛 우유 200ml 또는 🥤 셰이크', if (phase == DietPhase.gain) '🥜 견과류 한 줌'],
+  };
 }
 
 /// 전문가 단계 추가 안내

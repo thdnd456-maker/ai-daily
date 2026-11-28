@@ -119,8 +119,9 @@ void main() {
     await settle(t);
 
     // 오늘 기록: 아침에 닭가슴살 1.5배 추가 → 합계에 반영
-    expect(find.text('아직 기록이 없어요'), findsNWidgets(4));
-    await t.tap(find.text('추가').first);
+    expect(find.text('추천 예시'), findsWidgets);
+    expect(find.text('🍳'), findsOneWidget);
+    await t.tap(find.byTooltip('아침 추가'));
     await settle(t);
     await t.tap(find.text('닭가슴살 (익힌 것)'));
     await settle(t);
@@ -128,12 +129,11 @@ void main() {
     await settle(t);
     await t.tap(find.widgetWithText(FilledButton, '추가'));
     await settle(t);
-    expect(find.textContaining('248 / '), findsOneWidget); // 165 × 1.5
-    expect(find.text('아직 기록이 없어요'), findsNWidgets(3));
-    expect(find.textContaining('47 / '), findsOneWidget); // 단백질 31 × 1.5 ≈ 47g
+    expect(find.text('248'), findsOneWidget); // 165 × 1.5
+    expect(find.textContaining('47/'), findsOneWidget); // 단백질 31 × 1.5 ≈ 47g
 
     // 직접 입력
-    await t.tap(find.text('추가').at(1));
+    await t.tap(find.byTooltip('점심 추가'));
     await settle(t);
     await t.tap(find.text('직접 입력'));
     await settle(t);
@@ -142,25 +142,25 @@ void main() {
     await t.tap(find.widgetWithText(FilledButton, '추가'));
     await settle(t);
     expect(find.text('회사 백반'), findsOneWidget);
-    expect(find.textContaining('898 / '), findsOneWidget);
+    expect(find.text('898'), findsOneWidget);
 
     await t.tap(find.text('내 계획'));
     await settle(t);
     final planScroll = find.descendant(of: find.byType(DietPlanView), matching: find.byType(Scrollable)).first;
     expect(find.text('하루 목표'), findsOneWidget); // 1~3년 → 중급
-    expect(find.text('체중 추세로 점검'), findsOneWidget);
+    expect(find.text('체중 추세'), findsOneWidget);
 
     await t.tap(find.text('입문'));
     await settle(t);
     expect(find.text('끼니마다 이만큼'), findsOneWidget);
-    await t.scrollUntilVisible(find.text('이것부터 하나씩'), 300, scrollable: planScroll);
-    expect(find.text('이것부터 하나씩'), findsOneWidget);
+    await t.scrollUntilVisible(find.text('✅ 습관 6가지'), 300, scrollable: planScroll);
+    expect(find.text('✅ 습관 6가지'), findsOneWidget);
 
     await t.scrollUntilVisible(find.text('전문가'), -300, scrollable: planScroll);
     await t.tap(find.text('전문가'));
     await settle(t);
-    await t.scrollUntilVisible(find.text('운동하는 날 / 쉬는 날'), 200, scrollable: planScroll);
-    expect(find.text('운동하는 날 / 쉬는 날'), findsOneWidget);
+    await t.scrollUntilVisible(find.text('🏋️ 운동일'), 200, scrollable: planScroll);
+    expect(find.text('🏋️ 운동일'), findsOneWidget);
 
     await t.scrollUntilVisible(find.text('자동으로 되돌리기'), -200, scrollable: planScroll);
     await t.tap(find.text('감량'));
@@ -169,7 +169,7 @@ void main() {
     await t.tap(find.text('초급'));
     await settle(t);
     expect(find.text('하루 목표'), findsOneWidget);
-    expect(find.text('체중 추세로 점검'), findsNothing);
+    expect(find.text('체중 추세'), findsNothing);
     expect(t.takeException(), isNull);
     await t.runAsync(() => repo.db.close());
   });

@@ -10,10 +10,7 @@ import '../../app/theme.dart';
 /// 「데이터 내보내기」로 클립보드에 복사된 기록을 불러옵니다.
 /// 앱을 지우고 다시 설치했거나 다른 폰으로 옮길 때 사용합니다.
 Future<void> showImportDialog(BuildContext context, WidgetRef ref) async {
-  final done = await showDialog<String>(
-    context: context,
-    builder: (_) => const _ImportDialog(),
-  );
+  final done = await showDialog<String>(context: context, builder: (_) => const _ImportDialog());
   if (done == null || !context.mounted) return;
   ref.refreshData();
   await showDialog<void>(
@@ -96,11 +93,7 @@ class _ImportDialogState extends ConsumerState<_ImportDialog> {
             const SizedBox(height: 12),
             SizedBox(
               width: double.infinity,
-              child: OutlinedButton.icon(
-                onPressed: _busy ? null : _paste,
-                icon: const Icon(Icons.content_paste),
-                label: const Text('복사한 기록 붙여넣기'),
-              ),
+              child: OutlinedButton.icon(onPressed: _busy ? null : _paste, icon: const Icon(Icons.content_paste), label: const Text('복사한 기록 붙여넣기')),
             ),
             if (d != null) ...[
               const SizedBox(height: 12),
@@ -113,10 +106,7 @@ class _ImportDialogState extends ConsumerState<_ImportDialog> {
                 style: const TextStyle(height: 1.4),
               ),
             ],
-            if (_error != null) ...[
-              const SizedBox(height: 12),
-              Text(_error!, style: const TextStyle(color: GymColors.danger, height: 1.4)),
-            ],
+            if (_error != null) ...[const SizedBox(height: 12), Text(_error!, style: const TextStyle(color: GymColors.danger, height: 1.4))],
           ],
         ),
       ),

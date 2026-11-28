@@ -8,153 +8,113 @@ import '../../app/widgets.dart';
 import '../../data/repository.dart';
 import '../../domain/engines/program_generator.dart';
 import '../../domain/models.dart';
-import '../exercise/exercise_library_screen.dart';
+import '../exercise/exercise_library_screen.dart' show ExerciseDetailScreen;
 import '../program/program_editor_screen.dart';
 import '../program/program_review_screen.dart';
 import 'start_flow.dart';
 
-/// 운동 탭: 주간 운동 일정 · 현재 프로그램 · 프로그램 관리 · 운동 데이터베이스
-class WorkoutTab extends ConsumerWidget {
-  const WorkoutTab({super.key});
+/// 홈 화면 아래쪽: 현재 프로그램 · 주간 운동 일정 (예전 「운동」 탭을 홈에 합침)
+class ProgramPanel extends ConsumerWidget {
+  final HomeSummary s;
+  const ProgramPanel({super.key, required this.s});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final summary = ref.watch(homeSummaryProvider);
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('운동'),
-        actions: [
-          IconButton(
-            tooltip: '운동 데이터베이스',
-            icon: const Icon(Icons.menu_book_outlined),
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ExerciseLibraryScreen())),
-          ),
-        ],
-      ),
-      body: summary.when(
-        skipLoadingOnReload: true,
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('$e')),
-        data: (s) {
-          final p = s.program;
-          if (p == null) return const EmptyState(icon: Icons.fitness_center, title: '활성 프로그램이 없습니다');
-          final repo = ref.read(repositoryProvider);
-          return ListView(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+    final p = s.program;
+    if (p == null) return const SizedBox.shrink();
+    final repo = ref.read(repositoryProvider);
+    Widget btn(IconData icon, String label, VoidCallback onTap) => OutlinedButton.icon(
+      style: OutlinedButton.styleFrom(visualDensity: VisualDensity.compact, padding: const EdgeInsets.symmetric(horizontal: 10)),
+      icon: Icon(icon, size: 16),
+      label: Text(label, style: const TextStyle(fontSize: 13)),
+      onPressed: onTap,
+    );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SectionTitle('주간 운동 일정', trailing: Pill(p.row.source == 'ai' ? 'AI 추천' : '내 수정', color: p.row.source == 'ai' ? GymColors.accent : GymColors.info)),
+        SectionCard(
+          padding: const EdgeInsets.symmetric(vertical: 4),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SectionCard(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 10, 16, 2),
+                child: Text('${p.row.name} · ${p.split.ko}', style: const TextStyle(fontWeight: FontWeight.w800)),
+              ),
+              for (var i = 0; i < p.days.length; i++)
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: i == s.nextIndex ? GymColors.accent : GymColors.surface2,
+                    foregroundColor: i == s.nextIndex ? Colors.black : GymColors.text,
+                    child: Text(weekdayKo[p.days[i].row.weekday], style: const TextStyle(fontWeight: FontWeight.w800)),
+                  ),
+                  title: Text(p.days[i].row.name, style: const TextStyle(fontWeight: FontWeight.w700)),
+                  subtitle: Text(
+                    '${p.days[i].exercises.length}개 운동 · 약 ${WorkoutDays.minutes(p.days[i])}분${i == s.nextIndex ? ' · 다음' : ''}',
+                    style: TextStyle(color: i == s.nextIndex ? GymColors.accent : GymColors.textDim),
+                  ),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => WorkoutDays.dayDetail(context, ref, p, i),
+                ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 4, 12, 10),
+                child: Wrap(
+                  spacing: 6,
+                  runSpacing: 6,
                   children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(p.row.name, style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w900)),
-                        ),
-                        Pill(p.row.source == 'ai' ? 'AI 추천' : '내 수정', color: p.row.source == 'ai' ? GymColors.accent : GymColors.info),
-                      ],
-                    ),
-                    const SizedBox(height: 4),
-                    Text('${p.split.ko} · ${p.days.length}일 순환', style: const TextStyle(color: GymColors.textDim)),
-                    const SizedBox(height: 12),
-                    Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
-                      children: [
-                        OutlinedButton.icon(
-                          icon: const Icon(Icons.edit_outlined, size: 18),
-                          label: const Text('수정'),
-                          onPressed: () async {
-                            final edited = await Navigator.of(context)
-                                .push<ProgramPlan>(MaterialPageRoute(builder: (_) => ProgramEditorScreen(plan: p.toPlan())));
-                            if (edited == null) return;
-                            await repo.updateProgram(p.row.id, edited);
-                            ref.refreshData();
-                            if (context.mounted) {
-                              showSnack(context, p.row.source == 'ai' ? 'AI 추천 원본은 보존하고 수정본을 저장했습니다.' : '저장했습니다.');
-                            }
-                          },
-                        ),
-                        OutlinedButton.icon(
-                          icon: const Icon(Icons.info_outline, size: 18),
-                          label: const Text('구성 이유'),
-                          onPressed: () => showModalBottomSheet(
-                            context: context,
-                            isScrollControlled: true,
-                            backgroundColor: GymColors.surface,
-                            builder: (_) => DraggableScrollableSheet(
-                              expand: false,
-                              builder: (_, sc) => ListView(
-                                controller: sc,
-                                padding: const EdgeInsets.all(16),
-                                children: [
-                                  const Text('프로그램 구성 이유', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
-                                  const SizedBox(height: 12),
-                                  RationaleList(p.rationale),
-                                ],
-                              ),
-                            ),
+                    btn(Icons.edit_outlined, '수정', () async {
+                      final edited = await Navigator.of(context).push<ProgramPlan>(MaterialPageRoute(builder: (_) => ProgramEditorScreen(plan: p.toPlan())));
+                      if (edited == null) return;
+                      await repo.updateProgram(p.row.id, edited);
+                      ref.refreshData();
+                      if (context.mounted) showSnack(context, p.row.source == 'ai' ? 'AI 추천 원본은 보존하고 수정본을 저장했습니다.' : '저장했습니다.');
+                    }),
+                    btn(
+                      Icons.info_outline,
+                      '구성 이유',
+                      () => showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: GymColors.surface,
+                        builder: (_) => DraggableScrollableSheet(
+                          expand: false,
+                          builder: (_, sc) => ListView(
+                            controller: sc,
+                            padding: const EdgeInsets.all(16),
+                            children: [
+                              const Text('프로그램 구성 이유', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+                              const SizedBox(height: 12),
+                              RationaleList(p.rationale),
+                            ],
                           ),
                         ),
-                        OutlinedButton.icon(
-                          icon: const Icon(Icons.auto_awesome, size: 18),
-                          label: const Text('새로 추천받기'),
-                          onPressed: () async {
-                            final profile = await repo.getProfile();
-                            if (profile == null || !context.mounted) return;
-                            final plan = ProgramGenerator(repo.exerciseList).generate(profile);
-                            Navigator.of(context).push(MaterialPageRoute(builder: (_) => ProgramReviewScreen(plan: plan, isNew: true)));
-                          },
-                        ),
-                        OutlinedButton.icon(
-                          icon: const Icon(Icons.folder_open, size: 18),
-                          label: const Text('프로그램 목록'),
-                          onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ProgramListScreen())),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              const SectionTitle('주간 운동 일정'),
-              SectionCard(
-                padding: const EdgeInsets.symmetric(vertical: 4),
-                child: Column(
-                  children: [
-                    for (var i = 0; i < p.days.length; i++)
-                      ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: i == s.nextIndex ? GymColors.accent : GymColors.surface2,
-                          foregroundColor: i == s.nextIndex ? Colors.black : GymColors.text,
-                          child: Text(weekdayKo[p.days[i].row.weekday], style: const TextStyle(fontWeight: FontWeight.w800)),
-                        ),
-                        title: Text(p.days[i].row.name, style: const TextStyle(fontWeight: FontWeight.w700)),
-                        subtitle: Text(
-                          '${p.days[i].exercises.length}개 운동 · 약 ${_minutes(p.days[i])}분${i == s.nextIndex ? ' · 다음 순서' : ''}',
-                          style: TextStyle(color: i == s.nextIndex ? GymColors.accent : GymColors.textDim),
-                        ),
-                        trailing: const Icon(Icons.chevron_right),
-                        onTap: () => _dayDetail(context, ref, p, i),
                       ),
+                    ),
+                    btn(Icons.auto_awesome, '새로 추천', () async {
+                      final profile = await repo.getProfile();
+                      if (profile == null || !context.mounted) return;
+                      final plan = ProgramGenerator(repo.exerciseList).generate(profile);
+                      Navigator.of(context).push(MaterialPageRoute(builder: (_) => ProgramReviewScreen(plan: plan, isNew: true)));
+                    }),
+                    btn(Icons.folder_open, '목록', () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ProgramListScreen()))),
                   ],
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 6),
-                child: Text('요일은 권장값입니다. 운동은 순서대로 이어지며, 다른 날 운동을 먼저 하고 싶다면 해당 날을 눌러 시작하세요.', style: TextStyle(color: GymColors.textDim, fontSize: 12)),
               ),
             ],
-          );
-        },
-      ),
+          ),
+        ),
+      ],
     );
   }
+}
 
-  static int _minutes(DayView d) => ProgramGenerator.estimateMinutes([
+abstract final class WorkoutDays {
+  static int minutes(DayView d) => ProgramGenerator.estimateMinutes([
     for (final x in d.exercises) PlannedExercise(exerciseId: x.exerciseId, sets: x.sets, repMin: x.repMin, repMax: x.repMax, restSec: x.restSec),
   ]);
 
-  void _dayDetail(BuildContext context, WidgetRef ref, ProgramView p, int i) {
+  static void dayDetail(BuildContext context, WidgetRef ref, ProgramView p, int i) {
     final repo = ref.read(repositoryProvider);
     final d = p.days[i];
     showModalBottomSheet(

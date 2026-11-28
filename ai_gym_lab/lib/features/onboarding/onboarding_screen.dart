@@ -239,11 +239,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         ),
         SizedBox(
           width: double.infinity,
-          child: TextButton.icon(
-            onPressed: () => showImportDialog(context, ref),
-            icon: const Icon(Icons.upload_outlined),
-            label: const Text('이전 기록 불러오기'),
-          ),
+          child: TextButton.icon(onPressed: () => showImportDialog(context, ref), icon: const Icon(Icons.upload_outlined), label: const Text('이전 기록 불러오기')),
         ),
       ],
     ),
