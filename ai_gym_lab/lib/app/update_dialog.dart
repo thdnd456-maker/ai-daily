@@ -1,4 +1,10 @@
+import 'dart:io';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
+
+import 'providers.dart';
+import 'research_sync.dart';
 
 import 'theme.dart';
 import 'updater.dart';
@@ -141,21 +147,32 @@ Future<void> _message(BuildContext context, String title, String body) => showDi
 );
 
 /// 앱 맨 위에 두어, 어떤 화면(시작 화면 포함)에서든 앱을 켤 때 한 번 새 버전을 확인합니다.
-class UpdateCheckHost extends StatefulWidget {
+class UpdateCheckHost extends ConsumerStatefulWidget {
   final Widget child;
   const UpdateCheckHost({super.key, required this.child});
   @override
-  State<UpdateCheckHost> createState() => _UpdateCheckHostState();
+  ConsumerState<UpdateCheckHost> createState() => _UpdateCheckHostState();
 }
 
-class _UpdateCheckHostState extends State<UpdateCheckHost> {
+class _UpdateCheckHostState extends ConsumerState<UpdateCheckHost> {
   @override
   void initState() {
     super.initState();
     // 인터넷이 없거나 실패하면 조용히 넘어감
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) autoCheckForUpdate(context);
+      _syncResearch();
     });
+  }
+
+  /// 새 논문 자료 받아 오기 (하루 한 번)
+  Future<void> _syncResearch() async {
+    if (!(Platform.isAndroid || Platform.isIOS)) return; // 테스트·데스크톱에서는 건너뜀
+    try {
+      if (await ResearchSync(ref.read(repositoryProvider)).run() && mounted) ref.refreshData();
+    } catch (e) {
+      debugPrint('논문 자료 확인 실패: $e');
+    }
   }
 
   @override

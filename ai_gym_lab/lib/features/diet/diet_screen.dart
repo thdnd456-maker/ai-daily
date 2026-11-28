@@ -2,6 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../app/providers.dart';
+import '../../app/research_sync.dart';
+import '../../domain/catalog/research.dart';
 import '../../app/theme.dart';
 import '../../app/widgets.dart';
 import '../../domain/catalog/nutrition_catalog.dart';
@@ -18,6 +20,17 @@ final dietPrefsProvider = FutureProvider<(DietLevel?, DietPhase?)>((ref) async {
 });
 
 /// 「내 계획」: 단계별 목표·예시·근거
+/// 식단 논문: 앱에 든 것 + 서버에서 받은 것(같은 id면 서버 것이 우선)
+final nutritionRefsProvider = FutureProvider<List<ResearchReference>>((ref) async {
+  ref.watch(dataVersionProvider);
+  final remote = await ResearchSync.cached(ref.read(repositoryProvider));
+  final byId = {for (final r in nutritionReferences) r.id: r};
+  for (final r in remote?.category('nutrition') ?? const <ResearchReference>[]) {
+    byId[r.id] = r;
+  }
+  return byId.values.toList()..sort((a, b) => b.year.compareTo(a.year));
+});
+
 class DietPlanView extends ConsumerWidget {
   const DietPlanView({super.key});
 
@@ -26,6 +39,7 @@ class DietPlanView extends ConsumerWidget {
     final profile = ref.watch(profileProvider).value;
     final prefs = ref.watch(dietPrefsProvider).value;
     final ms = ref.watch(measurementsProvider).value ?? const [];
+    final refs = ref.watch(nutritionRefsProvider).value ?? nutritionReferences;
     if (profile == null || prefs == null) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -138,8 +152,8 @@ class DietPlanView extends ConsumerWidget {
             ],
           ]),
         fold('📐 계산 근거', [for (final r in plan.rationale) line('· $r'), if (showGrams) line('기초대사량 ${plan.bmr}kcal · 하루 소모량(추정) ${plan.tdee}kcal')]),
-        fold('📚 참고 논문 ${nutritionReferences.length}편', [
-          for (final r in nutritionReferences)
+        fold('📚 참고 논문 ${refs.length}편', [
+          for (final r in refs)
             Padding(
               padding: const EdgeInsets.only(bottom: 12),
               child: Column(

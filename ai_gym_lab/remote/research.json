@@ -1,0 +1,21 @@
+{
+  "app": "AI GYM LAB",
+  "version": 1,
+  "updated": "2026-11-28",
+  "note": "앱 업데이트 없이 반영되는 논문 자료. 새 논문을 넣거나 고칠 때마다 version을 1씩 올릴 것. category: training | nutrition",
+  "references": [
+    {
+      "id": "trommelen_2023_protein_dose",
+      "category": "nutrition",
+      "title": "The anabolic response to protein ingestion during recovery from exercise has no upper limit in magnitude and duration in vivo in humans",
+      "authors": "Trommelen J, van Lieshout GAA, Nyakayiru J, et al.",
+      "year": 2023,
+      "journal": "Cell Reports Medicine",
+      "studyType": "무작위 대조 실험 (36명)",
+      "population": "근력운동을 한 건강한 젊은 남성",
+      "keyFindings": "운동 후 단백질 100g을 한 번에 먹었을 때가 25g보다 근육 합성이 더 크고 12시간 넘게 오래 이어졌습니다. \"한 끼에 20~30g만 흡수된다\"는 말은 맞지 않습니다.",
+      "limitations": "젊은 남성 대상이고, 우유 단백질 한 종류로 실험했습니다.",
+      "appliedIn": "끼니 수는 생활에 맞게 정해도 되고, 하루 총량이 가장 중요하다는 안내"
+    }
+  ]
+}

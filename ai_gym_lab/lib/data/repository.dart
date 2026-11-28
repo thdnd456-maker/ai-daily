@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:drift/drift.dart';
 
 import '../domain/catalog/exercise_catalog.dart';
+import '../domain/catalog/nutrition_catalog.dart';
 import '../domain/catalog/research.dart';
 import '../domain/engines/progression_engine.dart';
 import '../domain/engines/recovery_engine.dart';
@@ -13,7 +14,7 @@ import '../domain/models.dart';
 import 'db/database.dart';
 
 const int localUserId = 1;
-const int seedVersion = 1;
+const int seedVersion = 2; // 2: 식단 논문도 연구 근거 라이브러리에 넣음
 
 class ProgramView {
   final WorkoutProgram row;
@@ -118,7 +119,7 @@ class GymRepository {
           for (var i = 0; i < e.alternatives.length; i++) ExerciseAlternativesCompanion.insert(exerciseId: e.id, alternativeId: e.alternatives[i], rank: i),
       ]);
       b.insertAllOnConflictUpdate(db.researchReferences, [
-        for (final r in researchReferences)
+        for (final r in [...researchReferences, ...nutritionReferences])
           ResearchReferencesCompanion.insert(
             id: r.id,
             title: r.title,
@@ -932,6 +933,25 @@ class GymRepository {
     final start = DateTime(now.year, now.month, now.day);
     return (db.select(db.aiUsageLogs)..where((t) => t.createdAt.isBiggerOrEqualValue(start))).get().then((r) => r.length);
   }
+
+  /// 서버에서 받은 논문을 라이브러리에 넣거나 고칩니다(같은 id면 덮어씀).
+  Future<void> upsertResearch(List<ResearchReference> refs) => db.batch(
+    (b) => b.insertAllOnConflictUpdate(db.researchReferences, [
+      for (final r in refs)
+        ResearchReferencesCompanion.insert(
+          id: r.id,
+          title: r.title,
+          authors: r.authors,
+          year: r.year,
+          journal: r.journal,
+          studyType: r.studyType,
+          population: r.population,
+          keyFindings: r.keyFindings,
+          limitations: r.limitations,
+          appliedIn: r.appliedIn,
+        ),
+    ]),
+  );
 
   Future<List<ResearchReference>> researchLibrary() async {
     final rows = await (db.select(db.researchReferences)..orderBy([(t) => OrderingTerm.desc(t.year)])).get();
